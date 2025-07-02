@@ -112,3 +112,9 @@
     background-clip: text;
   }
 }
+
+@layer utilities {
+  .animate-spin-reverse {
+    animation: spin 1s linear infinite reverse;
+  }
+}

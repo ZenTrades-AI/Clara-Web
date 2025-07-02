@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import OmnichannelCarousel from '@/components/OmnichannelCarousel';
@@ -88,14 +87,6 @@ const layers = [
 const HowItWorks = () => {
   const [activeLayer, setActiveLayer] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveLayer((prev) => (prev + 1) % layers.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -122,38 +113,40 @@ const HowItWorks = () => {
                 {layers.map((layer, index) => (
                   <div
                     key={layer.name}
-                    className={`relative p-6 rounded-lg border-2 transition-all duration-500 cursor-pointer ${
+                    className={`relative p-6 rounded-lg border-2 transition-all duration-300 cursor-pointer transform hover:scale-105 ${
                       index === activeLayer
-                        ? 'border-clara-gold bg-clara-gold/10 transform scale-105'
-                        : 'border-gray-200 bg-white hover:border-clara-gold/50'
+                        ? 'border-clara-teal bg-clara-teal/10 shadow-lg'
+                        : 'border-gray-200 bg-white hover:border-clara-teal/50 hover:shadow-md'
                     }`}
                     onClick={() => setActiveLayer(index)}
                   >
                     <div className="flex items-center space-x-4">
-                      <div className={`text-3xl ${index === activeLayer ? 'animate-bounce' : ''}`}>
+                      <div className={`text-3xl transition-transform duration-300 ${
+                        index === activeLayer ? 'scale-110' : 'group-hover:scale-105'
+                      }`}>
                         {layer.icon}
                       </div>
                       <div className="flex-1">
-                        <h3 className={`text-lg font-montserrat font-bold ${
+                        <h3 className={`text-lg font-montserrat font-bold transition-colors duration-300 ${
                           index === activeLayer ? 'text-clara-navy' : 'text-gray-700'
                         }`}>
                           {layer.name}
                         </h3>
-                        <p className={`text-sm ${
+                        <p className={`text-sm transition-colors duration-300 ${
                           index === activeLayer ? 'text-gray-700' : 'text-gray-500'
                         }`}>
                           {layer.description}
                         </p>
                       </div>
-                      <div className={`text-sm font-medium ${
-                        index === activeLayer ? 'text-clara-gold' : 'text-gray-400'
+                      <div className={`text-sm font-medium transition-colors duration-300 ${
+                        index === activeLayer ? 'text-clara-teal' : 'text-gray-400'
                       }`}>
                         0{index + 1}
                       </div>
                     </div>
                     {index === activeLayer && (
                       <div className="absolute -right-2 top-1/2 transform -translate-y-1/2">
-                        <div className="w-4 h-4 bg-clara-gold rounded-full animate-pulse"></div>
+                        <div className="w-4 h-4 bg-clara-teal rounded-full animate-pulse"></div>
                       </div>
                     )}
                   </div>
@@ -177,14 +170,14 @@ const HowItWorks = () => {
                   <h4 className="font-semibold text-clara-navy">Key Features:</h4>
                   {layers[activeLayer].features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
+                      <div className="w-2 h-2 bg-clara-teal rounded-full"></div>
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3">
+              <Button className="bg-clara-teal hover:bg-clara-teal/90 text-white font-semibold px-8 py-3">
                 See Clara in Action
               </Button>
             </div>
@@ -208,7 +201,7 @@ const HowItWorks = () => {
           {/* Video Placeholder */}
           <div className="aspect-video bg-gray-800 rounded-xl flex items-center justify-center">
             <div className="text-center text-white">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-clara-teal rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">▶️</span>
               </div>
               <p className="text-lg font-semibold">90-Second Explainer Video</p>
