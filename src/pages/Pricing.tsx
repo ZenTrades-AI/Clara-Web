@@ -35,6 +35,19 @@ const segments = [
   }
 ];
 
+const businessTypes = [
+  'HVAC',
+  'Plumbing',
+  'Electrical',
+  'Fire Safety',
+  'Facilities Management',
+  'Construction',
+  'Cleaning Services',
+  'Security Services',
+  'Landscaping',
+  'Other'
+];
+
 const Pricing = () => {
   const [selectedSegment, setSelectedSegment] = useState('');
   const [formData, setFormData] = useState({
@@ -42,6 +55,7 @@ const Pricing = () => {
     company: '',
     email: '',
     phone: '',
+    businessType: '',
     crm: '',
     revenue: ''
   });
@@ -117,7 +131,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
+      {/* Smart Contact Form */}
       {selectedSegment && (
         <section className="py-20 bg-white">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -185,6 +199,20 @@ const Pricing = () => {
                         className="mt-2"
                       />
                     </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="businessType" className="text-clara-navy font-semibold">Business Type *</Label>
+                    <Select onValueChange={(value) => handleInputChange('businessType', value)}>
+                      <SelectTrigger className="mt-2">
+                        <SelectValue placeholder="Select your business type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {businessTypes.map((type) => (
+                          <SelectItem key={type} value={type.toLowerCase()}>{type}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div>

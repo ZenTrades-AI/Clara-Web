@@ -32,12 +32,6 @@ const blogPosts = [
 
 const resources = [
   {
-    title: 'Service Contractor Playbook',
-    description: 'Complete guide to growing your service business with AI automation',
-    type: 'PDF Download',
-    icon: '📖'
-  },
-  {
     title: 'ROI Case Studies',
     description: 'Real customer stories showing measurable business impact',
     type: 'Case Study Collection',
@@ -48,12 +42,6 @@ const resources = [
     description: 'Comprehensive developer resources and integration guides',
     type: 'Technical Docs',
     icon: '🔧'
-  },
-  {
-    title: 'Webinar: AI for Contractors',
-    description: 'Monthly live sessions covering AI best practices',
-    type: 'Live Webinar',
-    icon: '🎥'
   }
 ];
 
@@ -121,7 +109,7 @@ const Resources = () => {
         </div>
       </section>
 
-      {/* Featured Resources */}
+      {/* Featured Resources - Streamlined */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -133,7 +121,7 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {resources.map((resource, index) => (
               <Card key={index} className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-2 hover:border-clara-gold/30">
                 <CardHeader className="text-center pb-4">

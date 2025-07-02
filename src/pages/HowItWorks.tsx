@@ -2,16 +2,87 @@
 import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import OmnichannelCarousel from '@/components/OmnichannelCarousel';
 import { Button } from '@/components/ui/button';
 
 const layers = [
-  { name: 'Answers', description: 'AI answers every call in 4 seconds with natural conversation', icon: '📞' },
-  { name: 'Dispatches', description: 'Smart routing to the right technician based on location, skills, and availability', icon: '🚐' },
-  { name: 'Optimizes', description: 'Route optimization and scheduling to maximize efficiency and profitability', icon: '📍' },
-  { name: 'Reminds', description: 'Automated appointment reminders and follow-ups reduce no-shows by 40%', icon: '⏰' },
-  { name: 'Engages', description: 'Proactive customer communication throughout the service lifecycle', icon: '💬' },
-  { name: 'Reviews', description: 'Automated review requests and reputation management', icon: '⭐' },
-  { name: 'Collects', description: 'Intelligent payment processing and follow-up automation', icon: '💳' },
+  { 
+    name: 'Answers', 
+    description: 'AI answers every call in 4 seconds with natural conversation and intelligent routing', 
+    icon: '📞',
+    features: [
+      '24/7 availability with human-like conversation',
+      'Intelligent call routing and escalation',
+      'Complete call transcription and logging',
+      'Multi-language support for diverse markets'
+    ]
+  },
+  { 
+    name: 'Dispatches', 
+    description: 'Smart routing to the right technician based on location, skills, and availability', 
+    icon: '🚐',
+    features: [
+      'Real-time technician availability tracking',
+      'Skills-based matching for complex jobs',
+      'Emergency prioritization and instant alerts',
+      'GPS-optimized routing for efficiency'
+    ]
+  },
+  { 
+    name: 'Optimizes', 
+    description: 'Route optimization and scheduling to maximize efficiency and profitability', 
+    icon: '📍',
+    features: [
+      'AI-powered route planning',
+      'Dynamic scheduling based on traffic patterns',
+      'Resource allocation optimization',
+      'Capacity management across teams'
+    ]
+  },
+  { 
+    name: 'Reminds', 
+    description: 'Automated appointment reminders and follow-ups reduce no-shows by 40%', 
+    icon: '⏰',
+    features: [
+      'Multi-channel reminder campaigns',
+      'Personalized messaging templates',
+      'Automatic rescheduling workflows',
+      'Confirmation tracking and analytics'
+    ]
+  },
+  { 
+    name: 'Engages', 
+    description: 'Proactive customer communication throughout the service lifecycle', 
+    icon: '💬',
+    features: [
+      'Customer journey mapping',
+      'Personalized outreach campaigns',
+      'Satisfaction surveys and feedback loops',
+      'Upselling and cross-selling opportunities'
+    ]
+  },
+  { 
+    name: 'Reviews', 
+    description: 'Automated review requests and reputation management boost online presence', 
+    icon: '⭐',
+    features: [
+      'Automated review collection workflows',
+      'Reputation monitoring across platforms',
+      'Response management and alerts',
+      'Rating optimization strategies'
+    ]
+  },
+  { 
+    name: 'Collects', 
+    description: 'Intelligent payment processing and follow-up automation accelerate cash flow', 
+    icon: '💳',
+    features: [
+      'Automated invoice generation',
+      'Payment reminder sequences',
+      'Collection workflow automation',
+      'Payment tracking and reporting'
+    ]
+  },
 ];
 
 const HowItWorks = () => {
@@ -20,7 +91,7 @@ const HowItWorks = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveLayer((prev) => (prev + 1) % layers.length);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -41,7 +112,7 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* 7-Layer Stack Animation */}
+      {/* 7-Layer Stack with Detailed Descriptions */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -74,6 +145,11 @@ const HowItWorks = () => {
                           {layer.description}
                         </p>
                       </div>
+                      <div className={`text-sm font-medium ${
+                        index === activeLayer ? 'text-clara-gold' : 'text-gray-400'
+                      }`}>
+                        0{index + 1}
+                      </div>
                     </div>
                     {index === activeLayer && (
                       <div className="absolute -right-2 top-1/2 transform -translate-y-1/2">
@@ -96,41 +172,15 @@ const HowItWorks = () => {
                   {layers[activeLayer].description}
                 </p>
                 
-                {/* Layer-specific benefits */}
+                {/* Layer-specific features */}
                 <div className="space-y-3">
-                  {activeLayer === 0 && (
-                    <>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
-                        <span className="text-gray-700">24/7 availability with human-like conversation</span>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
-                        <span className="text-gray-700">Intelligent call routing and escalation</span>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
-                        <span className="text-gray-700">Complete call transcription and logging</span>
-                      </div>
-                    </>
-                  )}
-                  {activeLayer === 1 && (
-                    <>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
-                        <span className="text-gray-700">Real-time technician availability tracking</span>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
-                        <span className="text-gray-700">Skills-based matching for complex jobs</span>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
-                        <span className="text-gray-700">Emergency prioritization and instant alerts</span>
-                      </div>
-                    </>
-                  )}
-                  {/* Add more layer-specific details as needed */}
+                  <h4 className="font-semibold text-clara-navy">Key Features:</h4>
+                  {layers[activeLayer].features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -141,6 +191,9 @@ const HowItWorks = () => {
           </div>
         </div>
       </section>
+
+      {/* Omnichannel Support Carousel */}
+      <OmnichannelCarousel />
 
       {/* Video Section */}
       <section className="py-20 bg-clara-gray">

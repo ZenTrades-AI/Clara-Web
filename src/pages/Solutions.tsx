@@ -2,6 +2,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
+import SolutionsInfographic from '@/components/SolutionsInfographic';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -120,6 +121,9 @@ const Solutions = () => {
           </div>
         </div>
       </section>
+
+      {/* Solutions Infographic */}
+      <SolutionsInfographic />
 
       {/* Solutions Grid */}
       <section className="py-20 bg-white">

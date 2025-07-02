@@ -2,7 +2,8 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
-import AIStackSection from '@/components/AIStackSection';
+import AIStackVisualization from '@/components/AIStackVisualization';
+import IntegrationCarousel from '@/components/IntegrationCarousel';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
@@ -83,7 +84,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof - Company Logos - Moved after hero */}
+      {/* Social Proof - Company Logos */}
       <section className="py-16 bg-clara-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -102,37 +103,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Stack Section */}
-      <AIStackSection />
-
-      {/* Explainer Video Section */}
-      <section className="py-20 bg-clara-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
-              See Clara in Action
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Watch how Clara transforms your business operations in just 90 seconds
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="aspect-video bg-clara-navy rounded-xl flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-clara-gold/20 to-clara-teal/20"></div>
-              <div className="relative text-center text-white">
-                <div className="w-20 h-20 mx-auto mb-4 bg-clara-gold rounded-full flex items-center justify-center">
-                  <span className="text-3xl text-clara-navy">▶️</span>
-                </div>
-                <h3 className="text-2xl font-montserrat font-bold mb-2">90-Second Explainer Video</h3>
-                <p className="text-gray-300">Watch how Clara handles real contractor scenarios</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3-Step Process */}
+      {/* 3-Step Process - Moved to 3rd position */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -183,6 +154,39 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive AI Stack Visualization */}
+      <AIStackVisualization />
+
+      {/* Explainer Video Section */}
+      <section className="py-20 bg-clara-gray">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
+              See Clara in Action
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Watch how Clara transforms your business operations in just 90 seconds
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="aspect-video bg-clara-navy rounded-xl flex items-center justify-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-clara-gold/20 to-clara-teal/20"></div>
+              <div className="relative text-center text-white">
+                <div className="w-20 h-20 mx-auto mb-4 bg-clara-gold rounded-full flex items-center justify-center">
+                  <span className="text-3xl text-clara-navy">▶️</span>
+                </div>
+                <h3 className="text-2xl font-montserrat font-bold mb-2">90-Second Explainer Video</h3>
+                <p className="text-gray-300">Watch how Clara handles real contractor scenarios</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Integration Partners Carousel */}
+      <IntegrationCarousel />
 
       {/* CTA Section */}
       <section className="py-20 bg-clara-navy text-white">
