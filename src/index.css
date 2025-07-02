@@ -111,10 +111,50 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
 }
 
 @layer utilities {
   .animate-spin-reverse {
     animation: spin 1s linear infinite reverse;
+  }
+
+  /* Orbital Animations for Each AI Agent */
+  @keyframes orbit-answers {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes orbit-dispatches {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes orbit-optimizes {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes orbit-reminds {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes orbit-engages {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes orbit-reviews {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes orbit-collects {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 }
