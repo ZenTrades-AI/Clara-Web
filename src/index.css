@@ -122,21 +122,7 @@
     animation: spin 1s linear infinite reverse;
   }
 
-  /* Smooth Orbital Animation */
-  @keyframes orbit-smooth {
-    from { 
-      transform: rotate(0deg); 
-    }
-    to { 
-      transform: rotate(360deg); 
-    }
-  }
-
-  .animate-orbit-smooth {
-    animation: orbit-smooth 45s linear infinite;
-  }
-
-  /* Orbital Animations for Each AI Agent - keeping for compatibility */
+  /* Orbital Animations for Each AI Agent */
   @keyframes orbit-answers {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
