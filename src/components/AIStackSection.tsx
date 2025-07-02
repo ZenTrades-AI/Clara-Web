@@ -1,130 +1,154 @@
 
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 
 const stackLayers = [
   {
     id: 'answers',
-    title: 'Answers',
-    description: 'Every call answered in 4 seconds with human-level conversation and intelligent routing',
-    features: ['Natural language processing', 'Context-aware responses', 'Multi-language support', 'Call prioritization'],
-    icon: '📞'
+    title: 'Clara Answers',
+    icon: '💬',
+    color: 'from-blue-500 to-blue-600',
+    description: 'AI answers every call in 4 seconds',
+    pricing: '$250/month'
   },
   {
     id: 'dispatches',
-    title: 'Dispatches',
-    description: 'Smart technician routing and scheduling optimization based on location, skills, and availability',
-    features: ['Real-time GPS tracking', 'Skill-based routing', 'Dynamic scheduling', 'Emergency prioritization'],
-    icon: '🚐'
+    title: 'Clara Dispatches',
+    icon: '🚐', 
+    color: 'from-cyan-500 to-blue-500',
+    description: 'Smart routing and scheduling',
+    pricing: '$400/month'
   },
   {
     id: 'optimizes',
-    title: 'Optimizes',
-    description: 'Route optimization and resource allocation to maximize efficiency and reduce travel time',
-    features: ['AI route planning', 'Traffic analysis', 'Resource allocation', 'Capacity optimization'],
-    icon: '⚡'
+    title: 'Clara Optimises',
+    icon: '⚡',
+    color: 'from-orange-500 to-red-500',
+    description: 'Route optimization and efficiency',
+    pricing: '$600/month'
   },
   {
     id: 'reminds',
-    title: 'Reminds',
-    description: 'Automated appointment reminders and follow-ups to reduce no-shows and improve customer satisfaction',
-    features: ['Multi-channel reminders', 'Custom timing', 'Personalized messages', 'Confirmation tracking'],
-    icon: '🔔'
+    title: 'Clara Reminds',
+    icon: '🔔',
+    color: 'from-orange-400 to-orange-500',
+    description: 'Automated reminders and follow-ups',
+    pricing: '$850/month'
   },
   {
-    id: 'engages',
-    title: 'Engages',
-    description: 'Proactive customer communication and relationship building throughout the service journey',
-    features: ['Customer journey mapping', 'Personalized outreach', 'Satisfaction surveys', 'Upsell opportunities'],
-    icon: '💬'
+    id: 'boosts',
+    title: 'Clara Boosts',
+    icon: '📈',
+    color: 'from-blue-600 to-purple-600',
+    description: 'Sales optimization and conversion',
+    pricing: '$1200/month'
   },
   {
     id: 'reviews',
-    title: 'Reviews',
-    description: 'Automated review collection and reputation management to build trust and attract new customers',
-    features: ['Review automation', 'Reputation monitoring', 'Response management', 'Rating optimization'],
-    icon: '⭐'
+    title: 'Clara Reviews',
+    icon: '⭐',
+    color: 'from-blue-700 to-blue-800',
+    description: 'Review management and reputation',
+    pricing: '$1600/month'
   },
   {
     id: 'collects',
-    title: 'Collects',
-    description: 'Streamlined payment processing and automated collection to accelerate cash flow',
-    features: ['Payment automation', 'Invoice generation', 'Collection workflows', 'Payment tracking'],
-    icon: '💳'
+    title: 'Clara Collects',
+    icon: '💰',
+    color: 'from-blue-800 to-blue-900',
+    description: 'Payment processing and collections',
+    pricing: '$2000+/month'
   }
 ];
 
 const AIStackSection = () => {
-  const [activeLayer, setActiveLayer] = useState('answers');
-
-  const activeLayerData = stackLayers.find(layer => layer.id === activeLayer);
+  const [hoveredLayer, setHoveredLayer] = useState<string | null>(null);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
-            The 7-Layer AI Stack
+            Clara AI Growth Engine - 7 Stack Layers
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Each layer works seamlessly together to transform every customer touchpoint into growth
+            Modular layers that scale from $250/month to $2000+ enterprise stack
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Active Layer Details */}
-          <div className="bg-clara-gray p-8 rounded-xl">
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="text-4xl">{activeLayerData?.icon}</div>
-              <div>
-                <h3 className="text-2xl font-montserrat font-bold text-clara-navy">
-                  {activeLayerData?.title}
-                </h3>
-                <div className="text-clara-gold font-semibold">Layer {stackLayers.findIndex(l => l.id === activeLayer) + 1} of 7</div>
-              </div>
-            </div>
-            <p className="text-gray-700 mb-6 text-lg">
-              {activeLayerData?.description}
-            </p>
-            <div className="space-y-3">
-              <h4 className="font-semibold text-clara-navy">Key Features:</h4>
-              {activeLayerData?.features.map((feature, idx) => (
-                <div key={idx} className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
-                  <span className="text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Stack Visualization */}
-          <div className="space-y-3">
+        <div className="relative max-w-6xl mx-auto">
+          {/* Stack Layers */}
+          <div className="grid grid-cols-1 sm:grid-cols-7 gap-4 mb-8">
             {stackLayers.map((layer, index) => (
-              <div
-                key={layer.id}
-                className={`p-4 rounded-lg cursor-pointer transition-all duration-300 ${
-                  activeLayer === layer.id
-                    ? 'bg-clara-navy text-white shadow-lg scale-105'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                }`}
-                onClick={() => setActiveLayer(layer.id)}
-                onMouseEnter={() => setActiveLayer(layer.id)}
-              >
-                <div className="flex items-center space-x-4">
-                  <div className="text-2xl">{layer.icon}</div>
-                  <div className="flex-1">
-                    <div className="font-montserrat font-bold text-lg">{layer.title}</div>
-                    <div className="text-sm opacity-80">
-                      {layer.description.substring(0, 80)}...
+              <div key={layer.id} className="flex flex-col items-center">
+                {/* Stack Blocks */}
+                <div className="relative w-full max-w-[140px]">
+                  {stackLayers.slice(0, index + 1).reverse().map((stackItem, stackIndex) => (
+                    <div
+                      key={`${layer.id}-${stackIndex}`}
+                      className={`
+                        w-full h-12 rounded-lg shadow-md mb-1 last:mb-0 flex items-center justify-center text-white font-semibold text-sm
+                        bg-gradient-to-r ${stackItem.color}
+                        transform transition-all duration-300 hover:scale-105 cursor-pointer
+                        ${hoveredLayer === stackItem.id ? 'ring-4 ring-white shadow-xl scale-105' : ''}
+                      `}
+                      onMouseEnter={() => setHoveredLayer(stackItem.id)}
+                      onMouseLeave={() => setHoveredLayer(null)}
+                    >
+                      <span className="mr-2">{stackItem.icon}</span>
+                      <span className="truncate text-xs">{stackItem.title.replace('Clara ', '')}</span>
                     </div>
+                  ))}
+                </div>
+                
+                {/* Level and Pricing */}
+                <div className="text-center mt-4">
+                  <div className="text-sm font-semibold text-gray-700 mb-1">
+                    Level {index + 1}
                   </div>
-                  <div className={`text-sm font-medium ${
-                    activeLayer === layer.id ? 'text-clara-gold' : 'text-gray-400'
-                  }`}>
-                    0{index + 1}
+                  <div className="text-xs text-gray-500">
+                    {layer.pricing}
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Hover Details */}
+          {hoveredLayer && (
+            <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200 animate-fade-in">
+              {(() => {
+                const layer = stackLayers.find(l => l.id === hoveredLayer);
+                return layer ? (
+                  <div className="text-center">
+                    <div className="flex items-center justify-center space-x-3 mb-3">
+                      <span className="text-2xl">{layer.icon}</span>
+                      <h3 className="text-xl font-montserrat font-bold text-clara-navy">
+                        {layer.title}
+                      </h3>
+                    </div>
+                    <p className="text-gray-600 mb-2">{layer.description}</p>
+                    <div className="text-clara-gold font-semibold">{layer.pricing}</div>
+                  </div>
+                ) : null;
+              })()}
+            </div>
+          )}
+
+          {/* ROI Banner */}
+          <div className="text-center mt-12">
+            <div className="inline-block bg-gradient-to-r from-clara-gold to-yellow-500 text-clara-navy px-8 py-4 rounded-2xl shadow-lg">
+              <div className="text-2xl font-montserrat font-bold">
+                ROI: $1 in, $5 out
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-8">
+            <Button className="bg-clara-navy hover:bg-clara-navy/90 text-white font-semibold px-8 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              → See how it all works
+            </Button>
           </div>
         </div>
       </div>

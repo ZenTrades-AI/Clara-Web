@@ -2,7 +2,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
-import AIStackVisualization from '@/components/AIStackVisualization';
+import AIStackSection from '@/components/AIStackSection';
 import IntegrationCarousel from '@/components/IntegrationCarousel';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
@@ -155,8 +155,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Interactive AI Stack Visualization */}
-      <AIStackVisualization />
+      {/* Interactive AI Stack Section */}
+      <AIStackSection />
 
       {/* Explainer Video Section */}
       <section className="py-20 bg-clara-gray">
