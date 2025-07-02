@@ -1,138 +1,57 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const stackLayers = [
-  {
-    id: 'answers',
-    title: 'Answers',
-    description: 'Every call answered in 4 seconds with human-level conversation and intelligent routing',
-    features: ['Natural language processing', 'Context-aware responses', 'Multi-language support', 'Call prioritization'],
-    icon: '📞'
-  },
-  {
-    id: 'dispatches',
-    title: 'Dispatches',
-    description: 'Smart technician routing and scheduling optimization based on location, skills, and availability',
-    features: ['Real-time GPS tracking', 'Skill-based routing', 'Dynamic scheduling', 'Emergency prioritization'],
-    icon: '🚐'
-  },
-  {
-    id: 'routing',
-    title: 'Routing',
-    description: 'Route optimization and resource allocation to maximize efficiency and reduce travel time',
-    features: ['AI route planning', 'Traffic analysis', 'Resource allocation', 'Capacity optimization'],
-    icon: '⚡'
-  },
-  {
-    id: 'reminds',
-    title: 'Reminders',
-    description: 'Automated appointment reminders and follow-ups to reduce no-shows and improve customer satisfaction',
-    features: ['Multi-channel reminders', 'Custom timing', 'Personalized messages', 'Confirmation tracking'],
-    icon: '🔔'
-  },
-  {
-    id: 'engages',
-    title: 'Engages',
-    description: 'Proactive customer communication and relationship building throughout the service journey',
-    features: ['Customer journey mapping', 'Personalized outreach', 'Satisfaction surveys', 'Upsell opportunities'],
-    icon: '💬'
-  },
-  {
-    id: 'reviews',
-    title: 'Reviews',
-    description: 'Automated review collection and reputation management to build trust and attract new customers',
-    features: ['Review automation', 'Reputation monitoring', 'Response management', 'Rating optimization'],
-    icon: '⭐'
-  },
-  {
-    id: 'collects',
-    title: 'Collections',
-    description: 'Streamlined payment processing and automated collection to accelerate cash flow',
-    features: ['Payment automation', 'Invoice generation', 'Collection workflows', 'Payment tracking'],
-    icon: '💳'
-  }
+  { id: 'answers', title: 'Answers', icon: '📞' },
+  { id: 'dispatches', title: 'Dispatches', icon: '🚐' },
+  { id: 'routing', title: 'Routing', icon: '⚡' },
+  { id: 'reminds', title: 'Reminders', icon: '🔔' },
+  { id: 'engages', title: 'Engages', icon: '💬' },
+  { id: 'reviews', title: 'Reviews', icon: '⭐' },
+  { id: 'collects', title: 'Collections', icon: '💳' }
 ];
 
-const AIStackSection = () => {
-  const [activeLayer, setActiveLayer] = useState('answers');
+const OrbitalAnimation = () => {
+  const [rotation, setRotation] = useState(0);
+  const orbitRef = useRef(null);
 
-  const activeLayerData = stackLayers.find(layer => layer.id === activeLayer);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotation(prev => prev + 0.3); // Smooth rotation
+    }, 20);
+    return () => clearInterval(interval);
+  }, []);
+
+  const radius = 120; // px
+  const center = 150; // px (half of container width/height)
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
-            The 7-Layer AI Stack
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Each layer works seamlessly together to transform every customer touchpoint into growth
-          </p>
+    <div className="flex justify-center items-center py-20">
+      <div className="relative w-[300px] h-[300px]">
+        {/* Central Core */}
+        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-br from-clara-navy to-clara-purple rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md -translate-x-1/2 -translate-y-1/2 z-10">
+          Clara AI<br />Core
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Active Layer Details */}
-          <div className="bg-clara-gray p-8 rounded-xl transition-all duration-300 shadow-sm">
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="text-4xl">{activeLayerData?.icon}</div>
-              <div>
-                <h3 className="text-2xl font-montserrat font-bold text-clara-navy">
-                  {activeLayerData?.title}
-                </h3>
-                <div className="text-clara-gold font-semibold">
-                  Layer {stackLayers.findIndex(l => l.id === activeLayer) + 1} of 7
-                </div>
-              </div>
-            </div>
-            <p className="text-gray-700 mb-6 text-lg">
-              {activeLayerData?.description}
-            </p>
-            <div className="space-y-3">
-              <h4 className="font-semibold text-clara-navy">Key Features:</h4>
-              {activeLayerData?.features.map((feature, idx) => (
-                <div key={idx} className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-clara-gold rounded-full"></div>
-                  <span className="text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Orbiting Icons */}
+        {stackLayers.map((layer, i) => {
+          const angle = ((360 / stackLayers.length) * i + rotation) % 360;
+          const rad = (angle * Math.PI) / 180;
+          const x = center + radius * Math.cos(rad) - 20;
+          const y = center + radius * Math.sin(rad) - 20;
 
-          {/* Stack Layer List */}
-          <div className="space-y-3">
-            {stackLayers.map((layer, index) => {
-              const isActive = activeLayer === layer.id;
-              return (
-                <div
-                  key={layer.id}
-                  className={`p-4 rounded-lg cursor-pointer transition-all duration-300 flex items-center space-x-4 ${
-                    isActive
-                      ? 'bg-clara-navy text-white shadow-lg scale-[1.02]'
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                  }`}
-                  onClick={() => setActiveLayer(layer.id)}
-                >
-                  <div className="text-2xl">{layer.icon}</div>
-                  <div className="flex-1">
-                    <div className="font-montserrat font-bold text-lg">{layer.title}</div>
-                    <div className="text-sm opacity-80">
-                      {layer.description.substring(0, 80)}...
-                    </div>
-                  </div>
-                  <div
-                    className={`text-sm font-medium ${
-                      isActive ? 'text-clara-gold' : 'text-gray-400'
-                    }`}
-                  >
-                    {`0${index + 1}`}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+          return (
+            <div
+              key={layer.id}
+              className="absolute w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center text-xl transition-transform duration-300"
+              style={{ top: y, left: x }}
+            >
+              <span title={layer.title}>{layer.icon}</span>
+            </div>
+          );
+        })}
       </div>
-    </section>
+    </div>
   );
 };
 
-export default AIStackSection;
+export default OrbitalAnimation;
