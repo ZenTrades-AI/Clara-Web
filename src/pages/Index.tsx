@@ -1,4 +1,3 @@
-
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
@@ -63,16 +62,14 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right Column - Hero Image Placeholder */}
+            {/* Right Column - Hero Image */}
             <div className="relative">
-              <div className="aspect-[4/3] bg-gradient-to-br from-clara-gold/20 to-clara-teal/20 rounded-2xl flex items-center justify-center">
-                <div className="text-center text-white/60">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
-                    <span className="text-3xl">📞</span>
-                  </div>
-                  <p className="text-lg">Hero technician image placeholder</p>
-                  <p className="text-sm mt-2">Real contractor on-site photo</p>
-                </div>
+              <div className="aspect-[4/3] bg-gradient-to-br from-clara-gold/20 to-clara-teal/20 rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="/lovable-uploads/996b36cf-24d7-4b89-a53b-369e63159a2e.png" 
+                  alt="Clara AI Dashboard showing job lifecycle performance and metrics"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>

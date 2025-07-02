@@ -77,10 +77,10 @@ const AIStackSection = () => {
         </div>
 
         <div className="relative max-w-6xl mx-auto">
-          {/* Stack Layers */}
-          <div className="grid grid-cols-1 sm:grid-cols-7 gap-4 mb-8">
+          {/* Stack Layers - Reversed order */}
+          <div className="grid grid-cols-1 sm:grid-cols-7 gap-4 mb-8 sm:flex sm:flex-row-reverse">
             {stackLayers.map((layer, index) => (
-              <div key={layer.id} className="flex flex-col items-center">
+              <div key={layer.id} className="flex flex-col items-center sm:flex-1">
                 {/* Stack Blocks */}
                 <div className="relative w-full max-w-[140px]">
                   {stackLayers.slice(0, index + 1).reverse().map((stackItem, stackIndex) => (
