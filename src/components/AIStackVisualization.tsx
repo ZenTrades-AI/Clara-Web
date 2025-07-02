@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -20,7 +19,7 @@ const stackLayers = [
   },
   {
     id: 'optimizes',
-    title: 'Route Optimization',
+    title: 'Routing',
     icon: '⚡',
     color: 'from-purple-500 to-purple-600',
     description: 'Maximize efficiency and reduce costs'
@@ -34,7 +33,7 @@ const stackLayers = [
   },
   {
     id: 'engages',
-    title: 'Sales Boost',
+    title: 'Sales ↑',
     icon: '💬',
     color: 'from-pink-500 to-pink-600',
     description: 'Convert more leads to customers'
@@ -59,8 +58,8 @@ const AIStackVisualization = () => {
   const [hoveredLayer, setHoveredLayer] = useState<string | null>(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  const orbitRadius = 220;
-  const angleStep = 360 / stackLayers.length; // Equal angular spacing
+  const orbitRadius = 180;
+  const angleStep = 360 / stackLayers.length; // 51.43° even spacing
 
   return (
     <section className="py-20 bg-white">
@@ -74,29 +73,29 @@ const AIStackVisualization = () => {
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto mb-12">
+        <div className="relative max-w-5xl mx-auto mb-12">
           {/* Solar System Container */}
-          <div className="relative h-[600px] flex items-center justify-center overflow-hidden">
+          <div className="relative h-[500px] flex items-center justify-center overflow-hidden">
             
             {/* Clara AI Core - The Sun */}
-            <div className="absolute inset-0 flex items-center justify-center z-20">
-              <div className="relative w-24 h-24">
-                <div className="absolute inset-0 bg-gradient-to-br from-clara-teal to-clara-navy rounded-full animate-pulse shadow-2xl"></div>
-                <div className="absolute inset-2 bg-gradient-to-br from-clara-teal/90 to-clara-navy/90 rounded-full flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center z-30">
+              <div className="relative w-20 h-20">
+                <div className="absolute inset-0 bg-gradient-to-br from-clara-teal to-clara-navy rounded-full shadow-2xl animate-pulse"></div>
+                <div className="absolute inset-1 bg-gradient-to-br from-clara-teal/90 to-clara-navy/90 rounded-full flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-white font-montserrat font-bold text-sm mb-1">Clara AI</div>
-                    <div className="text-white/80 text-xs">Core</div>
+                    <div className="text-white font-montserrat font-bold text-xs mb-0.5">Clara AI</div>
+                    <div className="text-white/80 text-[10px]">Core Engine</div>
                   </div>
                 </div>
                 {/* Core glow effect */}
-                <div className="absolute -inset-3 bg-clara-teal/20 rounded-full animate-ping"></div>
+                <div className="absolute -inset-2 bg-clara-teal/20 rounded-full animate-ping"></div>
               </div>
             </div>
 
             {/* Single Orbital Path - Visual Guide Circle */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-1">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
               <div
-                className="border border-gray-200/40 rounded-full"
+                className="border border-gray-200/50 rounded-full"
                 style={{
                   width: `${orbitRadius * 2}px`,
                   height: `${orbitRadius * 2}px`,
@@ -104,31 +103,32 @@ const AIStackVisualization = () => {
               />
             </div>
 
-            {/* Orbiting AI Agents - Single Orbit */}
+            {/* Orbiting AI Agents - Evenly Spaced on Single Orbit */}
             {stackLayers.map((layer, index) => {
               const angle = index * angleStep;
               return (
                 <div
                   key={layer.id}
                   className="absolute inset-0 flex items-center justify-center"
-                  style={{ zIndex: 10 }}
+                  style={{ zIndex: 20 }}
                 >
                   <div
                     className={`absolute transition-all duration-300 ${
-                      isPaused ? '' : 'animate-spin'
+                      isPaused ? '' : 'animate-orbit-smooth'
                     }`}
                     style={{
                       width: `${orbitRadius * 2}px`,
                       height: `${orbitRadius * 2}px`,
                       transform: `rotate(${angle}deg)`,
-                      animationDuration: '60s',
-                      animationDirection: 'normal',
+                      transformOrigin: 'center',
                     }}
                   >
+                    {/* Agent Container - Counter-rotates to keep label upright */}
                     <div
                       className="absolute top-0 left-1/2 transform -translate-x-1/2 cursor-pointer group"
                       style={{
-                        marginTop: '-25px',
+                        marginTop: '-20px',
+                        transform: `translateX(-50%) ${isPaused ? '' : `rotate(-${angle}deg)`}`,
                       }}
                       onMouseEnter={() => {
                         setHoveredLayer(layer.id);
@@ -140,25 +140,20 @@ const AIStackVisualization = () => {
                       }}
                     >
                       {/* AI Agent Planet */}
-                      <div className={`relative w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br ${layer.color} transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl`}>
-                        <span className="text-lg">{layer.icon}</span>
+                      <div className={`relative w-10 h-10 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br ${layer.color} transform transition-all duration-300 group-hover:scale-125 group-hover:shadow-xl`}>
+                        <span className="text-sm" role="img" aria-label={layer.title}>{layer.icon}</span>
                         {/* Planet glow on hover */}
                         {hoveredLayer === layer.id && (
-                          <div className="absolute -inset-2 bg-white/30 rounded-full animate-pulse"></div>
+                          <div className="absolute -inset-1 bg-white/40 rounded-full animate-pulse"></div>
                         )}
                       </div>
                       
-                      {/* Agent Label - Always Horizontal */}
-                      <div 
-                        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 text-center"
-                        style={{
-                          transform: `translateX(-50%) rotate(-${angle}deg)`,
-                        }}
-                      >
-                        <div className={`text-xs font-semibold text-clara-navy whitespace-nowrap px-3 py-1 rounded-md transition-all duration-300 ${
+                      {/* Agent Label - Always Horizontal and Readable */}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
+                        <div className={`text-xs font-semibold text-clara-navy whitespace-nowrap px-2 py-1 rounded-md transition-all duration-300 ${
                           hoveredLayer === layer.id 
-                            ? 'bg-white shadow-lg scale-105 border border-gray-200' 
-                            : 'bg-white/90'
+                            ? 'bg-white shadow-lg scale-110 border border-gray-200' 
+                            : 'bg-white/95'
                         }`}>
                           {layer.title}
                         </div>
@@ -166,15 +161,10 @@ const AIStackVisualization = () => {
 
                       {/* Detailed Tooltip on Hover */}
                       {hoveredLayer === layer.id && (
-                        <div 
-                          className="absolute -top-20 left-1/2 transform -translate-x-1/2 bg-clara-navy text-white px-4 py-3 rounded-lg text-sm font-medium whitespace-nowrap z-40 shadow-xl max-w-xs"
-                          style={{
-                            transform: `translateX(-50%) rotate(-${angle}deg)`,
-                          }}
-                        >
-                          <div className="font-semibold mb-1">{layer.title}</div>
-                          <div className="text-xs text-gray-300">{layer.description}</div>
-                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-clara-navy"></div>
+                        <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-clara-navy text-white px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap z-40 shadow-xl max-w-48">
+                          <div className="font-semibold mb-0.5">{layer.title}</div>
+                          <div className="text-[10px] text-gray-300">{layer.description}</div>
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-3 border-r-3 border-t-3 border-transparent border-t-clara-navy"></div>
                         </div>
                       )}
                     </div>
@@ -189,11 +179,12 @@ const AIStackVisualization = () => {
             </div>
           </div>
 
-          {/* Pause/Resume Toggle (Optional) */}
-          <div className="text-center mt-4">
+          {/* Animation Control */}
+          <div className="text-center mt-6">
             <button
               onClick={() => setIsPaused(!isPaused)}
-              className="text-sm text-gray-500 hover:text-clara-navy transition-colors"
+              className="text-sm text-gray-500 hover:text-clara-navy transition-colors px-4 py-2 border border-gray-200 rounded-full hover:border-clara-navy/30"
+              aria-label={isPaused ? 'Resume orbit animation' : 'Pause orbit animation'}
             >
               {isPaused ? '▶️ Resume Animation' : '⏸️ Pause Animation'}
             </button>
