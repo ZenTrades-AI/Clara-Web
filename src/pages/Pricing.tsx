@@ -1,66 +1,61 @@
 
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import ROICalculator from '@/components/ROICalculator';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useState } from 'react';
 
-const pricingTiers = [
+const segments = [
   {
-    name: 'Starter',
-    price: '$100',
-    period: '/month',
-    description: 'Perfect for small contractors getting started with AI',
-    features: [
-      'Up to 500 calls/month',
-      'Basic call answering & scheduling',
-      'SMS notifications',
-      'Standard integrations',
-      'Email support',
-      '4-second response time'
-    ],
-    cta: 'Start Free Trial',
-    popular: false
+    id: 'mid-market',
+    title: 'Mid‑Market Commercial',
+    description: 'Established contractors with 10-50 technicians serving commercial clients',
+    icon: '🏢'
   },
   {
-    name: 'Growth',
-    price: '$1,200',
-    period: '/month',
-    description: 'Ideal for growing contractors with multiple technicians',
-    features: [
-      'Up to 2,500 calls/month',
-      'Advanced dispatching & routing',
-      'Payment collection automation',
-      'CRM integrations',
-      'Priority phone support',
-      'Custom call scripts',
-      'Analytics dashboard'
-    ],
-    cta: 'Book Demo',
-    popular: true
+    id: 'pe-rollup',
+    title: 'PE Roll‑up Platform',
+    description: 'Private equity firms managing multiple contractor businesses',
+    icon: '📊'
   },
   {
-    name: 'Scale',
-    price: '$2,000+',
-    period: '/month',
-    description: 'Enterprise solution for large contractors and PE platforms',
-    features: [
-      'Unlimited calls',
-      'Multi-location management',
-      'Advanced analytics & reporting',
-      'Custom integrations',
-      'Dedicated success manager',
-      'White-label options',
-      'API access',
-      'SLA guarantees'
-    ],
-    cta: 'Contact Sales',
-    popular: false
+    id: 'enterprise-facility',
+    title: 'Enterprise Facility‑Services',
+    description: 'Large facility management companies with comprehensive service offerings',
+    icon: '🏭'
+  },
+  {
+    id: 'national-accounts',
+    title: 'National Accounts',
+    description: 'Multi-location contractors serving national clients',
+    icon: '🌍'
   }
 ];
 
 const Pricing = () => {
+  const [selectedSegment, setSelectedSegment] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    crm: '',
+    revenue: ''
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', { segment: selectedSegment, ...formData });
+    // Handle form submission logic here
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -69,223 +64,217 @@ const Pricing = () => {
       <section className="bg-clara-navy text-white pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6">
-            Simple, Transparent Pricing
+            Get Started with Clara AI
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Choose the plan that fits your business size. All plans include our core AI features with no setup fees.
+            Tell us about your business and we'll customize Clara to fit your specific needs
           </p>
-          <ROICalculator 
-            trigger={
-              <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
-                Calculate Your ROI
-              </Button>
-            }
-          />
         </div>
       </section>
 
-      {/* Pricing Cards */}
-      <section className="py-20 bg-white">
+      {/* Segment Selection */}
+      <section className="py-12 bg-clara-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pricingTiers.map((tier, index) => (
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-4">
+              Choose Your Business Type
+            </h2>
+            <p className="text-xl text-gray-600">
+              Select the option that best describes your organization
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {segments.map((segment) => (
               <Card 
-                key={index} 
-                className={`relative ${tier.popular ? 'border-2 border-clara-gold shadow-xl scale-105' : 'border border-gray-200'}`}
+                key={segment.id}
+                className={`cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                  selectedSegment === segment.id 
+                    ? 'border-2 border-clara-gold bg-clara-gold/5' 
+                    : 'border border-gray-200 hover:border-clara-gold/50'
+                }`}
+                onClick={() => setSelectedSegment(segment.id)}
               >
-                {tier.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-clara-gold text-clara-navy px-4 py-1 rounded-full text-sm font-semibold">
-                      Most Popular
-                    </div>
-                  </div>
-                )}
-                
-                <CardHeader className="text-center pb-8">
-                  <CardTitle className="text-2xl font-montserrat font-bold text-clara-navy mb-2">
-                    {tier.name}
+                <CardHeader className="text-center pb-4">
+                  <div className="text-4xl mb-3">{segment.icon}</div>
+                  <CardTitle className="text-lg font-montserrat font-bold text-clara-navy">
+                    {segment.title}
                   </CardTitle>
-                  <div className="mb-4">
-                    <span className="text-4xl font-montserrat font-bold text-clara-navy">
-                      {tier.price}
-                    </span>
-                    <span className="text-gray-500">{tier.period}</span>
-                  </div>
-                  <p className="text-gray-600">{tier.description}</p>
                 </CardHeader>
-
-                <CardContent className="space-y-6">
-                  <ul className="space-y-3">
-                    {tier.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <Check className="text-clara-gold mt-0.5 flex-shrink-0" size={16} />
-                        <span className="text-gray-700 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Button 
-                    className={`w-full font-semibold py-3 ${
-                      tier.popular 
-                        ? 'bg-clara-gold hover:bg-clara-gold/90 text-clara-navy'
-                        : 'bg-clara-navy hover:bg-clara-navy/90 text-white'
-                    }`}
-                  >
-                    {tier.cta}
-                  </Button>
+                <CardContent>
+                  <p className="text-gray-600 text-sm text-center">{segment.description}</p>
+                  {selectedSegment === segment.id && (
+                    <div className="mt-4 text-center">
+                      <div className="inline-flex items-center px-3 py-1 bg-clara-gold text-clara-navy rounded-full text-sm font-semibold">
+                        Selected
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
           </div>
-
-          {/* Additional Info */}
-          <div className="mt-16 text-center">
-            <p className="text-gray-600 mb-4">
-              All plans include a 14-day free trial. No credit card required.
-            </p>
-            <p className="text-sm text-gray-500">
-              Enterprise pricing based on call volume and custom requirements. 
-              <a href="#" className="text-clara-teal hover:underline ml-1">Contact us for details.</a>
-            </p>
-          </div>
         </div>
       </section>
 
-      {/* ROI Breakdown */}
+      {/* Contact Form */}
+      {selectedSegment && (
+        <section className="py-20 bg-white">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-4">
+                Tell Us About Your Business
+              </h2>
+              <p className="text-xl text-gray-600">
+                We'll customize Clara to fit your {segments.find(s => s.id === selectedSegment)?.title.toLowerCase()} needs
+              </p>
+            </div>
+
+            <Card className="border-2 border-gray-200">
+              <CardContent className="p-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="name" className="text-clara-navy font-semibold">Full Name *</Label>
+                      <Input
+                        id="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={(e) => handleInputChange('name', e.target.value)}
+                        placeholder="Your full name"
+                        required
+                        className="mt-2"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="company" className="text-clara-navy font-semibold">Company Name *</Label>
+                      <Input
+                        id="company"
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => handleInputChange('company', e.target.value)}
+                        placeholder="Your company name"
+                        required
+                        className="mt-2"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="email" className="text-clara-navy font-semibold">Email Address *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
+                        placeholder="your@email.com"
+                        required
+                        className="mt-2"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="phone" className="text-clara-navy font-semibold">Phone Number *</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange('phone', e.target.value)}
+                        placeholder="(555) 123-4567"
+                        required
+                        className="mt-2"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="crm" className="text-clara-navy font-semibold">Current CRM/Software</Label>
+                    <Select onValueChange={(value) => handleInputChange('crm', value)}>
+                      <SelectTrigger className="mt-2">
+                        <SelectValue placeholder="Select your current CRM or software" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="netsuite">NetSuite</SelectItem>
+                        <SelectItem value="servicetrade">ServiceTrade</SelectItem>
+                        <SelectItem value="buildops">BuildOps</SelectItem>
+                        <SelectItem value="fieldwire">Fieldwire</SelectItem>
+                        <SelectItem value="housecall">Housecall Pro</SelectItem>
+                        <SelectItem value="jobber">Jobber</SelectItem>
+                        <SelectItem value="servicetitan">ServiceTitan</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                        <SelectItem value="none">No current CRM</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="revenue" className="text-clara-navy font-semibold">Annual Revenue</Label>
+                    <Select onValueChange={(value) => handleInputChange('revenue', value)}>
+                      <SelectTrigger className="mt-2">
+                        <SelectValue placeholder="Select your annual revenue range" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="under-1m">Under $1M</SelectItem>
+                        <SelectItem value="1m-5m">$1M - $5M</SelectItem>
+                        <SelectItem value="5m-10m">$5M - $10M</SelectItem>
+                        <SelectItem value="10m-25m">$10M - $25M</SelectItem>
+                        <SelectItem value="25m-50m">$25M - $50M</SelectItem>
+                        <SelectItem value="50m-100m">$50M - $100M</SelectItem>
+                        <SelectItem value="over-100m">Over $100M</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold py-3 text-lg"
+                  >
+                    Get Custom Demo & Pricing
+                  </Button>
+                </form>
+
+                <div className="mt-6 text-center text-sm text-gray-500">
+                  <p>We'll contact you within 24 hours to schedule your personalized demo</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      )}
+
+      {/* Benefits Section */}
       <section className="py-20 bg-clara-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-4">
-              The Clara ROI Story
+              What Happens Next?
             </h2>
-            <p className="text-xl text-gray-600">
-              See how Clara pays for itself within 30 days
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-montserrat font-bold text-clara-navy mb-3">Before Clara</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• 15% of calls go to voicemail</li>
-                  <li>• Average 23-second response time</li>
-                  <li>• Manual scheduling creates gaps</li>
-                  <li>• 30% no-show rate</li>
-                  <li>• Delayed payment collection</li>
-                </ul>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl text-clara-navy font-bold">1</span>
               </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-montserrat font-bold text-clara-navy mb-3">With Clara</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• &lt;2% missed calls</li>
-                  <li>• 4-second response time</li>
-                  <li>• Optimized scheduling</li>
-                  <li>• 18% no-show rate</li>
-                  <li>• Automated payment follow-up</li>
-                </ul>
-              </div>
+              <h3 className="font-montserrat font-bold text-clara-navy mb-2">Custom Demo</h3>
+              <p className="text-gray-600">We'll show you Clara in action with scenarios specific to your business type</p>
             </div>
 
-            <div className="bg-clara-navy text-white p-8 rounded-xl">
-              <h3 className="text-2xl font-montserrat font-bold mb-6 text-center">
-                Typical ROI Calculation
-              </h3>
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span>Annual Revenue:</span>
-                  <span className="font-semibold">$2,500,000</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Missed Call %:</span>
-                  <span className="font-semibold">15%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Lost Revenue/Year:</span>
-                  <span className="font-semibold text-clara-red">-$75,000</span>
-                </div>
-                <div className="border-t border-gray-600 pt-4">
-                  <div className="flex justify-between">
-                    <span>Clara Monthly Cost:</span>
-                    <span className="font-semibold">$1,200</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Revenue Recovered/Month:</span>
-                    <span className="font-semibold text-clara-gold">+$5,000</span>
-                  </div>
-                  <div className="flex justify-between text-lg font-bold mt-4 pt-4 border-t border-gray-600">
-                    <span>Monthly ROI:</span>
-                    <span className="text-clara-gold">+$3,800</span>
-                  </div>
-                </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl text-clara-navy font-bold">2</span>
               </div>
+              <h3 className="font-montserrat font-bold text-clara-navy mb-2">ROI Analysis</h3>
+              <p className="text-gray-600">Get a detailed breakdown of potential savings and revenue growth</p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-montserrat font-bold text-clara-navy text-center mb-12">
-            Frequently Asked Questions
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-clara-navy mb-2">What happens if Clara can't handle a call?</h3>
-                <p className="text-gray-600 text-sm">Calls with &lt;85% confidence automatically escalate to your human dispatcher within 2 rings.</p>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl text-clara-navy font-bold">3</span>
               </div>
-              
-              <div>
-                <h3 className="font-semibold text-clara-navy mb-2">How quickly can we get started?</h3>
-                <p className="text-gray-600 text-sm">Most customers are live within 48 hours. Enterprise setups may take 1-2 weeks for custom integrations.</p>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold text-clara-navy mb-2">Do you integrate with our existing tools?</h3>
-                <p className="text-gray-600 text-sm">Yes! We support NetSuite, ServiceTrade, BuildOps, and 50+ other platforms. Custom integrations available.</p>
-              </div>
+              <h3 className="font-montserrat font-bold text-clara-navy mb-2">Implementation Plan</h3>
+              <p className="text-gray-600">Receive a step-by-step plan to get Clara working for your business</p>
             </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-clara-navy mb-2">What's included in the free trial?</h3>
-                <p className="text-gray-600 text-sm">Full access to all Starter plan features for 14 days. No credit card required, no setup fees.</p>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold text-clara-navy mb-2">Can we upgrade or downgrade anytime?</h3>
-                <p className="text-gray-600 text-sm">Absolutely. Plans are flexible and can be adjusted monthly based on your business needs.</p>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold text-clara-navy mb-2">What kind of support do you provide?</h3>
-                <p className="text-gray-600 text-sm">Email support for Starter, phone support for Growth, and dedicated success managers for Scale plans.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-clara-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-montserrat font-bold mb-6">
-            Ready to grow your revenue with Clara?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Start your free trial today or speak with our team about your specific needs
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
-              Start Free Trial
-            </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
-              Book a Demo
-            </Button>
           </div>
         </div>
       </section>

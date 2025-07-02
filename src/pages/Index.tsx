@@ -2,6 +2,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
+import AIStackSection from '@/components/AIStackSection';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
@@ -82,6 +83,55 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Social Proof - Company Logos - Moved after hero */}
+      <section className="py-16 bg-clara-gray">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-lg font-medium text-gray-600 mb-8">
+              Trusted by leading contractors and PE platforms
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+              {/* Logo placeholders */}
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="h-12 bg-gray-300 rounded flex items-center justify-center">
+                  <span className="text-gray-500 font-medium">Logo {i}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Stack Section */}
+      <AIStackSection />
+
+      {/* Explainer Video Section */}
+      <section className="py-20 bg-clara-gray">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
+              See Clara in Action
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Watch how Clara transforms your business operations in just 90 seconds
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="aspect-video bg-clara-navy rounded-xl flex items-center justify-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-clara-gold/20 to-clara-teal/20"></div>
+              <div className="relative text-center text-white">
+                <div className="w-20 h-20 mx-auto mb-4 bg-clara-gold rounded-full flex items-center justify-center">
+                  <span className="text-3xl text-clara-navy">▶️</span>
+                </div>
+                <h3 className="text-2xl font-montserrat font-bold mb-2">90-Second Explainer Video</h3>
+                <p className="text-gray-300">Watch how Clara handles real contractor scenarios</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3-Step Process */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,25 +184,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof - Company Logos */}
-      <section className="py-16 bg-clara-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-lg font-medium text-gray-600 mb-8">
-              Trusted by leading contractors and PE platforms
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
-              {/* Logo placeholders */}
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-12 bg-gray-300 rounded flex items-center justify-center">
-                  <span className="text-gray-500 font-medium">Logo {i}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-clara-navy text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -167,9 +198,13 @@ const Index = () => {
             <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
               Book a 15-min Demo
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
-              Try Clara Live
-            </Button>
+            <ROICalculator 
+              trigger={
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
+                  Calculate ROI
+                </Button>
+              }
+            />
           </div>
           <p className="text-sm text-gray-400 mt-6">
             Calls &lt; 85% confidence escalate to human dispatcher within 2 rings

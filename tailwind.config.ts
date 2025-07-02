@@ -67,7 +67,7 @@ export default {
 				'clara-navy': '#041E42',
 				'clara-teal': '#5c0d15',
 				'clara-gray': '#F5F7FA',
-				'clara-gold': '#FDBA12',
+				'clara-gold': '#20B2AA',  // Changed from gold to teal
 				'clara-red': '#E74C3C',
 			},
 			fontFamily: {

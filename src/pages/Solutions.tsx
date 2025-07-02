@@ -1,6 +1,7 @@
 
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ROICalculator from '@/components/ROICalculator';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -16,6 +17,14 @@ const solutions = [
       'Service contract management'
     ],
     caseStudy: 'HVAC contractor increased booked jobs by 45% in 6 months',
+    detailedFeatures: [
+      'Enterprise-grade security protocols',
+      'Custom reporting dashboards',
+      'Integration with major CRM platforms',
+      'Dedicated account management',
+      'Priority technical support',
+      'Advanced analytics and insights'
+    ],
     icon: '🏢'
   },
   {
@@ -29,6 +38,14 @@ const solutions = [
       'Cross-selling opportunities'
     ],
     caseStudy: 'PE firm achieved 25% EBITDA improvement across 8 portfolio companies',
+    detailedFeatures: [
+      'Centralized management console',
+      'Brand-specific customization',
+      'Cross-portfolio reporting',
+      'Standardized KPI tracking',
+      'Investment committee reporting',
+      'Due diligence support'
+    ],
     icon: '📊'
   },
   {
@@ -42,6 +59,14 @@ const solutions = [
       'Real-time capacity management'
     ],
     caseStudy: 'National plumbing chain reduced operational costs by 35%',
+    detailedFeatures: [
+      'Multi-timezone coordination',
+      'National account management',
+      'Standardized service delivery',
+      'Regional performance analytics',
+      'Scalable infrastructure',
+      'Enterprise SLA guarantees'
+    ],
     icon: '🌍'
   },
   {
@@ -55,6 +80,14 @@ const solutions = [
       'Enterprise client portals'
     ],
     caseStudy: 'Facilities company improved client retention to 98%',
+    detailedFeatures: [
+      'Integrated facility management',
+      'Predictive maintenance AI',
+      'Compliance automation',
+      'Client portal integration',
+      'IoT device connectivity',
+      'Advanced reporting suite'
+    ],
     icon: '🏭'
   }
 ];
@@ -70,9 +103,21 @@ const Solutions = () => {
           <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6">
             Solutions Built for Your Business
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             Clara AI adapts to your business model, whether you're a growing contractor or managing a multi-brand portfolio
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
+              Book a 15-min Demo
+            </Button>
+            <ROICalculator 
+              trigger={
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
+                  Calculate ROI
+                </Button>
+              }
+            />
+          </div>
         </div>
       </section>
 
@@ -81,10 +126,12 @@ const Solutions = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {solutions.map((solution, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-clara-gold/30">
-                <CardHeader className="pb-4">
+              <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-clara-gold/30 overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-clara-gold/5 to-clara-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <CardHeader className="pb-4 relative z-10">
                   <div className="flex items-start justify-between">
-                    <div className="text-4xl mb-3">{solution.icon}</div>
+                    <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{solution.icon}</div>
                     <div className="text-right">
                       <div className="text-2xl font-montserrat font-bold text-clara-gold">
                         {solution.kpi}
@@ -96,9 +143,11 @@ const Solutions = () => {
                     {solution.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                
+                <CardContent className="space-y-6 relative z-10">
                   <p className="text-gray-600">{solution.description}</p>
                   
+                  {/* Basic Features - Always Visible */}
                   <div className="space-y-2">
                     <h4 className="font-semibold text-clara-navy">Key Features:</h4>
                     <ul className="space-y-1">
@@ -111,12 +160,29 @@ const Solutions = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-clara-gray p-4 rounded-lg">
-                    <h4 className="font-semibold text-clara-navy mb-2">Case Study</h4>
-                    <p className="text-sm text-gray-700">{solution.caseStudy}</p>
+                  {/* Expanded Content - Visible on Hover */}
+                  <div className="max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div className="pt-4 border-t border-gray-200 space-y-4">
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-clara-navy">Advanced Features:</h4>
+                        <ul className="space-y-1">
+                          {solution.detailedFeatures.map((feature, idx) => (
+                            <li key={idx} className="flex items-center space-x-2 text-sm text-gray-600">
+                              <div className="w-1.5 h-1.5 bg-clara-teal rounded-full"></div>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-clara-gray p-4 rounded-lg">
+                        <h4 className="font-semibold text-clara-navy mb-2">Case Study</h4>
+                        <p className="text-sm text-gray-700">{solution.caseStudy}</p>
+                      </div>
+                    </div>
                   </div>
 
-                  <Button className="w-full bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold">
+                  <Button className="w-full bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Learn More
                   </Button>
                 </CardContent>
@@ -176,9 +242,13 @@ const Solutions = () => {
             <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
               Book a 15-min Demo
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
-              Calculate ROI
-            </Button>
+            <ROICalculator 
+              trigger={
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
+                  Calculate ROI
+                </Button>
+              }
+            />
           </div>
         </div>
       </section>

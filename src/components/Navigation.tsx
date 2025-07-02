@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import ROICalculator from '@/components/ROICalculator';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
@@ -23,7 +24,6 @@ const Navigation = () => {
     { name: 'How It Works', path: '/how-it-works' },
     { name: 'Solutions', path: '/solutions' },
     { name: 'Pricing', path: '/pricing' },
-    { name: 'Security', path: '/security' },
     { name: 'Resources', path: '/resources' },
   ];
 
@@ -58,8 +58,15 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
+            <ROICalculator 
+              trigger={
+                <Button variant="outline" className="border-clara-gold text-clara-gold hover:bg-clara-gold/10 px-4 py-2 text-sm">
+                  Calculate ROI
+                </Button>
+              }
+            />
             <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-6">
               Book Demo
             </Button>
@@ -93,9 +100,18 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <Button className="w-full bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold mt-4">
-              Book Demo
-            </Button>
+            <div className="space-y-3 pt-4">
+              <ROICalculator 
+                trigger={
+                  <Button variant="outline" className="w-full border-clara-gold text-clara-gold hover:bg-clara-gold/10">
+                    Calculate ROI
+                  </Button>
+                }
+              />
+              <Button className="w-full bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold">
+                Book Demo
+              </Button>
+            </div>
           </div>
         </div>
       )}
