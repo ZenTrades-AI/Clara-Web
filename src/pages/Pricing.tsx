@@ -33,6 +33,8 @@ const Pricing = () => {
     revenue: ''
   });
 
+  const [activeStep, setActiveStep] = useState(0);
+
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
@@ -42,6 +44,39 @@ const Pricing = () => {
     console.log('Form submitted:', formData);
     // Handle form submission logic here
   };
+
+  const steps = [
+    {
+      title: "Custom Demo",
+      description: "We'll show you Clara in action with scenarios specific to your business type",
+      icon: "🎯",
+      details: [
+        "Live product walkthrough",
+        "Real-world use cases",
+        "Q&A with experts"
+      ]
+    },
+    {
+      title: "ROI Analysis",
+      description: "Get a detailed breakdown of potential savings and revenue growth",
+      icon: "📊",
+      details: [
+        "Cost-benefit analysis",
+        "Revenue projections",
+        "Payback timeline"
+      ]
+    },
+    {
+      title: "Implementation Plan",
+      description: "Receive a step-by-step plan to get Clara working for your business",
+      icon: "🚀",
+      details: [
+        "Setup timeline",
+        "Integration roadmap",
+        "Success metrics"
+      ]
+    }
+  ];
 
   return (
     <div className="min-h-screen">
@@ -211,7 +246,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Interactive Benefits Section */}
       <section className="py-20 bg-clara-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -220,29 +255,77 @@ const Pricing = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-clara-navy font-bold">1</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className={`group cursor-pointer transition-all duration-300 ${
+                  activeStep === index ? 'transform scale-105' : 'hover:scale-102'
+                }`}
+                onClick={() => setActiveStep(index)}
+                onMouseEnter={() => setActiveStep(index)}
+              >
+                <Card className={`h-full transition-all duration-300 ${
+                  activeStep === index 
+                    ? 'border-clara-teal shadow-xl bg-clara-teal/5' 
+                    : 'border-gray-200 hover:border-clara-teal/50 hover:shadow-lg'
+                }`}>
+                  <CardContent className="p-8 text-center">
+                    <div className={`w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 ${
+                      activeStep === index 
+                        ? 'bg-clara-teal text-white scale-110' 
+                        : 'bg-clara-gold text-clara-navy'
+                    }`}>
+                      <span className="text-3xl">{step.icon}</span>
+                    </div>
+                    <h3 className={`font-montserrat font-bold mb-4 transition-colors duration-300 ${
+                      activeStep === index ? 'text-clara-teal' : 'text-clara-navy'
+                    }`}>
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4">{step.description}</p>
+                    
+                    {activeStep === index && (
+                      <div className="animate-fade-in">
+                        <div className="border-t border-clara-teal/20 pt-4 mt-4">
+                          {step.details.map((detail, idx) => (
+                            <div key={idx} className="flex items-center justify-center mb-2">
+                              <div className="w-2 h-2 bg-clara-teal rounded-full mr-3"></div>
+                              <span className="text-sm text-gray-700">{detail}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
               </div>
-              <h3 className="font-montserrat font-bold text-clara-navy mb-2">Custom Demo</h3>
-              <p className="text-gray-600">We'll show you Clara in action with scenarios specific to your business type</p>
-            </div>
+            ))}
+          </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-clara-navy font-bold">2</span>
-              </div>
-              <h3 className="font-montserrat font-bold text-clara-navy mb-2">ROI Analysis</h3>
-              <p className="text-gray-600">Get a detailed breakdown of potential savings and revenue growth</p>
+          {/* Interactive Timeline */}
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center justify-between mb-8">
+              {steps.map((_, index) => (
+                <div key={index} className="flex items-center">
+                  <div className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                    activeStep >= index ? 'bg-clara-teal' : 'bg-gray-300'
+                  }`}></div>
+                  {index < steps.length - 1 && (
+                    <div className={`w-24 h-1 mx-4 transition-all duration-300 ${
+                      activeStep > index ? 'bg-clara-teal' : 'bg-gray-300'
+                    }`}></div>
+                  )}
+                </div>
+              ))}
             </div>
-
             <div className="text-center">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-clara-navy font-bold">3</span>
-              </div>
-              <h3 className="font-montserrat font-bold text-clara-navy mb-2">Implementation Plan</h3>
-              <p className="text-gray-600">Receive a step-by-step plan to get Clara working for your business</p>
+              <p className="text-lg text-gray-600 mb-4">
+                Typical timeline: <span className="font-semibold text-clara-teal">24-48 hours</span>
+              </p>
+              <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3">
+                Get Started Today
+              </Button>
             </div>
           </div>
         </div>

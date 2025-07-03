@@ -202,7 +202,7 @@ const HowItWorks = () => {
             <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
               Book a 15-min Demo
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
+            <Button variant="outline" className="border-white text-clara-navy hover:bg-white/10 px-8 py-3 text-lg">
               Try Clara Live
             </Button>
           </div>

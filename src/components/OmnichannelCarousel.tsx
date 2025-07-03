@@ -77,7 +77,7 @@ const OmnichannelCarousel = () => {
               </div>
               
               {index === activeIndex && (
-                <div className="absolute -inset-1 bg-clara-teal rounded-2xl opacity-75 animate-pulse"></div>
+                <div className="absolute -inset-1 bg-clara-teal rounded-2xl opacity-75 animate-pulse -z-10"></div>
               )}
             </div>
           ))}

@@ -202,8 +202,8 @@ const Index = () => {
             </Button>
             <ROICalculator 
               trigger={
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
-                  Calculate ROI
+                <Button variant="outline" className="border-white text-clara-navy hover:bg-white/10 px-8 py-3 text-lg">
+                  Try Clara Live
                 </Button>
               }
             />

@@ -1,10 +1,10 @@
-
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { useState } from 'react';
 
 const blogPosts = [
   {
@@ -81,6 +81,35 @@ const faqs = [
 ];
 
 const Resources = () => {
+  const [activeSupport, setActiveSupport] = useState(0);
+
+  const supportOptions = [
+    {
+      title: "Live Chat",
+      icon: "💬",
+      description: "Get instant answers from our support team",
+      features: ["24/7 availability", "Instant responses", "Technical guidance"],
+      buttonText: "Start Chat",
+      color: "bg-blue-500"
+    },
+    {
+      title: "Phone Support",
+      icon: "📞",
+      description: "Speak directly with our technical experts",
+      features: ["Human expertise", "Complex troubleshooting", "Personalized help"],
+      buttonText: "Call Now",
+      color: "bg-green-500"
+    },
+    {
+      title: "Success Manager",
+      icon: "🎯",
+      description: "Dedicated support for Enterprise customers",
+      features: ["Strategic guidance", "Custom solutions", "Priority support"],
+      buttonText: "Learn More",
+      color: "bg-purple-500"
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -245,7 +274,7 @@ const Resources = () => {
         </div>
       </section>
 
-      {/* Help Center */}
+      {/* Interactive Help Center */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -257,38 +286,72 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💬</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {supportOptions.map((option, index) => (
+              <div
+                key={index}
+                className={`group cursor-pointer transition-all duration-300 ${
+                  activeSupport === index ? 'transform scale-105' : 'hover:scale-102'
+                }`}
+                onClick={() => setActiveSupport(index)}
+                onMouseEnter={() => setActiveSupport(index)}
+              >
+                <Card className={`h-full transition-all duration-300 ${
+                  activeSupport === index 
+                    ? 'border-clara-teal shadow-xl bg-clara-teal/5' 
+                    : 'border-gray-200 hover:border-clara-teal/50 hover:shadow-lg'
+                }`}>
+                  <CardContent className="p-8 text-center">
+                    <div className={`w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 ${
+                      activeSupport === index 
+                        ? 'bg-clara-teal scale-110' 
+                        : 'bg-clara-gold'
+                    }`}>
+                      <span className="text-3xl">{option.icon}</span>
+                    </div>
+                    <h3 className={`font-montserrat font-bold mb-4 transition-colors duration-300 ${
+                      activeSupport === index ? 'text-clara-teal' : 'text-clara-navy'
+                    }`}>
+                      {option.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4">{option.description}</p>
+                    
+                    {activeSupport === index && (
+                      <div className="animate-fade-in">
+                        <div className="border-t border-clara-teal/20 pt-4 mt-4 mb-6">
+                          {option.features.map((feature, idx) => (
+                            <div key={idx} className="flex items-center justify-center mb-2">
+                              <div className="w-2 h-2 bg-clara-teal rounded-full mr-3"></div>
+                              <span className="text-sm text-gray-700">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    <Button 
+                      className={`w-full transition-all duration-300 ${
+                        activeSupport === index 
+                          ? 'bg-clara-teal hover:bg-clara-teal/90 text-white' 
+                          : 'border-clara-navy text-clara-navy hover:bg-clara-navy/10'
+                      }`}
+                      variant={activeSupport === index ? "default" : "outline"}
+                    >
+                      {option.buttonText}
+                    </Button>
+                  </CardContent>
+                </Card>
               </div>
-              <h3 className="font-montserrat font-bold text-clara-navy mb-2">Live Chat</h3>
-              <p className="text-gray-600 mb-4">Get instant answers from our support team</p>
-              <Button variant="outline" className="border-clara-navy text-clara-navy hover:bg-clara-navy/10">
-                Start Chat
-              </Button>
-            </div>
+            ))}
+          </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📞</span>
-              </div>
-              <h3 className="font-montserrat font-bold text-clara-navy mb-2">Phone Support</h3>
-              <p className="text-gray-600 mb-4">Speak directly with our technical experts</p>
-              <Button variant="outline" className="border-clara-navy text-clara-navy hover:bg-clara-navy/10">
-                Call Now
-              </Button>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
-              </div>
-              <h3 className="font-montserrat font-bold text-clara-navy mb-2">Success Manager</h3>
-              <p className="text-gray-600 mb-4">Dedicated support for Enterprise customers</p>
-              <Button variant="outline" className="border-clara-navy text-clara-navy hover:bg-clara-navy/10">
-                Learn More
-              </Button>
+          {/* Response Time Indicator */}
+          <div className="text-center">
+            <div className="inline-flex items-center px-6 py-3 bg-clara-teal/10 rounded-full">
+              <div className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></div>
+              <span className="text-clara-navy font-medium">
+                Average response time: {activeSupport === 0 ? "< 2 minutes" : activeSupport === 1 ? "< 1 hour" : "< 24 hours"}
+              </span>
             </div>
           </div>
         </div>

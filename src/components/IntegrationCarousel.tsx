@@ -5,80 +5,88 @@ const integrations = [
   { 
     name: 'NetSuite', 
     logo: (
-      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="8" fill="#FF6600"/>
-        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">NS</text>
-      </svg>
+      <img 
+        src="/lovable-uploads/c8a7bc1f-fcd4-45e9-bb52-05dd0eb9577e.png" 
+        alt="NetSuite logo" 
+        className="w-12 h-12 object-contain"
+      />
     ), 
     description: 'ERP & Financial Management' 
   },
   { 
     name: 'ServiceTrade', 
     logo: (
-      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="8" fill="#1B5E20"/>
-        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">ST</text>
-      </svg>
+      <img 
+        src="/lovable-uploads/57d2938e-9780-43d5-88a0-95f380278b9a.png" 
+        alt="ServiceTrade logo" 
+        className="w-12 h-12 object-contain"
+      />
     ), 
     description: 'Field Service Management' 
   },
   { 
     name: 'BuildOps', 
     logo: (
-      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="8" fill="#795548"/>
-        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">BO</text>
-      </svg>
+      <img 
+        src="/lovable-uploads/f61ebd70-5db9-48b3-be28-252cd2502db8.png" 
+        alt="BuildOps logo" 
+        className="w-12 h-12 object-contain"
+      />
     ), 
     description: 'Construction Operations' 
   },
   { 
     name: 'QuickBooks', 
     logo: (
-      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="8" fill="#0077C5"/>
-        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">QB</text>
-      </svg>
+      <img 
+        src="/lovable-uploads/f0c4e272-eb15-42d4-955b-c8cf4403db2a.png" 
+        alt="QuickBooks logo" 
+        className="w-12 h-12 object-contain"
+      />
     ), 
     description: 'Accounting Software' 
   },
   { 
     name: 'Fieldwire', 
     logo: (
-      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="8" fill="#E65100"/>
-        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">FW</text>
-      </svg>
+      <img 
+        src="/lovable-uploads/282232b0-0ffb-4469-b0de-7cd4c7d6dcd2.png" 
+        alt="Fieldwire logo" 
+        className="w-12 h-12 object-contain"
+      />
     ), 
     description: 'Project Management' 
   },
   { 
     name: 'Housecall Pro', 
     logo: (
-      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="8" fill="#00BCD4"/>
-        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">HP</text>
-      </svg>
+      <img 
+        src="/lovable-uploads/f3a696a6-29cc-47fc-8f65-c912308b70e8.png" 
+        alt="Housecall Pro logo" 
+        className="w-12 h-12 object-contain"
+      />
     ), 
     description: 'Service Business Management' 
   },
   { 
     name: 'JobNimbus', 
     logo: (
-      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="8" fill="#6A1B9A"/>
-        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">JN</text>
-      </svg>
+      <img 
+        src="/lovable-uploads/ef216e49-e109-45b0-9d02-425f5b12e721.png" 
+        alt="JobNimbus logo" 
+        className="w-12 h-12 object-contain"
+      />
     ), 
     description: 'CRM & Project Management' 
   },
   { 
     name: 'ServiceTitan', 
     logo: (
-      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
-        <rect width="48" height="48" rx="8" fill="#D32F2F"/>
-        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">ST</text>
-      </svg>
+      <img 
+        src="/lovable-uploads/55412082-b4e3-4134-96f0-df7cd4618034.png" 
+        alt="ServiceTitan logo" 
+        className="w-12 h-12 object-contain"
+      />
     ), 
     description: 'Home Service CRM' 
   },
