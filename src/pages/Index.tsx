@@ -89,13 +89,35 @@ const Index = () => {
             <h3 className="text-lg font-medium text-gray-600 mb-8">
               Trusted by leading contractors and PE platforms
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
-              {/* Logo placeholders */}
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-12 bg-gray-300 rounded flex items-center justify-center">
-                  <span className="text-gray-500 font-medium">Logo {i}</span>
-                </div>
-              ))}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+              <div className="flex justify-center">
+                <img 
+                  src="/lovable-uploads/40ffb9b3-b887-4ee1-8651-b948d1a833db.png" 
+                  alt="HVAC Pro Comfortshield Club logo" 
+                  className="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <div className="flex justify-center">
+                <img 
+                  src="/lovable-uploads/858521cf-0c14-4181-a171-65a7e91fcb07.png" 
+                  alt="F&M Fire Protection logo" 
+                  className="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <div className="flex justify-center">
+                <img 
+                  src="/lovable-uploads/8ff94b25-5aeb-42fa-a50a-c5a75b702942.png" 
+                  alt="Kantra Electric Inc logo" 
+                  className="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <div className="flex justify-center">
+                <img 
+                  src="/lovable-uploads/8d32313c-c03a-45bc-9cce-bf17727ca1ca.png" 
+                  alt="Alliance Specialized Systems logo" 
+                  className="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
           </div>
         </div>
