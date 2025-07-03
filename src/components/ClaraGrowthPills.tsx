@@ -147,7 +147,7 @@ const ClaraGrowthPills = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @media (max-width: 768px) {
           [role="tablist"] {
             scroll-snap-type: x mandatory;
