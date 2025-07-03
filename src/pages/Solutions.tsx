@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
@@ -17,7 +18,6 @@ const solutions = [
       'Advanced scheduling optimization',
       'Service contract management'
     ],
-    caseStudy: 'HVAC contractor increased booked jobs by 45% in 6 months',
     detailedFeatures: [
       'Enterprise-grade security protocols',
       'Custom reporting dashboards',
@@ -38,7 +38,6 @@ const solutions = [
       'Standardized service protocols',
       'Cross-selling opportunities'
     ],
-    caseStudy: 'PE firm achieved 25% EBITDA improvement across 8 portfolio companies',
     detailedFeatures: [
       'Centralized management console',
       'Brand-specific customization',
@@ -59,7 +58,6 @@ const solutions = [
       'Brand consistency enforcement',
       'Real-time capacity management'
     ],
-    caseStudy: 'National plumbing chain reduced operational costs by 35%',
     detailedFeatures: [
       'Multi-timezone coordination',
       'National account management',
@@ -80,7 +78,6 @@ const solutions = [
       'Compliance tracking & reporting',
       'Enterprise client portals'
     ],
-    caseStudy: 'Facilities company improved client retention to 98%',
     detailedFeatures: [
       'Integrated facility management',
       'Predictive maintenance AI',
@@ -93,7 +90,16 @@ const solutions = [
   }
 ];
 
+const stats = [
+  { value: '15%', label: 'Avg. missed calls', sublabel: 'Industry standard', color: 'text-red-500' },
+  { value: '<2%', label: 'Clara missed calls', sublabel: 'With human escalation', color: 'text-clara-teal' },
+  { value: '4s', label: 'Answer time', sublabel: 'vs 23s industry avg', color: 'text-clara-teal' },
+  { value: '30d', label: 'ROI payback', sublabel: 'Typical time to ROI', color: 'text-clara-gold' }
+];
+
 const Solutions = () => {
+  const [hoveredStat, setHoveredStat] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -178,11 +184,6 @@ const Solutions = () => {
                           ))}
                         </ul>
                       </div>
-                      
-                      <div className="bg-clara-gray p-4 rounded-lg">
-                        <h4 className="font-semibold text-clara-navy mb-2">Case Study</h4>
-                        <p className="text-sm text-gray-700">{solution.caseStudy}</p>
-                      </div>
                     </div>
                   </div>
 
@@ -196,7 +197,7 @@ const Solutions = () => {
         </div>
       </section>
 
-      {/* Industry Stats */}
+      {/* Interactive Industry Stats */}
       <section className="py-20 bg-clara-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -209,26 +210,30 @@ const Solutions = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-montserrat font-bold text-clara-gold mb-2">15%</div>
-              <div className="text-lg font-semibold text-clara-navy mb-1">Avg. missed calls</div>
-              <div className="text-sm text-gray-600">Industry standard</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-montserrat font-bold text-clara-gold mb-2">&lt;2%</div>
-              <div className="text-lg font-semibold text-clara-navy mb-1">Clara missed calls</div>
-              <div className="text-sm text-gray-600">With human escalation</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-montserrat font-bold text-clara-gold mb-2">4s</div>
-              <div className="text-lg font-semibold text-clara-navy mb-1">Answer time</div>
-              <div className="text-sm text-gray-600">vs 23s industry avg</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-montserrat font-bold text-clara-gold mb-2">30d</div>
-              <div className="text-lg font-semibold text-clara-navy mb-1">ROI payback</div>
-              <div className="text-sm text-gray-600">Typical time to ROI</div>
-            </div>
+            {stats.map((stat, index) => (
+              <div 
+                key={index}
+                className="text-center group cursor-pointer transform transition-all duration-300 hover:scale-110"
+                onMouseEnter={() => setHoveredStat(index)}
+                onMouseLeave={() => setHoveredStat(null)}
+              >
+                <div className={`relative p-6 rounded-xl bg-white shadow-lg transition-all duration-300 ${
+                  hoveredStat === index ? 'shadow-2xl border-2 border-clara-teal' : 'hover:shadow-xl'
+                }`}>
+                  <div className={`text-4xl font-montserrat font-bold mb-2 transition-colors duration-300 ${
+                    hoveredStat === index ? stat.color : 'text-clara-gold'
+                  }`}>
+                    {stat.value}
+                  </div>
+                  <div className="text-lg font-semibold text-clara-navy mb-1">{stat.label}</div>
+                  <div className="text-sm text-gray-600">{stat.sublabel}</div>
+                  
+                  {hoveredStat === index && (
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-clara-teal rounded-full animate-pulse"></div>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

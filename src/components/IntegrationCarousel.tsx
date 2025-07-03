@@ -2,14 +2,86 @@
 import { useState, useEffect } from 'react';
 
 const integrations = [
-  { name: 'NetSuite', logo: 'NS', description: 'ERP & Financial Management' },
-  { name: 'ServiceTrade', logo: 'ST', description: 'Field Service Management' },
-  { name: 'BuildOps', logo: 'BO', description: 'Construction Operations' },
-  { name: 'QuickBooks', logo: 'QB', description: 'Accounting Software' },
-  { name: 'Fieldwire', logo: 'FW', description: 'Project Management' },
-  { name: 'Housecall Pro', logo: 'HP', description: 'Service Business Management' },
-  { name: 'JobNimbus', logo: 'JN', description: 'CRM & Project Management' },
-  { name: 'ServiceTitan', logo: 'ST', description: 'Home Service CRM' },
+  { 
+    name: 'NetSuite', 
+    logo: (
+      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="8" fill="#FF6600"/>
+        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">NS</text>
+      </svg>
+    ), 
+    description: 'ERP & Financial Management' 
+  },
+  { 
+    name: 'ServiceTrade', 
+    logo: (
+      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="8" fill="#1B5E20"/>
+        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">ST</text>
+      </svg>
+    ), 
+    description: 'Field Service Management' 
+  },
+  { 
+    name: 'BuildOps', 
+    logo: (
+      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="8" fill="#795548"/>
+        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">BO</text>
+      </svg>
+    ), 
+    description: 'Construction Operations' 
+  },
+  { 
+    name: 'QuickBooks', 
+    logo: (
+      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="8" fill="#0077C5"/>
+        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">QB</text>
+      </svg>
+    ), 
+    description: 'Accounting Software' 
+  },
+  { 
+    name: 'Fieldwire', 
+    logo: (
+      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="8" fill="#E65100"/>
+        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">FW</text>
+      </svg>
+    ), 
+    description: 'Project Management' 
+  },
+  { 
+    name: 'Housecall Pro', 
+    logo: (
+      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="8" fill="#00BCD4"/>
+        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">HP</text>
+      </svg>
+    ), 
+    description: 'Service Business Management' 
+  },
+  { 
+    name: 'JobNimbus', 
+    logo: (
+      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="8" fill="#6A1B9A"/>
+        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">JN</text>
+      </svg>
+    ), 
+    description: 'CRM & Project Management' 
+  },
+  { 
+    name: 'ServiceTitan', 
+    logo: (
+      <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="8" fill="#D32F2F"/>
+        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">ST</text>
+      </svg>
+    ), 
+    description: 'Home Service CRM' 
+  },
 ];
 
 const IntegrationCarousel = () => {
@@ -18,7 +90,7 @@ const IntegrationCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % Math.ceil(integrations.length / 4));
-    }, 3000);
+    }, 4000); // Smoother timing
 
     return () => clearInterval(interval);
   }, []);
@@ -37,7 +109,7 @@ const IntegrationCarousel = () => {
 
         <div className="relative overflow-hidden">
           <div 
-            className="flex transition-transform duration-500 ease-in-out"
+            className="flex transition-transform duration-700 ease-in-out" // Smoother transition
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {Array.from({ length: Math.ceil(integrations.length / 4) }).map((_, slideIndex) => (
@@ -48,13 +120,11 @@ const IntegrationCarousel = () => {
                     .map((integration, index) => (
                       <div
                         key={index}
-                        className="group bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-200 hover:border-clara-gold/30"
+                        className="group bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-all duration-500 cursor-pointer border border-gray-200 hover:border-clara-teal/30"
                       >
                         <div className="text-center">
-                          <div className="w-16 h-16 bg-gradient-to-br from-clara-gold/20 to-clara-teal/20 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                            <span className="font-bold text-clara-navy text-lg">
-                              {integration.logo}
-                            </span>
+                          <div className="flex justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                            {integration.logo}
                           </div>
                           <h4 className="font-montserrat font-semibold text-clara-navy mb-1">
                             {integration.name}
@@ -73,8 +143,8 @@ const IntegrationCarousel = () => {
             {Array.from({ length: Math.ceil(integrations.length / 4) }).map((_, index) => (
               <button
                 key={index}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-clara-gold' : 'bg-gray-300'
+                className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                  index === currentIndex ? 'bg-clara-teal' : 'bg-gray-300'
                 }`}
                 onClick={() => setCurrentIndex(index)}
               />

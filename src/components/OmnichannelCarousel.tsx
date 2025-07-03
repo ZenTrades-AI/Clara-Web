@@ -6,31 +6,31 @@ const channels = [
     name: 'Voice',
     icon: '📞',
     description: '4-second answer time with natural conversation',
-    gradient: 'from-blue-400 to-blue-600'
+    blueShade: 'from-blue-300 to-blue-500'
   },
   {
     name: 'Chat',
     icon: '💬',
     description: 'Real-time website chat support',
-    gradient: 'from-green-400 to-green-600'
+    blueShade: 'from-blue-400 to-blue-600'
   },
   {
     name: 'Email',
     icon: '📧',
     description: 'Automated email workflows and responses',
-    gradient: 'from-purple-400 to-purple-600'
+    blueShade: 'from-blue-500 to-blue-700'
   },
   {
     name: 'SMS',
     icon: '📱',
     description: 'Text message reminders and updates',
-    gradient: 'from-orange-400 to-orange-600'
+    blueShade: 'from-blue-600 to-blue-800'
   },
   {
     name: 'API',
     icon: '🔗',
     description: 'Seamless integration with existing systems',
-    gradient: 'from-teal-400 to-teal-600'
+    blueShade: 'from-blue-700 to-blue-900'
   }
 ];
 
@@ -40,7 +40,7 @@ const OmnichannelCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % channels.length);
-    }, 2500);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -66,12 +66,9 @@ const OmnichannelCarousel = () => {
                   ? 'scale-110 shadow-2xl'
                   : 'scale-100 shadow-lg hover:scale-105'
               }`}
-              style={{
-                background: `linear-gradient(135deg, var(--tw-gradient-stops))`,
-              }}
               onClick={() => setActiveIndex(index)}
             >
-              <div className={`bg-gradient-to-br ${channel.gradient} p-6 rounded-2xl text-white`}>
+              <div className={`bg-gradient-to-br ${channel.blueShade} p-6 rounded-2xl text-white`}>
                 <div className="text-center">
                   <div className="text-4xl mb-3">{channel.icon}</div>
                   <h3 className="font-montserrat font-bold text-lg mb-2">{channel.name}</h3>
@@ -80,7 +77,7 @@ const OmnichannelCarousel = () => {
               </div>
               
               {index === activeIndex && (
-                <div className="absolute -inset-1 bg-gradient-to-r from-clara-gold to-clara-teal rounded-2xl opacity-75 animate-pulse"></div>
+                <div className="absolute -inset-1 bg-clara-teal rounded-2xl opacity-75 animate-pulse"></div>
               )}
             </div>
           ))}
@@ -92,7 +89,7 @@ const OmnichannelCarousel = () => {
             <button
               key={index}
               className={`w-3 h-3 rounded-full transition-colors ${
-                index === activeIndex ? 'bg-clara-gold' : 'bg-gray-300'
+                index === activeIndex ? 'bg-clara-teal' : 'bg-gray-300'
               }`}
               onClick={() => setActiveIndex(index)}
             />

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -187,29 +188,6 @@ const HowItWorks = () => {
 
       {/* Omnichannel Support Carousel */}
       <OmnichannelCarousel />
-
-      {/* Video Section */}
-      <section className="py-20 bg-clara-gray">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-6">
-            Watch Clara in Action
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            See how Clara handles real customer calls and transforms your business operations
-          </p>
-          
-          {/* Video Placeholder */}
-          <div className="aspect-video bg-gray-800 rounded-xl flex items-center justify-center">
-            <div className="text-center text-white">
-              <div className="w-16 h-16 bg-clara-teal rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">▶️</span>
-              </div>
-              <p className="text-lg font-semibold">90-Second Explainer Video</p>
-              <p className="text-sm text-gray-300 mt-2">Clara AI in action - real calls, real results</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-clara-navy text-white">
