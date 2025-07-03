@@ -1,7 +1,8 @@
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
-import AIStackSection from '@/components/AIStackSection';
+import ClaraGrowthPills from '@/components/ClaraGrowthPills';
 import IntegrationCarousel from '@/components/IntegrationCarousel';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
@@ -100,8 +101,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 3-Step Process - Moved to 3rd position */}
-      <section className="py-20 bg-white">
+      {/* Clara Growth Pills Section */}
+      <ClaraGrowthPills />
+
+      {/* 3-Step Process */}
+      <section className="py-20 bg-clara-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
@@ -152,11 +156,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Interactive AI Stack Section */}
-      <AIStackSection />
-
       {/* Explainer Video Section */}
-      <section className="py-20 bg-clara-gray">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
