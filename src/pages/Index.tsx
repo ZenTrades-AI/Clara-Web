@@ -268,14 +268,14 @@ const Index = () => {
             </Button>
             <ROICalculator 
               trigger={
-                <Button variant="outline" className="border-white text-red hover:bg-white/10 px-8 py-3 text-lg">
+                <Button variant="outline" className="border-white text-black hover:bg-red/10 px-8 py-3 text-lg">
                   Try Clara Live
                 </Button>
               }
             />
           </div>
           <p className="text-sm text-gray-400 mt-6">
-            Calls &lt; eighty-five% confidence escalate to human dispatcher within two rings
+            Calls &lt; 85% confidence escalate to human dispatcher within two rings
           </p>
         </div>
       </section>
