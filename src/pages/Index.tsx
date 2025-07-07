@@ -72,7 +72,7 @@ const Index = () => {
                        filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
                      }}>
                   <img 
-                    src="/lovable-uploads/95c09db7-dcb4-4eb0-86b6-d01fc073de6d.png" 
+                    src="https://drive.google.com/file/d/1PWRtd0VTObQb4QP5wmXiKb2rPiDFYwJ3/view?usp=sharing" 
                     alt="Clara AI Analytics Dashboard"
                     className="w-full h-full object-cover"
                   />
@@ -85,7 +85,7 @@ const Index = () => {
                        filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
                      }}>
                   <img 
-                    src="/lovable-uploads/2beced65-65c1-49e0-82f4-7111f06f73b3.png" 
+                    src="https://drive.google.com/file/d/1x7i8yhSScckOPMI1QcDeBNBzRUCrc-Rz/view?usp=sharing" 
                     alt="Clara AI Dashboard Overview"
                     className="w-full h-full object-cover"
                   />
