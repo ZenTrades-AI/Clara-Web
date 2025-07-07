@@ -1,3 +1,4 @@
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
@@ -20,7 +21,7 @@ const Index = () => {
             <div className="space-y-8 animate-fade-in">
               <div className="space-y-4">
                 <div className="inline-flex items-center px-4 py-2 bg-clara-red/10 border border-clara-red/20 rounded-full">
-                  <span className="text-clara-red font-medium text-sm">ROI &lt; thirty days</span>
+                  <span className="text-clara-red font-medium text-sm">ROI &lt; 30 days</span>
                 </div>
                 <h1 className="text-4xl md:text-6xl font-montserrat font-bold leading-tight">
                   The AI Growth Engine for 
@@ -28,7 +29,7 @@ const Index = () => {
                 </h1>
                 <p className="text-xl text-gray-300 max-w-lg">
                   From first ring to final payment. Clara answers, dispatches, and collects - delivering 
-                  <span className="text-clara-red font-semibold"> +twenty-eight% booked revenue</span> with four-second answer time.
+                  <span className="text-clara-red font-semibold"> +28% booked revenue</span> with 4-second answer time.
                 </p>
               </div>
 
@@ -72,9 +73,9 @@ const Index = () => {
                        filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
                      }}>
                   <img 
-                    src="https://drive.google.com/file/d/1PWRtd0VTObQb4QP5wmXiKb2rPiDFYwJ3/view?usp=sharing" 
+                    src="/lovable-uploads/32762904-fcf4-4cf7-9b05-0c34cb6fff42.png" 
                     alt="Clara AI Analytics Dashboard"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 
@@ -85,9 +86,9 @@ const Index = () => {
                        filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
                      }}>
                   <img 
-                    src="https://drive.google.com/file/d/1x7i8yhSScckOPMI1QcDeBNBzRUCrc-Rz/view?usp=sharing" 
+                    src="/lovable-uploads/09fd6a4a-0c75-42c1-a614-ce41537889ed.png" 
                     alt="Clara AI Dashboard Overview"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>
@@ -147,7 +148,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
-              Three Steps to Revenue Growth
+              3 Steps to Revenue Growth
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Clara's AI stack transforms every customer touchpoint into revenue growth
@@ -163,7 +164,7 @@ const Index = () => {
               </div>
               <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">Capture</h3>
               <p className="text-gray-600 max-w-xs">
-                Every call answered in four seconds. AI handles intake, scheduling, and urgent dispatch.
+                Every call answered in 4 seconds. AI handles intake, scheduling, and urgent dispatch.
               </p>
               <div className="text-clara-red font-semibold mt-2">Never miss another lead</div>
             </div>
@@ -222,7 +223,7 @@ const Index = () => {
               See Clara in Action
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Watch how Clara transforms your business operations in just ninety seconds
+              Watch how Clara transforms your business operations in just 90 seconds
             </p>
           </div>
 
@@ -268,14 +269,14 @@ const Index = () => {
             </Button>
             <ROICalculator 
               trigger={
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg font-semibold">
                   Try Clara Live
                 </Button>
               }
             />
           </div>
           <p className="text-sm text-gray-400 mt-6">
-            Calls &lt; eighty-five% confidence escalate to human dispatcher within two rings
+            Calls &lt; 85% confidence escalate to human dispatcher within 2 rings
           </p>
         </div>
       </section>
