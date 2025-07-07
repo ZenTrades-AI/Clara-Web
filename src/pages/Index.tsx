@@ -1,3 +1,4 @@
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
@@ -17,28 +18,28 @@ const Index = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[500px] lg:min-h-[600px]">
             {/* Left Column - Content */}
-            <div className="space-y-8 animate-fade-in">
-              <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-clara-red/10 border border-clara-red/20 rounded-full">
-                  <span className="text-clara-red font-medium text-sm">ROI &lt; thirty days</span>
+            <div className="space-y-6 animate-fade-in">
+              <div className="space-y-3">
+                <div className="inline-flex items-center px-3 py-1.5 bg-clara-red/10 border border-clara-red/20 rounded-full">
+                  <span className="text-clara-red font-medium text-xs">ROI &lt; 30 days</span>
                 </div>
-                <h1 className="text-4xl md:text-6xl font-montserrat font-bold leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold leading-tight">
                   The AI Growth Engine for 
                   <span className="text-clara-red"> Service Contractors</span>
                 </h1>
-                <p className="text-xl text-gray-300 max-w-lg">
+                <p className="text-lg text-gray-300 max-w-lg">
                   From first ring to final payment. Clara answers, dispatches, and collects - delivering 
-                  <span className="text-clara-red font-semibold"> +twenty-eight% booked revenue</span> with four-second answer time.
+                  <span className="text-clara-red font-semibold"> +28% booked revenue</span> with 4s answer time.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-6 py-2.5 text-base">
                   Book a 15-min Demo
                 </Button>
                 <ROICalculator 
                   trigger={
-                    <Button variant="outline" className="border-clara-red text-clara-red hover:bg-clara-red hover:text-white px-8 py-3 text-lg font-semibold transition-all duration-200">
+                    <Button variant="outline" className="border-clara-red text-clara-red hover:bg-clara-red hover:text-white px-6 py-2.5 text-base font-semibold transition-all duration-200">
                       Calculate ROI
                     </Button>
                   }
@@ -46,48 +47,48 @@ const Index = () => {
               </div>
 
               {/* Key Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8">
+              <div className="grid grid-cols-3 gap-4 pt-6">
                 <div className="text-center">
-                  <div className="text-2xl font-montserrat font-bold text-clara-red">4s</div>
-                  <div className="text-sm text-gray-300">Answer Time</div>
+                  <div className="text-xl font-montserrat font-bold text-clara-red">4s</div>
+                  <div className="text-xs text-gray-300">Answer Time</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-montserrat font-bold text-clara-red">+28%</div>
-                  <div className="text-sm text-gray-300">Booked Revenue</div>
+                  <div className="text-xl font-montserrat font-bold text-clara-red">+28%</div>
+                  <div className="text-xs text-gray-300">Booked Revenue</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-montserrat font-bold text-clara-red">85%</div>
-                  <div className="text-sm text-gray-300">AI Confidence</div>
+                  <div className="text-xl font-montserrat font-bold text-clara-red">85%</div>
+                  <div className="text-xs text-gray-300">AI Confidence</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - Overlapping Dashboard Screenshots with Red Glow */}
+            {/* Right Column - Larger Overlapping Dashboard Screenshots with Red Glow */}
             <div className="relative">
               <div className="relative flex justify-center items-center">
                 {/* Back Dashboard - Analytics Dashboard with Red Glow */}
-                <div className="absolute right-8 top-4 w-80 h-64 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500" 
+                <div className="absolute right-4 top-2 w-96 h-80 bg-white rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500" 
                      style={{ 
                        boxShadow: '0 0 40px rgba(203, 46, 65, 0.5), 0 0 60px rgba(203, 46, 65, 0.3)',
                        filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
                      }}>
                   <img 
-                    src="https://drive.google.com/file/d/1PWRtd0VTObQb4QP5wmXiKb2rPiDFYwJ3/view?usp=sharing" 
+                    src="/lovable-uploads/09fd6a4a-0c75-42c1-a614-ce41537889ed.png" 
                     alt="Clara AI Analytics Dashboard"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 
                 {/* Front Dashboard - Overview Dashboard with Red Glow and slight zoom */}
-                <div className="relative z-10 w-80 h-64 rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 scale-105" 
+                <div className="relative z-10 w-96 h-80 bg-white rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 scale-105" 
                      style={{ 
                        boxShadow: '0 0 40px rgba(203, 46, 65, 0.5), 0 0 60px rgba(203, 46, 65, 0.3)',
                        filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
                      }}>
                   <img 
-                    src="https://drive.google.com/file/d/1x7i8yhSScckOPMI1QcDeBNBzRUCrc-Rz/view?usp=sharing" 
+                    src="/lovable-uploads/32762904-fcf4-4cf7-9b05-0c34cb6fff42.png" 
                     alt="Clara AI Dashboard Overview"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>
@@ -268,14 +269,14 @@ const Index = () => {
             </Button>
             <ROICalculator 
               trigger={
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
+                <Button variant="outline" className="border-white text-black hover:bg-red/10 px-8 py-3 text-lg">
                   Try Clara Live
                 </Button>
               }
             />
           </div>
           <p className="text-sm text-gray-400 mt-6">
-            Calls &lt; eighty-five% confidence escalate to human dispatcher within two rings
+            Calls &lt; 85% confidence escalate to human dispatcher within two rings
           </p>
         </div>
       </section>
