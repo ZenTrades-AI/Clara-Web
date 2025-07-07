@@ -20,7 +20,7 @@ const Index = () => {
             <div className="space-y-8 animate-fade-in">
               <div className="space-y-4">
                 <div className="inline-flex items-center px-4 py-2 bg-clara-red/10 border border-clara-red/20 rounded-full">
-                  <span className="text-clara-red font-medium text-sm">ROI &lt; thirty days</span>
+                  <span className="text-clara-red font-medium text-sm">ROI &lt; 30 days</span>
                 </div>
                 <h1 className="text-4xl md:text-6xl font-montserrat font-bold leading-tight">
                   The AI Growth Engine for 
@@ -28,7 +28,7 @@ const Index = () => {
                 </h1>
                 <p className="text-xl text-gray-300 max-w-lg">
                   From first ring to final payment. Clara answers, dispatches, and collects - delivering 
-                  <span className="text-clara-red font-semibold"> +twenty-eight% booked revenue</span> with four-second answer time.
+                  <span className="text-clara-red font-semibold"> +28% booked revenue</span> with 4s answer time.
                 </p>
               </div>
 
@@ -268,7 +268,7 @@ const Index = () => {
             </Button>
             <ROICalculator 
               trigger={
-                <Button variant="outline" className="border-white text-white hover:bg-red/10 px-8 py-3 text-lg">
+                <Button variant="outline" className="border-white text-red hover:bg-white/10 px-8 py-3 text-lg">
                   Try Clara Live
                 </Button>
               }
