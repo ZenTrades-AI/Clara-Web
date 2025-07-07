@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import OmnichannelCarousel from '@/components/OmnichannelCarousel';
 import { Button } from '@/components/ui/button';
 
 const layers = [
@@ -85,6 +84,34 @@ const layers = [
   },
 ];
 
+const channels = [
+  {
+    name: 'Voice',
+    icon: '📞',
+    description: '4-second answer time with natural conversation'
+  },
+  {
+    name: 'Chat',
+    icon: '💬',
+    description: 'Real-time website chat support'
+  },
+  {
+    name: 'Email',
+    icon: '📧',
+    description: 'Automated email workflows and responses'
+  },
+  {
+    name: 'SMS',
+    icon: '📱',
+    description: 'Text message reminders and updates'
+  },
+  {
+    name: 'API',
+    icon: '🔗',
+    description: 'Seamless integration with existing systems'
+  }
+];
+
 const HowItWorks = () => {
   const [activeLayer, setActiveLayer] = useState(0);
 
@@ -116,8 +143,8 @@ const HowItWorks = () => {
                     key={layer.name}
                     className={`relative p-6 rounded-lg border-2 transition-all duration-300 cursor-pointer transform hover:scale-105 ${
                       index === activeLayer
-                        ? 'border-clara-teal bg-clara-teal/10 shadow-lg'
-                        : 'border-gray-200 bg-white hover:border-clara-teal/50 hover:shadow-md'
+                        ? 'border-clara-red bg-clara-red/10 shadow-lg'
+                        : 'border-gray-200 bg-white hover:border-clara-red/50 hover:shadow-md'
                     }`}
                     onClick={() => setActiveLayer(index)}
                   >
@@ -140,14 +167,14 @@ const HowItWorks = () => {
                         </p>
                       </div>
                       <div className={`text-sm font-medium transition-colors duration-300 ${
-                        index === activeLayer ? 'text-clara-teal' : 'text-gray-400'
+                        index === activeLayer ? 'text-clara-red' : 'text-gray-400'
                       }`}>
                         0{index + 1}
                       </div>
                     </div>
                     {index === activeLayer && (
                       <div className="absolute -right-2 top-1/2 transform -translate-y-1/2">
-                        <div className="w-4 h-4 bg-clara-teal rounded-full animate-pulse"></div>
+                        <div className="w-4 h-4 bg-clara-red rounded-full animate-pulse"></div>
                       </div>
                     )}
                   </div>
@@ -171,14 +198,14 @@ const HowItWorks = () => {
                   <h4 className="font-semibold text-clara-navy">Key Features:</h4>
                   {layers[activeLayer].features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-clara-teal rounded-full"></div>
+                      <div className="w-2 h-2 bg-clara-red rounded-full"></div>
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <Button className="bg-clara-teal hover:bg-clara-teal/90 text-white font-semibold px-8 py-3">
+              <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3">
                 See Clara in Action
               </Button>
             </div>
@@ -186,8 +213,40 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* Omnichannel Support Carousel */}
-      <OmnichannelCarousel />
+      {/* Omnichannel Support Section - Updated Design */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-red mb-4">
+              Omnichannel Support
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Clara connects with your customers across all communication channels
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {channels.map((channel, index) => (
+              <div
+                key={channel.name}
+                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl hover:border-clara-red/30 transition-all duration-300 group"
+              >
+                <div className="text-center">
+                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {channel.icon}
+                  </div>
+                  <h3 className="font-montserrat font-bold text-lg mb-2 text-clara-navy group-hover:text-clara-red transition-colors">
+                    {channel.name}
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    {channel.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-clara-navy text-white">
@@ -199,10 +258,10 @@ const HowItWorks = () => {
             Let Clara handle your calls while you focus on growing your business
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
+            <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg">
               Book a 15-min Demo
             </Button>
-            <Button variant="outline" className="border-white text-clara-navy hover:bg-white/10 px-8 py-3 text-lg">
+            <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
               Try Clara Live
             </Button>
           </div>

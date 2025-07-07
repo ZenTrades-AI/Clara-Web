@@ -9,10 +9,11 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-clara-red rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">C</span>
-              </div>
-              <span className="text-white font-montserrat font-bold text-xl">Clara AI</span>
+              <img 
+                src="/lovable-uploads/4747974c-78dc-400c-a26d-91d2e624fe3d.png" 
+                alt="Clara AI" 
+                className="h-8 w-auto"
+              />
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
               The AI Growth Engine for service-trade contractors. From first ring to final payment.

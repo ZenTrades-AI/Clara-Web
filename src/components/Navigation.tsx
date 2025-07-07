@@ -35,10 +35,11 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-clara-gold rounded-lg flex items-center justify-center">
-              <span className="text-clara-navy font-bold text-lg">C</span>
-            </div>
-            <span className="text-white font-montserrat font-bold text-xl">Clara AI</span>
+            <img 
+              src="/lovable-uploads/4747974c-78dc-400c-a26d-91d2e624fe3d.png" 
+              alt="Clara AI" 
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -49,8 +50,8 @@ const Navigation = () => {
                 to={item.path}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? 'text-clara-gold'
-                    : 'text-white hover:text-clara-gold'
+                    ? 'text-clara-red'
+                    : 'text-white hover:text-clara-red'
                 }`}
               >
                 {item.name}
@@ -62,12 +63,12 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-3">
             <ROICalculator 
               trigger={
-                <Button variant="outline" className="border-clara-gold text-clara-gold hover:bg-clara-gold/10 px-4 py-2 text-sm">
+                <Button variant="outline" className="border-clara-red text-clara-red hover:bg-clara-red/10 px-4 py-2 text-sm">
                   Calculate ROI
                 </Button>
               }
             />
-            <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-6">
+            <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-6">
               Book Demo
             </Button>
           </div>
@@ -92,8 +93,8 @@ const Navigation = () => {
                 to={item.path}
                 className={`block text-sm font-medium transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? 'text-clara-gold'
-                    : 'text-white hover:text-clara-gold'
+                    ? 'text-clara-red'
+                    : 'text-white hover:text-clara-red'
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -103,12 +104,12 @@ const Navigation = () => {
             <div className="space-y-3 pt-4">
               <ROICalculator 
                 trigger={
-                  <Button variant="outline" className="w-full border-clara-gold text-clara-gold hover:bg-clara-gold/10">
+                  <Button variant="outline" className="w-full border-clara-red text-clara-red hover:bg-clara-red/10">
                     Calculate ROI
                   </Button>
                 }
               />
-              <Button className="w-full bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold">
+              <Button className="w-full bg-clara-red hover:bg-clara-red/90 text-white font-semibold">
                 Book Demo
               </Button>
             </div>

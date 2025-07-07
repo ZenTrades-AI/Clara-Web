@@ -63,22 +63,31 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right Column - Overlapping Dashboard Screenshots */}
+            {/* Right Column - Overlapping Dashboard Screenshots with Red Glow */}
             <div className="relative">
               <div className="relative flex justify-center items-center">
-                {/* First Dashboard - Background */}
-                <div className="absolute right-8 top-4 w-80 h-64 bg-clara-navy/90 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 border-2 border-clara-red/30" style={{ boxShadow: '0 0 40px rgba(203, 46, 65, 0.3)' }}>
+                {/* First Dashboard - Background with Red Glow */}
+                <div className="absolute right-8 top-4 w-80 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500" 
+                     style={{ 
+                       boxShadow: '0 0 40px rgba(203, 46, 65, 0.5), 0 0 60px rgba(203, 46, 65, 0.3)',
+                       filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
+                     }}>
                   <img 
                     src="/lovable-uploads/c3f261a7-37ab-4bfa-b77a-4435abca38cd.png" 
                     alt="Clara AI Dashboard Overview"
                     className="w-full h-full object-cover"
+                    style={{ filter: 'hue-rotate(340deg) saturate(1.2)' }}
                   />
                 </div>
                 
-                {/* Second Dashboard - Foreground */}
-                <div className="relative z-10 w-80 h-64 bg-clara-navy/90 rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 border-2 border-clara-red/30" style={{ boxShadow: '0 0 40px rgba(203, 46, 65, 0.3)' }}>
+                {/* Second Dashboard - Foreground with Red Glow */}
+                <div className="relative z-10 w-80 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500" 
+                     style={{ 
+                       boxShadow: '0 0 40px rgba(203, 46, 65, 0.5), 0 0 60px rgba(203, 46, 65, 0.3)',
+                       filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
+                     }}>
                   <img 
-                    src="/lovable-uploads/798d992c-75fd-424f-8023-e5f077c7bc42.png" 
+                    src="/lovable-uploads/b9ff9d57-be40-49d1-9ad5-5a7aba524488.png" 
                     alt="Clara AI Analytics Dashboard"
                     className="w-full h-full object-cover"
                   />
@@ -231,7 +240,7 @@ const Index = () => {
                 className="absolute inset-0"
               ></iframe>
               
-              {/* Custom Play Button Overlay */}
+              {/* Custom Red Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="w-20 h-20 bg-clara-red rounded-full flex items-center justify-center shadow-2xl opacity-90 hover:opacity-100 transition-opacity pointer-events-auto cursor-pointer">
                   <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
