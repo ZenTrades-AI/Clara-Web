@@ -1,4 +1,3 @@
-
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
@@ -39,7 +38,7 @@ const Index = () => {
                 </Button>
                 <ROICalculator 
                   trigger={
-                    <Button variant="outline" className="border-clara-red text-clara-red hover:bg-clara-red/10 px-8 py-3 text-lg">
+                    <Button variant="outline" className="border-clara-red text-clara-red hover:bg-clara-red hover:text-white px-8 py-3 text-lg font-semibold transition-all duration-200">
                       Calculate ROI
                     </Button>
                   }
@@ -66,29 +65,28 @@ const Index = () => {
             {/* Right Column - Overlapping Dashboard Screenshots with Red Glow */}
             <div className="relative">
               <div className="relative flex justify-center items-center">
-                {/* First Dashboard - Background with Red Glow */}
+                {/* Back Dashboard - Analytics Dashboard with Red Glow */}
                 <div className="absolute right-8 top-4 w-80 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500" 
                      style={{ 
                        boxShadow: '0 0 40px rgba(203, 46, 65, 0.5), 0 0 60px rgba(203, 46, 65, 0.3)',
                        filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
                      }}>
                   <img 
-                    src="/lovable-uploads/c3f261a7-37ab-4bfa-b77a-4435abca38cd.png" 
-                    alt="Clara AI Dashboard Overview"
+                    src="/lovable-uploads/95c09db7-dcb4-4eb0-86b6-d01fc073de6d.png" 
+                    alt="Clara AI Analytics Dashboard"
                     className="w-full h-full object-cover"
-                    style={{ filter: 'hue-rotate(340deg) saturate(1.2)' }}
                   />
                 </div>
                 
-                {/* Second Dashboard - Foreground with Red Glow */}
-                <div className="relative z-10 w-80 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500" 
+                {/* Front Dashboard - Overview Dashboard with Red Glow and slight zoom */}
+                <div className="relative z-10 w-80 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 scale-105" 
                      style={{ 
                        boxShadow: '0 0 40px rgba(203, 46, 65, 0.5), 0 0 60px rgba(203, 46, 65, 0.3)',
                        filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
                      }}>
                   <img 
-                    src="/lovable-uploads/b9ff9d57-be40-49d1-9ad5-5a7aba524488.png" 
-                    alt="Clara AI Analytics Dashboard"
+                    src="/lovable-uploads/2beced65-65c1-49e0-82f4-7111f06f73b3.png" 
+                    alt="Clara AI Dashboard Overview"
                     className="w-full h-full object-cover"
                   />
                 </div>
