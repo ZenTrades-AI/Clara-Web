@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
 import IntegrationCarousel from '@/components/IntegrationCarousel';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ArrowRight } from 'lucide-react';
+import { ArrowDown, ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -63,20 +63,23 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right Column - Dashboard Screenshots */}
+            {/* Right Column - Overlapping Dashboard Screenshots */}
             <div className="relative">
-              <div className="flex space-x-4">
-                <div className="aspect-[3/4] bg-gradient-to-br from-clara-red/20 to-gray-800/20 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+              <div className="relative flex justify-center items-center">
+                {/* First Dashboard - Background */}
+                <div className="absolute right-8 top-4 w-80 h-64 bg-clara-navy/90 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 border-2 border-clara-red/30" style={{ boxShadow: '0 0 40px rgba(203, 46, 65, 0.3)' }}>
                   <img 
-                    src="/lovable-uploads/996b36cf-24d7-4b89-a53b-369e63159a2e.png" 
-                    alt="Clara AI Dashboard showing job lifecycle performance"
+                    src="/lovable-uploads/c3f261a7-37ab-4bfa-b77a-4435abca38cd.png" 
+                    alt="Clara AI Dashboard Overview"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="aspect-[3/4] bg-gradient-to-br from-gray-800/20 to-clara-red/20 rounded-2xl overflow-hidden shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 mt-8">
+                
+                {/* Second Dashboard - Foreground */}
+                <div className="relative z-10 w-80 h-64 bg-clara-navy/90 rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 border-2 border-clara-red/30" style={{ boxShadow: '0 0 40px rgba(203, 46, 65, 0.3)' }}>
                   <img 
-                    src="/lovable-uploads/996b36cf-24d7-4b89-a53b-369e63159a2e.png" 
-                    alt="Clara AI Analytics dashboard"
+                    src="/lovable-uploads/798d992c-75fd-424f-8023-e5f077c7bc42.png" 
+                    alt="Clara AI Analytics Dashboard"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -101,30 +104,30 @@ const Index = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
               <div className="flex justify-center">
                 <img 
-                  src="/lovable-uploads/40ffb9b3-b887-4ee1-8651-b948d1a833db.png" 
-                  alt="HVAC Pro Comfortshield Club logo" 
-                  className="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  src="/lovable-uploads/bcd70ec6-c0ae-4ef6-a446-4339ea655d94.png" 
+                  alt="HVAC Pro Comfort Shield Club logo" 
+                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
               <div className="flex justify-center">
                 <img 
-                  src="/lovable-uploads/858521cf-0c14-4181-a171-65a7e91fcb07.png" 
+                  src="/lovable-uploads/f54d82f6-2007-4d29-b972-b589b9101ca1.png" 
                   alt="F&M Fire Protection logo" 
-                  className="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
               <div className="flex justify-center">
                 <img 
                   src="/lovable-uploads/8ff94b25-5aeb-42fa-a50a-c5a75b702942.png" 
                   alt="Kantra Electric Inc logo" 
-                  className="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
               <div className="flex justify-center">
                 <img 
                   src="/lovable-uploads/8d32313c-c03a-45bc-9cce-bf17727ca1ca.png" 
                   alt="Alliance Specialized Systems logo" 
-                  className="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
             </div>
@@ -217,14 +220,22 @@ const Index = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="aspect-video bg-clara-navy rounded-xl flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-clara-red/20 to-gray-800/20"></div>
-              <div className="relative text-center text-white">
-                <div className="w-20 h-20 mx-auto mb-4 bg-clara-red rounded-full flex items-center justify-center">
-                  <span className="text-3xl text-white">▶️</span>
+            <div className="relative aspect-video bg-clara-navy rounded-xl overflow-hidden shadow-2xl border-2 border-white">
+              <iframe
+                src="https://player.vimeo.com/video/1096761906?badge=0&autopause=0&player_id=0&app_id=58479"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Clara AI Demo Video"
+                className="absolute inset-0"
+              ></iframe>
+              
+              {/* Custom Play Button Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-20 h-20 bg-clara-red rounded-full flex items-center justify-center shadow-2xl opacity-90 hover:opacity-100 transition-opacity pointer-events-auto cursor-pointer">
+                  <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
                 </div>
-                <h3 className="text-2xl font-montserrat font-bold mb-2">Ninety-Second Explainer Video</h3>
-                <p className="text-gray-300">Watch how Clara handles real contractor scenarios</p>
               </div>
             </div>
           </div>
