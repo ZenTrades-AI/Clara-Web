@@ -2,10 +2,10 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
-import ClaraGrowthPills from '@/components/ClaraGrowthPills';
 import IntegrationCarousel from '@/components/IntegrationCarousel';
 import { Button } from '@/components/ui/button';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
@@ -20,26 +20,26 @@ const Index = () => {
             {/* Left Column - Content */}
             <div className="space-y-8 animate-fade-in">
               <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-clara-gold/10 border border-clara-gold/20 rounded-full">
-                  <span className="text-clara-gold font-medium text-sm">ROI &lt; 30 days</span>
+                <div className="inline-flex items-center px-4 py-2 bg-clara-red/10 border border-clara-red/20 rounded-full">
+                  <span className="text-clara-red font-medium text-sm">ROI &lt; thirty days</span>
                 </div>
                 <h1 className="text-4xl md:text-6xl font-montserrat font-bold leading-tight">
                   The AI Growth Engine for 
-                  <span className="text-clara-gold"> Service Contractors</span>
+                  <span className="text-clara-red"> Service Contractors</span>
                 </h1>
                 <p className="text-xl text-gray-300 max-w-lg">
                   From first ring to final payment. Clara answers, dispatches, and collects - delivering 
-                  <span className="text-clara-gold font-semibold"> +28% booked revenue</span> with four-second answer time.
+                  <span className="text-clara-red font-semibold"> +twenty-eight% booked revenue</span> with four-second answer time.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
+                <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg">
                   Book a 15-min Demo
                 </Button>
                 <ROICalculator 
                   trigger={
-                    <Button variant="outline" className="border-clara-gold text-clara-gold hover:bg-clara-gold/10 px-8 py-3 text-lg">
+                    <Button variant="outline" className="border-clara-red text-clara-red hover:bg-clara-red/10 px-8 py-3 text-lg">
                       Calculate ROI
                     </Button>
                   }
@@ -49,28 +49,37 @@ const Index = () => {
               {/* Key Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8">
                 <div className="text-center">
-                  <div className="text-2xl font-montserrat font-bold text-clara-gold">4s</div>
+                  <div className="text-2xl font-montserrat font-bold text-clara-red">4s</div>
                   <div className="text-sm text-gray-300">Answer Time</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-montserrat font-bold text-clara-gold">+28%</div>
+                  <div className="text-2xl font-montserrat font-bold text-clara-red">+28%</div>
                   <div className="text-sm text-gray-300">Booked Revenue</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-montserrat font-bold text-clara-gold">85%</div>
+                  <div className="text-2xl font-montserrat font-bold text-clara-red">85%</div>
                   <div className="text-sm text-gray-300">AI Confidence</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - Hero Image */}
+            {/* Right Column - Dashboard Screenshots */}
             <div className="relative">
-              <div className="aspect-[4/3] bg-gradient-to-br from-clara-gold/20 to-clara-teal/20 rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src="/lovable-uploads/996b36cf-24d7-4b89-a53b-369e63159a2e.png" 
-                  alt="Clara AI Dashboard showing job lifecycle performance and metrics"
-                  className="w-full h-full object-cover"
-                />
+              <div className="flex space-x-4">
+                <div className="aspect-[3/4] bg-gradient-to-br from-clara-red/20 to-gray-800/20 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                  <img 
+                    src="/lovable-uploads/996b36cf-24d7-4b89-a53b-369e63159a2e.png" 
+                    alt="Clara AI Dashboard showing job lifecycle performance"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="aspect-[3/4] bg-gradient-to-br from-gray-800/20 to-clara-red/20 rounded-2xl overflow-hidden shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 mt-8">
+                  <img 
+                    src="/lovable-uploads/996b36cf-24d7-4b89-a53b-369e63159a2e.png" 
+                    alt="Clara AI Analytics dashboard"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -78,7 +87,7 @@ const Index = () => {
         
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="text-clara-gold" size={24} />
+          <ArrowDown className="text-clara-red" size={24} />
         </div>
       </section>
 
@@ -123,81 +132,98 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Clara Growth Pills Section */}
-      <ClaraGrowthPills />
-
-      {/* 3-Step Process */}
-      <section className="py-20 bg-clara-gray">
+      {/* Reimagined Process Flow - Capture → Convert → Collect */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
-              Capture → Convert → Collect
+              Three Steps to Revenue Growth
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Clara's AI stack transforms every customer touchpoint into revenue growth
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Step 1: Capture */}
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-2xl text-clara-navy font-bold">1</span>
+          {/* Linear Animated Flow */}
+          <div className="flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8 mb-12">
+            {/* Capture */}
+            <div className="flex flex-col items-center text-center group">
+              <div className="w-24 h-24 bg-clara-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <span className="text-3xl text-white font-bold">1</span>
               </div>
-              <h3 className="text-xl font-montserrat font-bold text-clara-navy mb-4">Capture</h3>
-              <p className="text-gray-600 mb-4">
-                Every call answered in 4 seconds. AI handles intake, scheduling, and urgent dispatch with human-level conversation.
+              <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">Capture</h3>
+              <p className="text-gray-600 max-w-xs">
+                Every call answered in four seconds. AI handles intake, scheduling, and urgent dispatch.
               </p>
-              <div className="text-clara-gold font-semibold">Never miss another lead</div>
+              <div className="text-clara-red font-semibold mt-2">Never miss another lead</div>
             </div>
 
-            {/* Step 2: Convert */}
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-2xl text-clara-navy font-bold">2</span>
-              </div>
-              <h3 className="text-xl font-montserrat font-bold text-clara-navy mb-4">Convert</h3>
-              <p className="text-gray-600 mb-4">
-                Smart follow-ups, appointment reminders, and service optimization turn prospects into profitable customers.
-              </p>
-              <div className="text-clara-gold font-semibold">Maximize booking rates</div>
+            {/* Animated Arrow */}
+            <div className="hidden lg:flex items-center">
+              <ArrowRight className="text-clara-red animate-flow-arrow" size={32} />
             </div>
 
-            {/* Step 3: Collect */}
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-clara-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-2xl text-clara-navy font-bold">3</span>
+            {/* Convert */}
+            <div className="flex flex-col items-center text-center group">
+              <div className="w-24 h-24 bg-clara-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <span className="text-3xl text-white font-bold">2</span>
               </div>
-              <h3 className="text-xl font-montserrat font-bold text-clara-navy mb-4">Collect</h3>
-              <p className="text-gray-600 mb-4">
-                Automated invoicing, payment follow-ups, and review requests ensure you get paid faster and grow reputation.
+              <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">Convert</h3>
+              <p className="text-gray-600 max-w-xs">
+                Smart follow-ups and appointment reminders turn prospects into profitable customers.
               </p>
-              <div className="text-clara-gold font-semibold">Accelerate cash flow</div>
+              <div className="text-clara-red font-semibold mt-2">Maximize booking rates</div>
             </div>
+
+            {/* Animated Arrow */}
+            <div className="hidden lg:flex items-center">
+              <ArrowRight className="text-clara-red animate-flow-arrow" size={32} style={{ animationDelay: '0.5s' }} />
+            </div>
+
+            {/* Collect */}
+            <div className="flex flex-col items-center text-center group">
+              <div className="w-24 h-24 bg-clara-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <span className="text-3xl text-white font-bold">3</span>
+              </div>
+              <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">Collect</h3>
+              <p className="text-gray-600 max-w-xs">
+                Automated invoicing and payment follow-ups accelerate cash flow and grow reputation.
+              </p>
+              <div className="text-clara-red font-semibold mt-2">Accelerate cash flow</div>
+            </div>
+          </div>
+
+          {/* CTA to How It Works */}
+          <div className="text-center">
+            <Link to="/how-it-works">
+              <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg">
+                See How It Works
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Explainer Video Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-clara-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
               See Clara in Action
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Watch how Clara transforms your business operations in just 90 seconds
+              Watch how Clara transforms your business operations in just ninety seconds
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="aspect-video bg-clara-navy rounded-xl flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-clara-gold/20 to-clara-teal/20"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-clara-red/20 to-gray-800/20"></div>
               <div className="relative text-center text-white">
-                <div className="w-20 h-20 mx-auto mb-4 bg-clara-gold rounded-full flex items-center justify-center">
-                  <span className="text-3xl text-clara-navy">▶️</span>
+                <div className="w-20 h-20 mx-auto mb-4 bg-clara-red rounded-full flex items-center justify-center">
+                  <span className="text-3xl text-white">▶️</span>
                 </div>
-                <h3 className="text-2xl font-montserrat font-bold mb-2">90-Second Explainer Video</h3>
+                <h3 className="text-2xl font-montserrat font-bold mb-2">Ninety-Second Explainer Video</h3>
                 <p className="text-gray-300">Watch how Clara handles real contractor scenarios</p>
               </div>
             </div>
@@ -219,19 +245,19 @@ const Index = () => {
             convert more customers, and collect payments faster.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
+            <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg">
               Book a 15-min Demo
             </Button>
             <ROICalculator 
               trigger={
-                <Button variant="outline" className="border-white text-clara-navy hover:bg-white/10 px-8 py-3 text-lg">
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
                   Try Clara Live
                 </Button>
               }
             />
           </div>
           <p className="text-sm text-gray-400 mt-6">
-            Calls &lt; 85% confidence escalate to human dispatcher within 2 rings
+            Calls &lt; eighty-five% confidence escalate to human dispatcher within two rings
           </p>
         </div>
       </section>

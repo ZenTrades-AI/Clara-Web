@@ -128,7 +128,7 @@ const IntegrationCarousel = () => {
                     .map((integration, index) => (
                       <div
                         key={index}
-                        className="group bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-all duration-500 cursor-pointer border border-gray-200 hover:border-clara-teal/30"
+                        className="group bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-all duration-500 cursor-pointer border border-gray-200 hover:border-clara-red/30"
                       >
                         <div className="text-center">
                           <div className="flex justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -152,7 +152,7 @@ const IntegrationCarousel = () => {
               <button
                 key={index}
                 className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                  index === currentIndex ? 'bg-clara-teal' : 'bg-gray-300'
+                  index === currentIndex ? 'bg-clara-red' : 'bg-gray-300'
                 }`}
                 onClick={() => setCurrentIndex(index)}
               />

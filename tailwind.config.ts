@@ -26,7 +26,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#041E42',
+					DEFAULT: '#121212',
 					foreground: '#ffffff'
 				},
 				secondary: {
@@ -63,12 +63,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Clara AI Brand Colors
-				'clara-navy': '#041E42',
-				'clara-teal': '#5c0d15',
+				// Clara AI Brand Colors - Updated
+				'clara-navy': '#121212',  // Deep black instead of navy
+				'clara-red': '#cb2e41',   // Bold red instead of teal
 				'clara-gray': '#F5F7FA',
-				'clara-gold': '#20B2AA',  // Changed from gold to teal
-				'clara-red': '#E74C3C',
+				'clara-gold': '#cb2e41',  // Using red as accent color
+				'clara-teal': '#cb2e41',  // Using red consistently
 			},
 			fontFamily: {
 				'montserrat': ['Montserrat', 'sans-serif'],
@@ -115,13 +115,28 @@ export default {
 						opacity: '1',
 						transform: 'translateX(0)'
 					}
+				},
+				'flow-arrow': {
+					'0%': {
+						transform: 'translateX(-10px)',
+						opacity: '0.5'
+					},
+					'50%': {
+						transform: 'translateX(0px)',
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateX(10px)',
+						opacity: '0.5'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
-				'layer-reveal': 'layer-reveal 0.5s ease-out'
+				'layer-reveal': 'layer-reveal 0.5s ease-out',
+				'flow-arrow': 'flow-arrow 2s ease-in-out infinite'
 			}
 		}
 	},
