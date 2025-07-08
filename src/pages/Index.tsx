@@ -1,10 +1,9 @@
-
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
 import IntegrationCarousel from '@/components/IntegrationCarousel';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ArrowRight, Play } from 'lucide-react';
+import { ArrowDown, ArrowRight, Play, Phone, Calendar, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -99,6 +98,140 @@ const Index = () => {
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <ArrowDown className="text-clara-red" size={24} />
+        </div>
+      </section>
+
+      {/* AI Growth Engine Section */}
+      <section className="py-20 bg-clara-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 circuit-pattern opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-montserrat font-bold mb-4">
+              Your AI Growth Engine
+            </h2>
+            <p className="text-xl text-gray-300 mb-6">for Service Trades</p>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Capture missed calls, convert more jobs, collect faster — all on autopilot.
+            </p>
+          </div>
+
+          {/* Circular Diagram */}
+          <div className="flex justify-center mb-16">
+            <div className="relative w-80 h-80">
+              {/* Main Circle */}
+              <div className="absolute inset-0 rounded-full border-2 border-clara-red/30"></div>
+              
+              {/* Center Circle - Clara AI Growth Engine */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-clara-navy border-2 border-clara-red rounded-full flex flex-col items-center justify-center">
+                <div className="text-clara-red font-bold text-sm">Clara AI</div>
+                <div className="text-white text-xs">Growth Engine</div>
+              </div>
+
+              {/* Capture Circle */}
+              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-clara-navy border-2 border-clara-red rounded-full flex flex-col items-center justify-center">
+                <Phone className="w-6 h-6 text-white mb-1" />
+                <div className="text-xs text-gray-300">Capture</div>
+              </div>
+
+              {/* Convert Circle */}
+              <div className="absolute top-1/2 right-8 transform -translate-y-1/2 w-16 h-16 bg-clara-navy border-2 border-gray-500 rounded-full flex flex-col items-center justify-center">
+                <Calendar className="w-6 h-6 text-white mb-1" />
+                <div className="text-xs text-gray-300">Convert</div>
+              </div>
+
+              {/* Collect Circle */}
+              <div className="absolute bottom-12 left-8 w-16 h-16 bg-clara-red rounded-full flex flex-col items-center justify-center">
+                <DollarSign className="w-6 h-6 text-white mb-1" />
+                <div className="text-xs text-white">Collect</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Three Steps Section */}
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-montserrat font-bold mb-4">Capture, Convert and Collect</h3>
+            <p className="text-lg text-gray-400 mb-12">
+              Watch your business transform with our AI-powered process
+            </p>
+
+            {/* Process Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {/* Capture Card */}
+              <div className="bg-clara-navy/50 border border-gray-700 rounded-xl p-6 text-left">
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-white font-bold mr-3">1</div>
+                  <div>
+                    <Phone className="w-5 h-5 text-white mb-1" />
+                    <h4 className="text-xl font-montserrat font-bold text-white">Capture</h4>
+                    <p className="text-sm text-gray-400">Never miss another lead</p>
+                  </div>
+                </div>
+                <div className="mb-4">
+                  <p className="text-sm font-semibold text-gray-300 mb-2">Key Features:</p>
+                  <ul className="space-y-1 text-sm text-gray-400">
+                    <li>• Inbound & outbound AI voice calls</li>
+                    <li>• AI answering missed calls</li>
+                    <li>• Real-time lead capture</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Convert Card */}
+              <div className="bg-clara-navy/50 border border-gray-700 rounded-xl p-6 text-left">
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-white font-bold mr-3">2</div>
+                  <div>
+                    <Calendar className="w-5 h-5 text-white mb-1" />
+                    <h4 className="text-xl font-montserrat font-bold text-white">Convert</h4>
+                    <p className="text-sm text-gray-400">Maximize booking rates</p>
+                  </div>
+                </div>
+                <div className="mb-4">
+                  <p className="text-sm font-semibold text-gray-300 mb-2">Key Features:</p>
+                  <ul className="space-y-1 text-sm text-gray-400">
+                    <li>• AI auto-dispatch & scheduling</li>
+                    <li>• Route optimization</li>
+                    <li>• Upsell recommendations</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Collect Card - Highlighted */}
+              <div className="bg-green-900/30 border border-green-600 rounded-xl p-6 text-left relative">
+                <div className="absolute top-2 right-2 w-3 h-3 bg-clara-red rounded-full"></div>
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 bg-clara-red rounded-full flex items-center justify-center text-white font-bold mr-3">3</div>
+                  <div>
+                    <DollarSign className="w-5 h-5 text-white mb-1" />
+                    <h4 className="text-xl font-montserrat font-bold text-white">Collect</h4>
+                    <p className="text-sm text-green-400">Accelerate cash flow</p>
+                  </div>
+                </div>
+                <div className="mb-4">
+                  <p className="text-sm font-semibold text-gray-300 mb-2">Key Features:</p>
+                  <ul className="space-y-1 text-sm text-gray-400">
+                    <li>• AI payment follow-ups</li>
+                    <li>• Invoice recovery</li>
+                    <li>• Automated collections</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Flow Arrows */}
+            <div className="flex justify-center items-center space-x-8 mt-8 mb-12">
+              <ArrowRight className="text-clara-red" size={24} />
+              <ArrowRight className="text-clara-red" size={24} />
+            </div>
+
+            {/* CTA Button */}
+            <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg rounded-full">
+              See Clara in Action
+            </Button>
+            <p className="text-sm text-gray-400 mt-4">
+              Watch how the AI engine transforms your service business
+            </p>
+          </div>
         </div>
       </section>
 
