@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import HubSpotFormModal from '@/components/HubSpotFormModal';
+import { openHubSpotForm } from '@/utils/hubspotForm';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -11,7 +11,7 @@ import { useState } from 'react';
 const businessTypes = [
   'HVAC',
   'Plumbing',
-  'Electrical',
+  'Electrical', 
   'Fire Safety',
   'Facilities Management',
   'Construction',
@@ -34,7 +34,6 @@ const Pricing = () => {
   });
 
   const [activeStep, setActiveStep] = useState(0);
-  const [isHubSpotModalOpen, setIsHubSpotModalOpen] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -58,7 +57,7 @@ const Pricing = () => {
       ]
     },
     {
-      title: "ROI Analysis",
+      title: "ROI Analysis", 
       description: "Get a detailed breakdown of potential savings and revenue growth",
       icon: "📊",
       details: [
@@ -326,7 +325,7 @@ const Pricing = () => {
               </p>
               <Button 
                 className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3"
-                onClick={() => setIsHubSpotModalOpen(true)}
+                onClick={openHubSpotForm}
               >
                 Get Started Today
               </Button>
@@ -336,11 +335,6 @@ const Pricing = () => {
       </section>
 
       <Footer />
-      
-      <HubSpotFormModal 
-        isOpen={isHubSpotModalOpen}
-        onClose={() => setIsHubSpotModalOpen(false)}
-      />
     </div>
   );
 };

@@ -3,13 +3,12 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import ROICalculator from '@/components/ROICalculator';
-import HubSpotFormModal from '@/components/HubSpotFormModal';
+import { openHubSpotForm } from '@/utils/hubspotForm';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isHubSpotModalOpen, setIsHubSpotModalOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -73,7 +72,7 @@ const Navigation = () => {
               />
               <Button 
                 className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-6"
-                onClick={() => setIsHubSpotModalOpen(true)}
+                onClick={openHubSpotForm}
               >
                 Book Demo
               </Button>
@@ -118,7 +117,7 @@ const Navigation = () => {
                 <Button 
                   className="w-full bg-clara-red hover:bg-clara-red/90 text-white font-semibold"
                   onClick={() => {
-                    setIsHubSpotModalOpen(true);
+                    openHubSpotForm();
                     setIsMenuOpen(false);
                   }}
                 >
@@ -129,11 +128,6 @@ const Navigation = () => {
           </div>
         )}
       </nav>
-
-      <HubSpotFormModal 
-        isOpen={isHubSpotModalOpen}
-        onClose={() => setIsHubSpotModalOpen(false)}
-      />
     </>
   );
 };
