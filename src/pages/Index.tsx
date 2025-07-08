@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -64,7 +65,7 @@ const Index = () => {
                 <div className="inline-flex items-center px-3 py-1.5 bg-clara-red/10 border border-clara-red/20 rounded-full">
                   <span className="text-clara-red font-medium text-xs">ROI &lt; 30 days</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-7xl font-montserrat font-bold leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-[5rem] font-montserrat font-bold leading-tight">
                   The AI Growth Engine for 
                   <br />
                   <span className="text-clara-red"> Service Contractors</span>
@@ -116,15 +117,15 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Growth Engine Section - Updated with left-right layout */}
-      <section className="relative bg-clara-navy text-white py-12 overflow-hidden">
+      {/* AI Growth Engine Section - Updated with proper centering and spacing */}
+      <section className="relative bg-clara-navy text-white py-20 overflow-hidden">
         {/* Background Pattern - Same as hero */}
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
         
         {/* Main Content */}
         <div className="relative z-10 container mx-auto px-6">
           {/* Section Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
               Capture, Convert and Collect
             </h3>
@@ -133,10 +134,10 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Main Layout - Circle Left, Cards Right */}
-          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 max-w-7xl mx-auto mb-12">
+          {/* Main Layout - Circle Left, Cards Right - Properly Centered */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-16 max-w-7xl mx-auto mb-16">
             {/* AI Engine Core - Left Side */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex justify-center">
               <AIEngineCore 
                 activeSegment={activeSegment} 
                 onSegmentClick={(index) => {
@@ -148,12 +149,12 @@ const Index = () => {
             </div>
 
             {/* Process Cards - Right Side */}
-            <div className="flex-1">
-              <div className="flex flex-col gap-6 max-w-2xl">
+            <div className="flex-1 flex justify-center">
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 w-full max-w-4xl">
                 {segments.map((segment, index) => (
                   <div 
                     key={segment.title}
-                    className={`group relative p-6 rounded-2xl border transition-all duration-500 cursor-pointer backdrop-blur-sm ${
+                    className={`group relative p-6 rounded-2xl border transition-all duration-500 cursor-pointer backdrop-blur-sm flex-1 ${
                       activeSegment === index 
                         ? 'border-red-500/50 bg-gradient-to-br ' + segment.color + ' transform scale-105 shadow-2xl shadow-red-500/10' 
                         : 'border-gray-700/30 bg-gray-800/20 hover:border-gray-600/50 hover:bg-gray-800/30'
@@ -174,16 +175,16 @@ const Index = () => {
                     </div>
 
                     {/* Icon and Title */}
-                    <div className="flex items-center mb-4">
-                      <div className={`p-3 rounded-lg mr-4 transition-all duration-300 ${
+                    <div className="flex flex-col items-center text-center mb-4">
+                      <div className={`p-3 rounded-lg mb-3 transition-all duration-300 ${
                         activeSegment === index 
                           ? 'bg-red-500/20 text-red-400 shadow-lg' 
                           : 'bg-gray-700/50 text-gray-400 group-hover:text-white group-hover:bg-gray-600/50'
                       }`}>
-                        <segment.icon size={20} />
+                        <segment.icon size={24} />
                       </div>
                       <div>
-                        <h4 className={`text-xl font-bold transition-colors duration-300 ${
+                        <h4 className={`text-xl font-bold transition-colors duration-300 mb-1 ${
                           activeSegment === index ? 'text-white' : 'text-gray-300 group-hover:text-white'
                         }`}>
                           {segment.title}
@@ -197,8 +198,8 @@ const Index = () => {
                     </div>
 
                     {/* Key Features */}
-                    <div className="space-y-2">
-                      <h5 className={`text-sm font-semibold transition-colors duration-300 ${
+                    <div className="space-y-3">
+                      <h5 className={`text-sm font-semibold text-center transition-colors duration-300 ${
                         activeSegment === index ? 'text-gray-200' : 'text-gray-400 group-hover:text-gray-300'
                       }`}>
                         Key Features:
@@ -232,7 +233,7 @@ const Index = () => {
             </div>
           </div>
 
-          {/* CTA Button - Below Cards */}
+          {/* CTA Button - Below Cards - Centered */}
           <div className="text-center animate-fade-in">
             <Link to="/how-it-works">
               <Button 
