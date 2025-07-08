@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -65,6 +66,7 @@ const Index = () => {
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold leading-tight">
                   The AI Growth Engine for 
+                  <br />
                   <span className="text-clara-red"> Service Contractors</span>
                 </h1>
                 <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -245,7 +247,7 @@ const Index = () => {
                   size="lg" 
                   className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-10 py-5 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
                 >
-                  See Clara In Action
+                  How it Works
                 </Button>
               </Link>
               <p className="text-gray-500 mt-6 text-base">

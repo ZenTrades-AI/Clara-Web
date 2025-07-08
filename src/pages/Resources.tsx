@@ -1,3 +1,4 @@
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
@@ -5,30 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useState } from 'react';
-
-const blogPosts = [
-  {
-    title: 'How AI is Transforming the Service Industry',
-    excerpt: 'Discover the latest trends in AI adoption among service contractors and the measurable impact on business growth.',
-    date: 'November 15, 2024',
-    category: 'Industry Trends',
-    readTime: '5 min read'
-  },
-  {
-    title: 'ROI Calculator: The True Cost of Missed Calls',
-    excerpt: 'A deep dive into how missed calls impact your bottom line and strategies to recover lost revenue.',
-    date: 'November 10, 2024',
-    category: 'Business Growth',
-    readTime: '7 min read'
-  },
-  {
-    title: 'Integration Guide: Clara + NetSuite',
-    excerpt: 'Step-by-step guide to integrating Clara AI with your NetSuite ERP system for seamless operations.',
-    date: 'November 5, 2024',
-    category: 'Technical',
-    readTime: '10 min read'
-  }
-];
 
 const resources = [
   {
@@ -172,55 +149,8 @@ const Resources = () => {
         </div>
       </section>
 
-      {/* Blog Section */}
-      <section className="py-20 bg-clara-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-4">
-              Latest from our Blog
-            </h2>
-            <p className="text-xl text-gray-600">
-              Industry insights and practical advice for service contractors
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
-                <CardHeader>
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
-                    <span className="bg-clara-gold/10 text-clara-navy px-2 py-1 rounded-full text-xs font-medium">
-                      {post.category}
-                    </span>
-                    <span>{post.readTime}</span>
-                  </div>
-                  <CardTitle className="text-xl font-montserrat font-bold text-clara-navy group-hover:text-clara-teal transition-colors">
-                    {post.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">{post.date}</span>
-                    <Button variant="outline" className="border-clara-navy text-clara-navy hover:bg-clara-navy/10 text-sm">
-                      Read More
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button className="bg-clara-navy hover:bg-clara-navy/90 text-white px-8 py-3">
-              View All Articles
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-clara-gray">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-4">
