@@ -47,8 +47,19 @@ export const AIEngineCore = ({ activeSegment, onSegmentClick }: AIEngineCoreProp
         />
       </div>
 
-      {/* Connection Lines to Center - Behind central core */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+      {/* Central Core */}
+      <div className="absolute inset-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-red-500/30 flex items-center justify-center shadow-2xl">
+        <div className="text-center">
+          <div className="text-red-400 font-bold text-lg mb-1">Clara AI</div>
+          <div className="text-gray-400 text-sm">Growth Engine</div>
+          <div className="w-12 h-12 mx-auto mt-2 rounded-full bg-red-500/20 flex items-center justify-center">
+            <div className="w-6 h-6 rounded-full bg-red-500 animate-pulse" />
+          </div>
+        </div>
+      </div>
+
+      {/* Connection Lines to Center */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none">
         {segments.map((segment, index) => {
           const isActive = activeSegment === index;
           const x1 = Math.cos((segment.angle - 90) * Math.PI / 180) * 140 + 160; // segment position
@@ -65,24 +76,12 @@ export const AIEngineCore = ({ activeSegment, onSegmentClick }: AIEngineCoreProp
               y2={y2}
               stroke={isActive ? "#FF4F5A" : "#4B5563"}
               strokeWidth="2"
-              strokeDasharray="5,5"
               className="transition-all duration-500"
-              opacity={isActive ? "0.7" : "0.2"}
+              opacity={isActive ? "1" : "0.3"}
             />
           );
         })}
       </svg>
-
-      {/* Central Core - Higher z-index to appear in front */}
-      <div className="absolute inset-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-red-500/30 flex items-center justify-center shadow-2xl z-20">
-        <div className="text-center">
-          <div className="text-red-400 font-bold text-lg mb-1">Clara AI</div>
-          <div className="text-gray-400 text-sm">Growth Engine</div>
-          <div className="w-12 h-12 mx-auto mt-2 rounded-full bg-red-500/20 flex items-center justify-center">
-            <div className="w-6 h-6 rounded-full bg-red-500 animate-pulse" />
-          </div>
-        </div>
-      </div>
 
       {/* Segment Nodes */}
       {segments.map((segment, index) => {
@@ -93,7 +92,7 @@ export const AIEngineCore = ({ activeSegment, onSegmentClick }: AIEngineCoreProp
         return (
           <div
             key={index}
-            className={`absolute w-16 h-16 cursor-pointer transition-all duration-500 z-30 ${
+            className={`absolute w-16 h-16 cursor-pointer transition-all duration-500 ${
               isActive ? 'transform scale-125' : 'hover:scale-110'
             }`}
             style={{
@@ -129,7 +128,7 @@ export const AIEngineCore = ({ activeSegment, onSegmentClick }: AIEngineCoreProp
 
       {/* Pulse Effect */}
       <div 
-        className="absolute inset-8 rounded-full border border-red-500/20 animate-ping z-10"
+        className="absolute inset-8 rounded-full border border-red-500/20 animate-ping"
         style={{ animationDuration: '3s' }}
       />
     </div>
