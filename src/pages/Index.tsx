@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -52,13 +53,13 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative bg-clara-navy text-white pt-16 pb-20 overflow-hidden">
+      {/* Hero Section - Updated */}
+      <section className="relative bg-clara-navy text-white pt-16 pb-8 overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[500px] lg:min-h-[600px]">
-            {/* Left Column - Content */}
-            <div className="space-y-6 animate-fade-in">
+          <div className="flex justify-center items-center min-h-[500px] lg:min-h-[600px]">
+            {/* Centered Content */}
+            <div className="text-center space-y-6 animate-fade-in">
               <div className="space-y-3">
                 <div className="inline-flex items-center px-3 py-1.5 bg-clara-red/10 border border-clara-red/20 rounded-full">
                   <span className="text-clara-red font-medium text-xs">ROI &lt; 30 days</span>
@@ -67,13 +68,13 @@ const Index = () => {
                   The AI Growth Engine for 
                   <span className="text-clara-red"> Service Contractors</span>
                 </h1>
-                <p className="text-lg text-gray-300 max-w-lg">
+                <p className="text-lg text-gray-300 max-w-2xl mx-auto">
                   From first ring to final payment. Clara answers, dispatches, and collects - delivering 
                   <span className="text-clara-red font-semibold"> +28% booked revenue</span> with 4s answer time.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-6 py-2.5 text-base">
                   Book a 15-min Demo
                 </Button>
@@ -87,7 +88,7 @@ const Index = () => {
               </div>
 
               {/* Key Stats */}
-              <div className="grid grid-cols-3 gap-4 pt-6">
+              <div className="grid grid-cols-3 gap-4 pt-6 max-w-md mx-auto">
                 <div className="text-center">
                   <div className="text-xl font-montserrat font-bold text-clara-red">4s</div>
                   <div className="text-xs text-gray-300">Answer Time</div>
@@ -102,37 +103,6 @@ const Index = () => {
                 </div>
               </div>
             </div>
-
-            {/* Right Column - Larger Overlapping Dashboard Screenshots with Red Glow */}
-            <div className="relative">
-              <div className="relative flex justify-center items-center">
-                {/* Back Dashboard - Analytics Dashboard with Red Glow */}
-                <div className="absolute right-4 top-2 w-96 h-80 bg-white rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500" 
-                     style={{ 
-                       boxShadow: '0 0 40px rgba(203, 46, 65, 0.5), 0 0 60px rgba(203, 46, 65, 0.3)',
-                       filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
-                     }}>
-                  <img 
-                    src="/lovable-uploads/09fd6a4a-0c75-42c1-a614-ce41537889ed.png" 
-                    alt="Clara AI Analytics Dashboard"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                
-                {/* Front Dashboard - Overview Dashboard with Red Glow and slight zoom */}
-                <div className="relative z-10 w-96 h-80 bg-white rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 scale-105" 
-                     style={{ 
-                       boxShadow: '0 0 40px rgba(203, 46, 65, 0.5), 0 0 60px rgba(203, 46, 65, 0.3)',
-                       filter: 'drop-shadow(0 0 20px rgba(203, 46, 65, 0.4))'
-                     }}>
-                  <img 
-                    src="/lovable-uploads/32762904-fcf4-4cf7-9b05-0c34cb6fff42.png" 
-                    alt="Clara AI Dashboard Overview"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         
@@ -142,31 +112,15 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Growth Engine Section - Updated with New Implementation */}
-      <section className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,#FF4F5A_0%,transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,#4F9CF9_0%,transparent_50%)]" />
-        </div>
+      {/* AI Growth Engine Section - Updated with same background */}
+      <section className="relative bg-clara-navy text-white py-12 overflow-hidden">
+        {/* Background Pattern - Same as hero */}
+        <div className="absolute inset-0 circuit-pattern opacity-30"></div>
         
         {/* Main Content */}
-        <div className="relative z-10 container mx-auto px-6 py-16">
-          {/* Header Section */}
-          <div className="text-center mb-20 animate-fade-in">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight">
-              Your AI Growth Engine
-            </h1>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-6 text-gray-300">
-              for Service Trades
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Capture missed calls, convert more jobs, collect faster — all on autopilot.
-            </p>
-          </div>
-
+        <div className="relative z-10 container mx-auto px-6">
           {/* AI Engine Core - Centered */}
-          <div className="flex justify-center mb-24">
+          <div className="flex justify-center mb-16">
             <AIEngineCore 
               activeSegment={activeSegment} 
               onSegmentClick={(index) => {
@@ -177,8 +131,8 @@ const Index = () => {
             />
           </div>
 
-          {/* Combined Process & CTA Section */}
-          <div className="mb-20">
+          {/* Process Cards Section */}
+          <div className="mb-12">
             <div className="text-center mb-12">
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
                 Capture, Convert and Collect
@@ -287,28 +241,25 @@ const Index = () => {
 
             {/* CTA */}
             <div className="text-center animate-fade-in">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-10 py-5 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
-              >
-                See Clara In Action
-              </Button>
+              <Link to="/how-it-works">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-10 py-5 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+                >
+                  See Clara In Action
+                </Button>
+              </Link>
               <p className="text-gray-500 mt-6 text-base">
                 Watch how the AI engine transforms your service business
               </p>
             </div>
           </div>
         </div>
-
-        {/* Subtle Floating Elements */}
-        <div className="absolute top-32 left-8 w-1 h-1 bg-red-500/40 rounded-full animate-pulse" />
-        <div className="absolute top-48 right-12 w-2 h-2 bg-blue-400/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-40 left-16 w-1.5 h-1.5 bg-green-400/40 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
       </section>
 
-      {/* Social Proof - Company Logos */}
+      {/* Social Proof - Company Logos - Updated with reduced width */}
       <section className="py-16 bg-clara-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-lg font-medium text-gray-600 mb-8">
               Trusted by leading contractors and PE platforms
@@ -343,78 +294,6 @@ const Index = () => {
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reimagined Process Flow - Capture → Convert → Collect */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
-              Three Steps to Revenue Growth
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Clara's AI stack transforms every customer touchpoint into revenue growth
-            </p>
-          </div>
-
-          {/* Linear Animated Flow */}
-          <div className="flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8 mb-12">
-            {/* Capture */}
-            <div className="flex flex-col items-center text-center group">
-              <div className="w-24 h-24 bg-clara-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                <span className="text-3xl text-white font-bold">1</span>
-              </div>
-              <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">Capture</h3>
-              <p className="text-gray-600 max-w-xs">
-                Every call answered in four seconds. AI handles intake, scheduling, and urgent dispatch.
-              </p>
-              <div className="text-clara-red font-semibold mt-2">Never miss another lead</div>
-            </div>
-
-            {/* Animated Arrow */}
-            <div className="hidden lg:flex items-center">
-              <ArrowRight className="text-clara-red animate-flow-arrow" size={32} />
-            </div>
-
-            {/* Convert */}
-            <div className="flex flex-col items-center text-center group">
-              <div className="w-24 h-24 bg-clara-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                <span className="text-3xl text-white font-bold">2</span>
-              </div>
-              <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">Convert</h3>
-              <p className="text-gray-600 max-w-xs">
-                Smart follow-ups and appointment reminders turn prospects into profitable customers.
-              </p>
-              <div className="text-clara-red font-semibold mt-2">Maximize booking rates</div>
-            </div>
-
-            {/* Animated Arrow */}
-            <div className="hidden lg:flex items-center">
-              <ArrowRight className="text-clara-red animate-flow-arrow" size={32} style={{ animationDelay: '0.5s' }} />
-            </div>
-
-            {/* Collect */}
-            <div className="flex flex-col items-center text-center group">
-              <div className="w-24 h-24 bg-clara-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                <span className="text-3xl text-white font-bold">3</span>
-              </div>
-              <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">Collect</h3>
-              <p className="text-gray-600 max-w-xs">
-                Automated invoicing and payment follow-ups accelerate cash flow and grow reputation.
-              </p>
-              <div className="text-clara-red font-semibold mt-2">Accelerate cash flow</div>
-            </div>
-          </div>
-
-          {/* CTA to How It Works */}
-          <div className="text-center">
-            <Link to="/how-it-works">
-              <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg">
-                See How It Works
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
