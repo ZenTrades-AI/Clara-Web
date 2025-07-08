@@ -40,7 +40,7 @@ const Navigation = () => {
               <img 
                 src="/lovable-uploads/4747974c-78dc-400c-a26d-91d2e624fe3d.png" 
                 alt="Clara AI" 
-                className="h-8 w-auto"
+                className="h-40 w-auto"
               />
             </Link>
 
