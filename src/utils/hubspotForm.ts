@@ -1,4 +1,3 @@
-
 // Function to open HubSpot form in modal popup on same page
 export const openHubSpotForm = () => {
   // Remove any existing modals first
@@ -107,7 +106,7 @@ export const openHubSpotForm = () => {
 
   // Initialize HubSpot form after modal is in DOM
   const initializeHubSpotForm = () => {
-    if (window.hbspt && window.hbspt.forms) {
+    if (window.hbspt?.forms) {
       console.log('Creating HubSpot form in modal...');
       
       try {
@@ -249,7 +248,7 @@ export const openAgentForm = () => {
 
   // Initialize HubSpot form after modal is in DOM
   const initializeHubSpotForm = () => {
-    if (window.hbspt && window.hbspt.forms) {
+    if (window.hbspt?.forms) {
       console.log('Creating Agent HubSpot form in modal...');
       
       try {
