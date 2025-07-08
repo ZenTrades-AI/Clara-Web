@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -54,10 +53,10 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section - Updated */}
+      {/* Hero Section - Updated with reduced side spacing */}
       <section className="relative bg-clara-navy text-white pt-16 pb-8 overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-2 sm:px-3 lg:px-4">
           <div className="flex justify-center items-center min-h-[500px] lg:min-h-[600px]">
             {/* Centered Content */}
             <div className="text-center space-y-6 animate-fade-in">
@@ -117,13 +116,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Growth Engine Section - Updated with proper centering and spacing */}
+      {/* AI Growth Engine Section - Updated with reduced side spacing */}
       <section className="relative bg-clara-navy text-white py-20 overflow-hidden">
         {/* Background Pattern - Same as hero */}
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
         
         {/* Main Content */}
-        <div className="relative z-10 container mx-auto px-6">
+        <div className="relative z-10 container mx-auto px-2 sm:px-3 lg:px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
@@ -135,7 +134,7 @@ const Index = () => {
           </div>
 
           {/* Main Layout - Circle Left, Cards Right - Properly Centered */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-16 max-w-7xl mx-auto mb-16">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-12 xl:gap-16 max-w-7xl mx-auto mb-16">
             {/* AI Engine Core - Left Side */}
             <div className="flex-shrink-0 flex justify-center">
               <AIEngineCore 
@@ -250,9 +249,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof - Company Logos - Updated with light grey background */}
+      {/* Social Proof - Company Logos - Updated with reduced side spacing */}
       <section className="py-16 bg-gray-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-2 sm:px-3 lg:px-4">
           <div className="text-center mb-12">
             <h3 className="text-lg font-medium text-gray-600 mb-8">
               Trusted by leading contractors and PE platforms
@@ -262,35 +261,35 @@ const Index = () => {
                 <img 
                   src="/lovable-uploads/bcd70ec6-c0ae-4ef6-a446-4339ea655d94.png" 
                   alt="HVAC Pro Comfort Shield Club logo" 
-                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-40 w-40 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
               <div className="flex justify-center">
                 <img 
                   src="/lovable-uploads/f54d82f6-2007-4d29-b972-b589b9101ca1.png" 
                   alt="F&M Fire Protection logo" 
-                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-40 w-40 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
               <div className="flex justify-center">
                 <img 
                   src="/lovable-uploads/8ff94b25-5aeb-42fa-a50a-c5a75b702942.png" 
                   alt="Kantra Electric Inc logo" 
-                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-40 w-40 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
               <div className="flex justify-center">
                 <img 
                   src="/lovable-uploads/8d32313c-c03a-45bc-9cce-bf17727ca1ca.png" 
                   alt="Alliance Specialized Systems logo" 
-                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-40 w-40 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
               <div className="flex justify-center">
                 <img 
                   src="/lovable-uploads/94fefed3-8cb6-43d3-b557-5f6a53f20438.png" 
                   alt="John Owens Services Inc logo" 
-                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-40 w-40 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
             </div>
@@ -300,7 +299,7 @@ const Index = () => {
 
       {/* Explainer Video Section */}
       <section className="py-20 bg-clara-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-2 sm:px-3 lg:px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4">
               See Clara in Action
@@ -338,7 +337,7 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-clara-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-2 sm:px-3 lg:px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-montserrat font-bold mb-6">
             Ready to grow your business with AI?
           </h2>
