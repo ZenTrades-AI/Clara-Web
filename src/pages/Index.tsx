@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -268,7 +269,7 @@ const Index = () => {
             <h3 className="text-lg font-medium text-gray-600 mb-8">
               Trusted by leading contractors and PE platforms
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
               <div className="flex justify-center">
                 <img 
                   src="/lovable-uploads/bcd70ec6-c0ae-4ef6-a446-4339ea655d94.png" 
@@ -294,6 +295,13 @@ const Index = () => {
                 <img 
                   src="/lovable-uploads/8d32313c-c03a-45bc-9cce-bf17727ca1ca.png" 
                   alt="Alliance Specialized Systems logo" 
+                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <div className="flex justify-center">
+                <img 
+                  src="/lovable-uploads/94fefed3-8cb6-43d3-b557-5f6a53f20438.png" 
+                  alt="John Owens Services Inc logo" 
                   className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
