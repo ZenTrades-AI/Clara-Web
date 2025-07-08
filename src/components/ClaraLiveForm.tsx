@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -245,14 +244,20 @@ export const ClaraLiveForm: React.FC<ClaraLiveFormProps> = ({ onClose }) => {
             value={formData.agentType}
             onValueChange={(value) => handleInputChange('agentType', value)}
           >
-            <SelectTrigger>
-              <SelectValue />
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select agent type" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Customer Service Representative">
+            <SelectContent className="bg-white border border-gray-200 shadow-lg z-[100000]">
+              <SelectItem 
+                value="Customer Service Representative"
+                className="hover:bg-gray-100 cursor-pointer py-2 px-3"
+              >
                 Customer Service Representative
               </SelectItem>
-              <SelectItem value="AR - Collections">
+              <SelectItem 
+                value="AR - Collections"
+                className="hover:bg-gray-100 cursor-pointer py-2 px-3"
+              >
                 AR - Collections
               </SelectItem>
             </SelectContent>
