@@ -215,4 +215,12 @@
       line-height: 5rem;
     }
   }
+
+  /* Custom lg:text-[5rem] override */
+  @media (min-width: 1024px) {
+    .lg\:text-\[5rem\] {
+      font-size: 5rem;
+      line-height: 5rem;
+    }
+  }
 }
