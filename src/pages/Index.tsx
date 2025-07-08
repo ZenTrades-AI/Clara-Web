@@ -101,136 +101,117 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Growth Engine Section */}
-      <section className="py-20 bg-clara-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 circuit-pattern opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-montserrat font-bold mb-4">
-              Your AI Growth Engine
+      {/* AI Growth Engine Section - Enhanced with Animations */}
+      <section className="py-20 bg-clara-navy text-white relative overflow-hidden min-h-screen flex items-center">
+        {/* Animated Background Particles */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-clara-navy via-clara-navy to-gray-900"></div>
+          <div className="absolute inset-0 opacity-20">
+            {/* Floating Particles */}
+            <div className="absolute w-2 h-2 bg-clara-red rounded-full animate-pulse" style={{top: '20%', left: '10%', animationDelay: '0s'}}></div>
+            <div className="absolute w-1 h-1 bg-white rounded-full animate-pulse" style={{top: '60%', left: '80%', animationDelay: '1s'}}></div>
+            <div className="absolute w-1.5 h-1.5 bg-clara-red/50 rounded-full animate-pulse" style={{top: '80%', left: '20%', animationDelay: '2s'}}></div>
+            <div className="absolute w-1 h-1 bg-white/50 rounded-full animate-pulse" style={{top: '30%', left: '70%', animationDelay: '1.5s'}}></div>
+          </div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Main Headline with Staggered Animation */}
+          <div className="mb-16">
+            <h2 className="text-6xl md:text-7xl font-montserrat font-bold mb-6 leading-tight">
+              <span className="block animate-[fade-in_1s_ease-out_0.5s_both] opacity-0">Clara AI</span>
+              <span className="block text-4xl md:text-5xl text-gray-300 animate-[fade-in_1s_ease-out_1s_both] opacity-0">
+                Your AI Growth Engine
+              </span>
+              <span className="block text-3xl md:text-4xl text-clara-red animate-[fade-in_1s_ease-out_1.5s_both] opacity-0">
+                for Service Trades
+              </span>
             </h2>
-            <p className="text-xl text-gray-300 mb-6">for Service Trades</p>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          </div>
+
+          {/* Animated Circular Engine */}
+          <div className="flex justify-center mb-16">
+            <div className="relative w-96 h-96 animate-[fade-in_1s_ease-out_2s_both] opacity-0">
+              {/* Outer Rotating Ring */}
+              <div className="absolute inset-0 rounded-full border-2 border-clara-red/30 animate-spin" style={{animationDuration: '20s'}}></div>
+              <div className="absolute inset-4 rounded-full border border-white/20 animate-spin" style={{animationDuration: '15s', animationDirection: 'reverse'}}></div>
+              
+              {/* Center Circle - Clara AI Growth Engine */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-clara-red to-red-700 rounded-full flex flex-col items-center justify-center shadow-2xl animate-pulse">
+                <div className="absolute inset-0 rounded-full bg-clara-red animate-ping opacity-20"></div>
+                <div className="relative z-10 text-center">
+                  <div className="text-white font-bold text-lg mb-1">Clara AI</div>
+                  <div className="text-white/90 text-sm">Growth Engine</div>
+                </div>
+              </div>
+
+              {/* Orbiting Elements with Staggered Animations */}
+              {/* Capture */}
+              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-20 h-20 animate-[orbit-answers_10s_linear_infinite]" style={{animationDelay: '2.5s'}}>
+                <div className="w-full h-full bg-clara-navy border-2 border-clara-red rounded-full flex flex-col items-center justify-center shadow-lg hover:scale-110 transition-transform animate-[fade-in_0.8s_ease-out_2.5s_both] opacity-0">
+                  <Phone className="w-8 h-8 text-clara-red mb-1" />
+                  <div className="text-xs text-white font-semibold">Capture</div>
+                </div>
+              </div>
+
+              {/* Convert */}
+              <div className="absolute top-1/2 right-8 transform -translate-y-1/2 w-20 h-20 animate-[orbit-dispatches_10s_linear_infinite]" style={{animationDelay: '3s'}}>
+                <div className="w-full h-full bg-clara-navy border-2 border-yellow-400 rounded-full flex flex-col items-center justify-center shadow-lg hover:scale-110 transition-transform animate-[fade-in_0.8s_ease-out_3s_both] opacity-0">
+                  <Calendar className="w-8 h-8 text-yellow-400 mb-1" />
+                  <div className="text-xs text-white font-semibold">Convert</div>
+                </div>
+              </div>
+
+              {/* Collect */}
+              <div className="absolute bottom-12 left-8 w-20 h-20 animate-[orbit-collects_10s_linear_infinite]" style={{animationDelay: '3.5s'}}>
+                <div className="w-full h-full bg-green-600 rounded-full flex flex-col items-center justify-center shadow-lg hover:scale-110 transition-transform animate-[fade-in_0.8s_ease-out_3.5s_both] opacity-0">
+                  <DollarSign className="w-8 h-8 text-white mb-1" />
+                  <div className="text-xs text-white font-semibold">Collect</div>
+                </div>
+              </div>
+
+              {/* Additional Orbiting Elements */}
+              <div className="absolute top-1/2 left-8 transform -translate-y-1/2 w-16 h-16 animate-[orbit-reminds_12s_linear_infinite]" style={{animationDelay: '4s'}}>
+                <div className="w-full h-full bg-blue-600 rounded-full flex items-center justify-center shadow-lg animate-[fade-in_0.8s_ease-out_4s_both] opacity-0">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+              </div>
+
+              <div className="absolute bottom-1/4 right-12 w-12 h-12 animate-[orbit-engages_8s_linear_infinite]" style={{animationDelay: '4.5s'}}>
+                <div className="w-full h-full bg-purple-600 rounded-full flex items-center justify-center shadow-lg animate-[fade-in_0.8s_ease-out_4.5s_both] opacity-0">
+                  <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Animated Tagline */}
+          <div className="mb-12">
+            <div className="text-4xl md:text-5xl font-montserrat font-bold">
+              <span className="inline-block text-clara-red animate-[fade-in_0.8s_ease-out_5s_both] opacity-0 mr-4">Capture.</span>
+              <span className="inline-block text-yellow-400 animate-[fade-in_0.8s_ease-out_5.5s_both] opacity-0 mr-4">Convert.</span>
+              <span className="inline-block text-green-400 animate-[fade-in_0.8s_ease-out_6s_both] opacity-0">Collect.</span>
+            </div>
+            <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto animate-[fade-in_1s_ease-out_6.5s_both] opacity-0">
               Capture missed calls, convert more jobs, collect faster — all on autopilot.
             </p>
           </div>
 
-          {/* Circular Diagram */}
-          <div className="flex justify-center mb-16">
-            <div className="relative w-80 h-80">
-              {/* Main Circle */}
-              <div className="absolute inset-0 rounded-full border-2 border-clara-red/30"></div>
-              
-              {/* Center Circle - Clara AI Growth Engine */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-clara-navy border-2 border-clara-red rounded-full flex flex-col items-center justify-center">
-                <div className="text-clara-red font-bold text-sm">Clara AI</div>
-                <div className="text-white text-xs">Growth Engine</div>
-              </div>
-
-              {/* Capture Circle */}
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-clara-navy border-2 border-clara-red rounded-full flex flex-col items-center justify-center">
-                <Phone className="w-6 h-6 text-white mb-1" />
-                <div className="text-xs text-gray-300">Capture</div>
-              </div>
-
-              {/* Convert Circle */}
-              <div className="absolute top-1/2 right-8 transform -translate-y-1/2 w-16 h-16 bg-clara-navy border-2 border-gray-500 rounded-full flex flex-col items-center justify-center">
-                <Calendar className="w-6 h-6 text-white mb-1" />
-                <div className="text-xs text-gray-300">Convert</div>
-              </div>
-
-              {/* Collect Circle */}
-              <div className="absolute bottom-12 left-8 w-16 h-16 bg-clara-red rounded-full flex flex-col items-center justify-center">
-                <DollarSign className="w-6 h-6 text-white mb-1" />
-                <div className="text-xs text-white">Collect</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Three Steps Section */}
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-montserrat font-bold mb-4">Capture, Convert and Collect</h3>
-            <p className="text-lg text-gray-400 mb-12">
-              Watch your business transform with our AI-powered process
-            </p>
-
-            {/* Process Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Capture Card */}
-              <div className="bg-clara-navy/50 border border-gray-700 rounded-xl p-6 text-left">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-white font-bold mr-3">1</div>
-                  <div>
-                    <Phone className="w-5 h-5 text-white mb-1" />
-                    <h4 className="text-xl font-montserrat font-bold text-white">Capture</h4>
-                    <p className="text-sm text-gray-400">Never miss another lead</p>
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-300 mb-2">Key Features:</p>
-                  <ul className="space-y-1 text-sm text-gray-400">
-                    <li>• Inbound & outbound AI voice calls</li>
-                    <li>• AI answering missed calls</li>
-                    <li>• Real-time lead capture</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Convert Card */}
-              <div className="bg-clara-navy/50 border border-gray-700 rounded-xl p-6 text-left">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-white font-bold mr-3">2</div>
-                  <div>
-                    <Calendar className="w-5 h-5 text-white mb-1" />
-                    <h4 className="text-xl font-montserrat font-bold text-white">Convert</h4>
-                    <p className="text-sm text-gray-400">Maximize booking rates</p>
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-300 mb-2">Key Features:</p>
-                  <ul className="space-y-1 text-sm text-gray-400">
-                    <li>• AI auto-dispatch & scheduling</li>
-                    <li>• Route optimization</li>
-                    <li>• Upsell recommendations</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Collect Card - Highlighted */}
-              <div className="bg-green-900/30 border border-green-600 rounded-xl p-6 text-left relative">
-                <div className="absolute top-2 right-2 w-3 h-3 bg-clara-red rounded-full"></div>
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-clara-red rounded-full flex items-center justify-center text-white font-bold mr-3">3</div>
-                  <div>
-                    <DollarSign className="w-5 h-5 text-white mb-1" />
-                    <h4 className="text-xl font-montserrat font-bold text-white">Collect</h4>
-                    <p className="text-sm text-green-400">Accelerate cash flow</p>
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-300 mb-2">Key Features:</p>
-                  <ul className="space-y-1 text-sm text-gray-400">
-                    <li>• AI payment follow-ups</li>
-                    <li>• Invoice recovery</li>
-                    <li>• Automated collections</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Flow Arrows */}
-            <div className="flex justify-center items-center space-x-8 mt-8 mb-12">
-              <ArrowRight className="text-clara-red" size={24} />
-              <ArrowRight className="text-clara-red" size={24} />
-            </div>
-
-            {/* CTA Button */}
-            <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg rounded-full">
-              See Clara in Action
+          {/* Animated CTA Button */}
+          <div className="animate-[fade-in_1s_ease-out_7s_both] opacity-0">
+            <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-clara-red/25 transition-all duration-300 hover:scale-105 relative overflow-hidden group">
+              <span className="relative z-10">See Clara in Action</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-clara-red to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-clara-red animate-pulse opacity-20"></div>
             </Button>
             <p className="text-sm text-gray-400 mt-4">
               Watch how the AI engine transforms your service business
             </p>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce animate-[fade-in_1s_ease-out_7.5s_both] opacity-0">
+            <ArrowDown className="text-clara-red" size={24} />
           </div>
         </div>
       </section>

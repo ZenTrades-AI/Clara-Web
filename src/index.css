@@ -122,39 +122,89 @@
     animation: spin 1s linear infinite reverse;
   }
 
-  /* Orbital Animations for Each AI Agent */
+  /* Enhanced Orbital Animations for Each AI Agent */
   @keyframes orbit-answers {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { 
+      transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+    to { 
+      transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    }
   }
 
   @keyframes orbit-dispatches {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { 
+      transform: rotate(120deg) translateX(120px) rotate(-120deg);
+    }
+    to { 
+      transform: rotate(480deg) translateX(120px) rotate(-480deg);
+    }
   }
 
   @keyframes orbit-optimizes {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { 
+      transform: rotate(240deg) translateX(100px) rotate(-240deg);
+    }
+    to { 
+      transform: rotate(600deg) translateX(100px) rotate(-600deg);
+    }
   }
 
   @keyframes orbit-reminds {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { 
+      transform: rotate(90deg) translateX(140px) rotate(-90deg);
+    }
+    to { 
+      transform: rotate(450deg) translateX(140px) rotate(-450deg);
+    }
   }
 
   @keyframes orbit-engages {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { 
+      transform: rotate(300deg) translateX(110px) rotate(-300deg);
+    }
+    to { 
+      transform: rotate(660deg) translateX(110px) rotate(-660deg);
+    }
   }
 
   @keyframes orbit-reviews {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { 
+      transform: rotate(180deg) translateX(130px) rotate(-180deg);
+    }
+    to { 
+      transform: rotate(540deg) translateX(130px) rotate(-540deg);
+    }
   }
 
   @keyframes orbit-collects {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { 
+      transform: rotate(240deg) translateX(140px) rotate(-240deg);
+    }
+    to { 
+      transform: rotate(600deg) translateX(140px) rotate(-600deg);
+    }
+  }
+
+  /* Enhanced Fade-in Animation */
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Glow Animation */
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(203, 46, 65, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(203, 46, 65, 0.6);
+    }
   }
 }
