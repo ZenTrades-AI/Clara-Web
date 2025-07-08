@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -177,8 +176,20 @@ const HowItWorks = () => {
         </div>
       </section>
 
+      {/* Centered Heading */}
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-4">
+            Build your AI growth engine
+          </h2>
+          <p className="text-lg text-gray-600">
+            Each layer adds intelligence and automation to transform your service operations
+          </p>
+        </div>
+      </section>
+
       {/* 7-Layer Stack with Visual Placeholder */}
-      <section className="py-20 bg-gray-50">
+      <section className="pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             
@@ -190,9 +201,6 @@ const HowItWorks = () => {
                     <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">
                       Clara {currentLayer.name}
                     </h3>
-                    <p className="text-gray-600 text-sm">
-                      {currentLayer.description}
-                    </p>
                   </div>
                   
                   {/* Dynamic Visual Based on Active Layer */}
@@ -260,15 +268,6 @@ const HowItWorks = () => {
 
             {/* Right Side - Accordion */}
             <div className="order-1 lg:order-2">
-              <div className="mb-8">
-                <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-4">
-                  Build your AI growth engine
-                </h2>
-                <p className="text-lg text-gray-600">
-                  Each layer adds intelligence and automation to transform your service operations
-                </p>
-              </div>
-
               <Accordion 
                 type="single" 
                 collapsible 
@@ -377,8 +376,7 @@ const HowItWorks = () => {
               Book a 15-min Demo
             </Button>
             <Button 
-              variant="outline" 
-              className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg"
+              className="bg-white text-clara-red hover:bg-white border border-white px-8 py-3 text-lg"
               onClick={openHubSpotForm}
             >
               Try Clara Live
