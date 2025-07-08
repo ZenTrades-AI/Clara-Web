@@ -133,74 +133,31 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* 7-Layer Stack with Accordion Design */}
+      {/* 7-Layer Stack with Visual Placeholder */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             
-            {/* Left Side - Enhanced Visualization */}
+            {/* Left Side - Visual Placeholder */}
             <div className="relative order-2 lg:order-1">
               <div className="sticky top-8">
-                {/* Stack Visualization */}
                 <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
                   <div className="text-center mb-8">
-                    <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-2">
-                      Clara AI Stack
+                    <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">
+                      Clara AI Visualization
                     </h3>
-                    <p className="text-gray-600">Modular layers that scale with your business</p>
                   </div>
                   
-                  {/* Interactive Stack */}
-                  <div className="space-y-3">
-                    {layers.map((layer, index) => (
-                      <div
-                        key={layer.name}
-                        className={`relative p-4 rounded-lg border-2 transition-all duration-300 cursor-pointer ${
-                          activeLayer === index.toString()
-                            ? 'border-clara-red bg-clara-red/5 shadow-lg scale-105'
-                            : 'border-gray-200 bg-white hover:border-clara-red/30 hover:shadow-md'
-                        }`}
-                        onClick={() => setActiveLayer(index.toString())}
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-3">
-                            <div className={`text-2xl transition-transform duration-300 ${
-                              activeLayer === index.toString() ? 'scale-110' : ''
-                            }`}>
-                              {layer.icon}
-                            </div>
-                            <div>
-                              <h4 className={`font-montserrat font-bold transition-colors duration-300 ${
-                                activeLayer === index.toString() ? 'text-clara-navy' : 'text-gray-700'
-                              }`}>
-                                Clara {layer.name}
-                              </h4>
-                              <p className="text-sm text-gray-500">Layer {index + 1}</p>
-                            </div>
-                          </div>
-                          <div className={`text-sm font-medium transition-colors duration-300 ${
-                            activeLayer === index.toString() ? 'text-clara-red' : 'text-gray-400'
-                          }`}>
-                            0{index + 1}
-                          </div>
-                        </div>
-                        
-                        {/* Active indicator */}
-                        {activeLayer === index.toString() && (
-                          <div className="absolute -right-2 top-1/2 transform -translate-y-1/2">
-                            <div className="w-4 h-4 bg-clara-red rounded-full animate-pulse"></div>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  
-                  {/* ROI Banner */}
-                  <div className="text-center mt-8 pt-6 border-t border-gray-200">
-                    <div className="inline-block bg-gradient-to-r from-clara-gold to-yellow-500 text-clara-navy px-6 py-3 rounded-xl shadow-lg">
-                      <div className="text-lg font-montserrat font-bold">
-                        ROI: $1 in, $5 out
-                      </div>
+                  {/* Placeholder for Visual/Infographic */}
+                  <div className="flex items-center justify-center h-96 bg-gray-100 rounded-xl border-2 border-dashed border-gray-300">
+                    <div className="text-center">
+                      <div className="text-4xl mb-4">🎯</div>
+                      <h4 className="text-lg font-semibold text-gray-600 mb-2">
+                        Interactive Visual Coming Soon
+                      </h4>
+                      <p className="text-gray-500 text-sm max-w-xs">
+                        Dynamic infographic showing Clara's AI layers in action
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -241,9 +198,6 @@ const HowItWorks = () => {
                           <p className="text-gray-600 text-sm mt-1">
                             {layer.description}
                           </p>
-                        </div>
-                        <div className="text-sm font-medium text-clara-red">
-                          Layer {index + 1}
                         </div>
                       </div>
                     </AccordionTrigger>
@@ -335,7 +289,7 @@ const HowItWorks = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </Section>
 
       <Footer />
     </div>
