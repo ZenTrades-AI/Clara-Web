@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
@@ -5,8 +6,48 @@ import IntegrationCarousel from '@/components/IntegrationCarousel';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowRight, Play, Phone, Calendar, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { AIEngineCore } from "@/components/AIEngineCore";
 
 const Index = () => {
+  const [activeSegment, setActiveSegment] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  const segments = [
+    {
+      title: "Capture",
+      description: "Never miss another lead",
+      icon: Phone,
+      color: "from-red-500/20 to-pink-500/20",
+      features: ["Inbound & outbound AI voice calls", "AI answering missed calls", "Real-time lead capture"],
+      number: "01"
+    },
+    {
+      title: "Convert", 
+      description: "Maximize booking rates",
+      icon: Calendar,
+      color: "from-blue-500/20 to-cyan-500/20", 
+      features: ["AI auto-dispatch & scheduling", "Route optimization", "Upsell recommendations"],
+      number: "02"
+    },
+    {
+      title: "Collect",
+      description: "Accelerate cash flow",
+      icon: DollarSign,
+      color: "from-green-500/20 to-emerald-500/20",
+      features: ["AI payment follow-ups", "Invoice recovery", "Automated collections"],
+      number: "03"
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isAnimating) {
+        setActiveSegment((prev) => (prev + 1) % 3);
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isAnimating]);
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -101,119 +142,168 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Growth Engine Section - Enhanced with Animations */}
-      <section className="py-20 bg-clara-navy text-white relative overflow-hidden min-h-screen flex items-center">
-        {/* Animated Background Particles */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-clara-navy via-clara-navy to-gray-900"></div>
-          <div className="absolute inset-0 opacity-20">
-            {/* Floating Particles */}
-            <div className="absolute w-2 h-2 bg-clara-red rounded-full animate-pulse" style={{top: '20%', left: '10%', animationDelay: '0s'}}></div>
-            <div className="absolute w-1 h-1 bg-white rounded-full animate-pulse" style={{top: '60%', left: '80%', animationDelay: '1s'}}></div>
-            <div className="absolute w-1.5 h-1.5 bg-clara-red/50 rounded-full animate-pulse" style={{top: '80%', left: '20%', animationDelay: '2s'}}></div>
-            <div className="absolute w-1 h-1 bg-white/50 rounded-full animate-pulse" style={{top: '30%', left: '70%', animationDelay: '1.5s'}}></div>
-          </div>
+      {/* AI Growth Engine Section - Updated with New Implementation */}
+      <section className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,#FF4F5A_0%,transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,#4F9CF9_0%,transparent_50%)]" />
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Main Headline with Staggered Animation */}
-          <div className="mb-16">
-            <h2 className="text-6xl md:text-7xl font-montserrat font-bold mb-6 leading-tight">
-              <span className="block animate-[fade-in_1s_ease-out_0.5s_both] opacity-0">Clara AI</span>
-              <span className="block text-4xl md:text-5xl text-gray-300 animate-[fade-in_1s_ease-out_1s_both] opacity-0">
-                Your AI Growth Engine
-              </span>
-              <span className="block text-3xl md:text-4xl text-clara-red animate-[fade-in_1s_ease-out_1.5s_both] opacity-0">
-                for Service Trades
-              </span>
+        {/* Main Content */}
+        <div className="relative z-10 container mx-auto px-6 py-16">
+          {/* Header Section */}
+          <div className="text-center mb-20 animate-fade-in">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight">
+              Your AI Growth Engine
+            </h1>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-6 text-gray-300">
+              for Service Trades
             </h2>
-          </div>
-
-          {/* Animated Circular Engine */}
-          <div className="flex justify-center mb-16">
-            <div className="relative w-96 h-96 animate-[fade-in_1s_ease-out_2s_both] opacity-0">
-              {/* Outer Rotating Ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-clara-red/30 animate-spin" style={{animationDuration: '20s'}}></div>
-              <div className="absolute inset-4 rounded-full border border-white/20 animate-spin" style={{animationDuration: '15s', animationDirection: 'reverse'}}></div>
-              
-              {/* Center Circle - Clara AI Growth Engine */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-clara-red to-red-700 rounded-full flex flex-col items-center justify-center shadow-2xl animate-pulse">
-                <div className="absolute inset-0 rounded-full bg-clara-red animate-ping opacity-20"></div>
-                <div className="relative z-10 text-center">
-                  <div className="text-white font-bold text-lg mb-1">Clara AI</div>
-                  <div className="text-white/90 text-sm">Growth Engine</div>
-                </div>
-              </div>
-
-              {/* Orbiting Elements with Staggered Animations */}
-              {/* Capture */}
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-20 h-20 animate-[orbit-answers_10s_linear_infinite]" style={{animationDelay: '2.5s'}}>
-                <div className="w-full h-full bg-clara-navy border-2 border-clara-red rounded-full flex flex-col items-center justify-center shadow-lg hover:scale-110 transition-transform animate-[fade-in_0.8s_ease-out_2.5s_both] opacity-0">
-                  <Phone className="w-8 h-8 text-clara-red mb-1" />
-                  <div className="text-xs text-white font-semibold">Capture</div>
-                </div>
-              </div>
-
-              {/* Convert */}
-              <div className="absolute top-1/2 right-8 transform -translate-y-1/2 w-20 h-20 animate-[orbit-dispatches_10s_linear_infinite]" style={{animationDelay: '3s'}}>
-                <div className="w-full h-full bg-clara-navy border-2 border-yellow-400 rounded-full flex flex-col items-center justify-center shadow-lg hover:scale-110 transition-transform animate-[fade-in_0.8s_ease-out_3s_both] opacity-0">
-                  <Calendar className="w-8 h-8 text-yellow-400 mb-1" />
-                  <div className="text-xs text-white font-semibold">Convert</div>
-                </div>
-              </div>
-
-              {/* Collect */}
-              <div className="absolute bottom-12 left-8 w-20 h-20 animate-[orbit-collects_10s_linear_infinite]" style={{animationDelay: '3.5s'}}>
-                <div className="w-full h-full bg-green-600 rounded-full flex flex-col items-center justify-center shadow-lg hover:scale-110 transition-transform animate-[fade-in_0.8s_ease-out_3.5s_both] opacity-0">
-                  <DollarSign className="w-8 h-8 text-white mb-1" />
-                  <div className="text-xs text-white font-semibold">Collect</div>
-                </div>
-              </div>
-
-              {/* Additional Orbiting Elements */}
-              <div className="absolute top-1/2 left-8 transform -translate-y-1/2 w-16 h-16 animate-[orbit-reminds_12s_linear_infinite]" style={{animationDelay: '4s'}}>
-                <div className="w-full h-full bg-blue-600 rounded-full flex items-center justify-center shadow-lg animate-[fade-in_0.8s_ease-out_4s_both] opacity-0">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                </div>
-              </div>
-
-              <div className="absolute bottom-1/4 right-12 w-12 h-12 animate-[orbit-engages_8s_linear_infinite]" style={{animationDelay: '4.5s'}}>
-                <div className="w-full h-full bg-purple-600 rounded-full flex items-center justify-center shadow-lg animate-[fade-in_0.8s_ease-out_4.5s_both] opacity-0">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Animated Tagline */}
-          <div className="mb-12">
-            <div className="text-4xl md:text-5xl font-montserrat font-bold">
-              <span className="inline-block text-clara-red animate-[fade-in_0.8s_ease-out_5s_both] opacity-0 mr-4">Capture.</span>
-              <span className="inline-block text-yellow-400 animate-[fade-in_0.8s_ease-out_5.5s_both] opacity-0 mr-4">Convert.</span>
-              <span className="inline-block text-green-400 animate-[fade-in_0.8s_ease-out_6s_both] opacity-0">Collect.</span>
-            </div>
-            <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto animate-[fade-in_1s_ease-out_6.5s_both] opacity-0">
+            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Capture missed calls, convert more jobs, collect faster — all on autopilot.
             </p>
           </div>
 
-          {/* Animated CTA Button */}
-          <div className="animate-[fade-in_1s_ease-out_7s_both] opacity-0">
-            <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-clara-red/25 transition-all duration-300 hover:scale-105 relative overflow-hidden group">
-              <span className="relative z-10">See Clara in Action</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-clara-red to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 bg-clara-red animate-pulse opacity-20"></div>
-            </Button>
-            <p className="text-sm text-gray-400 mt-4">
-              Watch how the AI engine transforms your service business
-            </p>
+          {/* AI Engine Core - Centered */}
+          <div className="flex justify-center mb-24">
+            <AIEngineCore 
+              activeSegment={activeSegment} 
+              onSegmentClick={(index) => {
+                setActiveSegment(index);
+                setIsAnimating(false);
+                setTimeout(() => setIsAnimating(true), 5000);
+              }}
+            />
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce animate-[fade-in_1s_ease-out_7.5s_both] opacity-0">
-            <ArrowDown className="text-clara-red" size={24} />
+          {/* Combined Process & CTA Section */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+                Capture, Convert and Collect
+              </h3>
+              <p className="text-gray-400 text-lg">
+                Watch your business transform with our AI-powered process
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-16">
+              {segments.map((segment, index) => (
+                <div 
+                  key={segment.title}
+                  className={`group relative p-8 rounded-3xl border transition-all duration-500 cursor-pointer backdrop-blur-sm ${
+                    activeSegment === index 
+                      ? 'border-red-500/50 bg-gradient-to-br ' + segment.color + ' transform scale-105 shadow-2xl shadow-red-500/10' 
+                      : 'border-gray-700/30 bg-gray-800/20 hover:border-gray-600/50 hover:bg-gray-800/30'
+                  }`}
+                  onClick={() => {
+                    setActiveSegment(index);
+                    setIsAnimating(false);
+                    setTimeout(() => setIsAnimating(true), 5000);
+                  }}
+                >
+                  {/* Step Number */}
+                  <div className={`absolute -top-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border-2 transition-all duration-300 ${
+                    activeSegment === index
+                      ? 'bg-red-500 border-red-400 text-white shadow-lg shadow-red-500/30'
+                      : 'bg-gray-800 border-gray-600 text-gray-400 group-hover:border-gray-500'
+                  }`}>
+                    {index + 1}
+                  </div>
+
+                  {/* Icon and Title */}
+                  <div className="flex items-center mb-6">
+                    <div className={`p-4 rounded-xl mr-4 transition-all duration-300 ${
+                      activeSegment === index 
+                        ? 'bg-red-500/20 text-red-400 shadow-lg' 
+                        : 'bg-gray-700/50 text-gray-400 group-hover:text-white group-hover:bg-gray-600/50'
+                    }`}>
+                      <segment.icon size={28} />
+                    </div>
+                    <div>
+                      <h4 className={`text-2xl font-bold transition-colors duration-300 ${
+                        activeSegment === index ? 'text-white' : 'text-gray-300 group-hover:text-white'
+                      }`}>
+                        {segment.title}
+                      </h4>
+                      <div className={`text-sm font-medium transition-colors duration-300 ${
+                        activeSegment === index ? 'text-red-400' : 'text-gray-500 group-hover:text-gray-400'
+                      }`}>
+                        {segment.description}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Key Features */}
+                  <div className="space-y-3">
+                    <h5 className={`text-sm font-semibold transition-colors duration-300 ${
+                      activeSegment === index ? 'text-gray-200' : 'text-gray-400 group-hover:text-gray-300'
+                    }`}>
+                      Key Features:
+                    </h5>
+                    {segment.features.map((feature, featureIndex) => (
+                      <div 
+                        key={featureIndex}
+                        className="flex items-start gap-3"
+                      >
+                        <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 transition-colors duration-300 ${
+                          activeSegment === index ? 'bg-red-400' : 'bg-gray-500 group-hover:bg-gray-400'
+                        }`} />
+                        <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                          activeSegment === index ? 'text-gray-300' : 'text-gray-500 group-hover:text-gray-400'
+                        }`}>
+                          {feature}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Active Indicator */}
+                  {activeSegment === index && (
+                    <div className="absolute bottom-4 right-4">
+                      <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse shadow-lg shadow-red-500/50" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Flow Arrows */}
+            <div className="hidden md:flex items-center justify-center mb-16 gap-8">
+              {[0, 1].map((index) => (
+                <div key={index} className="flex items-center">
+                  <div className={`h-0.5 w-16 bg-gradient-to-r transition-all duration-500 ${
+                    activeSegment >= index + 1 
+                      ? 'from-red-500 to-red-400' 
+                      : 'from-gray-600 to-gray-700'
+                  }`} />
+                  <div className={`w-3 h-3 rotate-45 border-r-2 border-t-2 transition-colors duration-500 ${
+                    activeSegment >= index + 1 ? 'border-red-400' : 'border-gray-600'
+                  }`} />
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="text-center animate-fade-in">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-10 py-5 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+              >
+                See Clara In Action
+              </Button>
+              <p className="text-gray-500 mt-6 text-base">
+                Watch how the AI engine transforms your service business
+              </p>
+            </div>
           </div>
         </div>
+
+        {/* Subtle Floating Elements */}
+        <div className="absolute top-32 left-8 w-1 h-1 bg-red-500/40 rounded-full animate-pulse" />
+        <div className="absolute top-48 right-12 w-2 h-2 bg-blue-400/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-40 left-16 w-1.5 h-1.5 bg-green-400/40 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
       </section>
 
       {/* Social Proof - Company Logos */}
