@@ -114,7 +114,7 @@ export const openHubSpotForm = () => {
         window.hbspt.forms.create({
           region: 'na1',
           portalId: '45865556',
-          formId: 'c04f1557-538a-4aee-9b0a-0d6a28181ab5',
+          formId: 'c3428dcb-b18c-4277-b463-b7869c42800f',
           target: '#hubspot-form-target',
           onFormReady: () => {
             console.log('HubSpot form is ready');
