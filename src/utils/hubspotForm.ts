@@ -1,3 +1,4 @@
+
 // Function to open HubSpot form in modal popup on same page
 export const openHubSpotForm = () => {
   // Remove any existing modals first
@@ -105,7 +106,17 @@ export const openHubSpotForm = () => {
   document.body.appendChild(overlay);
 
   // Initialize HubSpot form after modal is in DOM
+  let retryCount = 0;
+  const maxRetries = 20; // Maximum 10 seconds of retrying
+
   const initializeHubSpotForm = () => {
+    console.log('Checking HubSpot availability...', {
+      windowHbspt: !!window.hbspt,
+      hbsptForms: !!(window.hbspt && window.hbspt.forms),
+      retryCount,
+      windowKeys: Object.keys(window).filter(key => key.includes('hb') || key.includes('hs'))
+    });
+
     if (window.hbspt?.forms) {
       console.log('Creating HubSpot form in modal...');
       
@@ -131,8 +142,14 @@ export const openHubSpotForm = () => {
         formContainer.innerHTML = '<p style="padding: 20px; text-align: center; color: #666;">Unable to load form. Please try again later.</p>';
       }
     } else {
-      console.log('HubSpot not ready, retrying...');
-      setTimeout(initializeHubSpotForm, 500);
+      retryCount++;
+      if (retryCount < maxRetries) {
+        console.log(`HubSpot not ready, retrying... (${retryCount}/${maxRetries})`);
+        setTimeout(initializeHubSpotForm, 500);
+      } else {
+        console.error('HubSpot failed to load after maximum retries');
+        formContainer.innerHTML = '<p style="padding: 20px; text-align: center; color: #666;">HubSpot form failed to load. Please refresh the page and try again.</p>';
+      }
     }
   };
 
@@ -247,7 +264,16 @@ export const openAgentForm = () => {
   document.body.appendChild(overlay);
 
   // Initialize HubSpot form after modal is in DOM
+  let retryCount = 0;
+  const maxRetries = 20; // Maximum 10 seconds of retrying
+
   const initializeHubSpotForm = () => {
+    console.log('Checking Agent HubSpot availability...', {
+      windowHbspt: !!window.hbspt,
+      hbsptForms: !!(window.hbspt && window.hbspt.forms),
+      retryCount
+    });
+
     if (window.hbspt?.forms) {
       console.log('Creating Agent HubSpot form in modal...');
       
@@ -273,8 +299,14 @@ export const openAgentForm = () => {
         formContainer.innerHTML = '<p style="padding: 20px; text-align: center; color: #666;">Unable to load form. Please try again later.</p>';
       }
     } else {
-      console.log('HubSpot not ready for Agent form, retrying...');
-      setTimeout(initializeHubSpotForm, 500);
+      retryCount++;
+      if (retryCount < maxRetries) {
+        console.log(`HubSpot not ready for Agent form, retrying... (${retryCount}/${maxRetries})`);
+        setTimeout(initializeHubSpotForm, 500);
+      } else {
+        console.error('HubSpot failed to load for Agent form after maximum retries');
+        formContainer.innerHTML = '<p style="padding: 20px; text-align: center; color: #666;">HubSpot form failed to load. Please refresh the page and try again.</p>';
+      }
     }
   };
 
