@@ -289,7 +289,7 @@ const HowItWorks = () => {
             </Button>
           </div>
         </div>
-      </Section>
+      </section>
 
       <Footer />
     </div>
