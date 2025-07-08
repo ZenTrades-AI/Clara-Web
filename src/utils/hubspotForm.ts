@@ -5,7 +5,57 @@ declare global {
   }
 }
 
-export const openHubSpotForm = () => {
+// Function to load HubSpot script dynamically if not already loaded
+const loadHubSpotScript = (): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    // Check if script is already loaded
+    if (window.hbspt && window.hbspt.forms) {
+      resolve();
+      return;
+    }
+
+    // Check if script tag already exists
+    const existingScript = document.querySelector('script[src*="js.hsforms.net"]');
+    if (existingScript) {
+      // Script exists but might still be loading
+      existingScript.addEventListener('load', () => {
+        if (window.hbspt && window.hbspt.forms) {
+          resolve();
+        } else {
+          reject(new Error('HubSpot script loaded but forms not available'));
+        }
+      });
+      existingScript.addEventListener('error', () => {
+        reject(new Error('Failed to load HubSpot script'));
+      });
+      return;
+    }
+
+    // Create and load the script
+    const script = document.createElement('script');
+    script.src = 'https://js.hsforms.net/forms/embed/45865556.js';
+    script.defer = true;
+    
+    script.onload = () => {
+      // Wait a bit for HubSpot to initialize
+      setTimeout(() => {
+        if (window.hbspt && window.hbspt.forms) {
+          resolve();
+        } else {
+          reject(new Error('HubSpot script loaded but forms not available'));
+        }
+      }, 100);
+    };
+    
+    script.onerror = () => {
+      reject(new Error('Failed to load HubSpot script'));
+    };
+    
+    document.head.appendChild(script);
+  });
+};
+
+export const openHubSpotForm = async () => {
   // Create modal overlay
   const overlay = document.createElement('div');
   overlay.id = 'hubspot-modal-overlay';
@@ -104,28 +154,48 @@ export const openHubSpotForm = () => {
   };
   document.addEventListener('keydown', handleEscape);
 
+  // Show loading initially
+  formContainer.innerHTML = '<div style="text-align: center; padding: 40px; color: #6b7280;"><div style="display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite;"></div><p style="margin-top: 16px;">Loading form...</p></div><style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>';
+
   // Assemble modal
   modal.appendChild(closeButton);
   modal.appendChild(formContainer);
   overlay.appendChild(modal);
   document.body.appendChild(overlay);
 
-  // Create HubSpot form
-  if (window.hbspt && window.hbspt.forms) {
+  try {
+    // Load HubSpot script and create form
+    await loadHubSpotScript();
+    
+    // Clear loading and create form
+    formContainer.innerHTML = '';
     window.hbspt.forms.create({
       region: 'na1',
       portalId: '45865556',
       formId: 'c3428dcb-b18c-4277-b463-b7869c42800f',
       target: '#hubspot-form-target',
       onFormSubmitted: () => {
-        // Auto-close modal after 2 seconds
-        setTimeout(() => closeModal(), 2000);
+        // Show success message
+        formContainer.innerHTML = '<div style="text-align: center; padding: 40px; color: #059669;"><div style="font-size: 48px; margin-bottom: 16px;">✓</div><h3 style="margin: 0 0 8px 0; color: #111;">Thank you!</h3><p style="margin: 0; color: #6b7280;">We\'ll be in touch soon.</p></div>';
+        // Auto-close modal after 3 seconds
+        setTimeout(() => closeModal(), 3000);
       }
     });
-  } else {
-    // Fallback if HubSpot script not loaded
-    formContainer.innerHTML = '<p style="text-align: center; color: #6b7280;">Loading form...</p>';
-    console.error('HubSpot forms script not loaded');
+  } catch (error) {
+    console.error('Error loading HubSpot form:', error);
+    formContainer.innerHTML = `
+      <div style="text-align: center; padding: 40px; color: #dc2626;">
+        <div style="font-size: 48px; margin-bottom: 16px;">⚠️</div>
+        <h3 style="margin: 0 0 8px 0; color: #111;">Form unavailable</h3>
+        <p style="margin: 0 0 16px 0; color: #6b7280;">Please try again later or contact us directly.</p>
+        <button 
+          onclick="window.open('mailto:contact@yourcompany.com', '_blank')" 
+          style="background: #dc2626; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;"
+        >
+          Contact Us
+        </button>
+      </div>
+    `;
   }
 };
 
