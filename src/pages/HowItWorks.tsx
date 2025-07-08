@@ -1,7 +1,9 @@
+
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { openHubSpotForm } from '@/utils/hubspotForm';
 
 const layers = [
@@ -50,9 +52,9 @@ const layers = [
     ]
   },
   { 
-    name: 'Engages', 
+    name: 'Boosts', 
     description: 'Proactive customer communication throughout the service lifecycle', 
-    icon: '💬',
+    icon: '📈',
     features: [
       'Customer journey mapping',
       'Personalized outreach campaigns',
@@ -113,7 +115,7 @@ const channels = [
 ];
 
 const HowItWorks = () => {
-  const [activeLayer, setActiveLayer] = useState(0);
+  const [activeLayer, setActiveLayer] = useState('0');
 
   return (
     <div className="min-h-screen">
@@ -131,92 +133,149 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* 7-Layer Stack with Detailed Descriptions */}
-      <section className="py-20 bg-white">
+      {/* 7-Layer Stack with Accordion Design */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Layer Stack Visualization */}
-            <div className="relative">
-              <div className="space-y-4">
-                {layers.map((layer, index) => (
-                  <div
-                    key={layer.name}
-                    className={`relative p-6 rounded-lg border-2 transition-all duration-300 cursor-pointer transform hover:scale-105 ${
-                      index === activeLayer
-                        ? 'border-clara-red bg-clara-red/10 shadow-lg'
-                        : 'border-gray-200 bg-white hover:border-clara-red/50 hover:shadow-md'
-                    }`}
-                    onClick={() => setActiveLayer(index)}
-                  >
-                    <div className="flex items-center space-x-4">
-                      <div className={`text-3xl transition-transform duration-300 ${
-                        index === activeLayer ? 'scale-110' : 'group-hover:scale-105'
-                      }`}>
-                        {layer.icon}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            
+            {/* Left Side - Enhanced Visualization */}
+            <div className="relative order-2 lg:order-1">
+              <div className="sticky top-8">
+                {/* Stack Visualization */}
+                <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-2">
+                      Clara AI Stack
+                    </h3>
+                    <p className="text-gray-600">Modular layers that scale with your business</p>
+                  </div>
+                  
+                  {/* Interactive Stack */}
+                  <div className="space-y-3">
+                    {layers.map((layer, index) => (
+                      <div
+                        key={layer.name}
+                        className={`relative p-4 rounded-lg border-2 transition-all duration-300 cursor-pointer ${
+                          activeLayer === index.toString()
+                            ? 'border-clara-red bg-clara-red/5 shadow-lg scale-105'
+                            : 'border-gray-200 bg-white hover:border-clara-red/30 hover:shadow-md'
+                        }`}
+                        onClick={() => setActiveLayer(index.toString())}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-3">
+                            <div className={`text-2xl transition-transform duration-300 ${
+                              activeLayer === index.toString() ? 'scale-110' : ''
+                            }`}>
+                              {layer.icon}
+                            </div>
+                            <div>
+                              <h4 className={`font-montserrat font-bold transition-colors duration-300 ${
+                                activeLayer === index.toString() ? 'text-clara-navy' : 'text-gray-700'
+                              }`}>
+                                Clara {layer.name}
+                              </h4>
+                              <p className="text-sm text-gray-500">Layer {index + 1}</p>
+                            </div>
+                          </div>
+                          <div className={`text-sm font-medium transition-colors duration-300 ${
+                            activeLayer === index.toString() ? 'text-clara-red' : 'text-gray-400'
+                          }`}>
+                            0{index + 1}
+                          </div>
+                        </div>
+                        
+                        {/* Active indicator */}
+                        {activeLayer === index.toString() && (
+                          <div className="absolute -right-2 top-1/2 transform -translate-y-1/2">
+                            <div className="w-4 h-4 bg-clara-red rounded-full animate-pulse"></div>
+                          </div>
+                        )}
                       </div>
-                      <div className="flex-1">
-                        <h3 className={`text-lg font-montserrat font-bold transition-colors duration-300 ${
-                          index === activeLayer ? 'text-clara-navy' : 'text-gray-700'
-                        }`}>
-                          {layer.name}
-                        </h3>
-                        <p className={`text-sm transition-colors duration-300 ${
-                          index === activeLayer ? 'text-gray-700' : 'text-gray-500'
-                        }`}>
-                          {layer.description}
-                        </p>
-                      </div>
-                      <div className={`text-sm font-medium transition-colors duration-300 ${
-                        index === activeLayer ? 'text-clara-red' : 'text-gray-400'
-                      }`}>
-                        0{index + 1}
+                    ))}
+                  </div>
+                  
+                  {/* ROI Banner */}
+                  <div className="text-center mt-8 pt-6 border-t border-gray-200">
+                    <div className="inline-block bg-gradient-to-r from-clara-gold to-yellow-500 text-clara-navy px-6 py-3 rounded-xl shadow-lg">
+                      <div className="text-lg font-montserrat font-bold">
+                        ROI: $1 in, $5 out
                       </div>
                     </div>
-                    {index === activeLayer && (
-                      <div className="absolute -right-2 top-1/2 transform -translate-y-1/2">
-                        <div className="w-4 h-4 bg-clara-red rounded-full animate-pulse"></div>
-                      </div>
-                    )}
                   </div>
-                ))}
+                </div>
               </div>
             </div>
 
-            {/* Active Layer Details */}
-            <div className="space-y-8">
-              <div className="animate-fade-in">
-                <div className="text-6xl mb-4">{layers[activeLayer].icon}</div>
+            {/* Right Side - Accordion */}
+            <div className="order-1 lg:order-2">
+              <div className="mb-8">
                 <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-4">
-                  {layers[activeLayer].name}
+                  Build your AI growth engine
                 </h2>
-                <p className="text-lg text-gray-600 mb-6">
-                  {layers[activeLayer].description}
+                <p className="text-lg text-gray-600">
+                  Each layer adds intelligence and automation to transform your service operations
                 </p>
-                
-                {/* Layer-specific features */}
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-clara-navy">Key Features:</h4>
-                  {layers[activeLayer].features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-clara-red rounded-full"></div>
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
 
-              <Button 
-                className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3"
-                onClick={openHubSpotForm}
+              <Accordion 
+                type="single" 
+                collapsible 
+                value={activeLayer} 
+                onValueChange={setActiveLayer}
+                className="space-y-4"
               >
-                See Clara in Action
-              </Button>
+                {layers.map((layer, index) => (
+                  <AccordionItem 
+                    key={layer.name} 
+                    value={index.toString()}
+                    className="border border-gray-200 rounded-lg px-6 py-2 bg-white shadow-sm hover:shadow-md transition-shadow duration-200"
+                  >
+                    <AccordionTrigger className="hover:no-underline py-4">
+                      <div className="flex items-center space-x-4 text-left">
+                        <div className="text-3xl">{layer.icon}</div>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-montserrat font-bold text-clara-navy">
+                            Clara {layer.name}
+                          </h3>
+                          <p className="text-gray-600 text-sm mt-1">
+                            {layer.description}
+                          </p>
+                        </div>
+                        <div className="text-sm font-medium text-clara-red">
+                          Layer {index + 1}
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-6">
+                      <div className="pl-16 space-y-3">
+                        <h4 className="font-semibold text-clara-navy mb-3">Key Capabilities:</h4>
+                        {layer.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-start space-x-3">
+                            <div className="w-2 h-2 bg-clara-red rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-gray-700 leading-relaxed">{feature}</span>
+                          </div>
+                        ))}
+                        <div className="mt-6 pt-4 border-t border-gray-100">
+                          <Button 
+                            size="sm"
+                            className="bg-clara-red hover:bg-clara-red/90 text-white"
+                            onClick={openHubSpotForm}
+                          >
+                            See {layer.name} in Action
+                          </Button>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Omnichannel Support Section - Updated Design */}
+      {/* Omnichannel Support Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
