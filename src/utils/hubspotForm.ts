@@ -8,8 +8,11 @@ declare global {
 // Function to load HubSpot script dynamically if not already loaded
 const loadHubSpotScript = (): Promise<void> => {
   return new Promise((resolve, reject) => {
+    console.log('Loading HubSpot script...');
+    
     // Check if script is already loaded
     if (window.hbspt && window.hbspt.forms) {
+      console.log('HubSpot script already loaded');
       resolve();
       return;
     }
@@ -17,37 +20,46 @@ const loadHubSpotScript = (): Promise<void> => {
     // Check if script tag already exists
     const existingScript = document.querySelector('script[src*="js.hsforms.net"]');
     if (existingScript) {
+      console.log('HubSpot script tag exists, waiting for load...');
       // Script exists but might still be loading
       existingScript.addEventListener('load', () => {
         if (window.hbspt && window.hbspt.forms) {
+          console.log('HubSpot script loaded successfully');
           resolve();
         } else {
+          console.error('HubSpot script loaded but forms not available');
           reject(new Error('HubSpot script loaded but forms not available'));
         }
       });
       existingScript.addEventListener('error', () => {
+        console.error('Failed to load existing HubSpot script');
         reject(new Error('Failed to load HubSpot script'));
       });
       return;
     }
 
     // Create and load the script
+    console.log('Creating new HubSpot script tag...');
     const script = document.createElement('script');
-    script.src = 'https://js.hsforms.net/forms/embed/45865556.js';
+    script.src = 'https://js.hsforms.net/forms/embed/v3.js';
     script.defer = true;
     
     script.onload = () => {
+      console.log('HubSpot script tag loaded, waiting for initialization...');
       // Wait a bit for HubSpot to initialize
       setTimeout(() => {
         if (window.hbspt && window.hbspt.forms) {
+          console.log('HubSpot forms ready');
           resolve();
         } else {
+          console.error('HubSpot script loaded but forms not available after timeout');
           reject(new Error('HubSpot script loaded but forms not available'));
         }
-      }, 100);
+      }, 500);
     };
     
     script.onerror = () => {
+      console.error('Failed to load HubSpot script');
       reject(new Error('Failed to load HubSpot script'));
     };
     
@@ -56,6 +68,8 @@ const loadHubSpotScript = (): Promise<void> => {
 };
 
 export const openHubSpotForm = async () => {
+  console.log('Opening HubSpot form...');
+  
   // Create modal overlay
   const overlay = document.createElement('div');
   overlay.id = 'hubspot-modal-overlay';
@@ -67,7 +81,7 @@ export const openHubSpotForm = async () => {
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(4px);
-    z-index: 9999;
+    z-index: 99999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,6 +144,7 @@ export const openHubSpotForm = async () => {
 
   // Function to close modal
   const closeModal = () => {
+    console.log('Closing modal...');
     if (overlay && overlay.parentNode) {
       overlay.parentNode.removeChild(overlay);
     }
@@ -162,11 +177,14 @@ export const openHubSpotForm = async () => {
   modal.appendChild(formContainer);
   overlay.appendChild(modal);
   document.body.appendChild(overlay);
+  
+  console.log('Modal created and added to DOM');
 
   try {
     // Load HubSpot script and create form
     await loadHubSpotScript();
     
+    console.log('Creating HubSpot form...');
     // Clear loading and create form
     formContainer.innerHTML = '';
     window.hbspt.forms.create({
@@ -175,10 +193,14 @@ export const openHubSpotForm = async () => {
       formId: 'c3428dcb-b18c-4277-b463-b7869c42800f',
       target: '#hubspot-form-target',
       onFormSubmitted: () => {
+        console.log('Form submitted successfully');
         // Show success message
         formContainer.innerHTML = '<div style="text-align: center; padding: 40px; color: #059669;"><div style="font-size: 48px; margin-bottom: 16px;">✓</div><h3 style="margin: 0 0 8px 0; color: #111;">Thank you!</h3><p style="margin: 0; color: #6b7280;">We\'ll be in touch soon.</p></div>';
         // Auto-close modal after 3 seconds
         setTimeout(() => closeModal(), 3000);
+      },
+      onFormReady: () => {
+        console.log('HubSpot form is ready');
       }
     });
   } catch (error) {
