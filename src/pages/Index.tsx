@@ -65,7 +65,7 @@ const Index = () => {
                 <div className="inline-flex items-center px-3 py-1.5 bg-clara-red/10 border border-clara-red/20 rounded-full">
                   <span className="text-clara-red font-medium text-xs">ROI &lt; 30 days</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-[5rem] font-montserrat font-bold leading-[5rem]">
+                <h1 className="text-3xl md:text-4xl lg:text-[5rem] font-montserrat font-bold leading-tight md:leading-tight lg:leading-[5rem]">
                   The AI Growth Engine for 
                   <br />
                   <span className="text-clara-red"> Service Contractors</span>
@@ -339,7 +339,7 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-clara-navy text-white">
         <div className="max-w-4xl mx-auto px-2 sm:px-3 lg:px-4 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-[5rem] font-montserrat font-bold mb-6 leading-[5rem]">
+          <h2 className="text-3xl md:text-4xl lg:text-[5rem] font-montserrat font-bold mb-6 leading-tight md:leading-tight lg:leading-[5rem]">
             Ready to grow your business with AI?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
