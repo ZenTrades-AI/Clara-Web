@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -64,7 +65,7 @@ const Index = () => {
                 <div className="inline-flex items-center px-3 py-1.5 bg-clara-red/10 border border-clara-red/20 rounded-full">
                   <span className="text-clara-red font-medium text-xs">ROI &lt; 30 days</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-[5rem] font-montserrat font-bold leading-tight">
+                <h1 className="text-3xl md:text-4xl md:leading-[5rem] lg:text-[5rem] lg:leading-[5rem] font-montserrat font-bold">
                   The AI Growth Engine for 
                   <br />
                   <span className="text-clara-red"> Service Contractors</span>
@@ -338,7 +339,7 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-clara-navy text-white">
         <div className="max-w-4xl mx-auto px-2 sm:px-3 lg:px-4 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-[5rem] font-montserrat font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl md:leading-[5rem] lg:text-[5rem] lg:leading-[5rem] font-montserrat font-bold mb-6">
             Ready to grow your business with AI?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -352,13 +353,13 @@ const Index = () => {
             >
               Book a 15-min Demo
             </Button>
-            <ROICalculator 
-              trigger={
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
-                  Try Clara Live
-                </Button>
-              }
-            />
+            <Button 
+              variant="outline" 
+              className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg"
+              onClick={openHubSpotForm}
+            >
+              Try Clara Live
+            </Button>
           </div>
           <p className="text-sm text-gray-400 mt-6">
             Calls &lt; 85% confidence escalate to human dispatcher within two rings
