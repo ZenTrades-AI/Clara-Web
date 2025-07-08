@@ -1,8 +1,8 @@
-
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { openHubSpotForm } from '@/utils/hubspotForm';
 
 const layers = [
   { 
@@ -205,7 +205,10 @@ const HowItWorks = () => {
                 </div>
               </div>
 
-              <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3">
+              <Button 
+                className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3"
+                onClick={openHubSpotForm}
+              >
                 See Clara in Action
               </Button>
             </div>
@@ -258,10 +261,17 @@ const HowItWorks = () => {
             Let Clara handle your calls while you focus on growing your business
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg">
+            <Button 
+              className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg"
+              onClick={openHubSpotForm}
+            >
               Book a 15-min Demo
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
+            <Button 
+              variant="outline" 
+              className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg"
+              onClick={openHubSpotForm}
+            >
               Try Clara Live
             </Button>
           </div>
