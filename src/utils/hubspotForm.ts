@@ -1,4 +1,3 @@
-
 // Function to open HubSpot form in modal popup on same page
 export const openHubSpotForm = () => {
   console.log('Opening HubSpot form in modal popup...');
@@ -18,7 +17,7 @@ export const openHubSpotForm = () => {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: transparent;
     z-index: 9999;
     display: flex;
     align-items: center;
@@ -34,10 +33,9 @@ export const openHubSpotForm = () => {
     width: 100%;
     max-width: 800px;
     max-height: 90%;
-    background: white;
+    background: transparent;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   `;
 
   // Create close button
@@ -47,7 +45,7 @@ export const openHubSpotForm = () => {
     position: absolute;
     top: 15px;
     right: 20px;
-    background: none;
+    background: rgba(255, 255, 255, 0.9);
     border: none;
     font-size: 24px;
     font-weight: bold;
@@ -69,7 +67,7 @@ export const openHubSpotForm = () => {
   };
 
   closeButton.onmouseout = () => {
-    closeButton.style.backgroundColor = 'transparent';
+    closeButton.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
     closeButton.style.color = '#666';
   };
 
