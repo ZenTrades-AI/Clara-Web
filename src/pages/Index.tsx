@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -65,7 +64,7 @@ const Index = () => {
                 <div className="inline-flex items-center px-3 py-1.5 bg-clara-red/10 border border-clara-red/20 rounded-full">
                   <span className="text-clara-red font-medium text-xs">ROI &lt; 30 days</span>
                 </div>
-                <h1 className="text-8xl font-montserrat font-bold leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-7xl font-montserrat font-bold leading-tight">
                   The AI Growth Engine for 
                   <br />
                   <span className="text-clara-red"> Service Contractors</span>
@@ -117,147 +116,135 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Growth Engine Section - Updated with row layout */}
+      {/* AI Growth Engine Section - Updated with left-right layout */}
       <section className="relative bg-clara-navy text-white py-12 overflow-hidden">
         {/* Background Pattern - Same as hero */}
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
         
         {/* Main Content */}
         <div className="relative z-10 container mx-auto px-6">
-          {/* AI Engine Core - Centered */}
-          <div className="flex justify-center mb-16">
-            <AIEngineCore 
-              activeSegment={activeSegment} 
-              onSegmentClick={(index) => {
-                setActiveSegment(index);
-                setIsAnimating(false);
-                setTimeout(() => setIsAnimating(true), 5000);
-              }}
-            />
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+              Capture, Convert and Collect
+            </h3>
+            <p className="text-gray-400 text-lg">
+              Watch your business transform with our AI-powered process
+            </p>
           </div>
 
-          {/* Process Cards Section */}
-          <div className="mb-12">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-                Capture, Convert and Collect
-              </h3>
-              <p className="text-gray-400 text-lg">
-                Watch your business transform with our AI-powered process
-              </p>
+          {/* Main Layout - Circle Left, Cards Right */}
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 max-w-7xl mx-auto mb-12">
+            {/* AI Engine Core - Left Side */}
+            <div className="flex-shrink-0">
+              <AIEngineCore 
+                activeSegment={activeSegment} 
+                onSegmentClick={(index) => {
+                  setActiveSegment(index);
+                  setIsAnimating(false);
+                  setTimeout(() => setIsAnimating(true), 5000);
+                }}
+              />
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 max-w-6xl mx-auto mb-16">
-              {segments.map((segment, index) => (
-                <div 
-                  key={segment.title}
-                  className={`group relative p-8 rounded-3xl border transition-all duration-500 cursor-pointer backdrop-blur-sm flex-1 ${
-                    activeSegment === index 
-                      ? 'border-red-500/50 bg-gradient-to-br ' + segment.color + ' transform scale-105 shadow-2xl shadow-red-500/10' 
-                      : 'border-gray-700/30 bg-gray-800/20 hover:border-gray-600/50 hover:bg-gray-800/30'
-                  }`}
-                  onClick={() => {
-                    setActiveSegment(index);
-                    setIsAnimating(false);
-                    setTimeout(() => setIsAnimating(true), 5000);
-                  }}
-                >
-                  {/* Step Number */}
-                  <div className={`absolute -top-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border-2 transition-all duration-300 ${
-                    activeSegment === index
-                      ? 'bg-red-500 border-red-400 text-white shadow-lg shadow-red-500/30'
-                      : 'bg-gray-800 border-gray-600 text-gray-400 group-hover:border-gray-500'
-                  }`}>
-                    {index + 1}
-                  </div>
-
-                  {/* Icon and Title */}
-                  <div className="flex items-center mb-6">
-                    <div className={`p-4 rounded-xl mr-4 transition-all duration-300 ${
+            {/* Process Cards - Right Side */}
+            <div className="flex-1">
+              <div className="flex flex-col gap-6 max-w-2xl">
+                {segments.map((segment, index) => (
+                  <div 
+                    key={segment.title}
+                    className={`group relative p-6 rounded-2xl border transition-all duration-500 cursor-pointer backdrop-blur-sm ${
                       activeSegment === index 
-                        ? 'bg-red-500/20 text-red-400 shadow-lg' 
-                        : 'bg-gray-700/50 text-gray-400 group-hover:text-white group-hover:bg-gray-600/50'
+                        ? 'border-red-500/50 bg-gradient-to-br ' + segment.color + ' transform scale-105 shadow-2xl shadow-red-500/10' 
+                        : 'border-gray-700/30 bg-gray-800/20 hover:border-gray-600/50 hover:bg-gray-800/30'
+                    }`}
+                    onClick={() => {
+                      setActiveSegment(index);
+                      setIsAnimating(false);
+                      setTimeout(() => setIsAnimating(true), 5000);
+                    }}
+                  >
+                    {/* Step Number */}
+                    <div className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm border-2 transition-all duration-300 ${
+                      activeSegment === index
+                        ? 'bg-red-500 border-red-400 text-white shadow-lg shadow-red-500/30'
+                        : 'bg-gray-800 border-gray-600 text-gray-400 group-hover:border-gray-500'
                     }`}>
-                      <segment.icon size={28} />
+                      {index + 1}
                     </div>
-                    <div>
-                      <h4 className={`text-2xl font-bold transition-colors duration-300 ${
-                        activeSegment === index ? 'text-white' : 'text-gray-300 group-hover:text-white'
-                      }`}>
-                        {segment.title}
-                      </h4>
-                      <div className={`text-sm font-medium transition-colors duration-300 ${
-                        activeSegment === index ? 'text-red-400' : 'text-gray-500 group-hover:text-gray-400'
-                      }`}>
-                        {segment.description}
-                      </div>
-                    </div>
-                  </div>
 
-                  {/* Key Features */}
-                  <div className="space-y-3">
-                    <h5 className={`text-sm font-semibold transition-colors duration-300 ${
-                      activeSegment === index ? 'text-gray-200' : 'text-gray-400 group-hover:text-gray-300'
-                    }`}>
-                      Key Features:
-                    </h5>
-                    {segment.features.map((feature, featureIndex) => (
-                      <div 
-                        key={featureIndex}
-                        className="flex items-start gap-3"
-                      >
-                        <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 transition-colors duration-300 ${
-                          activeSegment === index ? 'bg-red-400' : 'bg-gray-500 group-hover:bg-gray-400'
-                        }`} />
-                        <p className={`text-sm leading-relaxed transition-colors duration-300 ${
-                          activeSegment === index ? 'text-gray-300' : 'text-gray-500 group-hover:text-gray-400'
+                    {/* Icon and Title */}
+                    <div className="flex items-center mb-4">
+                      <div className={`p-3 rounded-lg mr-4 transition-all duration-300 ${
+                        activeSegment === index 
+                          ? 'bg-red-500/20 text-red-400 shadow-lg' 
+                          : 'bg-gray-700/50 text-gray-400 group-hover:text-white group-hover:bg-gray-600/50'
+                      }`}>
+                        <segment.icon size={20} />
+                      </div>
+                      <div>
+                        <h4 className={`text-xl font-bold transition-colors duration-300 ${
+                          activeSegment === index ? 'text-white' : 'text-gray-300 group-hover:text-white'
                         }`}>
-                          {feature}
-                        </p>
+                          {segment.title}
+                        </h4>
+                        <div className={`text-sm font-medium transition-colors duration-300 ${
+                          activeSegment === index ? 'text-red-400' : 'text-gray-500 group-hover:text-gray-400'
+                        }`}>
+                          {segment.description}
+                        </div>
                       </div>
-                    ))}
-                  </div>
-
-                  {/* Active Indicator */}
-                  {activeSegment === index && (
-                    <div className="absolute bottom-4 right-4">
-                      <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse shadow-lg shadow-red-500/50" />
                     </div>
-                  )}
-                </div>
-              ))}
-            </div>
 
-            {/* Flow Arrows */}
-            <div className="hidden lg:flex items-center justify-center mb-16 gap-8">
-              {[0, 1].map((index) => (
-                <div key={index} className="flex items-center">
-                  <div className={`h-0.5 w-16 bg-gradient-to-r transition-all duration-500 ${
-                    activeSegment >= index + 1 
-                      ? 'from-red-500 to-red-400' 
-                      : 'from-gray-600 to-gray-700'
-                  }`} />
-                  <div className={`w-3 h-3 rotate-45 border-r-2 border-t-2 transition-colors duration-500 ${
-                    activeSegment >= index + 1 ? 'border-red-400' : 'border-gray-600'
-                  }`} />
-                </div>
-              ))}
-            </div>
+                    {/* Key Features */}
+                    <div className="space-y-2">
+                      <h5 className={`text-sm font-semibold transition-colors duration-300 ${
+                        activeSegment === index ? 'text-gray-200' : 'text-gray-400 group-hover:text-gray-300'
+                      }`}>
+                        Key Features:
+                      </h5>
+                      {segment.features.map((feature, featureIndex) => (
+                        <div 
+                          key={featureIndex}
+                          className="flex items-start gap-2"
+                        >
+                          <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 transition-colors duration-300 ${
+                            activeSegment === index ? 'bg-red-400' : 'bg-gray-500 group-hover:bg-gray-400'
+                          }`} />
+                          <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                            activeSegment === index ? 'text-gray-300' : 'text-gray-500 group-hover:text-gray-400'
+                          }`}>
+                            {feature}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
 
-            {/* CTA */}
-            <div className="text-center animate-fade-in">
-              <Link to="/how-it-works">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-10 py-5 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
-                >
-                  How it Works
-                </Button>
-              </Link>
-              <p className="text-gray-500 mt-6 text-base">
-                Watch how the AI engine transforms your service business
-              </p>
+                    {/* Active Indicator */}
+                    {activeSegment === index && (
+                      <div className="absolute bottom-3 right-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-lg shadow-red-500/50" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
+
+          {/* CTA Button - Below Cards */}
+          <div className="text-center animate-fade-in">
+            <Link to="/how-it-works">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-10 py-5 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+              >
+                How it Works
+              </Button>
+            </Link>
+            <p className="text-gray-500 mt-6 text-base">
+              Watch how the AI engine transforms your service business
+            </p>
           </div>
         </div>
       </section>
