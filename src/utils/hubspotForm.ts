@@ -20,22 +20,18 @@ const loadHubSpotScript = (): Promise<void> => {
     // Check if script tag already exists
     const existingScript = document.querySelector('script[src*="js.hsforms.net"]');
     if (existingScript) {
-      console.log('HubSpot script tag exists, waiting for load...');
-      // Script exists but might still be loading
-      existingScript.addEventListener('load', () => {
-        if (window.hbspt && window.hbspt.forms) {
-          console.log('HubSpot script loaded successfully');
-          resolve();
-        } else {
-          console.error('HubSpot script loaded but forms not available');
-          reject(new Error('HubSpot script loaded but forms not available'));
-        }
-      });
-      existingScript.addEventListener('error', () => {
-        console.error('Failed to load existing HubSpot script');
-        reject(new Error('Failed to load HubSpot script'));
-      });
-      return;
+      console.log('HubSpot script tag exists, checking if loaded...');
+      
+      // If script exists and hbspt is available, resolve immediately
+      if (window.hbspt && window.hbspt.forms) {
+        console.log('HubSpot script already available');
+        resolve();
+        return;
+      }
+      
+      // Remove existing script and create new one
+      console.log('Removing existing script and creating new one...');
+      existingScript.remove();
     }
 
     // Create and load the script
@@ -55,7 +51,7 @@ const loadHubSpotScript = (): Promise<void> => {
           console.error('HubSpot script loaded but forms not available after timeout');
           reject(new Error('HubSpot script loaded but forms not available'));
         }
-      }, 500);
+      }, 1000);
     };
     
     script.onerror = () => {
