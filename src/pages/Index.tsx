@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -54,7 +53,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section - Updated */}
-      <section className="relative bg-clara-navy text-white pt-16 pb-8 overflow-hidden">
+      <section className="relative bg-clara-navy text-white pt-12 pb-8 overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center min-h-[500px] lg:min-h-[600px]">
@@ -65,8 +64,8 @@ const Index = () => {
                   <span className="text-clara-red font-medium text-xs">ROI &lt; 30 days</span>
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold leading-tight">
-                  The AI Growth Engine for 
-                  <span className="text-clara-red"> Service Contractors</span>
+                  The AI Growth Engine for<br />
+                  <span className="text-clara-red">Service Contractors</span>
                 </h1>
                 <p className="text-lg text-gray-300 max-w-2xl mx-auto">
                   From first ring to final payment. Clara answers, dispatches, and collects - delivering 
@@ -88,7 +87,7 @@ const Index = () => {
               </div>
 
               {/* Key Stats */}
-              <div className="grid grid-cols-3 gap-4 pt-6 max-w-md mx-auto">
+              <div className="grid grid-cols-3 gap-4 pt-4 max-w-md mx-auto">
                 <div className="text-center">
                   <div className="text-xl font-montserrat font-bold text-clara-red">4s</div>
                   <div className="text-xs text-gray-300">Answer Time</div>
@@ -113,14 +112,14 @@ const Index = () => {
       </section>
 
       {/* AI Growth Engine Section - Updated with same background */}
-      <section className="relative bg-clara-navy text-white py-12 overflow-hidden">
+      <section className="relative bg-clara-navy text-white py-6 overflow-hidden">
         {/* Background Pattern - Same as hero */}
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
         
         {/* Main Content */}
         <div className="relative z-10 container mx-auto px-6">
           {/* AI Engine Core - Centered */}
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-12">
             <AIEngineCore 
               activeSegment={activeSegment} 
               onSegmentClick={(index) => {
@@ -246,7 +245,7 @@ const Index = () => {
                   size="lg" 
                   className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-10 py-5 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
                 >
-                  See Clara In Action
+                  How it Works
                 </Button>
               </Link>
               <p className="text-gray-500 mt-6 text-base">
@@ -257,14 +256,14 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof - Company Logos - Updated with reduced width */}
-      <section className="py-16 bg-clara-gray">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Social Proof - Company Logos - Updated with light grey background */}
+      <section className="py-16 bg-gray-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-lg font-medium text-gray-600 mb-8">
               Trusted by leading contractors and PE platforms
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
               <div className="flex justify-center">
                 <img 
                   src="/lovable-uploads/bcd70ec6-c0ae-4ef6-a446-4339ea655d94.png" 
@@ -290,6 +289,13 @@ const Index = () => {
                 <img 
                   src="/lovable-uploads/8d32313c-c03a-45bc-9cce-bf17727ca1ca.png" 
                   alt="Alliance Specialized Systems logo" 
+                  className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <div className="flex justify-center">
+                <img 
+                  src="/placeholder.svg" 
+                  alt="John Ownes Services logo" 
                   className="h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
