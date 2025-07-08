@@ -1,9 +1,9 @@
-
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
 import IntegrationCarousel from '@/components/IntegrationCarousel';
+import HubSpotFormModal from '@/components/HubSpotFormModal';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowRight, Play, Phone, Calendar, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ import { AIEngineCore } from "@/components/AIEngineCore";
 const Index = () => {
   const [activeSegment, setActiveSegment] = useState(0);
   const [isAnimating, setIsAnimating] = useState(true);
+  const [isHubSpotModalOpen, setIsHubSpotModalOpen] = useState(false);
 
   const segments = [
     {
@@ -76,7 +77,10 @@ const Index = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-6 py-2.5 text-base">
+                <Button 
+                  className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-6 py-2.5 text-base"
+                  onClick={() => setIsHubSpotModalOpen(true)}
+                >
                   Book a 15-min Demo
                 </Button>
                 <ROICalculator 
@@ -348,7 +352,10 @@ const Index = () => {
             convert more customers, and collect payments faster.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg">
+            <Button 
+              className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg"
+              onClick={() => setIsHubSpotModalOpen(true)}
+            >
               Book a 15-min Demo
             </Button>
             <ROICalculator 
@@ -366,6 +373,11 @@ const Index = () => {
       </section>
 
       <Footer />
+      
+      <HubSpotFormModal 
+        isOpen={isHubSpotModalOpen}
+        onClose={() => setIsHubSpotModalOpen(false)}
+      />
     </div>
   );
 };

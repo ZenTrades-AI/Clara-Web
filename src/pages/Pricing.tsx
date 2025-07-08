@@ -1,6 +1,6 @@
-
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import HubSpotFormModal from '@/components/HubSpotFormModal';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -34,6 +34,7 @@ const Pricing = () => {
   });
 
   const [activeStep, setActiveStep] = useState(0);
+  const [isHubSpotModalOpen, setIsHubSpotModalOpen] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -323,7 +324,10 @@ const Pricing = () => {
               <p className="text-lg text-gray-600 mb-4">
                 Typical timeline: <span className="font-semibold text-clara-teal">24-48 hours</span>
               </p>
-              <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3">
+              <Button 
+                className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3"
+                onClick={() => setIsHubSpotModalOpen(true)}
+              >
                 Get Started Today
               </Button>
             </div>
@@ -332,6 +336,11 @@ const Pricing = () => {
       </section>
 
       <Footer />
+      
+      <HubSpotFormModal 
+        isOpen={isHubSpotModalOpen}
+        onClose={() => setIsHubSpotModalOpen(false)}
+      />
     </div>
   );
 };
