@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { openHubSpotForm } from '@/utils/hubspotForm';
+import { Phone, Truck, MapPin, Clock, TrendingUp, Star, CreditCard } from 'lucide-react';
 
 const layers = [
   { 
@@ -16,7 +17,13 @@ const layers = [
       'Intelligent call routing and escalation',
       'Complete call transcription and logging',
       'Multi-language support for diverse markets'
-    ]
+    ],
+    visual: {
+      icon: Phone,
+      animation: 'animate-pulse',
+      bgGradient: 'from-blue-500 to-cyan-500',
+      description: 'Smart phone system with AI conversation bubbles'
+    }
   },
   { 
     name: 'Dispatches', 
@@ -27,7 +34,13 @@ const layers = [
       'Skills-based matching for complex jobs',
       'Emergency prioritization and instant alerts',
       'GPS-optimized routing for efficiency'
-    ]
+    ],
+    visual: {
+      icon: Truck,
+      animation: 'animate-bounce',
+      bgGradient: 'from-green-500 to-emerald-500',
+      description: 'Dispatch truck with route optimization lines'
+    }
   },
   { 
     name: 'Optimizes', 
@@ -38,7 +51,13 @@ const layers = [
       'Dynamic scheduling based on traffic patterns',
       'Resource allocation optimization',
       'Capacity management across teams'
-    ]
+    ],
+    visual: {
+      icon: MapPin,
+      animation: 'animate-spin',
+      bgGradient: 'from-purple-500 to-violet-500',
+      description: 'Interactive map with optimized route paths'
+    }
   },
   { 
     name: 'Reminds', 
@@ -49,7 +68,13 @@ const layers = [
       'Personalized messaging templates',
       'Automatic rescheduling workflows',
       'Confirmation tracking and analytics'
-    ]
+    ],
+    visual: {
+      icon: Clock,
+      animation: 'animate-pulse',
+      bgGradient: 'from-orange-500 to-amber-500',
+      description: 'Animated clock with notification alerts'
+    }
   },
   { 
     name: 'Boosts', 
@@ -60,7 +85,13 @@ const layers = [
       'Personalized outreach campaigns',
       'Satisfaction surveys and feedback loops',
       'Upselling and cross-selling opportunities'
-    ]
+    ],
+    visual: {
+      icon: TrendingUp,
+      animation: 'animate-bounce',
+      bgGradient: 'from-red-500 to-pink-500',
+      description: 'Growth chart with upward trending arrows'
+    }
   },
   { 
     name: 'Reviews', 
@@ -71,7 +102,13 @@ const layers = [
       'Reputation monitoring across platforms',
       'Response management and alerts',
       'Rating optimization strategies'
-    ]
+    ],
+    visual: {
+      icon: Star,
+      animation: 'animate-pulse',
+      bgGradient: 'from-yellow-500 to-orange-500',
+      description: '5-star rating system with animated reviews'
+    }
   },
   { 
     name: 'Collects', 
@@ -82,7 +119,13 @@ const layers = [
       'Payment reminder sequences',
       'Collection workflow automation',
       'Payment tracking and reporting'
-    ]
+    ],
+    visual: {
+      icon: CreditCard,
+      animation: 'animate-bounce',
+      bgGradient: 'from-indigo-500 to-blue-500',
+      description: 'Automated payment processing with cash flow visuals'
+    }
   },
 ];
 
@@ -116,6 +159,7 @@ const channels = [
 
 const HowItWorks = () => {
   const [activeLayer, setActiveLayer] = useState('0');
+  const currentLayer = layers[parseInt(activeLayer)] || layers[0];
 
   return (
     <div className="min-h-screen">
@@ -138,26 +182,76 @@ const HowItWorks = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             
-            {/* Left Side - Visual Placeholder */}
+            {/* Left Side - Dynamic Visual Placeholder */}
             <div className="relative order-2 lg:order-1">
               <div className="sticky top-8">
                 <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-montserrat font-bold text-clara-navy mb-4">
-                      Clara AI Visualization
+                      Clara {currentLayer.name}
                     </h3>
+                    <p className="text-gray-600 text-sm">
+                      {currentLayer.description}
+                    </p>
                   </div>
                   
-                  {/* Placeholder for Visual/Infographic */}
-                  <div className="flex items-center justify-center h-96 bg-gray-100 rounded-xl border-2 border-dashed border-gray-300">
-                    <div className="text-center">
-                      <div className="text-4xl mb-4">🎯</div>
-                      <h4 className="text-lg font-semibold text-gray-600 mb-2">
-                        Interactive Visual Coming Soon
+                  {/* Dynamic Visual Based on Active Layer */}
+                  <div className="flex items-center justify-center h-96 rounded-xl relative overflow-hidden">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${currentLayer.visual.bgGradient} opacity-10`}></div>
+                    <div className="relative z-10 text-center">
+                      <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br ${currentLayer.visual.bgGradient} mb-6 ${currentLayer.visual.animation}`}>
+                        <currentLayer.visual.icon className="w-12 h-12 text-white" />
+                      </div>
+                      <h4 className="text-lg font-semibold text-gray-700 mb-2">
+                        {currentLayer.visual.description}
                       </h4>
-                      <p className="text-gray-500 text-sm max-w-xs">
-                        Dynamic infographic showing Clara's AI layers in action
-                      </p>
+                      
+                      {/* Additional animated elements based on agent type */}
+                      {currentLayer.name === 'Answers' && (
+                        <div className="flex justify-center space-x-2 mt-4">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                          <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                          <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                        </div>
+                      )}
+                      
+                      {currentLayer.name === 'Dispatches' && (
+                        <div className="relative mt-4">
+                          <div className="flex justify-between items-center">
+                            <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+                            <div className="flex-1 h-0.5 bg-green-300 mx-2 relative">
+                              <div className="absolute top-0 left-0 h-full bg-green-500 animate-pulse" style={{width: '60%'}}></div>
+                            </div>
+                            <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {currentLayer.name === 'Optimizes' && (
+                        <div className="grid grid-cols-3 gap-2 mt-4">
+                          {[...Array(9)].map((_, i) => (
+                            <div key={i} className={`w-2 h-2 rounded-full ${i % 3 === 0 ? 'bg-purple-500' : 'bg-purple-200'} ${i % 3 === 0 ? 'animate-pulse' : ''}`}></div>
+                          ))}
+                        </div>
+                      )}
+                      
+                      {currentLayer.name === 'Reviews' && (
+                        <div className="flex justify-center space-x-1 mt-4">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className={`w-4 h-4 ${i < 4 ? 'text-yellow-500 fill-current' : 'text-gray-300'} animate-pulse`} style={{animationDelay: `${i * 0.1}s`}} />
+                          ))}
+                        </div>
+                      )}
+                      
+                      {currentLayer.name === 'Collects' && (
+                        <div className="flex justify-center items-center space-x-2 mt-4">
+                          <div className="text-green-500 font-bold animate-pulse">$</div>
+                          <div className="w-8 h-0.5 bg-green-300">
+                            <div className="h-full bg-green-500 animate-pulse" style={{width: '80%'}}></div>
+                          </div>
+                          <div className="text-green-500 font-bold">💰</div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -195,21 +289,23 @@ const HowItWorks = () => {
                           <h3 className="text-xl font-montserrat font-bold text-clara-navy">
                             Clara {layer.name}
                           </h3>
-                          <p className="text-gray-600 text-sm mt-1">
-                            {layer.description}
-                          </p>
                         </div>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="pb-6">
-                      <div className="pl-16 space-y-3">
-                        <h4 className="font-semibold text-clara-navy mb-3">Key Capabilities:</h4>
-                        {layer.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-start space-x-3">
-                            <div className="w-2 h-2 bg-clara-red rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-gray-700 leading-relaxed">{feature}</span>
-                          </div>
-                        ))}
+                      <div className="pl-16 space-y-4">
+                        <p className="text-gray-600 leading-relaxed">
+                          {layer.description}
+                        </p>
+                        <h4 className="font-semibold text-clara-navy">Key Capabilities:</h4>
+                        <div className="space-y-3">
+                          {layer.features.map((feature, idx) => (
+                            <div key={idx} className="flex items-start space-x-3">
+                              <div className="w-2 h-2 bg-clara-red rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="text-gray-700 leading-relaxed">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
                         <div className="mt-6 pt-4 border-t border-gray-100">
                           <Button 
                             size="sm"
