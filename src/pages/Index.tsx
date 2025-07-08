@@ -65,7 +65,7 @@ const Index = () => {
                 <div className="inline-flex items-center px-3 py-1.5 bg-clara-red/10 border border-clara-red/20 rounded-full">
                   <span className="text-clara-red font-medium text-xs">ROI &lt; 30 days</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold leading-tight">
+                <h1 className="text-8xl font-montserrat font-bold leading-tight">
                   The AI Growth Engine for 
                   <br />
                   <span className="text-clara-red"> Service Contractors</span>
@@ -117,7 +117,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Growth Engine Section - Updated with same background */}
+      {/* AI Growth Engine Section - Updated with row layout */}
       <section className="relative bg-clara-navy text-white py-12 overflow-hidden">
         {/* Background Pattern - Same as hero */}
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
@@ -147,11 +147,11 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-16">
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 max-w-6xl mx-auto mb-16">
               {segments.map((segment, index) => (
                 <div 
                   key={segment.title}
-                  className={`group relative p-8 rounded-3xl border transition-all duration-500 cursor-pointer backdrop-blur-sm ${
+                  className={`group relative p-8 rounded-3xl border transition-all duration-500 cursor-pointer backdrop-blur-sm flex-1 ${
                     activeSegment === index 
                       ? 'border-red-500/50 bg-gradient-to-br ' + segment.color + ' transform scale-105 shadow-2xl shadow-red-500/10' 
                       : 'border-gray-700/30 bg-gray-800/20 hover:border-gray-600/50 hover:bg-gray-800/30'
@@ -229,7 +229,7 @@ const Index = () => {
             </div>
 
             {/* Flow Arrows */}
-            <div className="hidden md:flex items-center justify-center mb-16 gap-8">
+            <div className="hidden lg:flex items-center justify-center mb-16 gap-8">
               {[0, 1].map((index) => (
                 <div key={index} className="flex items-center">
                   <div className={`h-0.5 w-16 bg-gradient-to-r transition-all duration-500 ${
