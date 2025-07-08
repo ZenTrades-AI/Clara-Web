@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -257,8 +256,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof - Company Logos - Updated with reduced width */}
-      <section className="py-16 bg-clara-gray">
+      {/* Social Proof - Company Logos - Updated with light grey background */}
+      <section className="py-16 bg-gray-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-lg font-medium text-gray-600 mb-8">

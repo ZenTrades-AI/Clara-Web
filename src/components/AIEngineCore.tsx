@@ -47,17 +47,6 @@ export const AIEngineCore = ({ activeSegment, onSegmentClick }: AIEngineCoreProp
         />
       </div>
 
-      {/* Central Core */}
-      <div className="absolute inset-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-red-500/30 flex items-center justify-center shadow-2xl">
-        <div className="text-center">
-          <div className="text-red-400 font-bold text-lg mb-1">Clara AI</div>
-          <div className="text-gray-400 text-sm">Growth Engine</div>
-          <div className="w-12 h-12 mx-auto mt-2 rounded-full bg-red-500/20 flex items-center justify-center">
-            <div className="w-6 h-6 rounded-full bg-red-500 animate-pulse" />
-          </div>
-        </div>
-      </div>
-
       {/* Connection Lines to Center */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none">
         {segments.map((segment, index) => {
@@ -76,12 +65,24 @@ export const AIEngineCore = ({ activeSegment, onSegmentClick }: AIEngineCoreProp
               y2={y2}
               stroke={isActive ? "#FF4F5A" : "#4B5563"}
               strokeWidth="2"
+              strokeDasharray="5,5"
               className="transition-all duration-500"
               opacity={isActive ? "1" : "0.3"}
             />
           );
         })}
       </svg>
+
+      {/* Central Core */}
+      <div className="absolute inset-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-red-500/30 flex items-center justify-center shadow-2xl">
+        <div className="text-center">
+          <div className="text-red-400 font-bold text-lg mb-1">Clara AI</div>
+          <div className="text-gray-400 text-sm">Growth Engine</div>
+          <div className="w-12 h-12 mx-auto mt-2 rounded-full bg-red-500/20 flex items-center justify-center">
+            <div className="w-6 h-6 rounded-full bg-red-500 animate-pulse" />
+          </div>
+        </div>
+      </div>
 
       {/* Segment Nodes */}
       {segments.map((segment, index) => {
