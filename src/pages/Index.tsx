@@ -1,10 +1,10 @@
-
 import { useState, useEffect } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
 import IntegrationCarousel from '@/components/IntegrationCarousel';
 import { openHubSpotForm } from '@/utils/hubspotForm';
+import { showHubSpotGuide } from '@/utils/hubspotGuide';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowRight, Play, Phone, Calendar, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -356,7 +356,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg"
-              onClick={openHubSpotForm}
+              onClick={showHubSpotGuide}
             >
               Try Clara Live
             </Button>
