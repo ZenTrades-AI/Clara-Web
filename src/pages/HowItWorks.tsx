@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { openHubSpotForm } from '@/utils/hubspotForm';
-import { Phone, Truck, MapPin, Clock, TrendingUp, Star, CreditCard } from 'lucide-react';
+import { Phone, Truck, MapPin, Clock, TrendingUp, Star, CreditCard, User, Zap, CheckCircle } from 'lucide-react';
 
 const layers = [
   { 
@@ -156,6 +156,237 @@ const channels = [
   }
 ];
 
+const DispatchAnimation = () => {
+  const [step, setStep] = useState(0);
+  
+  const technicians = [
+    { id: 1, name: 'Tech A', x: 20, y: 30, available: true, skill: 'HVAC' },
+    { id: 2, name: 'Tech B', x: 70, y: 20, available: false, skill: 'Plumbing' },
+    { id: 3, name: 'Tech C', x: 40, y: 60, available: true, skill: 'HVAC' },
+    { id: 4, name: 'Tech D', x: 80, y: 70, available: true, skill: 'Electrical' }
+  ];
+  
+  const jobLocation = { x: 35, y: 40 };
+  const matchedTech = technicians[0]; // Tech A is the best match
+  
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setStep(prev => (prev + 1) % 4);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+  
+  return (
+    <div className="space-y-4">
+      <div className="text-center mb-4">
+        <h4 className="font-semibold text-gray-700">Smart Job Dispatching</h4>
+      </div>
+      
+      {/* Digital Map */}
+      <div className="relative bg-gray-100 rounded-lg h-48 overflow-hidden">
+        {/* Map grid background */}
+        <div className="absolute inset-0 opacity-20">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="absolute w-full h-px bg-gray-300" style={{ top: `${(i + 1) * 12.5}%` }} />
+          ))}
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="absolute h-full w-px bg-gray-300" style={{ left: `${(i + 1) * 12.5}%` }} />
+          ))}
+        </div>
+        
+        {/* New Job Alert */}
+        {step >= 0 && (
+          <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs animate-pulse">
+            New Job: HVAC Repair
+          </div>
+        )}
+        
+        {/* Job Location */}
+        <div 
+          className="absolute w-4 h-4 bg-red-500 rounded-full animate-pulse transform -translate-x-2 -translate-y-2"
+          style={{ left: `${jobLocation.x}%`, top: `${jobLocation.y}%` }}
+        >
+          <div className="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-75"></div>
+        </div>
+        
+        {/* Technicians */}
+        {technicians.map((tech) => (
+          <div
+            key={tech.id}
+            className={`absolute w-3 h-3 rounded-full transform -translate-x-1.5 -translate-y-1.5 ${
+              tech.available ? 'bg-green-500' : 'bg-gray-400'
+            } ${step >= 1 && tech.id === matchedTech.id ? 'ring-2 ring-blue-500 animate-pulse' : ''}`}
+            style={{ left: `${tech.x}%`, top: `${tech.y}%` }}
+          >
+            <User className="w-2 h-2 text-white absolute top-0.5 left-0.5" />
+          </div>
+        ))}
+        
+        {/* Matching Algorithm Visual */}
+        {step >= 1 && (
+          <div className="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded text-xs">
+            Analyzing: Location + Skills + Availability
+          </div>
+        )}
+        
+        {/* Route Line */}
+        {step >= 2 && (
+          <svg className="absolute inset-0 w-full h-full pointer-events-none">
+            <line
+              x1={`${matchedTech.x}%`}
+              y1={`${matchedTech.y}%`}
+              x2={`${jobLocation.x}%`}
+              y2={`${jobLocation.y}%`}
+              stroke="#3b82f6"
+              strokeWidth="2"
+              strokeDasharray="5,5"
+              className="animate-pulse"
+            />
+          </svg>
+        )}
+        
+        {/* Notification Status */}
+        {step >= 3 && (
+          <div className="absolute bottom-2 left-2 bg-green-500 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+            <CheckCircle className="w-3 h-3" />
+            Tech A notified via SMS
+          </div>
+        )}
+      </div>
+      
+      {/* Status Steps */}
+      <div className="grid grid-cols-2 gap-2 text-xs">
+        <div className={`p-2 rounded ${step >= 0 ? 'bg-red-100 text-red-800' : 'bg-gray-100'}`}>
+          1. Job received
+        </div>
+        <div className={`p-2 rounded ${step >= 1 ? 'bg-blue-100 text-blue-800' : 'bg-gray-100'}`}>
+          2. Best match found
+        </div>
+        <div className={`p-2 rounded ${step >= 2 ? 'bg-purple-100 text-purple-800' : 'bg-gray-100'}`}>
+          3. Route calculated
+        </div>
+        <div className={`p-2 rounded ${step >= 3 ? 'bg-green-100 text-green-800' : 'bg-gray-100'}`}>
+          4. Tech notified
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const RouteOptimizationAnimation = () => {
+  const [showOptimized, setShowOptimized] = useState(false);
+  
+  const inefficientRoute = [
+    { x: 20, y: 20, order: 1 },
+    { x: 80, y: 30, order: 2 },
+    { x: 30, y: 60, order: 3 },
+    { x: 70, y: 70, order: 4 },
+    { x: 40, y: 25, order: 5 }
+  ];
+  
+  const optimizedRoute = [
+    { x: 20, y: 20, order: 1 },
+    { x: 40, y: 25, order: 2 },
+    { x: 30, y: 60, order: 3 },
+    { x: 70, y: 70, order: 4 },
+    { x: 80, y: 30, order: 5 }
+  ];
+  
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setShowOptimized(prev => !prev);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+  
+  const currentRoute = showOptimized ? optimizedRoute : inefficientRoute;
+  
+  return (
+    <div className="space-y-4">
+      <div className="text-center mb-4">
+        <h4 className="font-semibold text-gray-700">
+          {showOptimized ? 'Clara Optimized Route' : 'Before: Inefficient Route'}
+        </h4>
+      </div>
+      
+      {/* Route Map */}
+      <div className="relative bg-gray-100 rounded-lg h-48 overflow-hidden">
+        {/* Map grid background */}
+        <div className="absolute inset-0 opacity-20">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="absolute w-full h-px bg-gray-300" style={{ top: `${(i + 1) * 12.5}%` }} />
+          ))}
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="absolute h-full w-px bg-gray-300" style={{ left: `${(i + 1) * 12.5}%` }} />
+          ))}
+        </div>
+        
+        {/* Route Points */}
+        {currentRoute.map((point, index) => (
+          <div
+            key={index}
+            className={`absolute w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold transform -translate-x-3 -translate-y-3 ${
+              showOptimized ? 'bg-green-500' : 'bg-red-500'
+            }`}
+            style={{ left: `${point.x}%`, top: `${point.y}%` }}
+          >
+            {point.order}
+          </div>
+        ))}
+        
+        {/* Route Lines */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none">
+          {currentRoute.map((point, index) => {
+            if (index === currentRoute.length - 1) return null;
+            const nextPoint = currentRoute[index + 1];
+            return (
+              <line
+                key={index}
+                x1={`${point.x}%`}
+                y1={`${point.y}%`}
+                x2={`${nextPoint.x}%`}
+                y2={`${nextPoint.y}%`}
+                stroke={showOptimized ? "#10b981" : "#ef4444"}
+                strokeWidth="2"
+                strokeDasharray={showOptimized ? "0" : "5,5"}
+                className={showOptimized ? "" : "animate-pulse"}
+              />
+            );
+          })}
+        </svg>
+        
+        {/* Clara Optimization Indicator */}
+        {showOptimized && (
+          <div className="absolute top-2 left-2 bg-purple-500 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+            <Zap className="w-3 h-3" />
+            Clara Optimized
+          </div>
+        )}
+      </div>
+      
+      {/* Stats Comparison */}
+      <div className="grid grid-cols-2 gap-4 text-sm">
+        <div className={`p-3 rounded-lg ${showOptimized ? 'bg-gray-100' : 'bg-red-50 border border-red-200'}`}>
+          <div className="font-semibold text-red-600">Before</div>
+          <div className="text-xs text-gray-600">
+            • 8 hours driving<br/>
+            • 4 jobs/day<br/>
+            • Backtracking
+          </div>
+        </div>
+        <div className={`p-3 rounded-lg ${showOptimized ? 'bg-green-50 border border-green-200' : 'bg-gray-100'}`}>
+          <div className="font-semibold text-green-600">After Clara</div>
+          <div className="text-xs text-gray-600">
+            • 6 hours driving<br/>
+            • 5 jobs/day<br/>
+            • <strong>+25% efficiency</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ConversationBubbles = () => {
   const [visibleMessages, setVisibleMessages] = useState(0);
   const scrollAreaRef = React.useRef<HTMLDivElement>(null);
@@ -297,15 +528,25 @@ const HowItWorks = () => {
                   {/* Dynamic Visual Based on Active Layer */}
                   <div className="flex items-center justify-center h-96 rounded-xl relative overflow-hidden">
                     <div className={`absolute inset-0 bg-gradient-to-br ${currentLayer.visual.bgGradient} opacity-10`}></div>
-                    <div className="relative z-10 text-center">
+                    <div className="relative z-10 text-center w-full">
                       
                       {/* Clara Answers Animation with Conversation Sequence */}
                       {currentLayer.name === 'Answers' && (
                         <ConversationBubbles />
                       )}
                       
+                      {/* Clara Dispatches Animation */}
+                      {currentLayer.name === 'Dispatches' && (
+                        <DispatchAnimation />
+                      )}
+                      
+                      {/* Clara Optimizes (Routes) Animation */}
+                      {currentLayer.name === 'Optimizes' && (
+                        <RouteOptimizationAnimation />
+                      )}
+                      
                       {/* Other Agent Visuals */}
-                      {currentLayer.name !== 'Answers' && (
+                      {!['Answers', 'Dispatches', 'Optimizes'].includes(currentLayer.name) && (
                         <>
                           <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br ${currentLayer.visual.bgGradient} mb-6 ${currentLayer.visual.animation}`}>
                             <currentLayer.visual.icon className="w-12 h-12 text-white" />
@@ -315,26 +556,6 @@ const HowItWorks = () => {
                           </h4>
                           
                           {/* Additional animated elements based on agent type */}
-                          {currentLayer.name === 'Dispatches' && (
-                            <div className="relative mt-4">
-                              <div className="flex justify-between items-center">
-                                <div className="w-4 h-4 bg-green-500 rounded-full"></div>
-                                <div className="flex-1 h-0.5 bg-green-300 mx-2 relative">
-                                  <div className="absolute top-0 left-0 h-full bg-green-500 animate-pulse" style={{width: '60%'}}></div>
-                                </div>
-                                <div className="w-4 h-4 bg-green-500 rounded-full"></div>
-                              </div>
-                            </div>
-                          )}
-                          
-                          {currentLayer.name === 'Optimizes' && (
-                            <div className="grid grid-cols-3 gap-2 mt-4">
-                              {[...Array(9)].map((_, i) => (
-                                <div key={i} className={`w-2 h-2 rounded-full ${i % 3 === 0 ? 'bg-purple-500' : 'bg-purple-200'} ${i % 3 === 0 ? 'animate-pulse' : ''}`}></div>
-                              ))}
-                            </div>
-                          )}
-                          
                           {currentLayer.name === 'Reviews' && (
                             <div className="flex justify-center space-x-1 mt-4">
                               {[...Array(5)].map((_, i) => (
