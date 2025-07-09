@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { openHubSpotForm } from '@/utils/hubspotForm';
 import { Phone, Truck, MapPin, Clock, TrendingUp, Star, CreditCard } from 'lucide-react';
 
@@ -157,6 +158,7 @@ const channels = [
 
 const ConversationBubbles = () => {
   const [visibleMessages, setVisibleMessages] = useState(0);
+  const scrollAreaRef = React.useRef<HTMLDivElement>(null);
 
   const conversation = [
     { sender: 'clara', text: "Hi there! This is Clara with ABC Heating. How can I help you today?" },
@@ -182,25 +184,65 @@ const ConversationBubbles = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Auto-scroll to bottom when new messages appear
+  React.useEffect(() => {
+    if (scrollAreaRef.current && visibleMessages > 0) {
+      const scrollContainer = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
+      if (scrollContainer) {
+        scrollContainer.scrollTo({
+          top: scrollContainer.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [visibleMessages]);
+
   return (
-    <div className="space-y-3 max-w-sm mx-auto h-80 overflow-hidden">
-      {conversation.slice(0, visibleMessages).map((message, index) => (
-        <div
-          key={index}
-          className={`flex animate-fade-in ${message.sender === 'clara' ? 'justify-start' : 'justify-end'}`}
-          style={{ animationDelay: `${index * 0.1}s` }}
-        >
-          <div className={`rounded-2xl px-4 py-2 max-w-[85%] ${
-            message.sender === 'clara' 
-              ? 'bg-blue-500 text-white rounded-bl-md' 
-              : 'bg-gray-200 text-gray-800 rounded-br-md'
-          }`}>
-            <p className="text-sm font-medium">
-              {message.text}
-            </p>
-          </div>
+    <div className="space-y-6 max-w-sm mx-auto">
+      {/* Phone Icon */}
+      <div className="text-center">
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 animate-pulse">
+          <Phone className="w-8 h-8 text-white" />
         </div>
-      ))}
+      </div>
+      
+      {/* AI Waveform Animation */}
+      <div className="flex justify-center items-center space-x-1">
+        {[...Array(7)].map((_, i) => (
+          <div
+            key={i}
+            className="w-1 bg-blue-500 rounded-full animate-pulse"
+            style={{
+              height: `${Math.random() * 30 + 10}px`,
+              animationDelay: `${i * 0.1}s`,
+              animationDuration: '1s'
+            }}
+          ></div>
+        ))}
+      </div>
+      
+      {/* Conversation Messages with Auto-scroll */}
+      <ScrollArea className="h-64 w-full" ref={scrollAreaRef}>
+        <div className="space-y-3 p-2">
+          {conversation.slice(0, visibleMessages).map((message, index) => (
+            <div
+              key={index}
+              className={`flex animate-fade-in ${message.sender === 'clara' ? 'justify-start' : 'justify-end'}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className={`rounded-2xl px-4 py-2 max-w-[85%] ${
+                message.sender === 'clara' 
+                  ? 'bg-blue-500 text-white rounded-bl-md' 
+                  : 'bg-gray-200 text-gray-800 rounded-br-md'
+              }`}>
+                <p className="text-sm font-medium">
+                  {message.text}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </ScrollArea>
     </div>
   );
 };
@@ -259,32 +301,7 @@ const HowItWorks = () => {
                       
                       {/* Clara Answers Animation with Conversation Sequence */}
                       {currentLayer.name === 'Answers' && (
-                        <div className="space-y-6">
-                          {/* Incoming Call Animation */}
-                          <div className="relative">
-                            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 animate-pulse">
-                              <Phone className="w-10 h-10 text-white animate-bounce" />
-                            </div>
-                          </div>
-                          
-                          {/* AI Waveform Animation */}
-                          <div className="flex justify-center items-center space-x-1">
-                            {[...Array(7)].map((_, i) => (
-                              <div
-                                key={i}
-                                className="w-1 bg-blue-500 rounded-full animate-pulse"
-                                style={{
-                                  height: `${Math.random() * 30 + 10}px`,
-                                  animationDelay: `${i * 0.1}s`,
-                                  animationDuration: '1s'
-                                }}
-                              ></div>
-                            ))}
-                          </div>
-                          
-                          {/* Conversation Sequence */}
-                          <ConversationBubbles />
-                        </div>
+                        <ConversationBubbles />
                       )}
                       
                       {/* Other Agent Visuals */}
