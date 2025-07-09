@@ -355,7 +355,7 @@ const Index = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="border-white text-red hover:bg-white/10 px-8 py-3 text-lg"
+              className="border-clara-red text-clara-red hover:bg-clara-red hover:text-white px-6 py-2.5 text-base font-semibold transition-all duration-200"
               onClick={openClaraLiveForm}
             >
               Try Clara Live
