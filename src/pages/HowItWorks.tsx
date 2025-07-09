@@ -208,7 +208,7 @@ const HowItWorks = () => {
                     <div className={`absolute inset-0 bg-gradient-to-br ${currentLayer.visual.bgGradient} opacity-10`}></div>
                     <div className="relative z-10 text-center">
                       
-                      {/* Clara Answers Animation */}
+                      {/* Clara Answers Animation with Conversation Bubbles */}
                       {currentLayer.name === 'Answers' && (
                         <div className="space-y-6">
                           {/* Incoming Call Animation */}
@@ -236,11 +236,25 @@ const HowItWorks = () => {
                             ))}
                           </div>
                           
-                          {/* AI Response Text */}
-                          <div className="bg-blue-50 rounded-lg p-4 max-w-xs mx-auto">
-                            <p className="text-sm text-blue-800 font-medium animate-fade-in">
-                              "Hi, how can I help you today?"
-                            </p>
+                          {/* Conversation Bubbles */}
+                          <div className="space-y-3 max-w-xs mx-auto">
+                            {/* Customer Bubble (Right side) */}
+                            <div className="flex justify-end">
+                              <div className="bg-gray-200 rounded-2xl rounded-br-md px-4 py-2 max-w-[80%]">
+                                <p className="text-sm text-gray-800">
+                                  "Hi, I need help with my AC unit"
+                                </p>
+                              </div>
+                            </div>
+                            
+                            {/* AI Response Bubble (Left side) */}
+                            <div className="flex justify-start">
+                              <div className="bg-blue-500 rounded-2xl rounded-bl-md px-4 py-2 max-w-[80%] animate-fade-in">
+                                <p className="text-sm text-white font-medium">
+                                  "Hi, how can I help you today?"
+                                </p>
+                              </div>
+                            </div>
                           </div>
                           
                           {/* Status Indicators */}
