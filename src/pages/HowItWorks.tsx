@@ -14,8 +14,7 @@ const layers = [
     features: [
       'Instantly answers every call, 24/7',
       'Captures lead info and reason for call',
-      'Escalates high-value calls automatically',
-      'Multi-language support for diverse markets'
+      'Escalates high-value calls automatically'
     ],
     visual: {
       icon: Phone,
@@ -156,6 +155,56 @@ const channels = [
   }
 ];
 
+const ConversationBubbles = () => {
+  const [visibleMessages, setVisibleMessages] = useState(0);
+
+  const conversation = [
+    { sender: 'clara', text: "Hi there! This is Clara with ABC Heating. How can I help you today?" },
+    { sender: 'customer', text: "My heater isn't working — no hot air at all." },
+    { sender: 'clara', text: "We have a slot at 10 AM tomorrow — should I book it?" },
+    { sender: 'customer', text: "Yes!" },
+    { sender: 'clara', text: "Got it! You're booked for 10 AM tomorrow. We'll send a reminder too." }
+  ];
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setVisibleMessages(prev => {
+        if (prev < conversation.length) {
+          return prev + 1;
+        } else {
+          // Reset after showing all messages
+          setTimeout(() => setVisibleMessages(0), 2000);
+          return prev;
+        }
+      });
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="space-y-3 max-w-sm mx-auto h-80 overflow-hidden">
+      {conversation.slice(0, visibleMessages).map((message, index) => (
+        <div
+          key={index}
+          className={`flex animate-fade-in ${message.sender === 'clara' ? 'justify-start' : 'justify-end'}`}
+          style={{ animationDelay: `${index * 0.1}s` }}
+        >
+          <div className={`rounded-2xl px-4 py-2 max-w-[85%] ${
+            message.sender === 'clara' 
+              ? 'bg-blue-500 text-white rounded-bl-md' 
+              : 'bg-gray-200 text-gray-800 rounded-br-md'
+          }`}>
+            <p className="text-sm font-medium">
+              {message.text}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const HowItWorks = () => {
   const [activeLayer, setActiveLayer] = useState('0');
   const currentLayer = layers[parseInt(activeLayer)] || layers[0];
@@ -208,7 +257,7 @@ const HowItWorks = () => {
                     <div className={`absolute inset-0 bg-gradient-to-br ${currentLayer.visual.bgGradient} opacity-10`}></div>
                     <div className="relative z-10 text-center">
                       
-                      {/* Clara Answers Animation with Conversation Bubbles */}
+                      {/* Clara Answers Animation with Conversation Sequence */}
                       {currentLayer.name === 'Answers' && (
                         <div className="space-y-6">
                           {/* Incoming Call Animation */}
@@ -216,9 +265,6 @@ const HowItWorks = () => {
                             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 animate-pulse">
                               <Phone className="w-10 h-10 text-white animate-bounce" />
                             </div>
-                            {/* Incoming call rings */}
-                            <div className="absolute inset-0 w-20 h-20 rounded-full border-4 border-blue-400 animate-ping opacity-75"></div>
-                            <div className="absolute inset-0 w-20 h-20 rounded-full border-2 border-blue-300 animate-ping opacity-50" style={{animationDelay: '0.5s'}}></div>
                           </div>
                           
                           {/* AI Waveform Animation */}
@@ -236,38 +282,8 @@ const HowItWorks = () => {
                             ))}
                           </div>
                           
-                          {/* Conversation Bubbles */}
-                          <div className="space-y-3 max-w-xs mx-auto">
-                            {/* Customer Bubble (Right side) */}
-                            <div className="flex justify-end">
-                              <div className="bg-gray-200 rounded-2xl rounded-br-md px-4 py-2 max-w-[80%]">
-                                <p className="text-sm text-gray-800">
-                                  "Hi, I need help with my AC unit"
-                                </p>
-                              </div>
-                            </div>
-                            
-                            {/* AI Response Bubble (Left side) */}
-                            <div className="flex justify-start">
-                              <div className="bg-blue-500 rounded-2xl rounded-bl-md px-4 py-2 max-w-[80%] animate-fade-in">
-                                <p className="text-sm text-white font-medium">
-                                  "Hi, how can I help you today?"
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          {/* Status Indicators */}
-                          <div className="flex justify-center space-x-4 text-xs text-gray-600">
-                            <div className="flex items-center space-x-1">
-                              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                              <span>Answered in 4s</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                              <span>Lead captured</span>
-                            </div>
-                          </div>
+                          {/* Conversation Sequence */}
+                          <ConversationBubbles />
                         </div>
                       )}
                       
