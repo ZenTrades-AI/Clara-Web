@@ -323,11 +323,7 @@ const Index = () => {
               ></iframe>
               
               {/* Custom Red Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-20 h-20 bg-clara-red rounded-full flex items-center justify-center shadow-2xl opacity-90 hover:opacity-100 transition-opacity pointer-events-auto cursor-pointer">
-                  <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
