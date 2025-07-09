@@ -91,7 +91,7 @@ const integrations = [
     description: 'Home Service CRM' 
   },
   { 
-    name: 'Zentrades', 
+    name: 'ZenTrades', 
     logo: (
       <img 
         src="/lovable-uploads/2bbfef7e-b908-4f10-810d-8d0a6ec1a125.png" 
@@ -99,7 +99,7 @@ const integrations = [
         className="w-12 h-12 object-contain"
       />
     ), 
-    description: 'Trade Management Platform' 
+    description: 'Field Service Management' 
   },
 ];
 
