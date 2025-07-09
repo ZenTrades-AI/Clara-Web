@@ -323,7 +323,10 @@ const Index = () => {
               ></iframe>
               
               {/* Custom Red Play Button Overlay */}
-              
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-20 h-20 bg-clara-red rounded-full flex items-center justify-center shadow-2xl opacity-90 hover:opacity-100 transition-opacity pointer-events-auto cursor-pointer">
+                  <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+                </div>
               </div>
             </div>
           </div>
@@ -352,7 +355,7 @@ const Index = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="border-white text-red hover:bg-white/10 px-8 py-3 text-lg"
+              className="border-clara-red text-clara-red hover:bg-clara-red hover:text-white px-6 py-2.5 text-base font-semibold transition-all duration-200"
               onClick={openClaraLiveForm}
             >
               Try Clara Live
