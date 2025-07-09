@@ -12,9 +12,9 @@ const layers = [
     description: 'AI answers every call in 4 seconds with natural conversation and intelligent routing', 
     icon: '📞',
     features: [
-      '24/7 availability with human-like conversation',
-      'Intelligent call routing and escalation',
-      'Complete call transcription and logging',
+      'Instantly answers every call, 24/7',
+      'Captures lead info and reason for call',
+      'Escalates high-value calls automatically',
       'Multi-language support for diverse markets'
     ],
     visual: {
@@ -207,58 +207,105 @@ const HowItWorks = () => {
                   <div className="flex items-center justify-center h-96 rounded-xl relative overflow-hidden">
                     <div className={`absolute inset-0 bg-gradient-to-br ${currentLayer.visual.bgGradient} opacity-10`}></div>
                     <div className="relative z-10 text-center">
-                      <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br ${currentLayer.visual.bgGradient} mb-6 ${currentLayer.visual.animation}`}>
-                        <currentLayer.visual.icon className="w-12 h-12 text-white" />
-                      </div>
-                      <h4 className="text-lg font-semibold text-gray-700 mb-2">
-                        {currentLayer.visual.description}
-                      </h4>
                       
-                      {/* Additional animated elements based on agent type */}
+                      {/* Clara Answers Animation */}
                       {currentLayer.name === 'Answers' && (
-                        <div className="flex justify-center space-x-2 mt-4">
-                          <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                          <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                          <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                        </div>
-                      )}
-                      
-                      {currentLayer.name === 'Dispatches' && (
-                        <div className="relative mt-4">
-                          <div className="flex justify-between items-center">
-                            <div className="w-4 h-4 bg-green-500 rounded-full"></div>
-                            <div className="flex-1 h-0.5 bg-green-300 mx-2 relative">
-                              <div className="absolute top-0 left-0 h-full bg-green-500 animate-pulse" style={{width: '60%'}}></div>
+                        <div className="space-y-6">
+                          {/* Incoming Call Animation */}
+                          <div className="relative">
+                            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 animate-pulse">
+                              <Phone className="w-10 h-10 text-white animate-bounce" />
                             </div>
-                            <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+                            {/* Incoming call rings */}
+                            <div className="absolute inset-0 w-20 h-20 rounded-full border-4 border-blue-400 animate-ping opacity-75"></div>
+                            <div className="absolute inset-0 w-20 h-20 rounded-full border-2 border-blue-300 animate-ping opacity-50" style={{animationDelay: '0.5s'}}></div>
+                          </div>
+                          
+                          {/* AI Waveform Animation */}
+                          <div className="flex justify-center items-center space-x-1">
+                            {[...Array(7)].map((_, i) => (
+                              <div
+                                key={i}
+                                className="w-1 bg-blue-500 rounded-full animate-pulse"
+                                style={{
+                                  height: `${Math.random() * 30 + 10}px`,
+                                  animationDelay: `${i * 0.1}s`,
+                                  animationDuration: '1s'
+                                }}
+                              ></div>
+                            ))}
+                          </div>
+                          
+                          {/* AI Response Text */}
+                          <div className="bg-blue-50 rounded-lg p-4 max-w-xs mx-auto">
+                            <p className="text-sm text-blue-800 font-medium animate-fade-in">
+                              "Hi, how can I help you today?"
+                            </p>
+                          </div>
+                          
+                          {/* Status Indicators */}
+                          <div className="flex justify-center space-x-4 text-xs text-gray-600">
+                            <div className="flex items-center space-x-1">
+                              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                              <span>Answered in 4s</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                              <span>Lead captured</span>
+                            </div>
                           </div>
                         </div>
                       )}
                       
-                      {currentLayer.name === 'Optimizes' && (
-                        <div className="grid grid-cols-3 gap-2 mt-4">
-                          {[...Array(9)].map((_, i) => (
-                            <div key={i} className={`w-2 h-2 rounded-full ${i % 3 === 0 ? 'bg-purple-500' : 'bg-purple-200'} ${i % 3 === 0 ? 'animate-pulse' : ''}`}></div>
-                          ))}
-                        </div>
-                      )}
-                      
-                      {currentLayer.name === 'Reviews' && (
-                        <div className="flex justify-center space-x-1 mt-4">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className={`w-4 h-4 ${i < 4 ? 'text-yellow-500 fill-current' : 'text-gray-300'} animate-pulse`} style={{animationDelay: `${i * 0.1}s`}} />
-                          ))}
-                        </div>
-                      )}
-                      
-                      {currentLayer.name === 'Collects' && (
-                        <div className="flex justify-center items-center space-x-2 mt-4">
-                          <div className="text-green-500 font-bold animate-pulse">$</div>
-                          <div className="w-8 h-0.5 bg-green-300">
-                            <div className="h-full bg-green-500 animate-pulse" style={{width: '80%'}}></div>
+                      {/* Other Agent Visuals */}
+                      {currentLayer.name !== 'Answers' && (
+                        <>
+                          <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br ${currentLayer.visual.bgGradient} mb-6 ${currentLayer.visual.animation}`}>
+                            <currentLayer.visual.icon className="w-12 h-12 text-white" />
                           </div>
-                          <div className="text-green-500 font-bold">💰</div>
-                        </div>
+                          <h4 className="text-lg font-semibold text-gray-700 mb-2">
+                            {currentLayer.visual.description}
+                          </h4>
+                          
+                          {/* Additional animated elements based on agent type */}
+                          {currentLayer.name === 'Dispatches' && (
+                            <div className="relative mt-4">
+                              <div className="flex justify-between items-center">
+                                <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+                                <div className="flex-1 h-0.5 bg-green-300 mx-2 relative">
+                                  <div className="absolute top-0 left-0 h-full bg-green-500 animate-pulse" style={{width: '60%'}}></div>
+                                </div>
+                                <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {currentLayer.name === 'Optimizes' && (
+                            <div className="grid grid-cols-3 gap-2 mt-4">
+                              {[...Array(9)].map((_, i) => (
+                                <div key={i} className={`w-2 h-2 rounded-full ${i % 3 === 0 ? 'bg-purple-500' : 'bg-purple-200'} ${i % 3 === 0 ? 'animate-pulse' : ''}`}></div>
+                              ))}
+                            </div>
+                          )}
+                          
+                          {currentLayer.name === 'Reviews' && (
+                            <div className="flex justify-center space-x-1 mt-4">
+                              {[...Array(5)].map((_, i) => (
+                                <Star key={i} className={`w-4 h-4 ${i < 4 ? 'text-yellow-500 fill-current' : 'text-gray-300'} animate-pulse`} style={{animationDelay: `${i * 0.1}s`}} />
+                              ))}
+                            </div>
+                          )}
+                          
+                          {currentLayer.name === 'Collects' && (
+                            <div className="flex justify-center items-center space-x-2 mt-4">
+                              <div className="text-green-500 font-bold animate-pulse">$</div>
+                              <div className="w-8 h-0.5 bg-green-300">
+                                <div className="h-full bg-green-500 animate-pulse" style={{width: '80%'}}></div>
+                              </div>
+                              <div className="text-green-500 font-bold">💰</div>
+                            </div>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>
@@ -288,14 +335,14 @@ const HowItWorks = () => {
                           <h3 className="text-xl font-montserrat font-bold text-clara-navy">
                             Clara {layer.name}
                           </h3>
+                          <p className="text-sm text-gray-600 mt-1">
+                            {layer.description}
+                          </p>
                         </div>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="pb-6">
                       <div className="pl-16 space-y-4">
-                        <p className="text-gray-600 leading-relaxed">
-                          {layer.description}
-                        </p>
                         <h4 className="font-semibold text-clara-navy">Key Capabilities:</h4>
                         <div className="space-y-3">
                           {layer.features.map((feature, idx) => (
@@ -376,7 +423,7 @@ const HowItWorks = () => {
               Book a 15-min Demo
             </Button>
             <Button 
-              className="bg-white text-clara-red hover:bg-white border border-white px-8 py-3 text-lg"
+              className="bg-white text-clara-red hover:bg-white hover:text-clara-red border border-white px-8 py-3 text-lg"
               onClick={openHubSpotForm}
             >
               Try Clara Live
