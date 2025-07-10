@@ -11,6 +11,7 @@ import ClaraReviewsAnimation from '@/components/ClaraReviewsAnimation';
 import ClaraBoostsAnimation from '@/components/ClaraBoostsAnimation';
 import ClaraRemindsAnimation from '@/components/ClaraRemindsAnimation';
 import ClaraOptimizesAnimation from '@/components/ClaraOptimizesAnimation';
+import ClaraDispatchesAnimation from '@/components/ClaraDispatchesAnimation';
 
 const layers = [
   { 
@@ -542,7 +543,7 @@ const HowItWorks = () => {
                       
                       {/* Clara Dispatches Animation */}
                       {currentLayer.name === 'Dispatches' && (
-                        <DispatchAnimation />
+                        <ClaraDispatchesAnimation />
                       )}
                       
                       {/* Clara Optimizes (Routes) Animation */}
