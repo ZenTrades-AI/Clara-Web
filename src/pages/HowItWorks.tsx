@@ -10,6 +10,7 @@ import ClaraCollectsAnimation from '@/components/ClaraCollectsAnimation';
 import ClaraReviewsAnimation from '@/components/ClaraReviewsAnimation';
 import ClaraBoostsAnimation from '@/components/ClaraBoostsAnimation';
 import ClaraRemindsAnimation from '@/components/ClaraRemindsAnimation';
+import ClaraOptimizesAnimation from '@/components/ClaraOptimizesAnimation';
 
 const layers = [
   { 
@@ -546,7 +547,7 @@ const HowItWorks = () => {
                       
                       {/* Clara Optimizes (Routes) Animation */}
                       {currentLayer.name === 'Optimizes' && (
-                        <RouteOptimizationAnimation />
+                        <ClaraOptimizesAnimation />
                       )}
                       
                       {/* Clara Reminds Animation */}
