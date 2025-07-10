@@ -8,6 +8,7 @@ import { openHubSpotForm } from '@/utils/hubspotForm';
 import { Phone, Truck, MapPin, Clock, TrendingUp, Star, CreditCard, User, Zap, CheckCircle } from 'lucide-react';
 import ClaraCollectsAnimation from '@/components/ClaraCollectsAnimation';
 import ClaraReviewsAnimation from '@/components/ClaraReviewsAnimation';
+import ClaraBoostsAnimation from '@/components/ClaraBoostsAnimation';
 
 const layers = [
   { 
@@ -547,6 +548,11 @@ const HowItWorks = () => {
                         <RouteOptimizationAnimation />
                       )}
                       
+                      {/* Clara Boosts Animation */}
+                      {currentLayer.name === 'Boosts' && (
+                        <ClaraBoostsAnimation />
+                      )}
+                      
                       {/* Clara Collects Animation */}
                       {currentLayer.name === 'Collects' && (
                         <ClaraCollectsAnimation />
@@ -558,7 +564,7 @@ const HowItWorks = () => {
                       )}
                       
                       {/* Other Agent Visuals */}
-                      {!['Answers', 'Dispatches', 'Optimizes', 'Collects', 'Reviews'].includes(currentLayer.name) && (
+                      {!['Answers', 'Dispatches', 'Optimizes', 'Boosts', 'Collects', 'Reviews'].includes(currentLayer.name) && (
                         <>
                           <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br ${currentLayer.visual.bgGradient} mb-6 ${currentLayer.visual.animation}`}>
                             <currentLayer.visual.icon className="w-12 h-12 text-white" />
