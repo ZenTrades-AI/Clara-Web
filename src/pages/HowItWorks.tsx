@@ -9,6 +9,7 @@ import { Phone, Truck, MapPin, Clock, TrendingUp, Star, CreditCard, User, Zap, C
 import ClaraCollectsAnimation from '@/components/ClaraCollectsAnimation';
 import ClaraReviewsAnimation from '@/components/ClaraReviewsAnimation';
 import ClaraBoostsAnimation from '@/components/ClaraBoostsAnimation';
+import ClaraRemindsAnimation from '@/components/ClaraRemindsAnimation';
 
 const layers = [
   { 
@@ -548,6 +549,11 @@ const HowItWorks = () => {
                         <RouteOptimizationAnimation />
                       )}
                       
+                      {/* Clara Reminds Animation */}
+                      {currentLayer.name === 'Reminds' && (
+                        <ClaraRemindsAnimation />
+                      )}
+                      
                       {/* Clara Boosts Animation */}
                       {currentLayer.name === 'Boosts' && (
                         <ClaraBoostsAnimation />
@@ -564,7 +570,7 @@ const HowItWorks = () => {
                       )}
                       
                       {/* Other Agent Visuals */}
-                      {!['Answers', 'Dispatches', 'Optimizes', 'Boosts', 'Collects', 'Reviews'].includes(currentLayer.name) && (
+                      {!['Answers', 'Dispatches', 'Optimizes', 'Reminds', 'Boosts', 'Collects', 'Reviews'].includes(currentLayer.name) && (
                         <>
                           <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br ${currentLayer.visual.bgGradient} mb-6 ${currentLayer.visual.animation}`}>
                             <currentLayer.visual.icon className="w-12 h-12 text-white" />
