@@ -7,6 +7,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { openHubSpotForm } from '@/utils/hubspotForm';
 import { Phone, Truck, MapPin, Clock, TrendingUp, Star, CreditCard, User, Zap, CheckCircle } from 'lucide-react';
 import ClaraCollectsAnimation from '@/components/ClaraCollectsAnimation';
+import ClaraReviewsAnimation from '@/components/ClaraReviewsAnimation';
 
 const layers = [
   { 
@@ -551,8 +552,13 @@ const HowItWorks = () => {
                         <ClaraCollectsAnimation />
                       )}
                       
+                      {/* Clara Reviews Animation */}
+                      {currentLayer.name === 'Reviews' && (
+                        <ClaraReviewsAnimation />
+                      )}
+                      
                       {/* Other Agent Visuals */}
-                      {!['Answers', 'Dispatches', 'Optimizes', 'Collects'].includes(currentLayer.name) && (
+                      {!['Answers', 'Dispatches', 'Optimizes', 'Collects', 'Reviews'].includes(currentLayer.name) && (
                         <>
                           <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br ${currentLayer.visual.bgGradient} mb-6 ${currentLayer.visual.animation}`}>
                             <currentLayer.visual.icon className="w-12 h-12 text-white" />
@@ -560,15 +566,6 @@ const HowItWorks = () => {
                           <h4 className="text-lg font-semibold text-gray-700 mb-2">
                             {currentLayer.visual.description}
                           </h4>
-                          
-                          {/* Additional animated elements based on agent type */}
-                          {currentLayer.name === 'Reviews' && (
-                            <div className="flex justify-center space-x-1 mt-4">
-                              {[...Array(5)].map((_, i) => (
-                                <Star key={i} className={`w-4 h-4 ${i < 4 ? 'text-yellow-500 fill-current' : 'text-gray-300'} animate-pulse`} style={{animationDelay: `${i * 0.1}s`}} />
-                              ))}
-                            </div>
-                          )}
                         </>
                       )}
                     </div>
