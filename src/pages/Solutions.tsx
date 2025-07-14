@@ -1,126 +1,68 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Play } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
-import SolutionsInfographic from '@/components/SolutionsInfographic';
+import TradeSearch from '@/components/TradeSearch';
+import TradeVerticals from '@/components/TradeVerticals';
+import BusinessTypeCards from '@/components/BusinessTypeCards';
+import { openHubSpotForm } from '@/utils/hubspotForm';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
-const solutions = [
-  {
-    title: 'Mid-Market Commercial',
-    description: 'Perfect for established contractors with 10-50 technicians serving commercial clients',
-    kpi: '+32% revenue growth',
-    features: [
-      'Multi-location call routing',
-      'Commercial client priority queues',
-      'Advanced scheduling optimization',
-      'Service contract management'
-    ],
-    detailedFeatures: [
-      'Enterprise-grade security protocols',
-      'Custom reporting dashboards',
-      'Integration with major CRM platforms',
-      'Dedicated account management',
-      'Priority technical support',
-      'Advanced analytics and insights'
-    ],
-    icon: '🏢'
-  },
-  {
-    title: 'PE Roll-up Platforms',
-    description: 'Unified AI operations across your portfolio companies with centralized analytics',
-    kpi: '40% operational efficiency gain',
-    features: [
-      'Multi-brand call handling',
-      'Portfolio-wide analytics dashboard',
-      'Standardized service protocols',
-      'Cross-selling opportunities'
-    ],
-    detailedFeatures: [
-      'Centralized management console',
-      'Brand-specific customization',
-      'Cross-portfolio reporting',
-      'Standardized KPI tracking',
-      'Investment committee reporting',
-      'Due diligence support'
-    ],
-    icon: '📊'
-  },
-  {
-    title: 'National-Account Contractors',
-    description: 'Scale operations across multiple markets with consistent service delivery',
-    kpi: '50+ market coverage',
-    features: [
-      'National call center replacement',
-      '24/7 multi-timezone support',
-      'Brand consistency enforcement',
-      'Real-time capacity management'
-    ],
-    detailedFeatures: [
-      'Multi-timezone coordination',
-      'National account management',
-      'Standardized service delivery',
-      'Regional performance analytics',
-      'Scalable infrastructure',
-      'Enterprise SLA guarantees'
-    ],
-    icon: '🌍'
-  },
-  {
-    title: 'Enterprise Facility Services',
-    description: 'Comprehensive facility management with integrated AI across all service lines',
-    kpi: '60% faster response times',
-    features: [
-      'Multi-service line coordination',
-      'Predictive maintenance alerts',
-      'Compliance tracking & reporting',
-      'Enterprise client portals'
-    ],
-    detailedFeatures: [
-      'Integrated facility management',
-      'Predictive maintenance AI',
-      'Compliance automation',
-      'Client portal integration',
-      'IoT device connectivity',
-      'Advanced reporting suite'
-    ],
-    icon: '🏭'
-  }
-];
 
 const stats = [
-  { value: '15%', label: 'Avg. missed calls', sublabel: 'Industry standard', color: 'text-red-500' },
-  { value: '<2%', label: 'Clara missed calls', sublabel: 'With human escalation', color: 'text-clara-teal' },
-  { value: '4s', label: 'Answer time', sublabel: 'vs 23s industry avg', color: 'text-clara-teal' },
-  { value: '30d', label: 'ROI payback', sublabel: 'Typical time to ROI', color: 'text-clara-gold' }
+  { value: '<2%', label: 'Clara missed calls', sublabel: 'With human backup', color: 'text-clara-red' },
+  { value: '4s', label: 'Answer time', sublabel: 'vs 23s industry avg', color: 'text-clara-red' },
+  { value: '30d', label: 'ROI payback', sublabel: 'Typical results', color: 'text-clara-red' }
 ];
 
 const Solutions = () => {
-  const [hoveredStat, setHoveredStat] = useState<number | null>(null);
+  const [visibleElements, setVisibleElements] = useState<Set<string>>(new Set());
+
+  // Intersection Observer for animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleElements(prev => new Set(prev).add(entry.target.id));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="bg-clara-navy text-white pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6">
-            Solutions Built for Your Business
+      <section className="bg-clara-navy text-white pt-24 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-clara-red/10 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-montserrat font-bold mb-6 animate-fade-in">
+            Solutions Powered by Clara's 
+            <span className="text-clara-red"> AI Growth Engine</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Clara AI adapts to your business model, whether you're a growing contractor or managing a multi-brand portfolio
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in">
+            Clara adapts to your trade, automating every part of your revenue cycle — from first call to final payment.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+            <Button 
+              className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg"
+              onClick={openHubSpotForm}
+            >
               Book a 15-min Demo
             </Button>
             <ROICalculator 
               trigger={
                 <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg">
-                  Calculate ROI
+                  <Play className="w-5 h-5 mr-2" />
+                  Watch How It Works
                 </Button>
               }
             />
@@ -128,127 +70,119 @@ const Solutions = () => {
         </div>
       </section>
 
-      {/* Solutions Infographic */}
-      <SolutionsInfographic />
-
-      {/* Solutions Grid */}
-      <section className="py-20 bg-white">
+      {/* Trade Verticals Section */}
+      <section className="py-20 bg-clara-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {solutions.map((solution, index) => (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-clara-gold/30 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-clara-gold/5 to-clara-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <CardHeader className="pb-4 relative z-10">
-                  <div className="flex items-start justify-between">
-                    <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{solution.icon}</div>
-                    <div className="text-right">
-                      <div className="text-2xl font-montserrat font-bold text-clara-gold">
-                        {solution.kpi}
-                      </div>
-                      <div className="text-sm text-gray-500">Avg. improvement</div>
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl font-montserrat font-bold text-clara-navy group-hover:text-clara-teal transition-colors">
-                    {solution.title}
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="space-y-6 relative z-10">
-                  <p className="text-gray-600">{solution.description}</p>
-                  
-                  {/* Basic Features - Always Visible */}
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-clara-navy">Key Features:</h4>
-                    <ul className="space-y-1">
-                      {solution.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center space-x-2 text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 bg-clara-gold rounded-full"></div>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+          <div className="text-center mb-16" data-animate id="trade-header">
+            <h2 className={`text-3xlmd:text-4xl font-montserrat font-bold text-clara-navy mb-4 transition-all duration-700 ${
+              visibleElements.has('trade-header') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              How Clara Adapts to Your Industry
+            </h2>
+            <p className={`text-xl text-gray-600 transition-all duration-700 delay-200 ${
+              visibleElements.has('trade-header') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              One AI platform, infinite possibilities across service industries
+            </p>
+          </div>
 
-                  {/* Expanded Content - Visible on Hover */}
-                  <div className="max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500 ease-in-out">
-                    <div className="pt-4 border-t border-gray-200 space-y-4">
-                      <div className="space-y-2">
-                        <h4 className="font-semibold text-clara-navy">Advanced Features:</h4>
-                        <ul className="space-y-1">
-                          {solution.detailedFeatures.map((feature, idx) => (
-                            <li key={idx} className="flex items-center space-x-2 text-sm text-gray-600">
-                              <div className="w-1.5 h-1.5 bg-clara-teal rounded-full"></div>
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+          <TradeVerticals />
+        </div>
+      </section>
 
-                  <Button className="w-full bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    Learn More
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+      {/* Search Other Trades Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div data-animate id="search-section">
+            <div className={`transition-all duration-700 ${
+              visibleElements.has('search-section') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <TradeSearch />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Interactive Industry Stats */}
+      {/* Business Types Section */}
       <section className="py-20 bg-clara-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-montserrat font-bold text-clara-navy mb-4">
-              Why Service Contractors Choose Clara
+          <div className="text-center mb-16" data-animate id="business-header">
+            <h2 className={`text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4 transition-all duration-700 ${
+              visibleElements.has('business-header') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              Built for Every Business Model
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className={`text-xl text-gray-600 transition-all duration-700 delay-200 ${
+              visibleElements.has('business-header') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              From growing contractors to enterprise portfolios
+            </p>
+          </div>
+
+          <BusinessTypeCards />
+        </div>
+      </section>
+
+      {/* Animated Metrics Section */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16" data-animate id="metrics-header">
+            <h2 className={`text-3xl md:text-4xl font-montserrat font-bold text-clara-navy mb-4 transition-all duration-700 ${
+              visibleElements.has('metrics-header') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              The Growth Impact of Capture, Convert, Collect
+            </h2>
+            <p className={`text-xl text-gray-600 transition-all duration-700 delay-200 ${
+              visibleElements.has('metrics-header') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
               Industry-leading results across all business models
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div 
-                key={index}
-                className="text-center group cursor-pointer transform transition-all duration-300 hover:scale-110"
-                onMouseEnter={() => setHoveredStat(index)}
-                onMouseLeave={() => setHoveredStat(null)}
+                key={index} 
+                data-animate 
+                id={`stat-${index}`}
+                className={`text-center p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-500 ${
+                  visibleElements.has(`stat-${index}`) 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className={`relative p-6 rounded-xl bg-white shadow-lg transition-all duration-300 ${
-                  hoveredStat === index ? 'shadow-2xl border-2 border-clara-teal' : 'hover:shadow-xl'
-                }`}>
-                  <div className={`text-4xl font-montserrat font-bold mb-2 transition-colors duration-300 ${
-                    hoveredStat === index ? stat.color : 'text-clara-gold'
-                  }`}>
-                    {stat.value}
-                  </div>
-                  <div className="text-lg font-semibold text-clara-navy mb-1">{stat.label}</div>
-                  <div className="text-sm text-gray-600">{stat.sublabel}</div>
-                  
-                  {hoveredStat === index && (
-                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-clara-teal rounded-full animate-pulse"></div>
-                  )}
+                <div className={`text-4xl font-montserrat font-bold mb-2 ${stat.color}`}>
+                  {stat.value}
                 </div>
+                <div className="text-lg font-semibold text-clara-navy mb-1">
+                  {stat.label}
+                </div>
+                <div className="text-sm text-gray-500">
+                  {stat.sublabel}
+                </div>
+                <div className="w-16 h-1 mx-auto mt-3 rounded-full bg-clara-red"></div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-clara-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-montserrat font-bold mb-6">
-            Find the right solution for your business
+      {/* Enhanced CTA Section */}
+      <section className="py-20 bg-clara-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-clara-red/20 via-transparent to-clara-red/10"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <h2 className="text-3xl md:text-4xl font-montserrat font-bold mb-6">
+            Capture more. Convert smarter. Collect faster — with Clara.
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Schedule a consultation to discover how Clara can transform your operations
+            Let Clara automate your entire revenue cycle
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-clara-gold hover:bg-clara-gold/90 text-clara-navy font-semibold px-8 py-3 text-lg">
+            <Button 
+              className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-8 py-3 text-lg"
+              onClick={openHubSpotForm}
+            >
               Book a 15-min Demo
             </Button>
             <ROICalculator 
