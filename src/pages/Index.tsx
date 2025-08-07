@@ -313,7 +313,7 @@ const Index = () => {
           <div className="max-w-4xl mx-auto">
             <div className="relative aspect-video bg-clara-navy rounded-xl overflow-hidden shadow-2xl border-2 border-white">
               <iframe
-                src="https://player.vimeo.com/video/1096761906?badge=0&autopause=0&player_id=0&app_id=58479"
+                src="https://player.vimeo.com/video/1107752855?badge=0&autopause=0&player_id=0&app_id=58479"
                 width="100%"
                 height="100%"
                 frameBorder="0"
