@@ -72,7 +72,7 @@ const Navigation = () => {
                 className="border-clara-red text-clara-red hover:bg-clara-red/10 px-4 py-2 text-sm"
                 onClick={handleCall}
               >
-                Call Now
+                Call Clara
               </Button>
               {/* === CHANGED BLOCK END === */}
               <Button 
