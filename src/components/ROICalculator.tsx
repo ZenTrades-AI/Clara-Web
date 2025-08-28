@@ -82,7 +82,6 @@ const ROICalculator = ({ trigger }: { trigger: React.ReactNode }) => {
               <h3 className="font-montserrat font-semibold text-clara-navy">Your Results</h3>
               <div className="space-y-1 text-sm">
                 <p><span className="font-medium">Lost Revenue/Year:</span> ${results.lostRevenue.toLocaleString()}</p>
-                <p><span className="font-medium">Monthly Clara Cost:</span> ${results.monthlyCost.toLocaleString()}</p>
                 <p className="text-clara-teal font-semibold">
                   <span className="font-medium">Monthly ROI:</span> +${results.monthlyROI.toLocaleString()}
                 </p>
