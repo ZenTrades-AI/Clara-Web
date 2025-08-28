@@ -1,8 +1,7 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import ROICalculator from '@/components/ROICalculator';
+// import ROICalculator from '@/components/ROICalculator'; // No longer needed
 import { openHubSpotForm } from '@/utils/hubspotForm';
 import { Menu, X } from 'lucide-react';
 
@@ -27,6 +26,10 @@ const Navigation = () => {
     { name: 'Pricing', path: '/pricing' },
     { name: 'Resources', path: '/resources' },
   ];
+
+  const handleCall = () => {
+    window.location.href = 'tel:+15392071364';
+  };
 
   return (
     <>
@@ -63,13 +66,15 @@ const Navigation = () => {
 
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center space-x-3">
-              <ROICalculator 
-                trigger={
-                  <Button variant="outline" className="border-clara-red text-clara-red hover:bg-clara-red/10 px-4 py-2 text-sm">
-                    Calculate ROI
-                  </Button>
-                }
-              />
+              {/* === CHANGED BLOCK START === */}
+              <Button 
+                variant="outline" 
+                className="border-clara-red text-clara-red hover:bg-clara-red/10 px-4 py-2 text-sm"
+                onClick={handleCall}
+              >
+                Call Now
+              </Button>
+              {/* === CHANGED BLOCK END === */}
               <Button 
                 className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-6"
                 onClick={openHubSpotForm}
@@ -107,13 +112,15 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="space-y-3 pt-4">
-                <ROICalculator 
-                  trigger={
-                    <Button variant="outline" className="w-full border-clara-red text-clara-red hover:bg-clara-red/10">
-                      Calculate ROI
-                    </Button>
-                  }
-                />
+                {/* === CHANGED BLOCK START === */}
+                <Button 
+                  variant="outline" 
+                  className="w-full border-clara-red text-clara-red hover:bg-clara-red/10"
+                  onClick={handleCall}
+                >
+                  Call Now
+                </Button>
+                {/* === CHANGED BLOCK END === */}
                 <Button 
                   className="w-full bg-clara-red hover:bg-clara-red/90 text-white font-semibold"
                   onClick={() => {
