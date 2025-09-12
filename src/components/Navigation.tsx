@@ -28,7 +28,7 @@ const Navigation = () => {
   ];
 
   const handleCall = () => {
-    window.location.href = 'tel:+15392071364';
+    window.location.href = 'tel:+15707554859';
   };
 
   return (
