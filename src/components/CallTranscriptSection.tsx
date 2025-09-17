@@ -211,146 +211,134 @@ const mockTranscripts: CallTranscript[] = [
   {
     id: "3",
     title: "Fire Sprinkler Inspection Call",
-    duration: "1:57",
+    duration: "1:31",
     audioUrl: "/audio/fire_protection_call.mp3",
     transcript: [
       {
         speaker: "Customer",
-        text: ", how are you doing?",
+        text: ", how you doing?",
         timestamp: 0,
-        duration: 13
+        duration: 1
       },
       {
         speaker: "Customer",
         text: "I had a fire marshal come by, my property today, and he left a notice saying that I need to get an annual fire sprinkler inspection.",
-        timestamp: 13,
-        duration: 8
+        timestamp: 1,
+        duration: 7
       },
       {
         speaker: "Customer",
         text: "Is this something that you guys do?",
-        timestamp: 21,
+        timestamp: 8,
         duration: 4
       },
       {
         speaker: "Clara AI",
         text: "I'm doing well, thank you for asking.",
-        timestamp: 25,
-        duration: 2
+        timestamp: 12,
+        duration: 3
       },
       {
         speaker: "Clara AI",
         text: "And yes, we absolutely handle annual fire sprinkler inspections.",
-        timestamp: 27,
-        duration: 4
+        timestamp: 15,
+        duration: 3
       },
       {
         speaker: "Clara AI",
         text: "This includes checking water pressure, valves, gauges, and sprinkler heads, as well as testing for leaks or obstructions.",
-        timestamp: 31,
+        timestamp: 18,
         duration: 7
       },
       {
         speaker: "Clara AI",
         text: "We'll also provide a compliance report to meet NFPA 25 standards.",
-        timestamp: 38,
-        duration: 4
+        timestamp: 25,
+        duration: 5
       },
       {
         speaker: "Clara AI",
-        text: "Could I get your name, phone number, and the name of your property or business so one more question.",
-        timestamp: 42,
-        duration: 5
+        text: "Could I get your name, phone number, and the name of your property or business so we can get more question.",
+        timestamp: 30,
+        duration: 4
       },
       {
         speaker: "Customer",
         text: "He also, he also notified me that apparently the flow switch is not connected.",
-        timestamp: 47,
-        duration: 6
+        timestamp: 34,
+        duration: 7
       },
       {
         speaker: "Customer",
-        text: "what exactly is a flow switch?",
-        timestamp: 53,
-        duration: 4
+        text: "what exactly is the flow switch?",
+        timestamp: 41,
+        duration: 3
       },
       {
         speaker: "Clara AI",
         text: "Great question.",
-        timestamp: 57,
+        timestamp: 44,
         duration: 1
       },
       {
         speaker: "Clara AI",
         text: "A flow switch is a critical component of your fire sprinkler system.",
-        timestamp: 58,
-        duration: 3
+        timestamp: 45,
+        duration: 4
       },
       {
         speaker: "Clara AI",
         text: "It detects water movement in the pipes when a sprinkler head activates and it sends a signal to your fire alarm system to alert you and the monitoring center of a potential fire.",
-        timestamp: 61,
+        timestamp: 49,
         duration: 9
       },
       {
         speaker: "Clara AI",
         text: "If it's not connected, your system might not properly notify you in case of an emergency.",
-        timestamp: 70,
-        duration: 5
+        timestamp: 58,
+        duration: 4
       },
       {
         speaker: "Clara AI",
         text: "We can definitely take a look at that during the inspection and ensure everything is functioning as it should.",
-        timestamp: 75,
+        timestamp: 62,
         duration: 5
       },
       {
         speaker: "Clara AI",
         text: "Would you like to go ahead and schedule a visit?",
-        timestamp: 80,
-        duration: 3
+        timestamp: 67,
+        duration: 4
       },
       {
         speaker: "Customer",
-        text: "Yes, do you have your name available for this week?",
-        timestamp: 83,
-        duration: 5
+        text: "Yes, do you have anything available for this week?",
+        timestamp: 71,
+        duration: 4
       },
       {
         speaker: "Clara AI",
         text: "Let me gather a few details so we can check availability for you.",
-        timestamp: 88,
+        timestamp: 75,
         duration: 3
       },
       {
         speaker: "Clara AI",
         text: "Could you please share your name, phone number, the name of your property or business, and any specific days or times this week that work best for you?",
-        timestamp: 91,
-        duration: 9
+        timestamp: 78,
+        duration: 8
       },
       {
         speaker: "Customer",
-        text: "yes, my name is John Doe.",
-        timestamp: 100,
-        duration: 3
+        text: ", yes, my name is John Doe.",
+        timestamp: 86,
+        duration: 5
       },
       {
         speaker: "Customer",
         text: "And my phone number is 555-555-1212.",
-        timestamp: 103,
-        duration: 10
-      },
-      {
-        speaker: "Clara AI",
-        text: "Thank you, John.",
-        timestamp: 113,
-        duration: 1
-      },
-      {
-        speaker: "Clara AI",
-        text: "Just to confirm, your phone number is 555-555-1212, correct?",
-        timestamp: 114,
-        duration: 3
+        timestamp: 91,
+        duration: 6
       }
     ]
   }
