@@ -9,6 +9,9 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowRight, Play, Phone, Calendar, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AIEngineCore } from "@/components/AIEngineCore";
+import CallTranscriptSection from '@/components/CallTranscriptSection';
+
+
 
 const Index = () => {
   const [activeSegment, setActiveSegment] = useState(0);
@@ -332,9 +335,10 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      <CallTranscriptSection />
       {/* Integration Partners Carousel */}
       <IntegrationCarousel />
+      
 
       {/* CTA Section */}
       <section className="py-20 bg-clara-navy text-white">
