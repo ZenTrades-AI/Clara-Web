@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CallTranscriptCard from "./CallTranscriptCard";
 import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
 
 export interface TranscriptMessage {
   speaker: "Clara AI" | "Customer";
@@ -471,6 +472,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
           
           <Button 
             style={ctaButtonStyle}
+            onClick={() => window.open('tel:+15707554859', '_self')}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'linear-gradient(135deg, hsl(25 95% 58%), hsl(0 75% 65%))';
               e.currentTarget.style.boxShadow = '0 12px 35px hsl(25 95% 53% / 0.5)';
@@ -482,7 +484,8 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
               e.currentTarget.style.transform = 'translateY(0) scale(1)';
             }}
           >
-            {buttonText}
+            <Phone size={18} className="mr-2" />
+            Try Clara Live +1 (570) 755-4859
           </Button>
         </div>
       </div>
