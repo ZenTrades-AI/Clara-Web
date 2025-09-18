@@ -579,7 +579,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
               }}
             >
               <Play size={18} className="mr-3" />
-              See a 90-sec demo
+              See All Case Studies
             </Button>
           </div>
 
