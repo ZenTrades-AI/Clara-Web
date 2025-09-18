@@ -3,6 +3,7 @@ import CallTranscriptCard from "./CallTranscriptCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Play } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export interface TranscriptMessage {
   speaker: "Clara AI" | "Customer";
@@ -359,7 +360,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
   buttonText = "▶ Try Clara Live",
   className = ""
 }) => {
-  const [selectedTranscript, setSelectedTranscript] = useState<CallTranscript>(mockTranscripts[0]);
+  const navigate = useNavigate();
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -378,7 +379,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
       badge: "Always-On Answering",
       category: "FIRE PROTECTION",
       title: "Rapid Fire Protection",
-      description: " Growth had the owner juggling the office line and his cell, creating bottlenecks and missed opportunities. Clara AI now answers every inquiry, captures structured intake for inspections and maintenance, and rolls out SMS + email alerts so the team stays in the know—and on time.",
+      description: "Growth had the owner juggling the office line and his cell, creating bottlenecks and missed opportunities. Clara AI now answers every inquiry, captures structured intake for inspections and maintenance, and rolls out SMS + email alerts so the team stays in the know—and on time.",
       stat1: "Structured intake & SMS alerts",
       stat2: "30 days"
     },
@@ -387,8 +388,8 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
       badge: "+225 Leads",
       category: "HVAC",
       title: "Apex Residential Solutions",
-      description: " With seasonal spikes, Apex needed help filtering spam and converting real demand. In 30 days, Clara AI handled high call volume, filtered robocalls, categorized intent, and surfaced qualified opportunities—so the team could focus on customers, not call triage.",
-      stat1: "835 calls handled (≈27% lead rate) ",
+      description: "With seasonal spikes, Apex needed help filtering spam and converting real demand. In 30 days, Clara AI handled high call volume, filtered robocalls, categorized intent, and surfaced qualified opportunities—so the team could focus on customers, not call triage.",
+      stat1: "835 calls handled (≈27% lead rate)",
       stat2: "30 days"
     }
   ];
@@ -398,7 +399,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
     
     const interval = setInterval(() => {
       setCurrentCardIndex(prev => (prev + 1) % caseStudies.length);
-    }, 3000); // 5 seconds delay
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [isHovered, caseStudies.length]);
@@ -515,41 +516,62 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
             {subtitle}
           </p>
           
-          <Button 
-            style={ctaButtonStyle}
-            onClick={() => window.open('tel:+15707554859', '_self')}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, hsl(25 95% 58%), hsl(0 75% 65%))';
-              e.currentTarget.style.boxShadow = '0 12px 35px hsl(25 95% 53% / 0.5)';
-              e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, hsl(25 95% 53%), hsl(0 75% 60%))';
-              e.currentTarget.style.boxShadow = '0 8px 25px hsl(25 95% 53% / 0.4)';
-              e.currentTarget.style.transform = 'translateY(0) scale(1)';
-            }}
-          >
-            <Phone size={18} className="mr-2" />
-            Try Clara Live +1 (570) 755-4859
-          </Button>
+          <div className="flex gap-4">
+            <Button 
+              style={ctaButtonStyle}
+              onClick={() => window.open('tel:+15707554859', '_self')}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(25 95% 58%), hsl(0 75% 65%))';
+                e.currentTarget.style.boxShadow = '0 12px 35px hsl(25 95% 53% / 0.5)';
+                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(25 95% 53%), hsl(0 75% 60%))';
+                e.currentTarget.style.boxShadow = '0 8px 25px hsl(25 95% 53% / 0.4)';
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+              }}
+            >
+              <Phone size={18} className="mr-2" />
+              Try Clara Live +1 (570) 755-4859
+            </Button>
+            
+            <Button 
+              className="bg-transparent border-2 text-white hover:text-white px-8 py-3 font-medium rounded-full transition-all duration-300"
+              style={{
+                borderColor: '#ef4445'
+              }}
+              onClick={() => navigate('/case-studies')}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#ef4445';
+                e.currentTarget.style.color = 'white';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = 'white';
+              }}
+            >
+              <Play size={18} className="mr-3" />
+              See All Case Studies
+            </Button>
+          </div>
         </div>
       </div>
 
-      {/* New Grid Section */}
+      {/* Case Studies Section */}
       <div id="case-studies-section" className="bg-white py-20 px-8 rounded-3xl mt-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
           {/* Left Side - Text Content */}
           <div className="space-y-8">
             <div className="text-sm font-semibold tracking-widest uppercase" style={{color: '#ef4445'}}>
-            Case Studies from the Field
+              Case Studies from the Field
             </div>
             
             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Clara AI case studies & outcomes across verticals
+              Clara AI case studies & outcomes across verticals
             </h2>
             
             <p className="text-xl text-gray-600 leading-relaxed">
-            Explore how Clara AI answered every call, filtered noise, and booked in real time—delivering +29% call→booking, structured intake, and 225 qualified leads.
+              Explore how Clara AI answered every call, filtered noise, and booked in real time—delivering +29% call→booking, structured intake, and 225 qualified leads.
             </p>
             
             <div className="flex space-x-3 mt-12">
@@ -569,6 +591,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
               style={{
                 borderColor: '#ef4445'
               }}
+              onClick={() => navigate('/case-studies')}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#ef4445';
                 e.currentTarget.style.color = 'white';
@@ -636,8 +659,6 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
                           <div className="text-2xl font-bold text-gray-900">{study.stat2}</div>
                         </div>
                       </div>
-                      
-                     
                     </div>
                   </CardContent>
                 </Card>
@@ -646,6 +667,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
           </div>
         </div>
       </div>
+
     </section>
   );
 };
