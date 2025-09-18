@@ -9,8 +9,8 @@ import HowItWorks from "./pages/HowItWorks";
 import Solutions from "./pages/Solutions";
 import Pricing from "./pages/Pricing";
 import Resources from "./pages/Resources";
-import NotFound from "./pages/NotFound";
 import CaseStudies from "./pages/CaseStudies";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -26,8 +26,8 @@ const App = () => (
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
