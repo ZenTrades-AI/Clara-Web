@@ -361,6 +361,11 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
   className = ""
 }) => {
   const navigate = useNavigate();
+  
+  const handleNavigateToCaseStudies = () => {
+    navigate('/case-studies');
+    window.scrollTo(0, 0);
+  };
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -540,7 +545,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
               style={{
                 borderColor: '#ef4445'
               }}
-              onClick={() => navigate('/case-studies')}
+              onClick={handleNavigateToCaseStudies}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#ef4445';
                 e.currentTarget.style.color = 'white';
@@ -591,7 +596,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
               style={{
                 borderColor: '#ef4445'
               }}
-              onClick={() => navigate('/case-studies')}
+              onClick={handleNavigateToCaseStudies}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#ef4445';
                 e.currentTarget.style.color = 'white';
