@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CallTranscriptCard from "./CallTranscriptCard";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Phone, Play } from "lucide-react";
 
 export interface TranscriptMessage {
   speaker: "Clara AI" | "Customer";
@@ -358,6 +359,50 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
   buttonText = "▶ Try Clara Live",
   className = ""
 }) => {
+  const [selectedTranscript, setSelectedTranscript] = useState<CallTranscript>(mockTranscripts[0]);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const caseStudies = [
+    {
+      id: 1,
+      badge: "+29% Bookings",
+      category: "HVAC | PLUMBING",
+      title: "John Owens Services",
+      description: "John Owens Services was missing after-hours calls and losing ready-to-book customers. Clara AI answered instantly, booked in real time, and sent post-call summaries + transcripts—turning voicemails into visits and restoring confidence across the team.",
+      stat1: "$31,000 revenue",
+      stat2: "30 days"
+    },
+    {
+      id: 2,
+      badge: "Always-On Answering",
+      category: "FIRE PROTECTION",
+      title: "Rapid Fire Protection",
+      description: " Growth had the owner juggling the office line and his cell, creating bottlenecks and missed opportunities. Clara AI now answers every inquiry, captures structured intake for inspections and maintenance, and rolls out SMS + email alerts so the team stays in the know—and on time.",
+      stat1: "Structured intake & SMS alerts",
+      stat2: "30 days"
+    },
+    {
+      id: 3,
+      badge: "+225 Leads",
+      category: "HVAC",
+      title: "Apex Residential Solutions",
+      description: " With seasonal spikes, Apex needed help filtering spam and converting real demand. In 30 days, Clara AI handled high call volume, filtered robocalls, categorized intent, and surfaced qualified opportunities—so the team could focus on customers, not call triage.",
+      stat1: "835 calls handled (≈27% lead rate) ",
+      stat2: "30 days"
+    }
+  ];
+
+  useEffect(() => {
+    if (isHovered) return;
+    
+    const interval = setInterval(() => {
+      setCurrentCardIndex(prev => (prev + 1) % caseStudies.length);
+    }, 3000); // 5 seconds delay
+
+    return () => clearInterval(interval);
+  }, [isHovered, caseStudies.length]);
+
   const sectionStyle = {
     background: `
       radial-gradient(circle at 20px 20px, rgba(255, 255, 255, 0.03) 2px, transparent 2px),
@@ -487,6 +532,118 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
             <Phone size={18} className="mr-2" />
             Try Clara Live +1 (570) 755-4859
           </Button>
+        </div>
+      </div>
+
+      {/* New Grid Section */}
+      <div id="case-studies-section" className="bg-white py-20 px-8 rounded-3xl mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
+          {/* Left Side - Text Content */}
+          <div className="space-y-8">
+            <div className="text-sm font-semibold tracking-widest uppercase" style={{color: '#ef4445'}}>
+            Case Studies from the Field
+            </div>
+            
+            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            Clara AI case studies & outcomes across verticals
+            </h2>
+            
+            <p className="text-xl text-gray-600 leading-relaxed">
+            Explore how Clara AI answered every call, filtered noise, and booked in real time—delivering +29% call→booking, structured intake, and 225 qualified leads.
+            </p>
+            
+            <div className="flex space-x-3 mt-12">
+              <div className="w-3 h-3 rounded-full transition-all duration-1000" style={{
+                backgroundColor: currentCardIndex === 0 ? '#ef4445' : '#d1d5db'
+              }}></div>
+              <div className="w-3 h-3 rounded-full transition-all duration-1000" style={{
+                backgroundColor: currentCardIndex === 1 ? '#ef4445' : '#d1d5db'
+              }}></div>
+              <div className="w-3 h-3 rounded-full transition-all duration-1000" style={{
+                backgroundColor: currentCardIndex === 2 ? '#ef4445' : '#d1d5db'
+              }}></div>
+            </div>
+            
+            <Button 
+              className="mt-8 bg-transparent border-2 text-gray-900 hover:text-white px-8 py-4 text-lg font-medium rounded-full transition-all duration-300"
+              style={{
+                borderColor: '#ef4445'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#ef4445';
+                e.currentTarget.style.color = 'white';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = '#111827';
+              }}
+            >
+              <Play size={18} className="mr-3" />
+              See a 90-sec demo
+            </Button>
+          </div>
+
+          {/* Right Side - Case Study Cards */}
+          <div 
+            className="relative h-[500px] flex items-center justify-center overflow-hidden"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {caseStudies.map((study, index) => {
+              const isActive = index === currentCardIndex;
+              const isPrevious = index < currentCardIndex;
+              
+              return (
+                <Card 
+                  key={study.id}
+                  className={`absolute w-full max-w-md bg-white shadow-2xl border-0 transition-all duration-700 ease-out transform ${
+                    isActive 
+                      ? 'opacity-100 translate-x-0 scale-100 z-20 rotate-0' 
+                      : isPrevious
+                        ? 'opacity-30 -translate-x-12 scale-95 z-10 -rotate-3'
+                        : 'opacity-30 translate-x-12 scale-95 z-10 rotate-3'
+                  }`}
+                  style={{
+                    boxShadow: isActive 
+                      ? '0 25px 60px rgba(239, 68, 69, 0.2), 0 15px 35px rgba(0, 0, 0, 0.15)' 
+                      : '0 10px 25px rgba(0, 0, 0, 0.1)'
+                  }}
+                >
+                  <CardContent className="p-8">
+                    <div className="space-y-6">
+                      <div className="flex items-center justify-between">
+                        <div className="text-white px-4 py-2 rounded-full text-sm font-semibold" style={{backgroundColor: '#ef4445'}}>
+                          {study.badge}
+                        </div>
+                        <div className="text-xs text-gray-400 font-semibold tracking-widest uppercase">
+                          {study.category}
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-2xl font-bold text-gray-900 leading-tight">
+                        {study.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 leading-relaxed">
+                        {study.description}
+                      </p>
+                      
+                      <div className="flex justify-between items-center pt-6 border-t border-gray-100">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-gray-900">{study.stat1}</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-gray-900">{study.stat2}</div>
+                        </div>
+                      </div>
+                      
+                     
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
