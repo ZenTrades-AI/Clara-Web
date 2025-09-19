@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from '@/components/Navigation';
+import { Link } from "react-router-dom";
 import Footer from '@/components/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -24,7 +25,7 @@ interface CaseStudy {
   stat1: string;
   stat2: string;
   color: string;
-  industry: string;
+  industries: string[];
 }
 
 const caseStudies: CaseStudy[] = [
@@ -37,7 +38,7 @@ const caseStudies: CaseStudy[] = [
     stat1: "$31,000 revenue",
     stat2: "30 days",
     color: "#ef4445",
-    industry: "hvac"
+    industries: ["hvac", "plumbing"]
   },
   {
     id: 5,
@@ -48,7 +49,7 @@ const caseStudies: CaseStudy[] = [
     stat1: "Structured intake & SMS alerts",
     stat2: "30 days",
     color: "#ef4445",
-    industry: "electrical"
+    industries: ["fire"]
   },
   {
     id: 6,
@@ -59,7 +60,7 @@ const caseStudies: CaseStudy[] = [
     stat1: "835 calls handled (≈27% lead rate)",
     stat2: "30 days",
     color: "#ef4445",
-    industry: "hvac"
+    industries: ["hvac"]
   }
 ];
 
@@ -68,20 +69,20 @@ const CaseStudies = () => {
 
   const filteredCaseStudies = activeFilter === "all" 
     ? caseStudies 
-    : caseStudies.filter(study => study.industry === activeFilter);
+    : caseStudies.filter(study => study.industries.includes(activeFilter));
 
   const filters = [
     { id: "all", label: "All" },
     { id: "plumbing", label: "Plumbing" },
     { id: "hvac", label: "HVAC" },
-    { id: "electrical", label: "Electrical" }
+    { id: "electrical", label: "Electrical" },
+    { id: "fire", label: "Fire" }
   ];
 
   return (
     <div className="min-h-screen bg-background">
         <Navigation />
       {/* Header Section */}
-
       <section className="relative overflow-hidden">
         <div 
           className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20"
@@ -210,6 +211,7 @@ const CaseStudies = () => {
                     </div>
                     
                     <Button 
+                      asChild
                       className="w-full text-white py-3 rounded-full font-semibold transition-all duration-300 group-hover:shadow-lg"
                       style={{backgroundColor: '#ef4445'}}
                       onMouseEnter={(e) => {
@@ -221,7 +223,14 @@ const CaseStudies = () => {
                         e.currentTarget.style.backgroundColor = '#ef4445';
                       }}
                     >
-                      Read Full Case Study →
+                      <Link to={
+                        study.id === 4 ? "/case-studies/john-owens-services" :
+                        study.id === 5 ? "/case-studies/rapid-fire-protection" :
+                        study.id === 6 ? "/case-studies/apex-residential-solutions" :
+                        "#"
+                      }>
+                        Read Full Case Study →
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -255,7 +264,6 @@ const CaseStudies = () => {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
