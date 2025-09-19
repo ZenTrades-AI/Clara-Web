@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from '@/components/Navigation';
@@ -206,6 +206,10 @@ export default function RapidFireCaseStudy() {
   return (
 
     <div className="min-h-screen bg-white">
+      <Helmet>
+      <title>Rapid Fire Protection Case Study | Always-On AI Call Answering for Fire Safety Services</title>
+      <meta name="description" content="Rapid Fire Protection used Clara AI to capture every call, reduce voicemail reliance, and streamline inspections & maintenance scheduling. Learn how AI-driven intake improved compliance and customer experience." />
+    </Helmet>
         <Navigation />
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-200 sticky top-16 z-40">

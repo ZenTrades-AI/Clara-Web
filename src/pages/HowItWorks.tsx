@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -184,6 +185,7 @@ const DispatchAnimation = () => {
   
   return (
     <div className="space-y-4">
+      
       <div className="text-center mb-4">
         <h4 className="font-semibold text-gray-700">Smart Job Dispatching</h4>
       </div>
@@ -490,6 +492,10 @@ const HowItWorks = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+      <title>How It Works | Clara AI</title>
+      <meta name="description" content="Learn how Clara AI's automated systems for calls, dispatch, and collections can transform your trade business." />
+    </Helmet>
       <Navigation />
       
       {/* Hero Section */}

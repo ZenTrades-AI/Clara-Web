@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
@@ -55,6 +56,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+       <Helmet>
+      <title>Clara AI | AI Growth Engine for Trade Businesses</title>
+      <meta name="description" content="Clara AI helps trade contractors increase revenue by automating calls, dispatch, and collections. Get +28% booked revenue with Clara" />
+    </Helmet>
       <Navigation />
       
       {/* Hero Section - Updated with reduced side spacing */}

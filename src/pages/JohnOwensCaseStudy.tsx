@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -195,6 +196,10 @@ export default function JohnOwensCaseStudy() {
   return (
    
     <div className="min-h-screen bg-white">
+      <Helmet>
+      <title>John Owens Services Case Study | +$31K Revenue in 30 Days with Clara AI</title>
+      <meta name="description" content="See how John Owens Services partnered with Clara AI to convert missed calls into booked jobs, capturing $31,000 in revenue within 30 days. Learn how AI call answering boosted bookings by 29%." />
+    </Helmet>
          <Navigation />
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-200 sticky top-16 z-40">

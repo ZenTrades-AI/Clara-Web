@@ -1,4 +1,5 @@
 import Navigation from '@/components/Navigation';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Footer from '@/components/Footer';
 import { openHubSpotForm } from '@/utils/hubspotForm';
 import { Button } from '@/components/ui/button';
@@ -80,6 +81,10 @@ const Pricing = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+      <title>Pricing | Clara AI Plans for Trades Contractors</title>
+      <meta name="description" content="See Clara AI pricing & plans built for trade businesses. Transparent, scalable pricing so you pay for value | Book demo" />
+    </Helmet>
       <Navigation />
       
       {/* Hero Section */}

@@ -1,5 +1,6 @@
 
 import Navigation from '@/components/Navigation';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Footer from '@/components/Footer';
 import ROICalculator from '@/components/ROICalculator';
 import { Button } from '@/components/ui/button';
@@ -89,6 +90,10 @@ const Resources = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+      <title>Resources | Clara AI for Trade Businesses</title>
+      <meta name="description" content="Explore helpful resources, guides, and articles for growing your trade business with Clara AI." />
+    </Helmet>
       <Navigation />
       
       {/* Hero Section */}

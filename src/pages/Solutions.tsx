@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Play } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -38,6 +39,10 @@ const Solutions = () => {
 
   return (
     <div className="min-h-screen">
+       <Helmet>
+      <title>Solutions | Clara AI: Automate Revenue Cycle for Trades</title>
+      <meta name="description" content="Explore Clara AI’s trade-focused solutions: call answering, lead qualification, dispatch, payments & follow-ups. Automate your full revenue cycle." />
+    </Helmet>
       <Navigation />
       
       {/* Hero Section */}

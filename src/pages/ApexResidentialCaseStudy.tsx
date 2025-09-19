@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -196,6 +197,10 @@ export default function ApexResidentialCaseStudy() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+      <title>Apex Residential Solutions Case Study | 835 Calls Handled, $78K Leads Surfaced with Clara AI</title>
+      <meta name="description" content="Apex Residential Solutions partnered with Clara AI to capture 835 calls, identify 225 qualified leads, and uncover $78,000+ in potential revenue in 30 days. Discover how Clara transformed their lead engine." />
+    </Helmet>
          <Navigation />
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-200 sticky top-16 z-40">
