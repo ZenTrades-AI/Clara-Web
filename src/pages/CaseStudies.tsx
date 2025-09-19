@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Helmet } from 'react-helmet-async';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from '@/components/Navigation';
@@ -81,6 +82,10 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen bg-background">
+    <Helmet>
+        <title>Case Studies | Clara AI Customer Success in Trade Businesses</title>
+        <meta name="description" content="Discover how trade businesses use Clara AI to boost bookings, recover missed calls, and grow revenue. Explore success stories from HVAC, plumbing, electrical, and fire protection companies." />
+      </Helmet>
         <Navigation />
       {/* Header Section */}
       <section className="relative overflow-hidden">
