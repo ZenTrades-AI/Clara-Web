@@ -27,7 +27,7 @@ const agents = [
         description: "Automates follow-ups on estimates, recalls, inspections, and overdue jobs.",
         stat: "25% tech utilization lift",
         color: "from-primary/15 to-primary-light/15",
-        link: "/solutions/remind"
+        link: "/solutions/reminds"
     },
     {
         icon: DollarSign,
@@ -36,7 +36,7 @@ const agents = [
         description: "Turns unpaid invoices into collected revenue with friendly, automated outreach.",
         stat: "40% faster payments",
         color: "from-primary/20 to-primary-light/20",
-        link: "/solutions/collect"
+        link: "/solutions/collects"
     }
 ];
 
