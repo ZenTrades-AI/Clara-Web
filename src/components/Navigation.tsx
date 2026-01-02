@@ -41,7 +41,7 @@ const Navigation = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <img 
-                src="/lovable-uploads/4747974c-78dc-400c-a26d-91d2e624fe3d.png" 
+                src="/lovable-uploads/white.png" 
                 alt="Clara AI" 
                 className="h-40 w-auto"
               />
