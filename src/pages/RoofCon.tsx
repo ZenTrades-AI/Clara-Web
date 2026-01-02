@@ -52,7 +52,7 @@ const RoofCon = () => {
                         <img
                             src="/lovable-uploads/Clara-AI-Smart-Glasses.png"
                             alt="Clara AI Smart Glasses"
-                            className="w-full h-auto rounded-3xl shadow-2xl border border-slate-100"
+                            className="w-[130%] max-w-none h-auto -ml-36 relative z-10"
                         />
                     </div>
                 </div>
@@ -229,7 +229,7 @@ const RoofCon = () => {
                             <img
                                 src="/lovable-uploads/Clara-AI-Smart-Glasses.png"
                                 alt="Clara AI Smart Glasses"
-                                className="w-full max-w-md h-auto rounded-3xl shadow-lg"
+                                className="w-full max-w-2xl h-auto -ml-20"
                             />
                         </div>
                     </div>
