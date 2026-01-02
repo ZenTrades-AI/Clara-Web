@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <img
-                src="/lovable-uploads/4747974c-78dc-400c-a26d-91d2e624fe3d.png"
+                src="/lovable-uploads/white.png"
                 alt="Clara AI"
                 className="h-16 md:h-20 w-auto"
               />
