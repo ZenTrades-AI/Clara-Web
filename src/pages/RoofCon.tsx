@@ -10,10 +10,10 @@ const RoofCon = () => {
     return (
         <div className="min-h-screen bg-white">
             <Helmet>
-                <title>Clara AI for RoofCon | The AI Growth Engine for Roofers</title>
+                <title> Clara AI at RoofCon 2026 | AI Field Co-Pilot for Roofing Crews</title>
                 <meta
                     name="description"
-                    content="Clara AI helps roofing companies increase revenue by automating calls, dispatch, reminders, and collections. Built for RoofCon crews."
+                    content="Clara AI at RoofCon 2026 helps roofing companies inspect faster, answer every call, and collect payments automatically. Book a live demo."
                 />
             </Helmet>
 
