@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, Phone, FileText, Bell, DollarSign, TrendingUp, Clock, AlertCircle } from "lucide-react";
+import { Check, Phone, FileText, Bell, DollarSign, TrendingUp, Clock, AlertCircle, Camera, Brain, Database, ArrowRight, Mic } from "lucide-react";
 import { Link } from "react-router-dom";
 import { openHubSpotForm } from "@/utils/hubspotForm";
 
@@ -10,7 +10,7 @@ const RoofCon = () => {
     return (
         <div className="min-h-screen bg-white">
             <Helmet>
-                <title> Clara AI at RoofCon 2026 | AI Field Co-Pilot for Roofing Crews</title>
+                <title>Clara AI at RoofCon 2026 | AI Field Co-Pilot for Roofing Crews</title>
                 <meta
                     name="description"
                     content="Clara AI at RoofCon 2026 helps roofing companies inspect faster, answer every call, and collect payments automatically. Book a live demo."
@@ -151,6 +151,139 @@ const RoofCon = () => {
                 </div>
             </section>
 
+            {/* FIELD CO-PILOT */}
+            <section className="py-20 px-6 bg-slate-50">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 className="text-4xl font-bold mb-6 text-slate-900">
+                            Clara Field Co-Pilot Works Where the Job Happens
+                        </h2>
+                        <p className="text-slate-600 mb-6 leading-relaxed">
+                            The smart glasses are not a product — they are an input/output interface that activates Clara's intelligence in the field. Everything flows into Clara: images, audio, context. Everything flows back to the technician: guidance, reminders, workflow intelligence.
+                        </p>
+                        <p className="text-slate-600 mb-10 leading-relaxed">
+                            The software stays in control. The glasses activate it where work happens.
+                        </p>
+
+                        <div className="space-y-8">
+                            {/* Item 1 */}
+                            <div className="flex gap-4">
+                                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center shrink-0">
+                                    <Camera className="w-6 h-6 text-red-500" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900 mb-1">Hands-free image capture</h3>
+                                    <p className="text-sm text-slate-600">
+                                        Smart glasses capture documentation without stopping work. No phones, no tablets, no interruptions.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Item 2 */}
+                            <div className="flex gap-4">
+                                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center shrink-0">
+                                    <Mic className="w-6 h-6 text-red-500" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900 mb-1">Audio context captured automatically</h3>
+                                    <p className="text-sm text-slate-600">
+                                        With permission, Clara listens to job-site conversations and structures them into actionable notes.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Item 3 */}
+                            <div className="flex gap-4">
+                                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center shrink-0">
+                                    <Brain className="w-6 h-6 text-red-500" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900 mb-1">Real-time guidance and nudges</h3>
+                                    <p className="text-sm text-slate-600">
+                                        Procedural reminders, safety checks, and next steps delivered exactly when needed.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Item 4 */}
+                            <div className="flex gap-4">
+                                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center shrink-0">
+                                    <Database className="w-6 h-6 text-red-500" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900 mb-1">Data structured automatically</h3>
+                                    <p className="text-sm text-slate-600">
+                                        Every photo, note, and observation is tagged, mapped, and synced without manual entry.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="relative flex justify-center">
+                        <img
+                            src="/lovable-uploads/Clara-AI-Smart-Glasses.png"
+                            alt="Clara AI Smart Glasses"
+                            className="w-full max-w-lg h-auto drop-shadow-2xl"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* FROM ROOF TO CRM */}
+            <section className="py-20 px-6 bg-white">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-bold mb-4 text-slate-900">From Roof to CRM — Automatically</h2>
+                        <p className="text-slate-600 max-w-2xl mx-auto">
+                            Data captured in the field flows seamlessly into your existing systems without manual entry.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-4 gap-8 relative">
+                        {/* Step 1 */}
+                        <div className="flex flex-col items-center text-center relative z-10">
+                            <div className="w-20 h-20 bg-white border-2 border-red-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                                <Camera className="w-8 h-8 text-red-500" />
+                            </div>
+                            <h3 className="font-bold text-slate-900 mb-2">Images Captured</h3>
+                            <ArrowRight className="hidden md:block absolute top-10 left-full ml-1 -translate-y-1/2 w-6 h-6 text-slate-400" />
+                        </div>
+
+                        {/* Step 2 */}
+                        <div className="flex flex-col items-center text-center relative z-10">
+                            <div className="w-20 h-20 bg-white border-2 border-red-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                                <Brain className="w-8 h-8 text-red-500" />
+                            </div>
+                            <h3 className="font-bold text-slate-900 mb-2">Tagged & Structured</h3>
+                            <ArrowRight className="hidden md:block absolute top-10 left-full ml-1 -translate-y-1/2 w-6 h-6 text-slate-400" />
+                        </div>
+
+                        {/* Step 3 */}
+                        <div className="flex flex-col items-center text-center relative z-10">
+                            <div className="w-20 h-20 bg-white border-2 border-red-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                                <FileText className="w-8 h-8 text-red-500" />
+                            </div>
+                            <h3 className="font-bold text-slate-900 mb-2">Mapped to Job Context</h3>
+                            <ArrowRight className="hidden md:block absolute top-10 left-full ml-1 -translate-y-1/2 w-6 h-6 text-slate-400" />
+                        </div>
+
+                        {/* Step 4 */}
+                        <div className="flex flex-col items-center text-center relative z-10">
+                            <div className="w-20 h-20 bg-white border-2 border-red-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                                <Database className="w-8 h-8 text-red-500" />
+                            </div>
+                            <h3 className="font-bold text-slate-900 mb-2">Synced to Your Systems</h3>
+                        </div>
+                    </div>
+
+                    <div className="text-center mt-12">
+                        <p className="text-sm text-slate-500">
+                            Works with ServiceTrade, Simpro, BuildOps, Salesforce, and more — no complex integrations required.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             {/* WHY ROOFING COMPANIES USE CLARA */}
             <section className="py-20 px-6 bg-slate-50">
                 <div className="max-w-7xl mx-auto">
@@ -237,18 +370,30 @@ const RoofCon = () => {
             </section>
 
             {/* SEE CLARA AI LIVE */}
-            <section className="py-24 px-6 bg-white text-center">
-                <div className="max-w-3xl mx-auto">
-                    <h2 className="text-4xl font-bold mb-6 text-slate-900">See Clara AI Live</h2>
-                    <p className="text-lg text-slate-600 mb-10">
-                        Book a demo to watch Clara work across your entire roofing operation.
-                    </p>
-                    <Button
-                        onClick={openHubSpotForm}
-                        className="bg-primary hover:bg-primary/90 text-white px-10 py-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all"
-                    >
-                        Book a Demo to Watch Clara in Action
-                    </Button>
+            <section className="py-24 px-6 bg-white">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 className="text-4xl font-bold mb-6 text-slate-900">See Clara AI Live at RoofCon 2026</h2>
+                        <p className="text-lg text-slate-600 mb-4">
+                            Book a demo to watch Clara work across your entire roofing operation.
+                        </p>
+                        <p className="text-slate-600 mb-8">
+                            Built for crews on the roof. Trusted by teams in the office.
+                        </p>
+                        <Button
+                            onClick={openHubSpotForm}
+                            className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+                        >
+                            Book a Demo to Watch Clara in Action
+                        </Button>
+                    </div>
+                    <div className="flex justify-center">
+                        <img
+                            src="/lovable-uploads/Clara-AI-Smart-Glasses.png"
+                            alt="Clara AI Smart Glasses"
+                            className="w-full max-w-lg h-auto drop-shadow-2xl"
+                        />
+                    </div>
                 </div>
             </section>
 
