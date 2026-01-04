@@ -20,13 +20,13 @@ const RoofCon = () => {
             <Navigation />
 
             {/* HERO SECTION */}
-            <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-white via-[#fafafa] to-[#ffecef] overflow-hidden">
+            <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 bg-gradient-to-br from-white via-[#fafafa] to-[#ffecef] overflow-hidden">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
                     <div className="relative z-10">
                         <div className="inline-block px-3 py-1 bg-red-100 text-red-600 rounded-full text-xs font-bold mb-6">
                             ROOFCON 2026
                         </div>
-                        <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-slate-900">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-900">
                             Your Best Roofer Just Got Smarter with <span className="text-primary">Clara AI</span>
                         </h1>
                         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
@@ -52,14 +52,14 @@ const RoofCon = () => {
                         <img
                             src="/lovable-uploads/Clara-AI-Smart-Glasses.png"
                             alt="Clara AI Smart Glasses"
-                            className="w-[130%] max-w-none h-auto -ml-36 relative z-10"
+                            className="w-full md:w-[130%] max-w-none h-auto md:-ml-36 relative z-10"
                         />
                     </div>
                 </div>
             </section>
 
             {/* MEET CLARA AI */}
-            <section className="py-20 px-6 bg-white">
+            <section className="py-12 md:py-20 px-6 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4 text-slate-900">Meet Clara AI</h2>
@@ -70,7 +70,7 @@ const RoofCon = () => {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {/* Card 1 */}
-                        <div className="p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition-shadow bg-white">
+                        <div className="p-6 md:p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition-shadow bg-white">
                             <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mb-6">
                                 <TrendingUp className="text-primary w-6 h-6" />
                             </div>
@@ -95,7 +95,7 @@ const RoofCon = () => {
                         </div>
 
                         {/* Card 2 */}
-                        <div className="p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition-shadow bg-white">
+                        <div className="p-6 md:p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition-shadow bg-white">
                             <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mb-6">
                                 <DollarSign className="text-primary w-6 h-6" />
                             </div>
@@ -124,7 +124,7 @@ const RoofCon = () => {
                         </div>
 
                         {/* Card 3 */}
-                        <div className="p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition-shadow bg-white">
+                        <div className="p-6 md:p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition-shadow bg-white">
                             <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mb-6">
                                 <Phone className="text-primary w-6 h-6" />
                             </div>
@@ -152,8 +152,8 @@ const RoofCon = () => {
             </section>
 
             {/* FIELD CO-PILOT */}
-            <section className="py-20 px-6 bg-slate-50">
-                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <section className="py-12 md:py-20 px-6 bg-slate-50">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
                     <div>
                         <h2 className="text-4xl font-bold mb-6 text-slate-900">
                             Clara Field Co-Pilot Works Where the Job Happens
@@ -230,7 +230,7 @@ const RoofCon = () => {
             </section>
 
             {/* FROM ROOF TO CRM */}
-            <section className="py-20 px-6 bg-white">
+            <section className="py-12 md:py-20 px-6 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4 text-slate-900">From Roof to CRM — Automatically</h2>
@@ -285,7 +285,7 @@ const RoofCon = () => {
             </section>
 
             {/* WHY ROOFING COMPANIES USE CLARA */}
-            <section className="py-20 px-6 bg-slate-50">
+            <section className="py-12 md:py-20 px-6 bg-slate-50">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-3xl font-bold text-center mb-16 text-slate-900">Why Roofing Companies Use Clara</h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -308,7 +308,7 @@ const RoofCon = () => {
             </section>
 
             {/* FIRST 30 DAYS STATS */}
-            <section className="py-20 px-6 bg-white">
+            <section className="py-12 md:py-20 px-6 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold mb-4 text-slate-900">What You See in the First 30 Days</h2>
@@ -334,7 +334,7 @@ const RoofCon = () => {
             </section>
 
             {/* GROWTH ENGINE */}
-            <section className="py-20 px-6 bg-white">
+            <section className="py-12 md:py-20 px-6 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4 text-slate-900">The Clara AI Growth Engine</h2>
@@ -345,7 +345,7 @@ const RoofCon = () => {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {/* Card 1 */}
-                        <div className="p-10 rounded-3xl border border-slate-100 bg-slate-50 text-center hover:shadow-lg transition-all">
+                        <div className="p-6 md:p-10 rounded-3xl border border-slate-100 bg-slate-50 text-center hover:shadow-lg transition-all">
                             <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                                 <Glasses className="w-8 h-8 text-red-500" />
                             </div>
@@ -354,7 +354,7 @@ const RoofCon = () => {
                         </div>
 
                         {/* Card 2 */}
-                        <div className="p-10 rounded-3xl border border-slate-100 bg-slate-50 text-center hover:shadow-lg transition-all">
+                        <div className="p-6 md:p-10 rounded-3xl border border-slate-100 bg-slate-50 text-center hover:shadow-lg transition-all">
                             <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                                 <Phone className="w-8 h-8 text-red-500" />
                             </div>
@@ -363,7 +363,7 @@ const RoofCon = () => {
                         </div>
 
                         {/* Card 3 */}
-                        <div className="p-10 rounded-3xl border border-slate-100 bg-slate-50 text-center hover:shadow-lg transition-all">
+                        <div className="p-6 md:p-10 rounded-3xl border border-slate-100 bg-slate-50 text-center hover:shadow-lg transition-all">
                             <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                                 <DollarSign className="w-8 h-8 text-red-500" />
                             </div>
@@ -375,8 +375,8 @@ const RoofCon = () => {
             </section>
 
             {/* BUILT FOR ROOFCON CREWS */}
-            <section className="py-20 px-6 bg-white">
-                <div className="max-w-7xl mx-auto bg-slate-50 rounded-[3rem] p-8 md:p-16">
+            <section className="py-12 md:py-20 px-6 bg-white">
+                <div className="max-w-7xl mx-auto bg-slate-50 rounded-3xl md:rounded-[3rem] p-8 md:p-16">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">Built for RoofCon Crews</h2>
@@ -403,7 +403,7 @@ const RoofCon = () => {
                             <img
                                 src="/lovable-uploads/Clara-AI-Smart-Glasses.png"
                                 alt="Clara AI Smart Glasses"
-                                className="w-full max-w-2xl h-auto -ml-20"
+                                className="w-full max-w-2xl h-auto md:-ml-20"
                             />
                         </div>
                     </div>
@@ -411,8 +411,8 @@ const RoofCon = () => {
             </section>
 
             {/* SEE CLARA AI LIVE */}
-            <section className="py-24 px-6 bg-white">
-                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <section className="py-16 md:py-24 px-6 bg-white">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
                     <div>
                         <h2 className="text-4xl font-bold mb-6 text-slate-900">See Clara AI Live at RoofCon 2026</h2>
                         <p className="text-lg text-slate-600 mb-4">
