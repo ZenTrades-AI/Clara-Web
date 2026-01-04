@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, Phone, FileText, Bell, DollarSign, TrendingUp, Clock, AlertCircle, Camera, Brain, Database, ArrowRight, Mic } from "lucide-react";
+import { Check, Phone, FileText, Bell, DollarSign, TrendingUp, Clock, AlertCircle, Camera, Brain, Database, ArrowRight, Mic, Glasses } from "lucide-react";
 import { Link } from "react-router-dom";
 import { openHubSpotForm } from "@/utils/hubspotForm";
 
@@ -329,6 +329,47 @@ const RoofCon = () => {
                                 <div className="text-xs text-slate-500">{item.sub}</div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* GROWTH ENGINE */}
+            <section className="py-20 px-6 bg-white">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-bold mb-4 text-slate-900">The Clara AI Growth Engine</h2>
+                        <p className="text-slate-600 max-w-2xl mx-auto">
+                            Clara Field Co-Pilot is part of a broader system built for trades. AI does not just assist the workflow — it runs it end-to-end.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {/* Card 1 */}
+                        <div className="p-10 rounded-3xl border border-slate-100 bg-slate-50 text-center hover:shadow-lg transition-all">
+                            <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <Glasses className="w-8 h-8 text-red-500" />
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">Field Co-Pilot</h3>
+                            <p className="text-slate-600">Executes the job correctly</p>
+                        </div>
+
+                        {/* Card 2 */}
+                        <div className="p-10 rounded-3xl border border-slate-100 bg-slate-50 text-center hover:shadow-lg transition-all">
+                            <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <Phone className="w-8 h-8 text-red-500" />
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">Clara Answers</h3>
+                            <p className="text-slate-600">Captures demand</p>
+                        </div>
+
+                        {/* Card 3 */}
+                        <div className="p-10 rounded-3xl border border-slate-100 bg-slate-50 text-center hover:shadow-lg transition-all">
+                            <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <DollarSign className="w-8 h-8 text-red-500" />
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">Clara Collects</h3>
+                            <p className="text-slate-600">Closes the loop financially</p>
+                        </div>
                     </div>
                 </div>
             </section>
