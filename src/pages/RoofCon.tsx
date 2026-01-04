@@ -411,10 +411,10 @@ const RoofCon = () => {
             </section>
 
             {/* SEE CLARA AI LIVE */}
-            <section className="py-16 md:py-24 px-6 bg-white">
+            <section className="py-16 md:py-24 px-6 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
                     <div>
-                        <h2 className="text-4xl font-bold mb-6 text-slate-900">See Clara AI Live at RoofCon 2026</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">See Clara AI Live at RoofCon 2026</h2>
                         <p className="text-lg text-slate-600 mb-4">
                             Book a demo to watch Clara work across your entire roofing operation.
                         </p>
@@ -423,16 +423,16 @@ const RoofCon = () => {
                         </p>
                         <Button
                             onClick={openHubSpotForm}
-                            className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+                            className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto h-auto whitespace-normal text-center"
                         >
                             Book a Demo to Watch Clara in Action
                         </Button>
                     </div>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center relative">
                         <img
                             src="/lovable-uploads/Clara-AI-Smart-Glasses.png"
                             alt="Clara AI Smart Glasses"
-                            className="w-full max-w-lg h-auto drop-shadow-2xl"
+                            className="w-full max-w-lg h-auto drop-shadow-2xl relative z-10"
                         />
                     </div>
                 </div>
