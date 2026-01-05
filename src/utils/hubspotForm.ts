@@ -1,5 +1,5 @@
 
-export const openHubSpotForm = () => {
+export const openHubSpotForm = (onSuccess?: (() => void) | unknown) => {
   // Remove any existing modals first
   const existingModal = document.getElementById('hubspot-modal-overlay');
   if (existingModal) {
@@ -109,7 +109,7 @@ export const openHubSpotForm = () => {
   const initializeHubSpotForm = () => {
     if (window.hbspt && window.hbspt.forms) {
       console.log('Creating HubSpot form in modal...');
-      
+
       try {
         window.hbspt.forms.create({
           region: 'na1',
@@ -121,10 +121,21 @@ export const openHubSpotForm = () => {
           },
           onFormSubmitted: () => {
             console.log('HubSpot form submitted');
-            // Auto-close modal after successful submission
-            setTimeout(() => {
+
+            if (typeof onSuccess === 'function') {
+              onSuccess();
+              // Close modal slightly faster if there's a custom action, 
+              // but give it a moment to register the submission if needed.
+              // Or maybe close immediately? The user said "instead of showing the thanq screen".
+              // If we close immediately, the user sees the underlying page.
+              // If we redirect immediately, the user goes to the phone app.
               closeModal();
-            }, 2000);
+            } else {
+              // Auto-close modal after successful submission
+              setTimeout(() => {
+                closeModal();
+              }, 2000);
+            }
           }
         });
       } catch (error) {
@@ -252,7 +263,7 @@ export const openAgentForm = () => {
   const initializeHubSpotForm = () => {
     if (window.hbspt && window.hbspt.forms) {
       console.log('Creating Agent HubSpot form in modal...');
-      
+
       try {
         window.hbspt.forms.create({
           region: 'na1',

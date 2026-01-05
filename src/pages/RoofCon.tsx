@@ -7,6 +7,12 @@ import { Link } from "react-router-dom";
 import { openHubSpotForm } from "@/utils/hubspotForm";
 
 const RoofCon = () => {
+    const handleBookDemo = () => {
+        openHubSpotForm(() => {
+            window.location.href = 'tel:+14059136009';
+        });
+    };
+
     return (
         <div className="min-h-screen bg-white">
             <Helmet>
@@ -34,17 +40,17 @@ const RoofCon = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button
-                                onClick={openHubSpotForm}
+                                onClick={handleBookDemo}
                                 className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
                             >
                                 Book a Demo to Watch Clara in Action
                             </Button>
                             <Button
                                 variant="outline"
-                                asChild
+                                onClick={handleBookDemo}
                                 className="border-2 border-red-200 text-red-600 hover:bg-red-50 hover:text-black px-6 py-3 rounded-full font-semibold transition-all"
                             >
-                                <a href="tel:+14059136009">See How Clara Works on the Job</a>
+                                See How Clara Works on the Job
                             </Button>
                         </div>
                     </div>
@@ -89,8 +95,8 @@ const RoofCon = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-full">
-                                <a href="tel:+14053746516">Watch Demo</a>
+                            <Button onClick={handleBookDemo} className="w-full bg-primary hover:bg-primary/90 text-white rounded-full">
+                                Watch Demo
                             </Button>
                         </div>
 
@@ -116,7 +122,7 @@ const RoofCon = () => {
                             </ul>
                             <Button
                                 variant="outline"
-                                onClick={openHubSpotForm}
+                                onClick={handleBookDemo}
                                 className="w-full border-red-200 text-red-600 hover:bg-red-50 hover:text-black rounded-full"
                             >
                                 See Clara Collects in Action
@@ -143,8 +149,8 @@ const RoofCon = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-full">
-                                <a href="tel:+14059136009">Book a Demo</a>
+                            <Button onClick={handleBookDemo} className="w-full bg-primary hover:bg-primary/90 text-white rounded-full">
+                                Book a Demo
                             </Button>
                         </div>
                     </div>
@@ -385,7 +391,7 @@ const RoofCon = () => {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Button
-                                    onClick={openHubSpotForm}
+                                    onClick={handleBookDemo}
                                     className="bg-primary hover:bg-primary/90 text-white px-8 rounded-full"
                                 >
                                     Book a Demo
@@ -422,7 +428,7 @@ const RoofCon = () => {
                             Built for crews on the roof. Trusted by teams in the office.
                         </p>
                         <Button
-                            onClick={openHubSpotForm}
+                            onClick={handleBookDemo}
                             className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto h-auto whitespace-normal text-center"
                         >
                             Book a Demo to Watch Clara in Action
