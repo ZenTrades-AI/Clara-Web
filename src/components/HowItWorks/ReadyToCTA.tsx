@@ -29,7 +29,7 @@ const ReadyToCTA = () => {
                     <Button
                         size="lg"
                         variant="outline"
-                        className="text-lg px-10 py-7 bg-white text-foreground border-2 border-white hover:bg-white/90 hover:text-black transition-all font-semibold"
+                        className="text-lg px-10 py-7 bg-white text-black border-2 border-white hover:bg-white/90 hover:text-black transition-all font-semibold"
                         onClick={openClaraLiveForm}
                     >
                         Try Clara Live

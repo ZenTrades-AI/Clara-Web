@@ -41,7 +41,7 @@ const HowItWorksHero = () => {
                     <Button
                         onClick={handleTryClara}
                         variant="outline"
-                        className="px-8 py-6 rounded-full text-lg font-semibold border-2 border-gray-700 text-white hover:bg-white hover:text-black transition-all"
+                        className="px-8 py-6 rounded-full text-lg font-semibold border-2 border-gray-700 text-black hover:bg-white hover:text-black transition-all"
                     >
                         <Play className="mr-2 w-5 h-5 fill-current" /> Try Clara Live
                     </Button>
