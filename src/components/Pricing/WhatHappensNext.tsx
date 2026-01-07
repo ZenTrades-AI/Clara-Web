@@ -4,18 +4,20 @@ const steps = [
     {
         icon: Calendar,
         title: "Custom Demo",
-        description: "We'll show you Clara in action with scenarios specific to your business type",
+        description: "We'll show you Clara in action with scenarios specific to your business type.",
+        number: "1"
     },
     {
         icon: BarChart3,
-        title: "ROI Analysis",
-        description: "Get a detailed breakdown of potential savings and revenue growth",
-        highlights: ["Cost-benefit analysis", "Revenue projections", "Payback timeline"],
+        title: "ROI Pack",
+        description: "Get a detailed breakdown of potential savings and revenue growth tailored to your numbers.",
+        number: "2"
     },
     {
         icon: FileText,
         title: "Implementation Plan",
-        description: "Receive a step-by-step plan to get Clara working for your business",
+        description: "Receive a step-by-step plan to get Clara working for your business in days, not months.",
+        number: "3"
     },
 ];
 
@@ -25,8 +27,11 @@ const WhatHappensNext = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                        What Happens Next?
+                        What Happens After You Submit?
                     </h2>
+                    <p className="text-lg text-muted-foreground">
+                        A simple, transparent process to get you started.
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -35,40 +40,28 @@ const WhatHappensNext = () => {
                         return (
                             <div
                                 key={index}
-                                className={`bg-card rounded-2xl p-8 border-2 shadow-card hover:shadow-premium transition-all duration-300 ${index === 1 ? 'border-primary' : 'border-border'
-                                    }`}
+                                className="bg-card rounded-2xl p-8 border border-border shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden"
                             >
-                                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                                    <Icon className="w-8 h-8 text-primary" strokeWidth={2} />
+                                <div className="absolute top-4 right-4 text-6xl font-bold text-slate-100 -z-0 select-none">
+                                    {step.number}
                                 </div>
 
-                                <h3 className="text-xl font-bold mb-3 text-center text-foreground">
-                                    {step.title}
-                                </h3>
+                                <div className="relative z-10">
+                                    <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-6 text-red-500">
+                                        <Icon className="w-6 h-6" strokeWidth={2} />
+                                    </div>
 
-                                <p className="text-sm text-muted-foreground text-center leading-relaxed mb-4">
-                                    {step.description}
-                                </p>
+                                    <h3 className="text-xl font-bold mb-3 text-foreground">
+                                        {step.title}
+                                    </h3>
 
-                                {step.highlights && (
-                                    <ul className="space-y-2">
-                                        {step.highlights.map((highlight, idx) => (
-                                            <li key={idx} className="text-xs text-primary flex items-center justify-center gap-2">
-                                                <span>•</span>
-                                                <span>{highlight}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        {step.description}
+                                    </p>
+                                </div>
                             </div>
                         );
                     })}
-                </div>
-
-                <div className="text-center mt-12">
-                    <p className="text-lg font-semibold text-foreground mb-2">
-                        Typical timeline: <span className="text-primary">24-48 hours</span>
-                    </p>
                 </div>
             </div>
         </section>
