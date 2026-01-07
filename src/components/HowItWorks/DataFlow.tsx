@@ -59,23 +59,22 @@ const DataFlow = () => {
                     <div className="space-y-12 md:space-y-24">
                         {steps.map((step, index) => (
                             <RevealOnScroll key={index} className="w-full">
-                                <div className={`flex flex-col md:flex-row items-center gap-8 md:gap-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-
+                                <div className="flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] items-center gap-8 md:gap-0">
                                     {/* Content Side */}
-                                    <div className={`flex-1 text-center ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'}`}>
+                                    <div className={`text-center ${index % 2 === 0 ? 'md:text-right md:pr-12 md:order-1' : 'md:text-left md:pl-12 md:order-3'}`}>
                                         <h3 className="text-2xl font-bold mb-2 text-gray-900">{step.title}</h3>
                                         <p className="text-gray-600">{step.description}</p>
                                     </div>
 
                                     {/* Icon Center */}
-                                    <div className="relative z-10 flex-shrink-0">
+                                    <div className="relative z-10 md:order-2">
                                         <div className={`w-16 h-16 rounded-full ${step.color} text-white flex items-center justify-center shadow-lg ring-4 ring-white`}>
                                             <step.icon className="w-8 h-8" />
                                         </div>
                                     </div>
 
                                     {/* Empty Side for Balance */}
-                                    <div className="flex-1 hidden md:block" />
+                                    <div className={`hidden md:block ${index % 2 === 0 ? 'md:order-3' : 'md:order-1'}`} />
                                 </div>
                             </RevealOnScroll>
                         ))}
