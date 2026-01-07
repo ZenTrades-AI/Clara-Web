@@ -25,6 +25,7 @@ const Navigation = () => {
     { name: 'Solutions', path: '/solutions' },
     { name: 'Pricing', path: '/pricing' },
     { name: 'Resources', path: '/resources' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   const handleCall = () => {
@@ -33,16 +34,15 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-clara-navy/95 backdrop-blur-sm shadow-lg' : 'bg-clara-navy'
-      }`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-clara-navy/95 backdrop-blur-sm shadow-lg' : 'bg-clara-navy'
+        }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <img 
-                src="/lovable-uploads/white.png" 
-                alt="Clara AI" 
+              <img
+                src="/lovable-uploads/white.png"
+                alt="Clara AI"
                 className="h-40 w-auto"
               />
             </Link>
@@ -53,11 +53,10 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-sm font-medium transition-colors duration-200 ${
-                    location.pathname === item.path
-                      ? 'text-clara-red'
-                      : 'text-white hover:text-clara-red'
-                  }`}
+                  className={`text-sm font-medium transition-colors duration-200 ${location.pathname === item.path
+                    ? 'text-clara-red'
+                    : 'text-white hover:text-clara-red'
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -67,15 +66,15 @@ const Navigation = () => {
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center space-x-3">
               {/* === CHANGED BLOCK START === */}
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="border-clara-red text-clara-red hover:bg-clara-red/10 px-4 py-2 text-sm"
                 onClick={handleCall}
               >
                 Call Clara
               </Button>
               {/* === CHANGED BLOCK END === */}
-              <Button 
+              <Button
                 className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-6"
                 onClick={openHubSpotForm}
               >
@@ -101,11 +100,10 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`block text-sm font-medium transition-colors duration-200 ${
-                    location.pathname === item.path
-                      ? 'text-clara-red'
-                      : 'text-white hover:text-clara-red'
-                  }`}
+                  className={`block text-sm font-medium transition-colors duration-200 ${location.pathname === item.path
+                    ? 'text-clara-red'
+                    : 'text-white hover:text-clara-red'
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -113,15 +111,15 @@ const Navigation = () => {
               ))}
               <div className="space-y-3 pt-4">
                 {/* === CHANGED BLOCK START === */}
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full border-clara-red text-clara-red hover:bg-clara-red/10"
                   onClick={handleCall}
                 >
                   Call Clara
                 </Button>
                 {/* === CHANGED BLOCK END === */}
-                <Button 
+                <Button
                   className="w-full bg-clara-red hover:bg-clara-red/90 text-white font-semibold"
                   onClick={() => {
                     openHubSpotForm();

@@ -3,8 +3,7 @@ import Footer from "@/components/Footer";
 import SolutionsHero from "@/components/Solutions/SolutionsHero";
 import AIAgents from "@/components/Solutions/AIAgents";
 import HowItWorks from "@/components/Solutions/HowItWorks";
-import IndustriesServed from "@/components/Solutions/IndustriesServed";
-import BusinessModels from "@/components/Solutions/BusinessModels";
+import PerfectFit from "@/components/Solutions/PerfectFit";
 import GrowthImpact from "@/components/Solutions/GrowthImpact";
 import SolutionsCTA from "@/components/Solutions/SolutionsCTA";
 
@@ -15,8 +14,7 @@ const Solutions = () => {
       <SolutionsHero />
       <AIAgents />
       <HowItWorks />
-      <IndustriesServed />
-      <BusinessModels />
+      <PerfectFit />
       <GrowthImpact />
       <SolutionsCTA />
       <Footer />

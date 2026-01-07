@@ -22,9 +22,11 @@ const SolutionsCTA = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
                     <Button size="lg" className="text-lg px-10 py-7 bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-semibold" onClick={openHubSpotForm}>
-                        Book a Growth Strategy Demo
+                        Book a Demo
                     </Button>
-
+                    <Button size="lg" variant="outline" className="text-lg px-10 py-7 border-2 border-white/20 text-white hover:bg-white hover:text-black rounded-full font-semibold transition-all duration-300" onClick={openHubSpotForm}>
+                        See How Clara Works
+                    </Button>
                 </div>
             </div>
         </section>

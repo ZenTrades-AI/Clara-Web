@@ -25,20 +25,20 @@ const CallTranscriptCard: React.FC<CallTranscriptCardProps> = ({ transcript }) =
 
   // Inline styles
   const cardStyle = {
-    background: 'linear-gradient(145deg, hsl(240 10% 12%), hsl(240 10% 8%))',
-    border: '1px solid hsl(240 10% 18%)',
-    boxShadow: '0 8px 25px hsl(240 10% 3% / 0.6)',
-    transition: 'all 0.3s ease',
+    background: isPlaying ? 'linear-gradient(135deg, #FFFFFF 0%, #FFF5F5 100%)' : 'white',
+    border: isPlaying ? '1px solid #D32F2F' : '1px solid hsl(240 5% 90%)',
+    boxShadow: isPlaying ? '0 10px 25px -5px rgba(211, 47, 47, 0.1), 0 8px 10px -6px rgba(211, 47, 47, 0.05)' : '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+    transition: 'all 0.5s ease',
     padding: '1.5rem',
-    borderRadius: '0.75rem',
+    borderRadius: '1rem',
     display: 'flex',
     flexDirection: 'column' as const
   };
 
   const playButtonStyle = {
-    background: 'hsl(240 10% 25%)',
-    color: 'white',
-    border: 'none',
+    background: 'hsl(240 5% 96%)',
+    color: '#D32F2F',
+    border: '1px solid hsl(240 5% 90%)',
     transition: 'all 0.3s ease',
     width: '4rem',
     height: '4rem',
@@ -46,7 +46,8 @@ const CallTranscriptCard: React.FC<CallTranscriptCardProps> = ({ transcript }) =
     marginBottom: '1rem',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    boxShadow: isPlaying ? '0 0 0 4px rgba(211, 47, 47, 0.1)' : 'none'
   };
 
   const transcriptScrollStyle = {
@@ -59,35 +60,36 @@ const CallTranscriptCard: React.FC<CallTranscriptCardProps> = ({ transcript }) =
   };
 
   const speakerAIStyle = {
-    color: 'hsl(15 100% 60%)',
-    fontWeight: 600,
-    fontSize: '0.8rem',
+    color: '#D32F2F',
+    fontWeight: 700,
+    fontSize: '0.75rem',
     textTransform: 'uppercase' as const,
     letterSpacing: '0.5px',
     marginBottom: '0.25rem'
   };
 
   const speakerCustomerStyle = {
-    color: 'hsl(210 100% 70%)',
-    fontWeight: 600,
-    fontSize: '0.8rem',
+    color: 'hsl(240 5% 40%)',
+    fontWeight: 700,
+    fontSize: '0.75rem',
     textTransform: 'uppercase' as const,
     letterSpacing: '0.5px',
     marginBottom: '0.25rem'
   };
 
   const messageActiveStyle = {
-    background: 'hsl(240 10% 20%)',
-    border: '1px solid hsl(15 100% 60% / 0.3)',
+    background: 'linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%)',
+    border: 'none',
     borderRadius: '0.5rem',
     paddingLeft: '0.75rem',
     paddingRight: '0.75rem',
     paddingTop: '0.5rem',
     paddingBottom: '0.5rem',
-    fontWeight: 400,
+    fontWeight: 500,
     marginBottom: '0.75rem',
     transition: 'all 0.3s ease-in-out',
-    color: 'hsl(240 10% 90%)'
+    color: 'white',
+    boxShadow: '0 4px 6px -1px rgba(211, 47, 47, 0.2), 0 2px 4px -1px rgba(211, 47, 47, 0.1)'
   };
 
   const messageHoverStyle = {
@@ -98,21 +100,22 @@ const CallTranscriptCard: React.FC<CallTranscriptCardProps> = ({ transcript }) =
     paddingTop: '0.25rem',
     paddingBottom: '0.25rem',
     marginBottom: '0.75rem',
-    color: 'hsl(240 10% 80%)',
+    color: 'hsl(240 5% 40%)',
     fontSize: '0.875rem',
-    lineHeight: '1.4'
+    lineHeight: '1.5'
   };
 
   const viewTranscriptButtonStyle = {
-    background: 'hsl(240 10% 20%)',
-    border: '1px solid hsl(240 10% 30%)',
-    color: 'hsl(240 10% 90%)',
-    fontWeight: 500,
+    background: 'white',
+    border: '1px solid hsl(240 5% 90%)',
+    color: 'hsl(240 5% 40%)',
+    fontWeight: 600,
     width: '100%',
     transition: 'all 0.3s ease',
     padding: '0.75rem',
     borderRadius: '0.5rem',
-    marginTop: 'auto'
+    marginTop: 'auto',
+    fontSize: '0.875rem'
   };
 
   useEffect(() => {
@@ -213,7 +216,7 @@ const CallTranscriptCard: React.FC<CallTranscriptCardProps> = ({ transcript }) =
   return (
     <Card style={cardStyle}>
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
-        <span style={{ fontSize: '0.875rem', color: 'hsl(240 10% 70%)' }}>{transcript.duration}</span>
+        <span style={{ fontSize: '0.875rem', color: isPlaying ? 'rgba(255,255,255,0.7)' : 'hsl(240 10% 70%)' }}>{transcript.duration}</span>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1.5rem' }}>
@@ -223,12 +226,20 @@ const CallTranscriptCard: React.FC<CallTranscriptCardProps> = ({ transcript }) =
           onClick={handlePlayPause}
           style={playButtonStyle}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'hsl(240 10% 30%)';
-            e.currentTarget.style.transform = 'scale(1.05)';
+            if (!isPlaying) {
+              e.currentTarget.style.background = 'hsl(240 5% 92%)';
+              e.currentTarget.style.transform = 'scale(1.05)';
+            } else {
+              e.currentTarget.style.transform = 'scale(1.05)';
+            }
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'hsl(240 10% 25%)';
-            e.currentTarget.style.transform = 'scale(1)';
+            if (!isPlaying) {
+              e.currentTarget.style.background = 'hsl(240 5% 96%)';
+              e.currentTarget.style.transform = 'scale(1)';
+            } else {
+              e.currentTarget.style.transform = 'scale(1)';
+            }
           }}
         >
           {isPlaying ? (
@@ -264,7 +275,7 @@ const CallTranscriptCard: React.FC<CallTranscriptCardProps> = ({ transcript }) =
             </div>
           ))}
           {!showFullTranscript && transcript.transcript.length > 3 && (
-            <div style={{ textAlign: 'center', color: 'hsl(240 10% 60%)', padding: '0.5rem' }}>
+            <div style={{ textAlign: 'center', color: isPlaying ? 'rgba(255,255,255,0.6)' : 'hsl(240 10% 60%)', padding: '0.5rem' }}>
               <span style={{ fontSize: '0.75rem' }}>...</span>
             </div>
           )}
@@ -276,12 +287,22 @@ const CallTranscriptCard: React.FC<CallTranscriptCardProps> = ({ transcript }) =
         style={viewTranscriptButtonStyle}
         onClick={() => setShowFullTranscript(!showFullTranscript)}
         onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'hsl(240 10% 25%)';
-          e.currentTarget.style.borderColor = 'hsl(240 10% 40%)';
+          if (!isPlaying) {
+            e.currentTarget.style.background = 'hsl(240 5% 96%)';
+            e.currentTarget.style.borderColor = 'hsl(240 5% 80%)';
+            e.currentTarget.style.color = 'hsl(240 5% 20%)';
+          } else {
+            e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
+          }
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'hsl(240 10% 20%)';
-          e.currentTarget.style.borderColor = 'hsl(240 10% 30%)';
+          if (!isPlaying) {
+            e.currentTarget.style.background = 'white';
+            e.currentTarget.style.borderColor = 'hsl(240 5% 90%)';
+            e.currentTarget.style.color = 'hsl(240 5% 40%)';
+          } else {
+            e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+          }
         }}
       >
         {showFullTranscript ? "Hide" : "View"} Full Transcript

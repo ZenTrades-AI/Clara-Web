@@ -1,23 +1,30 @@
-import { PhoneMissed, Clock, TrendingUp } from "lucide-react";
+import { Clock, TrendingUp, DollarSign, Check } from "lucide-react";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 const metrics = [
     {
-        icon: PhoneMissed,
-        value: "<2%",
-        label: "Clara missed calls",
-        subtitle: "vs 35% industry avg"
+        icon: TrendingUp,
+        value: "+20–30%",
+        label: "More booked jobs",
+        subtitle: "From the same call volume"
     },
     {
         icon: Clock,
-        value: "4s",
-        label: "Answer time",
-        subtitle: "vs 23s industry avg"
+        value: "24/7",
+        label: "After-hours coverage",
+        subtitle: "Without extra hires"
     },
     {
-        icon: TrendingUp,
-        value: "30d",
-        label: "ROI payback",
-        subtitle: "Typical results"
+        icon: Check,
+        value: "Fewer",
+        label: "Repeat truck rolls",
+        subtitle: "Better data & documentation"
+    },
+    {
+        icon: DollarSign,
+        value: "40%",
+        label: "Faster payments",
+        subtitle: "On outstanding invoices"
     }
 ];
 
@@ -25,52 +32,45 @@ const GrowthImpact = () => {
     return (
         <section className="py-32 px-4 bg-[#FAFAFA]">
             <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-20">
-                    <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-                        The Growth Impact
+                <div className="text-center mb-16">
+                    <div className="inline-block px-3 py-1 bg-red-50 text-red-600 rounded-full text-xs font-bold mb-6 border border-red-100">
+                        REAL RESULTS
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
+                        What You See in the <span className="text-primary">First Month</span>
                     </h2>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                        Industry-leading results across all business models
+                    <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        Measurable impact on your bottom line, starting day one.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {metrics.map((metric, index) => {
                         const Icon = metric.icon;
                         return (
-                            <div
+                            <RevealOnScroll
                                 key={index}
-                                className="relative group animate-scale-in"
-                                style={{ animationDelay: `${index * 0.1}s` }}
+                                delay={index * 0.1}
+                                className="h-full"
                             >
-                                {/* Premium card */}
-                                <div className="relative bg-white rounded-xl p-10 border border-border shadow-premium hover:shadow-glow transition-all duration-300 overflow-hidden">
-                                    {/* Subtle glow effect */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 h-full">
+                                    <div className="relative text-left">
+                                        <Icon className="w-8 h-8 text-primary mb-6" strokeWidth={2} />
 
-                                    <div className="relative text-center">
-                                        {/* Icon */}
-                                        <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-8">
-                                            <Icon className="w-7 h-7 text-primary" strokeWidth={2} />
-                                        </div>
-
-                                        {/* Value */}
-                                        <div className="text-6xl font-bold mb-3 text-primary">
+                                        <div className="text-4xl font-bold mb-2 text-slate-900">
                                             {metric.value}
                                         </div>
 
-                                        {/* Label */}
-                                        <div className="text-xl font-semibold mb-2 text-foreground">
+                                        <div className="text-lg font-bold mb-1 text-slate-900">
                                             {metric.label}
                                         </div>
 
-                                        {/* Subtitle */}
-                                        <p className="text-sm text-muted-foreground">
+                                        <p className="text-sm text-slate-500">
                                             {metric.subtitle}
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </RevealOnScroll>
                         );
                     })}
                 </div>

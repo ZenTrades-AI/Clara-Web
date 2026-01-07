@@ -368,7 +368,7 @@ const CallTranscriptSection: React.FC<CallTranscriptSectionProps> = ({
   return (
     <section
       id="call-listening-section"
-      className={`py-20 md:py-28 px-6 bg-background ${className}`}
+      className={`py-20 md:py-28 px-6 bg-[#F8F9FA] ${className}`}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
