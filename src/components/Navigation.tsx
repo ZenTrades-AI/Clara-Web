@@ -12,9 +12,9 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // On home page or demo page, hide nav initially until scrolled past hero intro (approx 800px)
-      // On other pages, use standard 50px threshold
-      const threshold = (location.pathname === '/' || location.pathname === '/demo') ? window.innerHeight * 0.8 : 50;
+      // On demo page, hide nav initially until scrolled past hero intro (approx 800px)
+      // On other pages (including Home), use standard 50px threshold
+      const threshold = (location.pathname === '/demo') ? window.innerHeight * 0.8 : 50;
       setIsScrolled(window.scrollY > threshold);
     };
 
@@ -36,8 +36,8 @@ const Navigation = () => {
     window.location.href = 'tel:+15707554859';
   };
 
-  // Determine if nav should be hidden (only on home page when not scrolled)
-  const isHidden = (location.pathname === '/' || location.pathname === '/demo') && !isScrolled;
+  // Determine if nav should be hidden (only on demo page when not scrolled)
+  const isHidden = (location.pathname === '/demo') && !isScrolled;
 
   return (
     <>
