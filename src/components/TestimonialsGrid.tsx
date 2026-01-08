@@ -21,7 +21,7 @@ const TestimonialsGrid = () => {
                     {/* Large Hero Card - Top Left (spans 2 columns) */}
                     <Link
                         to="/case-studies"
-                        className="lg:col-span-2 group relative rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-[1.03] cursor-pointer h-[400px]"
+                        className="lg:col-span-2 group relative rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-[1.03] cursor-pointer min-h-[400px]"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-[#2a4a5e] via-[#1a3a4e] to-[#0a2a3e]" />
                         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30" />
@@ -53,7 +53,7 @@ const TestimonialsGrid = () => {
                     {/* Tall CTA Card - Top Right */}
                     <Link
                         to="/case-studies"
-                        className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-[1.03] cursor-pointer h-[400px]"
+                        className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-[1.03] cursor-pointer min-h-[400px]"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a8a] via-[#1e40af] to-[#1e3a8a]" />
                         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30" />
@@ -72,7 +72,7 @@ const TestimonialsGrid = () => {
                     {/* Bottom Two Medium Cards */}
                     <Link
                         to="/case-studies"
-                        className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-[1.03] cursor-pointer h-[300px]"
+                        className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-[1.03] cursor-pointer min-h-[300px]"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-[#134e4a] via-[#115e59] to-[#0f766e]" />
                         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30" />
@@ -106,7 +106,7 @@ const TestimonialsGrid = () => {
 
                     <Link
                         to="/case-studies"
-                        className="lg:col-span-2 group relative rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-[1.03] cursor-pointer h-[300px]"
+                        className="lg:col-span-2 group relative rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-300 hover:scale-[1.03] cursor-pointer min-h-[300px]"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-[#7e22ce] via-[#6b21a8] to-[#581c87]" />
                         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30" />

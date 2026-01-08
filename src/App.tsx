@@ -41,6 +41,7 @@ import FireProtectionCollectsGrowth from './pages/FireProtectionCollectsGrowth';
 import ElectricalCollectsStaffShortage from './pages/ElectricalCollectsStaffShortage';
 import RoofingCollectsGrowth from './pages/RoofingCollectsGrowth';
 import ContactUs from './pages/ContactUs';
+import DemoPage from './pages/DemoPage';
 import ScrollToTop from './components/ScrollToTop';
 
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ const App = () => (
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/demo" element={<DemoPage />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/answers" element={<ClaraAnswers />} />

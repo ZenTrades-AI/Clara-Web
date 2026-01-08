@@ -12,12 +12,16 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // On home page or demo page, hide nav initially until scrolled past hero intro (approx 800px)
+      // On other pages, use standard 50px threshold
+      const threshold = (location.pathname === '/' || location.pathname === '/demo') ? window.innerHeight * 0.8 : 50;
+      setIsScrolled(window.scrollY > threshold);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -32,9 +36,13 @@ const Navigation = () => {
     window.location.href = 'tel:+15707554859';
   };
 
+  // Determine if nav should be hidden (only on home page when not scrolled)
+  const isHidden = (location.pathname === '/' || location.pathname === '/demo') && !isScrolled;
+
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-clara-navy/95 backdrop-blur-sm shadow-lg' : 'bg-clara-navy'
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${isHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+        } ${isScrolled || location.pathname !== '/' ? 'bg-clara-navy/95 backdrop-blur-sm shadow-lg' : 'bg-clara-navy'
         }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -48,7 +56,7 @@ const Navigation = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -64,7 +72,7 @@ const Navigation = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="hidden md:flex items-center space-x-3">
+            <div className="hidden lg:flex items-center space-x-3">
               {/* === CHANGED BLOCK START === */}
               <Button
                 variant="outline"
@@ -84,7 +92,7 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-white"
+              className="lg:hidden text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -94,7 +102,7 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-clara-navy border-t border-clara-navy/20">
+          <div className="lg:hidden bg-clara-navy border-t border-clara-navy/20">
             <div className="px-4 py-4 space-y-4">
               {navItems.map((item) => (
                 <Link
