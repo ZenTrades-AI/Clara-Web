@@ -35,10 +35,6 @@ const ClaraInAction = () => {
                                 {/* Play Button */}
 
 
-                                {/* CTA Text */}
-                                <div className="text-white text-lg font-semibold drop-shadow">
-                                    Watch Clara Handle Live Calls
-                                </div>
 
                             </div>
                         </div>
