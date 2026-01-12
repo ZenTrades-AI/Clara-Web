@@ -41,19 +41,19 @@ export const HomeHeroOverlay = ({ scrollProgress }: HomeHeroOverlayProps) => {
                             <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600">
                                 <Phone className="w-5 h-5" />
                             </div>
-                            <span className="font-bold text-slate-800">24/7 Receptionist</span>
+                            <span className="font-bold text-slate-800">Real-Time Field Guidance</span>
                         </div>
-                        <p className="text-sm text-slate-600">Never miss a call. Clara answers instantly, day or night.</p>
+                        <p className="text-sm text-slate-600">AI assistance that works alongside technicians in the field, capturing context, actions, and outcomes in real time.</p>
                     </div>
 
                     <div className="absolute bottom-1/3 right-10 md:right-20 bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50 max-w-xs text-right">
                         <div className="flex items-center gap-3 mb-2 justify-end">
-                            <span className="font-bold text-slate-800">Smart Dispatch</span>
+                            <span className="font-bold text-slate-800">AI Field Co-Pilot</span>
                             <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
                                 <Glasses className="w-5 h-5" />
                             </div>
                         </div>
-                        <p className="text-sm text-slate-600">Assign the right tech to the right job automatically.</p>
+                        <p className="text-sm text-slate-600">Clara converts on-site work into clean documentation synced directly to your CRM.</p>
                     </div>
                 </div>
 

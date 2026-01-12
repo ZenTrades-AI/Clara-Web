@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import IntegrationsHero from "@/components/Integrations/IntegrationsHero";
 import IntegrationsGrid from "@/components/Integrations/IntegrationsGrid";
+import IntegrationsHowItWorks from "@/components/Integrations/IntegrationsHowItWorks";
 import IntegrationsFAQ from "@/components/Integrations/IntegrationsFAQ";
 import IntegrationsCTA from "@/components/Integrations/IntegrationsCTA";
 
@@ -11,6 +12,7 @@ const Integrations = () => {
             <Navigation />
             <IntegrationsHero />
             <IntegrationsGrid />
+            <IntegrationsHowItWorks />
             <IntegrationsFAQ />
             <IntegrationsCTA />
             <Footer />

@@ -15,12 +15,14 @@ import Resources from "./pages/Resources";
 import Integrations from "./pages/Integrations";
 import CaseStudies from "./pages/CaseStudies";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
+import JohnOwensCaseStudy from "./pages/JohnOwensCaseStudy";
 import IntegrationDetail from "./pages/IntegrationDetail";
 import NotFound from "./pages/NotFound";
 import Security from './pages/Security';
 import UserLicenseAgreement from './pages/UserLicenseAgreement';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import ClaraCollects from './pages/ClaraCollects';
+import FieldCopilot from './pages/FieldCopilot';
 import RoofCon from './pages/RoofCon';
 import RoofingOperations from './pages/RoofingOperations';
 import RoofingStaffShortage from './pages/RoofingStaffShortage';
@@ -42,6 +44,13 @@ import ElectricalCollectsStaffShortage from './pages/ElectricalCollectsStaffShor
 import RoofingCollectsGrowth from './pages/RoofingCollectsGrowth';
 import ContactUs from './pages/ContactUs';
 import DemoPage from './pages/DemoPage';
+import FireProtectionIndustry from './pages/FireProtectionIndustry';
+import HVACIndustry from './pages/HVACIndustry';
+import RoofingIndustry from './pages/RoofingIndustry';
+import PlumbingIndustry from './pages/PlumbingIndustry';
+import ElectricalIndustry from './pages/ElectricalIndustry';
+import BlogIndex from './pages/BlogIndex';
+import BlogPost from './pages/BlogPost';
 import ScrollToTop from './components/ScrollToTop';
 
 const queryClient = new QueryClient();
@@ -61,6 +70,7 @@ const App = () => (
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/answers" element={<ClaraAnswers />} />
             <Route path="/solutions/collects" element={<ClaraCollects />} />
+            <Route path="/solutions/field-copilot" element={<FieldCopilot />} />
             <Route path="/solutions/dispatch" element={<ClaraDispatch />} />
             <Route path="/solutions/reminds" element={<ClaraReminds />} />
             <Route path="/solutions/roofing-operations" element={<RoofingOperations />} />
@@ -85,13 +95,21 @@ const App = () => (
             <Route path="/resources" element={<Resources />} />
             <Route path="/integrations" element={<Integrations />} />
             <Route path="/integrations/:integrationId" element={<IntegrationDetail />} />
+            <Route path="/industries/fire-protection" element={<FireProtectionIndustry />} />
+            <Route path="/industries/hvac" element={<HVACIndustry />} />
+            <Route path="/industries/roofing" element={<RoofingIndustry />} />
+            <Route path="/industries/plumbing" element={<PlumbingIndustry />} />
+            <Route path="/industries/electrical" element={<ElectricalIndustry />} />
             <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/resources/case-studies/john-owens" element={<JohnOwensCaseStudy />} />
             <Route path="/resources/case-studies/:slug" element={<CaseStudyDetail />} />
             <Route path="/security" element={<Security />} />
             <Route path="/user-licence-agreement" element={<UserLicenseAgreement />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/events/roofcon2026" element={<RoofCon />} />
+            <Route path="/resources/blogs" element={<BlogIndex />} />
+            <Route path="/resources/blogs/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

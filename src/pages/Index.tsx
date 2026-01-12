@@ -14,18 +14,24 @@ import { openHubSpotForm } from "@/utils/hubspotForm";
 import ExploreSolutions from "@/components/ExploreSolutions";
 import WhyTeamsChooseClara from "@/components/WhyTeamsChooseClara";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { Canvas } from "@react-three/fiber";
+import { Home3DScene } from "@/components/Home3DScene";
+import { HomeHeroOverlay } from "@/components/HomeHeroOverlay";
+import { useRef, useState, useEffect } from "react";
+import { useScroll, useTransform } from "framer-motion";
 
 
 /* LOGO ROW */
 const logos = [
-  "ServiceTitan",
-  "Housecall Pro",
-  "Jobber",
-  "FieldEdge",
-  "QuickBooks",
-  "BuildOps",
-  "ServiceTrade",
-  "ServiceM8",
+  { name: "ServiceTitan", src: "/teams/1.png" },
+  { name: "Housecall Pro", src: "/teams/2 (5).png" },
+  { name: "Jobber", src: "/teams/3.png" },
+  { name: "FieldEdge", src: "/teams/4 (4).png" },
+  { name: "QuickBooks", src: "/teams/5 (1).png" },
+  { name: "BuildOps", src: "/teams/6 (1).png" },
+  { name: "ServiceTrade", src: "/teams/7 (1).png" },
+  { name: "ServiceM8", src: "/teams/8 (1).png" },
+  { name: "Partner", src: "/teams/9.png" },
 ];
 
 /* CAPTURE – CONVERT – COLLECT CARDS */
@@ -73,6 +79,20 @@ const stages = [
 ];
 
 const Index = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    return scrollYProgress.onChange((latest) => {
+      setScrollProgress(latest);
+    });
+  }, [scrollYProgress]);
+
   return (
     <div className="min-h-screen">
       <Helmet>
@@ -91,67 +111,31 @@ const Index = () => {
       {/* ------------------------------------------------------- */}
       {/* HERO SECTION */}
       {/* ------------------------------------------------------- */}
-      <RevealOnScroll>
-        <section className="relative pt-20 pb-0 md:pt-32 md:pb-0 px-6 bg-transparent overflow-hidden">
-          <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
-
-            {/* BADGE */}
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white rounded-full border border-border shadow-sm mb-8 hover:shadow-md transition-all cursor-default">
-              <div className="flex gap-1.5 text-[#D32F2F]">
-                <Glasses className="w-4 h-4" />
-                <Phone className="w-4 h-4" />
-                <DollarSign className="w-4 h-4" />
-              </div>
-              <span className="text-sm font-semibold text-foreground tracking-wide">Three Agents. One Operating Layer.</span>
-            </div>
-
-            {/* HEADLINE */}
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight text-foreground max-w-4xl">
-              The AI Growth Engine for <br className="hidden md:block" />
-              <span className="text-[#D32F2F]">Service Contractors</span>
-            </h1>
-
-            {/* SUBHEADLINE */}
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-              Clara answers calls, guides field teams, and collects payments — <br className="hidden md:block" />
-              so your business grows without adding headcount.
-            </p>
-
-            {/* BUTTONS */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 w-full sm:w-auto">
-              <Button
-                className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all w-full sm:w-auto"
-                asChild
-              >
-                <Link to="/pricing">Book a Growth Strategy Demo <ArrowRight className="ml-2 w-5 h-5" /></Link>
-              </Button>
-
-              <Button
-                variant="outline"
-                className="px-8 py-6 bg-white text-foreground border border-border hover:bg-gray-50 hover:text-[#D32F2F] rounded-full text-lg font-semibold hover:scale-105 transition-all group w-full sm:w-auto"
-                onClick={openClaraLiveForm}
-              >
-                <Play className="mr-2 w-5 h-5 text-[#D32F2F] fill-[#D32F2F]" /> Try Clara Live
-              </Button>
-            </div>
-
-            {/* 3D MODEL SCENE REMOVED - NOW IN BACKGROUND */}
-
+      {/* ------------------------------------------------------- */}
+      {/* 3D SCROLL HERO SECTION */}
+      {/* ------------------------------------------------------- */}
+      <div ref={containerRef} className="relative h-[250vh]">
+        <div className="sticky top-0 h-screen overflow-hidden bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef]">
+          {/* 3D Scene Background */}
+          <div className="absolute inset-0 z-0">
+            <Canvas shadows camera={{ position: [0, 0, 5], fov: 45 }}>
+              <Home3DScene scrollProgress={scrollProgress} />
+            </Canvas>
           </div>
-        </section>
 
+          {/* Overlay Content */}
+          <HomeHeroOverlay scrollProgress={scrollProgress} />
+        </div>
+      </div>
 
-        {/* TRUSTED BY TEXT */}
-        <p className="text-sm text-muted-foreground font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
-          Trusted by the nation's top home-service companies across <span className="font-bold text-foreground">HVAC</span>, <span className="font-bold text-foreground">Fire Protection</span>, <span className="font-bold text-foreground">Roofing</span>, <br className="hidden md:block" />
-          <span className="font-bold text-foreground">Electrical</span>, and <span className="font-bold text-foreground">Plumbing</span>.
-        </p>
-
-        {/* BOTTOM CARDS */}
-
-
-
-
+      <RevealOnScroll>
+        {/* TRUSTED BY TEXT - Moved below the 3D section */}
+        <div className="py-12 text-center bg-white">
+          <p className="text-sm text-muted-foreground font-medium mb-0 max-w-2xl mx-auto leading-relaxed">
+            Trusted by the nation's top home-service companies across <span className="font-bold text-foreground">HVAC</span>, <span className="font-bold text-foreground">Fire Protection</span>, <span className="font-bold text-foreground">Roofing</span>, <br className="hidden md:block" />
+            <span className="font-bold text-foreground">Electrical</span>, and <span className="font-bold text-foreground">Plumbing</span>.
+          </p>
+        </div>
       </RevealOnScroll>
 
 
@@ -168,10 +152,10 @@ const Index = () => {
               {[...logos, ...logos].map((logo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 mx-8 text-xl font-semibold text-muted-foreground/50 hover:text-primary transition-colors duration-300 whitespace-nowrap"
+                  className="flex-shrink-0 mx-8 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
                   style={{ minWidth: "140px" }}
                 >
-                  {logo}
+                  <img src={logo.src} alt={logo.name} className="h-[5.5rem] object-contain" />
                 </div>
               ))}
             </div>

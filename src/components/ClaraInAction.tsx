@@ -1,4 +1,30 @@
 import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel";
+
+const videos = [
+    {
+        title: "John Owens Services",
+        id: "PVdznLToSXA"
+    },
+    {
+        title: "Apex Residential Solutions",
+        id: "JFNQgfWnOE0"
+    },
+    {
+        title: "Rapid Fire Protection",
+        id: "N1DB0MDbDsk"
+    },
+    {
+        title: "Noor Electrical Services",
+        id: "RcterWCx1_U"
+    }
+];
 
 const ClaraInAction = () => {
     return (
@@ -15,31 +41,29 @@ const ClaraInAction = () => {
                     </p>
                 </div>
 
-                {/* Video Section */}
+                {/* Video Carousel Section */}
                 <div className="max-w-4xl mx-auto">
-                    <div className="relative aspect-video rounded-2xl overflow-hidden shadow-premium">
-
-                        {/* YouTube Player */}
-                        <iframe
-                            className="absolute inset-0 w-full h-full"
-                            src="https://www.youtube.com/embed/PVdznLToSXA?si=EtS-uuNfkE1xtuLp"
-                            title="Clara Live Calls"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        />
-
-                        {/* Play Overlay Button */}
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div className="text-center pointer-events-auto">
-
-                                {/* Play Button */}
-
-
-
-                            </div>
-                        </div>
-
-                    </div>
+                    <Carousel className="w-full">
+                        <CarouselContent>
+                            {videos.map((video, index) => (
+                                <CarouselItem key={index}>
+                                    <div className="p-1">
+                                        <div className="relative aspect-video rounded-2xl overflow-hidden shadow-premium bg-black">
+                                            <iframe
+                                                className="absolute inset-0 w-full h-full"
+                                                src={`https://www.youtube.com/embed/${video.id}`}
+                                                title={video.title}
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            />
+                                        </div>
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
                 </div>
 
             </div>

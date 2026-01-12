@@ -1,30 +1,24 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Hero from "@/components/ClaraCollects/Hero";
-import PerformanceStats from "@/components/ClaraCollects/PerformanceStats";
-import CollectsFlow from "@/components/ClaraCollects/CollectsFlow";
+import ProblemSection from "@/components/ClaraCollects/ProblemSection";
+import HowItWorks from "@/components/ClaraCollects/HowItWorks";
+import Capabilities from "@/components/ClaraCollects/Capabilities";
 import Benefits from "@/components/ClaraCollects/Benefits";
-import IndustryExamples from "@/components/ClaraCollects/IndustryExamples";
-import Integrations from "@/components/ClaraCollects/Integrations";
-import Testimonial from "@/components/ClaraCollects/Testimonial";
-import SetupSteps from "@/components/ClaraCollects/SetupSteps";
-import FAQ from "@/components/ClaraCollects/FAQ";
-import FinalCTA from "@/components/ClaraCollects/FinalCTA";
+import ConnectsToClara from "@/components/ClaraCollects/ConnectsToClara";
+import ActionCTA from "@/components/ClaraCollects/ActionCTA";
 
 const ClaraCollects = () => {
     return (
         <div className="min-h-screen">
             <Navigation />
             <Hero />
-            <PerformanceStats />
-            <CollectsFlow />
+            <ProblemSection />
+            <HowItWorks />
+            <Capabilities />
             <Benefits />
-            <IndustryExamples />
-            <Integrations />
-            <Testimonial />
-            <SetupSteps />
-            <FAQ />
-            <FinalCTA />
+            <ConnectsToClara />
+            <ActionCTA />
             <Footer />
         </div>
     );

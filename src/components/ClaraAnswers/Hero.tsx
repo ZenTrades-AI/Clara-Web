@@ -1,84 +1,51 @@
 import { Button } from "@/components/ui/button";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
-import { openHubSpotForm } from "@/utils/hubspotForm";
-import { PhoneCall, Play } from "lucide-react";
+import { ArrowRight, Sparkles, Headphones } from "lucide-react";
+import { Canvas } from "@react-three/fiber";
+import { Answers3DScene } from "./Answers3DScene";
+import { Suspense } from "react";
 
 const Hero = () => {
   return (
-    <section className="relative py-24 md:py-32 px-6 overflow-hidden bg-white">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(203,46,65,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(203,46,65,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+    <section className="relative pt-32 pb-20 overflow-hidden bg-white">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-        {/* Main heading */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight animate-fade-in leading-tight">
-          Clara Answers: Never Lose a Job to <span className="text-primary">Voicemail Again</span>
-        </h1>
+      <div className="container relative mx-auto px-4 z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column: Content */}
+          <div className="text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 text-clara-red text-sm font-medium mb-8">
+              <Sparkles className="w-4 h-4" />
+              AI Growth Engine
+            </div>
 
-        {/* Enhanced subheadline */}
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: "0.1s" }}>
-          Clara captures every call in under 2 rings, qualifies the job, and books it instantly — 24/7. No wait times. No missed revenue. Just 100% call capture.
-        </p>
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
+              Clara <span className="text-clara-red">Answers</span>
+            </h1>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in pt-4" style={{ animationDelay: "0.2s" }}>
-          <Button size="lg" className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg font-semibold" onClick={openHubSpotForm}>
-            <PhoneCall className="mr-2 h-5 w-5" />
-            Book a Growth Strategy Demo
-          </Button>
-          <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-primary text-primary hover:bg-primary/5 rounded-full font-semibold" onClick={openClaraLiveForm}>
-            <Play className="mr-2 h-5 w-5" />
-            See Clara Handle Live Calls
-          </Button>
-        </div>
+            <p className="text-xl text-gray-600 max-w-2xl mb-10 leading-relaxed">
+              AI that answers every call, understands intent, and turns conversations into booked work for field service businesses.
+            </p>
 
-        {/* Micro-proof */}
-        <p className="text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: "0.3s" }}>
-          Teams see 25–40% more booked jobs in the first 30 days
-        </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
+              <Button size="lg" className="bg-clara-red hover:bg-red-700 text-white px-8 h-12 rounded-full font-medium group">
+                Book a Demo
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button variant="outline" size="lg" className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium">
+                <Headphones className="mr-2 w-4 h-4" />
+                Hear Clara Answer Live
+              </Button>
+            </div>
+          </div>
 
-        {/* Premium UI Mockup */}
-        <div className="mt-20 animate-scale-in" style={{ animationDelay: "0.4s" }}>
-          <div className="relative max-w-3xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/15 to-primary-light/15 blur-3xl" />
-            <div className="relative bg-white border border-border rounded-xl shadow-premium overflow-hidden">
-              {/* Mockup header */}
-              <div className="bg-muted/30 border-b border-border px-6 py-4 flex items-center gap-3">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-primary/50" />
-                  <div className="w-3 h-3 rounded-full bg-primary/70" />
-                  <div className="w-3 h-3 rounded-full bg-primary" />
-                </div>
-                <div className="flex-1 text-center">
-                  <span className="text-sm font-semibold text-foreground">Incoming Call</span>
-                </div>
-              </div>
-
-              {/* Mockup content */}
-              <div className="p-10 space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <PhoneCall className="w-5 h-5 text-primary" strokeWidth={2} />
-                  </div>
-                  <div className="flex-1 space-y-4">
-                    <p className="text-left text-base text-foreground leading-relaxed">
-                      "Hi, this is Clara from Smith HVAC. How can I help you today?"
-                    </p>
-                    <p className="text-left text-base text-muted-foreground leading-relaxed">
-                      "Yeah, my AC stopped working and it's 95 degrees in here..."
-                    </p>
-                    <p className="text-left text-base text-foreground leading-relaxed">
-                      "I understand that's urgent. Let me get you scheduled right away. What's your address?"
-                    </p>
-                  </div>
-                </div>
-
-                {/* Status indicator */}
-                <div className="flex items-center justify-center gap-3 py-4 px-6 bg-primary/5 rounded-xl border border-primary/20">
-                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-sm font-semibold text-primary">Job scheduled in ServiceTitan</span>
-                </div>
-              </div>
+          {/* Right Column: 3D Model */}
+          <div className="h-[500px] w-full relative">
+            <div className="absolute inset-0">
+              <Canvas shadows camera={{ position: [0, 0, 5], fov: 45 }}>
+                <Suspense fallback={null}>
+                  <Answers3DScene />
+                </Suspense>
+              </Canvas>
             </div>
           </div>
         </div>

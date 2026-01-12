@@ -10,52 +10,73 @@ import { openClaraLiveForm } from "@/utils/claraLiveForm";
 const caseStudies = [
   {
     id: "john-owens",
-    badge: "+29% Bookings",
-    badgeColor: "bg-primary",
+    badge: "+29% BOOKINGS",
     title: "John Owens Services",
-    subtitle: "John Owens Services was missing after-hours calls and losing ready-to-book customers. Clara AI now answers every inquiry, gathers details in real time, and sent post-call summaries + transcripts—turning voicemails into visits and restoring confidence across the team.",
-    metric1: "$31,000",
-    metric1Label: "revenue in 30 days",
-    metric2: "30 days",
-    metric2Label: "",
-    industry: ["HVAC", "PLUMBING"],
-    gradient: "from-red-500/20 to-orange-500/20"
-  },
-  {
-    id: "rapid-fire",
-    badge: "Always-On Answering",
-    badgeColor: "bg-primary",
-    title: "Rapid Fire Protection",
-    subtitle: "Growth had the owner juggling the office line and risk creating bottlenecks and missed opportunities. Clara AI now answers every inquiry, structured intake for fire inspections and maintenance, and rolls out SMS pulse alerts so the team stays in sync—and on time.",
-    metric1: "100%",
-    metric1Label: "call answer rate",
-    metric2: "30 days",
-    metric2Label: "",
-    industry: ["FIRE PROTECTION"],
-    gradient: "from-orange-500/20 to-yellow-500/20"
+    location: "California",
+    metric: "$31,000",
+    metricDescription: "additional revenue in 30 days",
+    industry: ["HVAC & PLUMBING"],
+    link: "/resources/case-studies/john-owens"
   },
   {
     id: "apex-residential-solutions",
-    badge: "+225 Leads",
-    badgeColor: "bg-primary",
+    badge: "+225 LEADS CAPTURED",
     title: "Apex Residential Solutions",
-    subtitle: "With seasonal spikes, Apex needed help filtering spam and converting real demand. In 30 days, Clara AI handled high call volume, filtered robocalls, categorized intent, and surfaced qualified opportunities—so the team could focus on customers, not call triage.",
-    metric1: "835 calls",
-    metric1Label: "handled (+27% lead rate)",
-    metric2: "30 days",
-    metric2Label: "",
+    location: "Texas",
+    metric: "835",
+    metricDescription: "calls handled with 27% lead rate",
     industry: ["HVAC"],
-    gradient: "from-blue-500/20 to-cyan-500/20"
+    link: "/resources/case-studies/apex-residential-solutions"
+  },
+  {
+    id: "rapid-fire",
+    badge: "100% COMPLIANCE",
+    title: "Rapid Fire Protection",
+    location: "California",
+    metric: "100%",
+    metricDescription: "call answer rate achieved",
+    industry: ["FIRE PROTECTION"],
+    link: "/resources/case-studies/rapid-fire"
+  },
+  {
+    id: "noor-electrical",
+    badge: "24/7 COVERAGE",
+    title: "Noor Electrical Services",
+    location: "Arizona",
+    metric: "92%",
+    metricDescription: "of after-hours calls converted",
+    industry: ["ELECTRICAL"],
+    link: "#"
+  },
+  {
+    id: "hvac-proz",
+    badge: "20 HOURS SAVED WEEKLY",
+    title: "HVAC Proz",
+    location: "Florida",
+    metric: "85%",
+    metricDescription: "of calls handled by AI",
+    industry: ["HVAC"],
+    link: "#"
+  },
+  {
+    id: "valley-fire-safety",
+    badge: "ZERO MISSED DEADLINES",
+    title: "Valley Fire Safety",
+    location: "Nevada",
+    metric: "40%",
+    metricDescription: "faster payment collection",
+    industry: ["FIRE PROTECTION"],
+    link: "#"
   }
 ];
 
-const filters = ["All", "Plumbing", "HVAC", "Electrical", "Fire"];
+const filters = ["All", "HVAC", "Plumbing", "Electrical", "Fire Protection"];
 
 const CaseStudies = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Helmet>
         <title>Real Results from Real Customers | Clara AI Case Studies</title>
         <meta name="description" content="See how trade businesses are transforming their operations with Clara AI's multi-agent workforce, turning every call into booked jobs and cash collected." />
@@ -64,39 +85,36 @@ const CaseStudies = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative py-24 md:py-32 px-6 overflow-hidden bg-white">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(203,46,65,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(203,46,65,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <section className="relative pt-32 pb-12 px-6 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
           <div className="inline-block mb-6">
-            <span className="text-primary text-sm font-bold uppercase tracking-wider bg-primary/10 px-4 py-2 rounded-full">
+            <span className="text-clara-red text-xs font-bold uppercase tracking-wider bg-red-50 px-4 py-2 rounded-full">
               ★ Customer Success Stories
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Real Results from <span className="text-primary">Real Customers</span>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-slate-900">
+            Real Results from <span className="text-clara-red">Real Customers</span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            See how trade businesses are transforming their operations with Clara AI's multi-agent workforce, turning every call into booked jobs and cash collected.
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            See how field service businesses are transforming their operations with Clara AI, turning every call into booked jobs and faster payments.
           </p>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="py-12 px-6 bg-[#FAFAFA] border-b border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-4 flex-wrap">
-            <span className="text-sm font-semibold text-muted-foreground">Filter by industry:</span>
+      <section className="py-8 px-6">
+        <div className="max-w-7xl mx-auto flex justify-center">
+          <div className="flex items-center gap-2 flex-wrap justify-center">
+            <span className="text-sm font-semibold text-slate-500 mr-2">Filter by industry:</span>
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${activeFilter === filter
-                  ? "bg-primary text-white shadow-md"
-                  : "bg-white text-foreground border border-border hover:border-primary hover:text-primary"
+                className={`px-6 py-2 rounded-full text-xs font-bold transition-all border ${activeFilter === filter
+                  ? "bg-clara-red text-white border-clara-red"
+                  : "bg-white text-slate-600 border-slate-200 hover:border-clara-red hover:text-clara-red"
                   }`}
               >
                 {filter}
@@ -107,7 +125,7 @@ const CaseStudies = () => {
       </section>
 
       {/* Case Study Grid */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-12 px-6 bg-[#FAFAFA]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {caseStudies
@@ -121,53 +139,45 @@ const CaseStudies = () => {
               .map((study) => (
                 <Link
                   key={study.id}
-                  to={`/resources/case-studies/${study.id}`}
-                  className="group relative bg-white overflow-hidden rounded-3xl shadow-card hover:shadow-premium hover:scale-105 transition-all duration-300 border border-border"
+                  to={study.link}
+                  className="group bg-white rounded-[32px] p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-slate-100"
                 >
-                  {/* Gradient overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${study.gradient} opacity-50`} />
+                  {/* Badge */}
+                  <div className="mb-6">
+                    <span className="bg-clara-red text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                      {study.badge}
+                    </span>
+                  </div>
 
-                  {/* Content */}
-                  <div className="relative p-8 h-full flex flex-col">
-                    {/* Badge */}
-                    <div className="mb-6">
-                      <span className={`${study.badgeColor} text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full`}>
-                        {study.badge}
+                  {/* Industry */}
+                  <div className="mb-2">
+                    {study.industry.map((ind) => (
+                      <span key={ind} className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                        {ind}
                       </span>
-                      <div className="flex gap-2 mt-3">
-                        {study.industry.map((ind) => (
-                          <span key={ind} className="text-xs font-semibold text-foreground uppercase tracking-wider">
-                            {ind}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    ))}
+                  </div>
 
-                    {/* Title */}
-                    <h3 className="text-2xl font-bold text-foreground mb-4">
-                      {study.title}
-                    </h3>
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-slate-900 mb-1">
+                    {study.title}
+                  </h3>
 
-                    {/* Description */}
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-grow">
-                      {study.subtitle}
-                    </p>
+                  {/* Location */}
+                  <p className="text-xs text-slate-400 font-medium mb-8">
+                    {study.location}
+                  </p>
 
-                    {/* Metrics */}
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div>
-                        <div className="text-3xl font-bold text-foreground">{study.metric1}</div>
-                        <div className="text-xs text-muted-foreground">{study.metric1Label}</div>
-                      </div>
-                      <div>
-                        <div className="text-3xl font-bold text-foreground">{study.metric2}</div>
-                        <div className="text-xs text-muted-foreground">{study.metric2Label}</div>
-                      </div>
-                    </div>
+                  {/* Metric */}
+                  <div className="mb-8">
+                    <div className="text-4xl font-bold text-clara-red mb-1">{study.metric}</div>
+                    <div className="text-xs text-slate-500 font-medium">{study.metricDescription}</div>
+                  </div>
 
-                    {/* CTA */}
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full font-semibold">
-                      Read Full Case Study →
+                  {/* CTA */}
+                  <div className="mt-auto">
+                    <Button className="w-full bg-clara-red hover:bg-clara-red/90 text-white rounded-full font-bold py-6">
+                      Read Full Case Study <span className="ml-2">→</span>
                     </Button>
                   </div>
                 </Link>
@@ -177,23 +187,32 @@ const CaseStudies = () => {
       </section>
 
       {/* Bottom CTA */}
-      <section className="relative py-32 px-4 overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#1a0a0e] to-[#0a0a0a]">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/15 rounded-full blur-3xl" />
+      <section className="relative py-32 px-4 bg-[#1a0505] overflow-hidden">
+        {/* Background Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-clara-red/20 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-            Ready to transform your operations?
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            Ready to transform your<br />operations?
           </h2>
 
-          <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Let Clara handle your calls while you focus on growing your business
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            Let Clara handle your calls while you focus on growing your business.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button size="lg" className="text-lg px-10 py-7 bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg font-semibold" onClick={openHubSpotForm}>
+            <Button
+              size="lg"
+              className="text-base px-8 py-6 bg-clara-red hover:bg-clara-red/90 text-white rounded-full font-bold"
+              onClick={openHubSpotForm}
+            >
               Book a Growth Strategy Demo
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-10 py-7 border-2 border-primary text-primary hover:bg-primary/5 rounded-full font-semibold" onClick={openClaraLiveForm}>
+            <Button
+              size="lg"
+              className="text-base px-8 py-6 bg-white text-clara-red hover:bg-slate-50 rounded-full font-bold"
+              onClick={openClaraLiveForm}
+            >
               See Clara Handle Live Calls
             </Button>
           </div>

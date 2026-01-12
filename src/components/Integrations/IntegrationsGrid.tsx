@@ -1,140 +1,154 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Wrench, Home, Calculator, Briefcase, Hammer, Shield } from "lucide-react";
+import { ArrowRight, Wrench, Home, Calculator, Briefcase, Hammer, Shield, CreditCard, Calendar } from "lucide-react";
 
-const integrations = [
+const integrationCategories = [
     {
-        name: "ServiceTitan",
-        slug: "service-titan",
-        description: "Bi-directional sync with job creation, customer lookup, and scheduling.",
-        tag: "Field Service CRM",
-        icon: Wrench,
-        available: true,
+        title: "Field Service & CRM Platforms",
+        description: "Your CRM becomes the command center. Clara reads customer context, creates jobs, updates records, and routes work to the right technicians automatically.",
+        integrations: [
+            {
+                name: "ServiceTitan",
+                slug: "service-titan",
+                description: "Deep bi-directional integration that transforms ServiceTitan into an AI-powered command center.",
+                icon: Wrench,
+                badge: "Full Integration",
+                badgeColor: "bg-red-50 text-red-600 border-red-100"
+            },
+            {
+                name: "Housecall Pro",
+                slug: "housecall-pro",
+                description: "Full integration with job booking, customer management, dispatching, and invoicing.",
+                icon: Home,
+                badge: "Full Integration",
+                badgeColor: "bg-red-50 text-red-600 border-red-100"
+            },
+            {
+                name: "Jobber",
+                slug: "jobber",
+                description: "Complete job lifecycle management with real-time updates. Clara handles customer calls, books jobs, and syncs data.",
+                icon: Briefcase,
+                badge: "Full Integration",
+                badgeColor: "bg-red-50 text-red-600 border-red-100"
+            },
+            {
+                name: "BuildOps",
+                slug: "buildops",
+                description: "Purpose-built for commercial service contractors. Clara integrates with BuildOps to handle complex job workflows.",
+                icon: Hammer,
+                badge: "Native Integration",
+                badgeColor: "bg-green-50 text-green-600 border-green-100"
+            },
+            {
+                name: "FieldEdge",
+                slug: "fieldedge",
+                description: "Specialized integration for HVAC and electrical service businesses. Data works inside FieldEdge to capture opportunities.",
+                icon: Wrench,
+                badge: "Full Integration",
+                badgeColor: "bg-red-50 text-red-600 border-red-100"
+            },
+            {
+                name: "ServiceTrade",
+                slug: "servicetrade",
+                description: "Deep bi-directional integration for commercial fire, HVAC, and mechanical contractors. Clara reads context and automates dispatch.",
+                icon: Shield,
+                badge: "Full Integration",
+                badgeColor: "bg-red-50 text-red-600 border-red-100"
+            }
+        ]
     },
     {
-        name: "Housecall Pro",
-        slug: "housecall-pro",
-        description: "Full integration with job booking, customer management, and invoicing.",
-        tag: "Field Service Management",
-        icon: Home,
-        available: false,
+        title: "Accounting & Payments",
+        description: "Keep your books accurate and cash flowing. Clara syncs invoice data, tracks payments, and automates collection efforts through your financial systems.",
+        integrations: [
+            {
+                name: "QuickBooks",
+                slug: "quickbooks",
+                description: "Seamless accounting integration that keeps your books accurate and your cash flowing. Clara syncs invoices and payments.",
+                icon: Calculator,
+                badge: "Native Integration",
+                badgeColor: "bg-green-50 text-green-600 border-green-100"
+            },
+            {
+                name: "Stripe",
+                slug: "stripe",
+                description: "Secure payment processing that enables Clara Collects to accept payments, send payment links, and reconcile transactions.",
+                icon: CreditCard,
+                badge: "Native Integration",
+                badgeColor: "bg-green-50 text-green-600 border-green-100"
+            }
+        ]
     },
     {
-        name: "ServiceTrade",
-        slug: "service-trade",
-        description: "Smart job posting, on-call dispatch, and live job updates.",
-        tag: "Commercial Service Platform",
-        icon: Shield,
-        available: true,
-    },
-    {
-        name: "QuickBooks",
-        slug: "quickbooks",
-        description: "Invoice sync, payment tracking, and accounting automation.",
-        tag: "Accounting & AR",
-        icon: Calculator,
-        available: false,
-    },
-    {
-        name: "Jobber",
-        slug: "jobber",
-        description: "Complete job lifecycle management with real-time updates.",
-        tag: "Service Business Platform",
-        icon: Briefcase,
-        available: false,
-    },
-    {
-        name: "BuildOps",
-        slug: "buildops",
-        description: "Commercial contractor workflows with compliance tracking.",
-        tag: "Commercial Contractors",
-        icon: Hammer,
-        available: false,
-    },
+        title: "Scheduling & Time",
+        description: "Smart scheduling that prevents conflicts. Clara checks real-time availability before booking and keeps calendars synchronized across all platforms.",
+        integrations: [
+            {
+                name: "Google Calendar",
+                slug: "google-calendar",
+                description: "Smart calendar integration that enables Clara to check availability, book appointments, and keep your team aligned.",
+                icon: Calendar,
+                badge: "Native Integration",
+                badgeColor: "bg-green-50 text-green-600 border-green-100"
+            }
+        ]
+    }
 ];
 
 const IntegrationsGrid = () => {
-    const [showModal, setShowModal] = useState(false);
-
     return (
-        <>
-            {/* Coming Soon Modal */}
-            {showModal && (
-                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999]">
-                    <div className="bg-white rounded-xl p-8 shadow-xl max-w-sm text-center">
-                        <h3 className="text-xl font-bold mb-3 text-clara-navy">Coming Soon</h3>
-                        <p className="text-gray-600 mb-6">
-                            This integration is currently in development and will be available soon.
-                        </p>
+        <section className="py-20 px-6 bg-[#FAFAFA]">
+            <div className="max-w-7xl mx-auto space-y-20">
+                {integrationCategories.map((category, catIndex) => (
+                    <div key={catIndex}>
+                        <div className="mb-10">
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">{category.title}</h2>
+                            <p className="text-muted-foreground max-w-3xl leading-relaxed">{category.description}</p>
+                        </div>
 
-                        <button
-                            className="px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition"
-                            onClick={() => setShowModal(false)}
-                        >
-                            OK
-                        </button>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {category.integrations.map((integration, index) => {
+                                const Icon = integration.icon;
+                                return (
+                                    <Link
+                                        key={integration.slug}
+                                        to={`/integrations/${integration.slug}`}
+                                        className="group relative bg-white rounded-2xl p-8 border border-border shadow-card hover:shadow-premium hover:scale-105 transition-all duration-300 animate-fade-in block h-full"
+                                        style={{ animationDelay: `${index * 0.1}s` }}
+                                    >
+                                        <div className="relative h-full flex flex-col">
+                                            <div className="flex justify-between items-start mb-6">
+                                                {/* Logo/Icon Area */}
+                                                <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                                                    {/* In a real app these would be actual logos, using icons for now */}
+                                                    <Icon className="w-6 h-6 text-gray-600 group-hover:text-primary transition-colors" />
+                                                </div>
+
+                                                {/* Badge */}
+                                                <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-sm border ${integration.badgeColor}`}>
+                                                    {integration.badge}
+                                                </span>
+                                            </div>
+
+                                            <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                                                {integration.name}
+                                            </h3>
+
+                                            <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                                {integration.description}
+                                            </p>
+
+                                            <div className="flex items-center gap-2 text-clara-red font-semibold text-xs uppercase tracking-wide group-hover:gap-3 transition-all mt-auto">
+                                                View Integration <ArrowRight className="w-3 h-3" />
+                                            </div>
+                                        </div>
+                                    </Link>
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
-            )}
-
-            {/* Integrations Grid */}
-            <section className="py-20 px-6 bg-[#FAFAFA]">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {integrations.map((integration, index) => {
-                            const Icon = integration.icon;
-
-                            const cardContent = (
-                                <div className="relative">
-                                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                                        <Icon className="w-6 h-6 text-primary" />
-                                    </div>
-
-                                    <span className="text-xs font-semibold text-primary uppercase tracking-wider bg-primary/10 px-3 py-1.5 rounded-full mb-4 inline-block">
-                                        {integration.tag}
-                                    </span>
-
-                                    <h3 className="text-2xl font-bold mb-3 text-foreground">
-                                        {integration.name}
-                                    </h3>
-
-                                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                                        {integration.description}
-                                    </p>
-
-                                    <div className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-                                        {integration.available ? "View Integration" : "Coming Soon"}
-                                        <ArrowRight className="w-4 h-4" />
-                                    </div>
-                                </div>
-                            );
-
-                            return integration.available ? (
-                                // Normal working link
-                                <Link
-                                    key={integration.slug}
-                                    to={`/integrations/${integration.slug}`}
-                                    className="group relative bg-white rounded-2xl p-8 border border-border shadow-card hover:shadow-premium hover:scale-105 transition-all duration-300 animate-fade-in"
-                                    style={{ animationDelay: `${index * 0.1}s` }}
-                                >
-                                    {cardContent}
-                                </Link>
-                            ) : (
-                                // Coming Soon popup trigger
-                                <button
-                                    key={integration.slug}
-                                    onClick={() => setShowModal(true)}
-                                    className="group relative bg-white rounded-2xl p-8 border border-border shadow-card hover:shadow-premium hover:scale-105 transition-all duration-300 animate-fade-in text-left w-full"
-                                    style={{ animationDelay: `${index * 0.1}s` }}
-                                >
-                                    {cardContent}
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
-        </>
+                ))}
+            </div>
+        </section>
     );
 };
 
