@@ -19,7 +19,7 @@ export const CollectsHowItWorks3DScene = ({ activeStep }: CollectsHowItWorks3DSc
     const isTablet = size.width >= 768 && size.width < 1024;
 
     // Scale - Decreased as requested (1.3 for Desktop)
-    const scale = isMobile ? 0.8 : (isTablet ? 1.1 : 1.3);
+    const scale = isMobile ? 0.5 : (isTablet ? 0.3 : 0.9);
 
     // Positions (Relative to center)
     // Even steps (0, 2, 4): Text Left, Model Right -> X > 0
@@ -79,7 +79,7 @@ export const CollectsHowItWorks3DScene = ({ activeStep }: CollectsHowItWorks3DSc
                     rotation={[0, -Math.PI / 4, 0]}
                 >
                     {/* To rotate on X, change the first value: [X, Y, Z] */}
-                    <primitive object={clone} rotation={[-Math.PI, -Math.PI / 8, Math.PI / 2]} />
+                    <primitive object={clone} rotation={[-0.5, -0.5, -0.5]} />
                 </group>
             </Float>
         </>
