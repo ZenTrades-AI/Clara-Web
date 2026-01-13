@@ -125,7 +125,7 @@ const Navigation = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-sm font-medium text-white hover:text-clara-red hover:bg-transparent bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent">
+                <NavigationMenuTrigger className="text-sm font-medium text-white hover:!text-clara-red hover:!bg-transparent bg-transparent focus:!bg-transparent focus:!text-clara-red data-[active]:!bg-transparent data-[state=open]:!bg-transparent data-[state=open]:!text-clara-red">
                   Solutions
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -197,7 +197,7 @@ const Navigation = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-sm font-medium text-white hover:text-clara-red hover:bg-transparent bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent">
+                <NavigationMenuTrigger className="text-sm font-medium text-white hover:!text-clara-red hover:!bg-transparent bg-transparent focus:!bg-transparent focus:!text-clara-red data-[active]:!bg-transparent data-[state=open]:!bg-transparent data-[state=open]:!text-clara-red">
                   Resources
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
