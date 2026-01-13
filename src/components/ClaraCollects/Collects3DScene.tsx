@@ -12,7 +12,7 @@ export const Collects3DScene = () => {
 
     // Responsive settings
     const isMobile = size.width < 768;
-    const scale = isMobile ? 2.0 : 3.2;
+    const scale = isMobile ? 1.5 : 0.5;
 
     // Spin interaction
     const targetRotation = useRef(-Math.PI / 2); // Start at base rotation
@@ -60,13 +60,13 @@ export const Collects3DScene = () => {
                     ref={groupRef}
                     dispose={null}
                     scale={[scale, scale, scale]}
-                    position={[0, -0.5, 0]}
+                    position={[0, -1.5, 0]}
                     onClick={spin}
                     onPointerOver={() => setHover(true)}
                     onPointerOut={() => setHover(false)}
                 // rotation handled by useFrame
                 >
-                    <primitive object={clone} rotation={[0, -0.5, -Math.PI / 2]} />
+                    <primitive object={clone} rotation={[2, 1.5, -Math.PI / 2]} />
                 </group>
             </Float>
         </>
