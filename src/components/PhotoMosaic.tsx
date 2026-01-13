@@ -52,8 +52,8 @@ const PhotoMosaic = () => {
                 {/* Photo Mosaic Grid */}
                 <div className="mb-16 relative">
                     {/* Row 1 */}
-                    <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-3 mb-4">
-                        {photos.slice(0, 12).map((photo) => (
+                    <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-3 mb-4">
+                        {photos.slice(0, 9).map((photo) => (
                             <div
                                 key={photo.id}
                                 className="aspect-[4/3] rounded-2xl overflow-hidden transition-all duration-200 hover:scale-110 hover:shadow-lg hover:z-10 cursor-pointer"
@@ -68,8 +68,8 @@ const PhotoMosaic = () => {
                     </div>
 
                     {/* Row 2 */}
-                    <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-3 mb-4 px-8">
-                        {photos.slice(12, 21).map((photo) => (
+                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3 mb-4 px-4 md:px-12 lg:px-24">
+                        {photos.slice(9, 17).map((photo) => (
                             <div
                                 key={photo.id}
                                 className="aspect-[4/3] rounded-2xl overflow-hidden transition-all duration-200 hover:scale-110 hover:shadow-lg hover:z-10 cursor-pointer"
@@ -84,8 +84,8 @@ const PhotoMosaic = () => {
                     </div>
 
                     {/* Row 3 */}
-                    <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-3 mb-4">
-                        {photos.slice(21, 33).map((photo) => (
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-4 px-8 md:px-20 lg:px-44">
+                        {photos.slice(17, 24).map((photo) => (
                             <div
                                 key={photo.id}
                                 className="aspect-[4/3] rounded-2xl overflow-hidden transition-all duration-200 hover:scale-110 hover:shadow-lg hover:z-10 cursor-pointer"
@@ -100,8 +100,8 @@ const PhotoMosaic = () => {
                     </div>
 
                     {/* Row 4 */}
-                    <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-3 px-12">
-                        {photos.slice(33, 40).map((photo) => (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 px-12 md:px-32 lg:px-64">
+                        {photos.slice(24, 29).map((photo) => (
                             <div
                                 key={photo.id}
                                 className="aspect-[4/3] rounded-2xl overflow-hidden transition-all duration-200 hover:scale-110 hover:shadow-lg hover:z-10 cursor-pointer"

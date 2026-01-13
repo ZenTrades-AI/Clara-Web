@@ -5,7 +5,9 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
+    type CarouselApi,
 } from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 
 const videos = [
     {
@@ -27,6 +29,20 @@ const videos = [
 ];
 
 const ClaraInAction = () => {
+    const [api, setApi] = useState<CarouselApi>();
+
+    useEffect(() => {
+        if (!api) {
+            return;
+        }
+
+        const interval = setInterval(() => {
+            api.scrollNext();
+        }, 4000);
+
+        return () => clearInterval(interval);
+    }, [api]);
+
     return (
         <section className="py-20 md:py-28 px-6 bg-white">
             <div className="max-w-7xl mx-auto">
@@ -43,7 +59,14 @@ const ClaraInAction = () => {
 
                 {/* Video Carousel Section */}
                 <div className="max-w-4xl mx-auto">
-                    <Carousel className="w-full">
+                    <Carousel
+                        setApi={setApi}
+                        opts={{
+                            loop: true,
+                            align: "start",
+                        }}
+                        className="w-full"
+                    >
                         <CarouselContent>
                             {videos.map((video, index) => (
                                 <CarouselItem key={index}>
@@ -61,8 +84,8 @@ const ClaraInAction = () => {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        <CarouselPrevious />
-                        <CarouselNext />
+                        <CarouselPrevious className="h-12 w-12 border-2 [&>svg]:w-6 [&>svg]:h-6" />
+                        <CarouselNext className="h-12 w-12 border-2 [&>svg]:w-6 [&>svg]:h-6" />
                     </Carousel>
                 </div>
 
