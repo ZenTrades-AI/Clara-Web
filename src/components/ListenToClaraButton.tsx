@@ -17,7 +17,7 @@ export const ListenToClaraButton = ({ className, variant = "outline" }: ListenTo
             <Button
                 variant={variant}
                 className={cn(
-                    "px-8 py-6 rounded-full text-lg font-semibold transition-all group",
+                    "px-8 py-6 rounded-full text-lg font-semibold transition-all group hover:text-black",
                     className
                 )}
                 onClick={() => setIsPopupOpen(true)}
