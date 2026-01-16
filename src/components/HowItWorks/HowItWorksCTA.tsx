@@ -7,10 +7,6 @@ const HowItWorksCTA = () => {
         openHubSpotForm();
     };
 
-    const handleTryClara = () => {
-        window.location.href = "tel:+14059136009";
-    };
-
     return (
         <section className="py-32 px-6 bg-black text-white text-center relative overflow-hidden">
             {/* Background Effects */}
@@ -32,13 +28,6 @@ const HowItWorksCTA = () => {
                         className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
                     >
                         Book a Demo <ArrowRight className="ml-2 w-5 h-5" />
-                    </Button>
-                    <Button
-                        onClick={handleTryClara}
-                        variant="outline"
-                        className="px-8 py-6 rounded-full text-lg font-semibold border-2 border-gray-700 text-black hover:bg-white hover:text-black transition-all"
-                    >
-                        <Play className="mr-2 w-5 h-5 fill-current" /> Try Clara Live
                     </Button>
                 </div>
             </div>

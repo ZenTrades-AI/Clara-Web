@@ -90,10 +90,6 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
-  const handleCall = () => {
-    window.location.href = 'tel:+15707554859';
-  };
-
   const isHidden = (location.pathname === '/demo') && !isScrolled;
 
   return (
@@ -284,15 +280,6 @@ const Navigation = () => {
         {/* Right CTAs */}
         <div className="flex items-center gap-3">
           <Button
-            variant="outline"
-            size="sm"
-            className="hidden sm:inline-flex border-clara-red text-clara-red hover:bg-clara-red/10 px-4 py-2"
-            onClick={handleCall}
-          >
-            <Phone className="h-4 w-4 mr-2" />
-            Call Clara
-          </Button>
-          <Button
             size="sm"
             className="bg-clara-red hover:bg-clara-red/90 text-white font-semibold px-6"
             onClick={openHubSpotForm}
@@ -423,13 +410,6 @@ const Navigation = () => {
             </div>
             {/* Mobile Buttons */}
             <div className="space-y-3 pt-4">
-              <Button
-                variant="outline"
-                className="w-full border-clara-red text-clara-red hover:bg-clara-red/10 bg-transparent"
-                onClick={handleCall}
-              >
-                Call Clara
-              </Button>
               <Button
                 className="w-full bg-clara-red hover:bg-clara-red/90 text-white font-semibold"
                 onClick={() => {

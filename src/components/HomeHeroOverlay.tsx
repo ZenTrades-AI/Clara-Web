@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, Glasses, Phone, DollarSign } from "lucide-react";
 import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { useState } from "react";
+import { CallListeningPopup } from "./CallListeningPopup";
 
 interface HomeHeroOverlayProps {
     scrollProgress: number;
@@ -19,8 +21,11 @@ export const HomeHeroOverlay = ({ scrollProgress }: HomeHeroOverlayProps) => {
     const heroTranslateX = (1 - Math.min(1, (scrollProgress - 0.5) * 2)) * -50; // Slide in from left
     const heroPointerEvents = scrollProgress < 0.5 ? "none" : "auto";
 
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
     return (
         <div className="absolute inset-0 pointer-events-none">
+            <CallListeningPopup open={isPopupOpen} onOpenChange={setIsPopupOpen} />
             {/* SECTION 1: INTRO (Centered) */}
             <motion.div
                 className="absolute inset-0 flex flex-col items-center justify-center z-10"
@@ -111,9 +116,9 @@ export const HomeHeroOverlay = ({ scrollProgress }: HomeHeroOverlayProps) => {
                             <Button
                                 variant="outline"
                                 className="px-8 py-6 bg-white text-foreground border border-border hover:bg-gray-50 hover:text-[#D32F2F] rounded-full text-lg font-semibold hover:scale-105 transition-all group w-full sm:w-auto"
-                                onClick={openClaraLiveForm}
+                                onClick={() => setIsPopupOpen(true)}
                             >
-                                <Play className="mr-2 w-5 h-5 text-[#D32F2F] fill-[#D32F2F]" /> Try Clara Live
+                                <Play className="mr-2 w-5 h-5 text-[#D32F2F] fill-[#D32F2F]" /> Listen to Clara
                             </Button>
                         </div>
                     </div>

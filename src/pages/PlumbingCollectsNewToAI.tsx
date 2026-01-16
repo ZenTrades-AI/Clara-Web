@@ -14,9 +14,7 @@ const PlumbingCollectsNewToAI = () => {
         openHubSpotForm();
     };
 
-    const handleTryClara = () => {
-        window.location.href = "tel:+14059136009";
-    };
+
 
     return (
         <div className="min-h-screen bg-white">
@@ -72,9 +70,6 @@ const PlumbingCollectsNewToAI = () => {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Button onClick={handleBookDemo} className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
                                     Book a Demo <ArrowRight className="ml-2 w-5 h-5" />
-                                </Button>
-                                <Button variant="outline" className="px-8 py-6 rounded-full text-lg font-semibold border-2 border-red-100 text-[#D32F2F] hover:bg-red-50 hover:border-[#D32F2F] hover:text-black transition-all">
-                                    Try Clara Live
                                 </Button>
                             </div>
                         </div>
@@ -314,9 +309,6 @@ const PlumbingCollectsNewToAI = () => {
                             <Button onClick={handleBookDemo} className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
                                 Book a Free Demo <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
-                            <Button onClick={handleTryClara} variant="outline" className="px-8 py-6 rounded-full text-lg font-semibold border-2 border-red-100 text-[#D32F2F] hover:bg-red-50 hover:border-[#D32F2F] hover:text-black transition-all">
-                                Try Clara Live
-                            </Button>
                         </div>
                     </div>
                 </section>
@@ -388,9 +380,6 @@ const PlumbingCollectsNewToAI = () => {
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <Button onClick={handleBookDemo} className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold">
                         Book a Free Demo
-                    </Button>
-                    <Button onClick={handleTryClara} variant="outline" className="px-8 py-6 bg-transparent border-white text-white hover:bg-white hover:text-black rounded-full text-lg font-semibold">
-                        Talk to Sales
                     </Button>
                 </div>
             </div>

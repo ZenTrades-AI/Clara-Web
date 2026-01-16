@@ -8,9 +8,7 @@ import { openHubSpotForm } from "@/utils/hubspotForm";
 
 const RoofCon = () => {
     const handleBookDemo = () => {
-        openHubSpotForm(() => {
-            window.location.href = 'tel:+14059136009';
-        });
+        openHubSpotForm();
     };
 
     return (

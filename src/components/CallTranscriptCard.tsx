@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Play, Pause } from "lucide-react";
 import WaveForm from "./WaveForm";
-import { CallTranscript, TranscriptMessage } from "./CallTranscriptSection";
+import { CallTranscript } from "@/data/transcripts";
 
 interface CallTranscriptCardProps {
   transcript: CallTranscript;

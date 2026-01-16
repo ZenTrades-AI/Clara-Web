@@ -10,10 +10,6 @@ const HowItWorksHero = () => {
         }
     };
 
-    const handleTryClara = () => {
-        window.location.href = "tel:+14059136009";
-    };
-
     return (
         <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-black">
             {/* Background Effects */}
@@ -37,13 +33,6 @@ const HowItWorksHero = () => {
                         className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
                     >
                         See the AI Growth Engine <ArrowRight className="ml-2 w-5 h-5" />
-                    </Button>
-                    <Button
-                        onClick={handleTryClara}
-                        variant="outline"
-                        className="px-8 py-6 rounded-full text-lg font-semibold border-2 border-gray-700 text-black hover:bg-white hover:text-black transition-all"
-                    >
-                        <Play className="mr-2 w-5 h-5 fill-current" /> Try Clara Live
                     </Button>
                 </div>
             </div>

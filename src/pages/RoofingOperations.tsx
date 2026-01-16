@@ -14,10 +14,6 @@ const RoofingOperations = () => {
         openHubSpotForm();
     };
 
-    const handleTryClara = () => {
-        window.location.href = "tel:+14059136009";
-    };
-
     return (
         <div className="min-h-screen bg-white">
             <Helmet>
@@ -77,13 +73,13 @@ const RoofingOperations = () => {
                                     See Related Solutions
                                 </Button>
                             </div>
-                        </div>
-                    </div>
-                </section>
-            </RevealOnScroll>
+                        </div >
+                    </div >
+                </section >
+            </RevealOnScroll >
 
             {/* WHY THIS EXISTS */}
-            <RevealOnScroll>
+            < RevealOnScroll >
                 <section className="py-20 px-6 bg-white">
                     <div className="max-w-4xl mx-auto text-center">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-red-50 text-[#D32F2F] font-bold text-sm rounded-full mb-8">
@@ -111,10 +107,10 @@ const RoofingOperations = () => {
                         </div>
                     </div>
                 </section>
-            </RevealOnScroll>
+            </RevealOnScroll >
 
             {/* HOW CLARA SOLVES IT */}
-            <RevealOnScroll>
+            < RevealOnScroll >
                 <section className="py-20 px-6 bg-white">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-16">
@@ -162,10 +158,10 @@ const RoofingOperations = () => {
                         </div>
                     </div>
                 </section>
-            </RevealOnScroll>
+            </RevealOnScroll >
 
             {/* WHAT YOU GET */}
-            <RevealOnScroll>
+            < RevealOnScroll >
                 <section className="py-20 px-6">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-16">
@@ -216,10 +212,10 @@ const RoofingOperations = () => {
                         </div>
                     </div>
                 </section>
-            </RevealOnScroll>
+            </RevealOnScroll >
 
             {/* REAL WORLD USE CASE */}
-            <RevealOnScroll>
+            < RevealOnScroll >
                 <section className="py-20 px-6 bg-white">
                     <div className="max-w-5xl mx-auto">
                         <div className="text-center mb-16">
@@ -276,10 +272,10 @@ const RoofingOperations = () => {
                         </div>
                     </div>
                 </section>
-            </RevealOnScroll>
+            </RevealOnScroll >
 
             {/* WHY THIS WORKS FOR ROOFING */}
-            <RevealOnScroll>
+            < RevealOnScroll >
                 <section className="py-20 px-6 bg-gray-50">
                     <div className="max-w-4xl mx-auto">
                         <div className="text-center mb-16">
@@ -309,10 +305,10 @@ const RoofingOperations = () => {
                         </p>
                     </div>
                 </section>
-            </RevealOnScroll>
+            </RevealOnScroll >
 
             {/* CTA */}
-            <RevealOnScroll>
+            < RevealOnScroll >
                 <section className="py-24 px-6 bg-white">
                     <div className="max-w-4xl mx-auto text-center">
                         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
@@ -325,16 +321,13 @@ const RoofingOperations = () => {
                             <Button onClick={handleBookDemo} className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
                                 Book a Growth Strategy Demo <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
-                            <Button onClick={handleTryClara} variant="outline" className="px-8 py-6 rounded-full text-lg font-semibold border-2 border-red-100 text-[#D32F2F] hover:bg-red-50 hover:border-[#D32F2F] hover:text-black transition-all">
-                                Try Clara Live
-                            </Button>
                         </div>
                     </div>
                 </section>
-            </RevealOnScroll>
+            </RevealOnScroll >
 
             {/* RELATED SOLUTIONS */}
-            <RevealOnScroll>
+            < RevealOnScroll >
                 <section className="py-20 px-6 bg-gray-50">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-16">
@@ -389,24 +382,21 @@ const RoofingOperations = () => {
                         </div>
                     </div>
                 </section>
-            </RevealOnScroll>
+            </RevealOnScroll >
 
             {/* FINAL CTA */}
-            <div className="bg-black text-white py-24 px-6 text-center">
+            < div className="bg-black text-white py-24 px-6 text-center" >
                 <h2 className="text-3xl md:text-4xl font-bold mb-8">Ready to see Clara Field Co-Pilot in action for roofing teams?</h2>
                 <p className="text-gray-400 mb-12">Book a demo and see how we can help you scale.</p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <Button onClick={handleBookDemo} className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold">
                         Book a Free Demo
                     </Button>
-                    <Button onClick={handleTryClara} variant="outline" className="px-8 py-6 bg-transparent border-white text-white hover:bg-white hover:text-black rounded-full text-lg font-semibold">
-                        Talk to Sales
-                    </Button>
                 </div>
-            </div>
+            </div >
 
             <Footer />
-        </div>
+        </div >
     );
 };
 
