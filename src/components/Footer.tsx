@@ -22,6 +22,11 @@ const Footer = () => {
             <p className="text-sm text-gray-400">
               © 2025 Clara AI. All rights reserved.
             </p>
+            <p className="text-sm text-gray-400 mt-4">
+              415 Mission St, Fl #37
+              <br />
+              San Francisco, CA 94105
+            </p>
           </div>
 
           {/* Product */}
