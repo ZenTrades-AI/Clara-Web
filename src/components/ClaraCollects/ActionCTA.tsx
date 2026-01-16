@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { openHubSpotForm } from "@/utils/hubspotForm";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 const ActionCTA = () => {
@@ -30,15 +30,7 @@ const ActionCTA = () => {
                                 Book a Demo
                                 <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>
-                            <Button
-                                variant="outline"
-                                size="lg"
-                                className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium"
-                                onClick={openClaraLiveForm}
-                            >
-                                <MessageCircle className="mr-2 w-4 h-4" />
-                                Talk to Clara
-                            </Button>
+                            <ListenToClaraButton className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium bg-transparent border-2 border-red-100" />
                         </div>
                     </div>
                 </div>

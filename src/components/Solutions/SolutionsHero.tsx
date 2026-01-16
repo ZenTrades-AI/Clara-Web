@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { openHubSpotForm } from "@/utils/hubspotForm";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 
 const SolutionsHero = () => {
     return (
@@ -24,9 +24,7 @@ const SolutionsHero = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-16">
-                    <Button size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-semibold shadow-lg" onClick={openClaraLiveForm}>
-                        See How Clara Works
-                    </Button>
+                    <ListenToClaraButton className="text-base px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-semibold shadow-lg" />
                     <Button size="lg" variant="outline" className="text-base px-8 py-6 border-2 border-red-200 text-red-600 hover:bg-red-50 hover:text-black rounded-full font-semibold" onClick={openHubSpotForm}>
                         Book a Demo
                     </Button>

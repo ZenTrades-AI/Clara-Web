@@ -8,6 +8,7 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { Link } from "react-router-dom";
 
 import { openHubSpotForm } from "@/utils/hubspotForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 
 const ElectricalCollectsStaffShortage = () => {
     const handleBookDemo = () => {
@@ -70,6 +71,7 @@ const ElectricalCollectsStaffShortage = () => {
                                 <Button onClick={handleBookDemo} className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
                                     Book a Demo <ArrowRight className="ml-2 w-5 h-5" />
                                 </Button>
+                                <ListenToClaraButton className="px-8 py-6 rounded-full text-lg font-semibold border-2 border-red-100 text-[#D32F2F] hover:bg-red-50 hover:border-[#D32F2F] hover:text-black transition-all" />
                             </div>
                         </div>
                     </div>
@@ -308,6 +310,7 @@ const ElectricalCollectsStaffShortage = () => {
                             <Button onClick={handleBookDemo} className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
                                 Book a Growth Strategy Demo <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
+                            <ListenToClaraButton className="px-8 py-6 rounded-full text-lg font-semibold border-2 border-red-100 text-[#D32F2F] hover:bg-red-50 hover:border-[#D32F2F] hover:text-black transition-all" />
                         </div>
                     </div>
                 </section>
@@ -380,6 +383,7 @@ const ElectricalCollectsStaffShortage = () => {
                     <Button onClick={handleBookDemo} className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold">
                         Book a Free Demo
                     </Button>
+                    <ListenToClaraButton className="px-8 py-6 bg-transparent border-white text-white hover:bg-white hover:text-black rounded-full text-lg font-semibold" />
                 </div>
             </div>
 

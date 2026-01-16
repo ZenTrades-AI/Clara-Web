@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { openHubSpotForm } from "@/utils/hubspotForm";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 
 const HVACCTA = () => {
     return (
@@ -18,9 +18,7 @@ const HVACCTA = () => {
                         <Button size="lg" className="bg-clara-red hover:bg-red-700 text-white px-8 h-12 rounded-md font-medium" onClick={openHubSpotForm}>
                             Book a Demo
                         </Button>
-                        <Button variant="outline" size="lg" className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-md font-medium" onClick={openClaraLiveForm}>
-                            Talk to Clara
-                        </Button>
+                        <ListenToClaraButton className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-md font-medium bg-transparent border-2 border-red-100" />
                     </div>
                 </div>
             </div>

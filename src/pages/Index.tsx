@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Phone, Calendar, Bell, DollarSign, Glasses, Play, ArrowRight } from "lucide-react";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
 import ClaraInAction from "@/components/ClaraInAction";
 import CallTranscriptSection from "@/components/CallTranscriptSection";
 import TestimonialsGrid from "@/components/TestimonialsGrid";

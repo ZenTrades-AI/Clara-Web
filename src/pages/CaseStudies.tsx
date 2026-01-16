@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 import { openHubSpotForm } from "@/utils/hubspotForm";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 
 const caseStudies = [
   {
@@ -208,13 +208,7 @@ const CaseStudies = () => {
             >
               Book a Growth Strategy Demo
             </Button>
-            <Button
-              size="lg"
-              className="text-base px-8 py-6 bg-white text-clara-red hover:bg-slate-50 rounded-full font-bold"
-              onClick={openClaraLiveForm}
-            >
-              See Clara Handle Live Calls
-            </Button>
+            <ListenToClaraButton className="text-base px-8 py-6 bg-white text-clara-red hover:bg-slate-50 rounded-full font-bold" />
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Shield } from "lucide-react";
 import { openHubSpotForm } from "@/utils/hubspotForm";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 
 const Hero = () => {
     return (
@@ -26,9 +26,7 @@ const Hero = () => {
                         <Button size="lg" className="bg-clara-red hover:bg-red-700 text-white px-8 h-12 rounded-full font-medium group" onClick={openHubSpotForm}>
                             Book a Demo
                         </Button>
-                        <Button variant="outline" size="lg" className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium" onClick={openClaraLiveForm}>
-                            See Clara in Action
-                        </Button>
+                        <ListenToClaraButton className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium bg-transparent border-2 border-red-100" />
                     </div>
                 </div>
             </div>

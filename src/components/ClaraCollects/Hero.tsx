@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, DollarSign, Play } from "lucide-react";
 import { openHubSpotForm } from "@/utils/hubspotForm";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 import { Canvas } from "@react-three/fiber";
 import { Collects3DScene } from "./Collects3DScene";
 import { Suspense } from "react";
@@ -33,10 +33,7 @@ const Hero = () => {
                 Book a Demo
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium" onClick={openClaraLiveForm}>
-                <Play className="mr-2 h-5 w-5" />
-                See Clara Handle Live Calls
-              </Button>
+              <ListenToClaraButton className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium bg-transparent border-2 border-red-100" />
             </div>
           </div>
 

@@ -1,13 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
 import { openHubSpotForm } from "@/utils/hubspotForm";
-import { useState } from "react";
-import { CallListeningPopup } from "../CallListeningPopup";
+import { ListenToClaraButton } from "../ListenToClaraButton";
 
 
 const ReadyToCTA = () => {
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-
     return (
         <section className="relative py-32 px-6 overflow-hidden bg-gradient-to-br from-[hsl(var(--gradient-start))] via-[hsl(var(--deep-black))] to-[hsl(var(--gradient-end))]">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/15 rounded-full blur-3xl" />
@@ -30,15 +26,9 @@ const ReadyToCTA = () => {
                     >
                         Book a 15-min Demo
                     </Button>
-                    <Button
-                        size="lg"
-                        variant="outline"
-                        className="text-lg px-10 py-7 bg-white text-black border-2 border-white hover:bg-white/90 hover:text-black transition-all font-semibold"
-                        onClick={() => setIsPopupOpen(true)}
-                    >
-                        Listen to Clara
-                    </Button>
-                    <CallListeningPopup open={isPopupOpen} onOpenChange={setIsPopupOpen} />
+                    <ListenToClaraButton
+                        className="bg-white text-black border-2 border-white hover:bg-white/90 hover:text-black hover:scale-105 py-7 px-10 text-lg"
+                    />
                 </div>
             </div>
         </section>

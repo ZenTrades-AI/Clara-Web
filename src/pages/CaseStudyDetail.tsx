@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Check, X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { openHubSpotForm } from "@/utils/hubspotForm";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 
 // Case study data
 const caseStudiesData: Record<string, any> = {
@@ -289,9 +289,7 @@ const CaseStudyDetail = () => {
                             <Button size="lg" className="text-lg px-10 py-7 bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg font-semibold" onClick={openHubSpotForm}>
                                 Book a Growth Strategy Demo
                             </Button>
-                            <Button size="lg" variant="outline" className="text-lg px-10 py-7 bg-white text-primary border-2 border-white hover:bg-white/90 hover:text-primary rounded-full font-semibold" onClick={openClaraLiveForm}>
-                                See Clara Handle Live Calls
-                            </Button>
+                            <ListenToClaraButton className="text-lg px-10 py-7 bg-white text-primary border-2 border-white hover:bg-white/90 hover:text-primary rounded-full font-semibold" />
                         </div>
                     </div>
                 </section>

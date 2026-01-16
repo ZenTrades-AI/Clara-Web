@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Phone, FileText, Bell, DollarSign, TrendingUp, Clock, AlertCircle, Camera, Brain, Database, ArrowRight, Mic, Glasses } from "lucide-react";
 import { Link } from "react-router-dom";
 import { openHubSpotForm } from "@/utils/hubspotForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 
 const RoofCon = () => {
     const handleBookDemo = () => {
@@ -43,13 +44,7 @@ const RoofCon = () => {
                             >
                                 Book a Demo to Watch Clara in Action
                             </Button>
-                            <Button
-                                variant="outline"
-                                onClick={handleBookDemo}
-                                className="border-2 border-red-200 text-red-600 hover:bg-red-50 hover:text-black px-6 py-3 rounded-full font-semibold transition-all"
-                            >
-                                See How Clara Works on the Job
-                            </Button>
+                            <ListenToClaraButton className="border-2 border-red-200 text-red-600 hover:bg-red-50 hover:text-black px-6 py-3 rounded-full font-semibold transition-all bg-transparent" />
                         </div>
                     </div>
                     <div className="relative">
@@ -394,13 +389,7 @@ const RoofCon = () => {
                                 >
                                     Book a Demo
                                 </Button>
-                                <Button
-                                    variant="outline"
-                                    asChild
-                                    className="border-primary text-primary hover:bg-primary/5 hover:text-black px-8 rounded-full"
-                                >
-                                    <Link to="/solutions">Explore All Solutions</Link>
-                                </Button>
+                                <ListenToClaraButton className="border-primary text-primary hover:bg-primary/5 hover:text-black px-8 rounded-full bg-transparent border" />
                             </div>
                         </div>
                         <div className="flex justify-center">
@@ -431,6 +420,7 @@ const RoofCon = () => {
                         >
                             Book a Demo to Watch Clara in Action
                         </Button>
+                        <ListenToClaraButton className="w-full sm:w-auto bg-transparent border-red-200 text-red-600 border-2 hover:bg-red-50 hover:text-black px-8 py-6 rounded-full text-lg font-semibold h-auto" />
                     </div>
                     <div className="flex justify-center relative">
                         <img

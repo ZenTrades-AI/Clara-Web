@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { openHubSpotForm } from "@/utils/hubspotForm";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 import { PhoneCall, Play } from "lucide-react";
 
 const FinalCTA = () => {
@@ -22,10 +22,7 @@ const FinalCTA = () => {
             <PhoneCall className="mr-2 h-5 w-5" />
             Book a Growth Strategy Demo
           </Button>
-          <Button size="lg" variant="outline" className="text-lg px-10 py-7 bg-white text-primary hover:bg-white/90 rounded-full font-semibold border-2 border-white" onClick={openClaraLiveForm}>
-            <Play className="mr-2 h-5 w-5" />
-            See Clara Handle Live Calls
-          </Button>
+          <ListenToClaraButton className="text-lg px-10 py-7 bg-white text-primary hover:bg-white/90 rounded-full font-semibold border-2 border-white" />
         </div>
       </div>
     </section>

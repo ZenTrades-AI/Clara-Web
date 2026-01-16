@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { openClaraLiveForm } from "@/utils/claraLiveForm";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 import { openHubSpotForm } from "@/utils/hubspotForm";
 
 const photoFileNames = [
@@ -133,14 +133,7 @@ const PhotoMosaic = () => {
                         >
                             Book a Demo
                         </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="text-lg px-10 py-7 bg-white text-primary border-2 border-primary hover:bg-primary/5 hover:text-black rounded-full font-semibold transition-all"
-                            onClick={openClaraLiveForm}
-                        >
-                            Try Clara Live
-                        </Button>
+                        <ListenToClaraButton className="text-lg px-10 py-7 bg-white text-primary border-2 border-primary hover:bg-primary/5 hover:text-black rounded-full font-semibold transition-all" />
                     </div>
                 </div>
             </div>
