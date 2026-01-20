@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { openHubSpotForm } from "@/utils/hubspotForm";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { Lightbulb, Building2, TrendingUp, FileText } from "lucide-react";
 
 const BlogIndex = () => {
     const [searchParams] = useSearchParams();
@@ -19,10 +20,10 @@ const BlogIndex = () => {
     const getCategoryFromParam = (param: string | null) => {
         if (!param) return "All";
         const map: Record<string, string> = {
-            "ai": "Technology",
-            "operations": "Operations",
-            "industry": "Industry Trends",
-            "product": "Growth" // Mapping product to Growth as best guess/placeholder
+            "ai": "AI for Field Services",
+            "operations": "Operations & Growth",
+            "industry": "Industry Insights",
+            "product": "Product Updates"
         };
         return map[param.toLowerCase()] || "All";
     };
@@ -33,13 +34,18 @@ const BlogIndex = () => {
 
     const categories = [
         "All",
-        "Operations",
-        "Dispatching",
-        "Industry Trends",
-        "Growth",
-        "Technology",
-        "Trends"
+        "Product Updates",
+        "AI for Field Services",
+        "Operations & Growth",
+        "Industry Insights"
     ];
+
+    const categoryDetails: Record<string, { description?: string; icon?: any }> = {
+        "Product Updates": { description: "New features and releases", icon: Lightbulb },
+        "AI for Field Services": { description: "How AI transforms operations", icon: Building2 },
+        "Operations & Growth": { description: "Business improvement strategies", icon: TrendingUp },
+        "Industry Insights": { description: "Trade-specific knowledge", icon: FileText }
+    };
 
     const filteredPosts = selectedCategory === "All"
         ? blogPosts
@@ -88,19 +94,40 @@ const BlogIndex = () => {
                         </p>
 
                         {/* Filter Buttons */}
-                        <div className="flex flex-wrap justify-center gap-3">
-                            {categories.map((category) => (
-                                <button
-                                    key={category}
-                                    onClick={() => handleCategoryChange(category)}
-                                    className={`px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${selectedCategory === category
-                                        ? "bg-clara-navy text-white shadow-lg shadow-clara-navy/25 scale-105"
-                                        : "bg-white text-gray-600 border border-gray-200 hover:border-clara-red/30 hover:text-clara-red hover:shadow-md"
-                                        }`}
-                                >
-                                    {category}
-                                </button>
-                            ))}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                            {categories.filter(c => c !== "All").map((category) => {
+                                const Icon = categoryDetails[category]?.icon;
+                                const isSelected = selectedCategory === category;
+                                return (
+                                    <button
+                                        key={category}
+                                        onClick={() => handleCategoryChange(category)}
+                                        className={`flex flex-col items-start p-6 rounded-2xl transition-all duration-300 border text-left group ${isSelected
+                                            ? "bg-white border-clara-red shadow-lg scale-105"
+                                            : "bg-white border-gray-100 hover:border-gray-200 hover:shadow-md"
+                                            }`}
+                                    >
+                                        <div className={`p-3 rounded-xl mb-4 ${isSelected ? "bg-red-50 text-clara-red" : "bg-gray-50 text-gray-600 group-hover:bg-red-50 group-hover:text-clara-red"}`}>
+                                            {Icon && <Icon className="w-6 h-6" />}
+                                        </div>
+                                        <h3 className={`text-lg font-bold mb-1 ${isSelected ? "text-gray-900" : "text-gray-900"}`}>
+                                            {category}
+                                        </h3>
+                                        <p className="text-sm text-gray-500 font-medium">
+                                            {categoryDetails[category]?.description}
+                                        </p>
+                                    </button>
+                                )
+                            })}
+                        </div>
+
+                        <div className="mt-8">
+                            <button
+                                onClick={() => handleCategoryChange("All")}
+                                className={`px-6 py-2 rounded-full text-sm font-semibold transition-colors ${selectedCategory === "All" ? "bg-gray-900 text-white" : "text-gray-500 hover:text-gray-900"}`}
+                            >
+                                View All Posts
+                            </button>
                         </div>
                     </div>
                 </div>
