@@ -1,9 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Headphones } from "lucide-react";
-<<<<<<< HEAD
 import { openHubSpotForm } from "@/utils/hubspotForm";
-=======
->>>>>>> 7e0b38a908804ddd190cadaacd5dd685d10bc908
 import { Canvas } from "@react-three/fiber";
 import { Answers3DScene } from "./Answers3DScene";
 import { Suspense } from "react";
@@ -31,7 +28,6 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
-<<<<<<< HEAD
               <Button
                 size="lg"
                 className="bg-clara-red hover:bg-red-700 text-white px-8 h-12 rounded-full font-medium group"
@@ -46,13 +42,6 @@ const Hero = () => {
                 className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium"
                 onClick={() => openHubSpotForm()}
               >
-=======
-              <Button size="lg" className="bg-clara-red hover:bg-red-700 text-white px-8 h-12 rounded-full font-medium group">
-                Book a Demo
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium">
->>>>>>> 7e0b38a908804ddd190cadaacd5dd685d10bc908
                 <Headphones className="mr-2 w-4 h-4" />
                 Hear Clara Answer Live
               </Button>
