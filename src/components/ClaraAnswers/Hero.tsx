@@ -3,9 +3,12 @@ import { ArrowRight, Sparkles, Headphones } from "lucide-react";
 import { openHubSpotForm } from "@/utils/hubspotForm";
 import { Canvas } from "@react-three/fiber";
 import { Answers3DScene } from "./Answers3DScene";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
+import AudioPopup from "@/components/AudioPopup";
 
 const Hero = () => {
+  const [showAudioPopup, setShowAudioPopup] = useState(false);
+
   return (
     <section className="relative pt-32 pb-20 overflow-hidden bg-white">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -39,13 +42,14 @@ const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-clara-red text-clara-red hover:bg-red-50 px-8 h-12 rounded-full font-medium"
-                onClick={() => openHubSpotForm()}
+                className="border-clara-red text-clara-red hover:bg-red-50 hover:text-black px-8 h-12 rounded-full font-medium transition-colors duration-300"
+                onClick={() => setShowAudioPopup(true)}
               >
                 <Headphones className="mr-2 w-4 h-4" />
                 Hear Clara Answer Live
               </Button>
             </div>
+            <AudioPopup isOpen={showAudioPopup} onClose={() => setShowAudioPopup(false)} />
           </div>
 
           {/* Right Column: 3D Model */}
