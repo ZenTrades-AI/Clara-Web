@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI in field service helps HVAC, plumbing, electrical, and roofing businesses improve scheduling, calls, documentation, and cash flow without adding overhead.",
     author: "Clara Team",
     date: "October 1, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -156,7 +156,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI field service operations help contractors improve scheduling, documentation, customer handling, and cash flow while reducing manual work and costly errors.",
     author: "Clara Team",
     date: "October 2, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "6 min read",
     content: `
       <h2>Introduction</h2>
@@ -748,7 +748,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI automation helps field service businesses reduce overhead, improve response times, and scale operations more efficiently than hiring additional office staff.",
     author: "Clara Team",
     date: "October 6, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -936,7 +936,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI readiness field service checklist to help HVAC, plumbing, electrical, fire, and roofing businesses prepare operations, data, and teams for AI adoption.",
     author: "Clara Team",
     date: "October 7, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "6 min read",
     content: `
       <h2>Introduction</h2>
@@ -2947,7 +2947,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI field copilot helps service technicians execute jobs better with guided inspections, real time support, and consistent documentation in the field.",
     author: "Clara Team",
     date: "October 20, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -3365,7 +3365,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI helps field service businesses onboard new technicians faster with guided inspections, real time support, and consistent execution standards.",
     author: "Clara Team",
     date: "October 23, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -3652,7 +3652,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Automatic job documentation with AI helps field service businesses capture accurate job data in real time, reduce paperwork, and speed up billing.",
     author: "Clara Team",
     date: "October 25, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -3941,7 +3941,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI job accuracy improves field service outcomes by guiding technicians through inspections, documentation, and execution with consistent real time support.",
     author: "Clara Team",
     date: "October 27, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -4219,7 +4219,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Manual vs AI reporting explains how AI driven reporting improves accuracy, speed, and visibility compared to traditional manual field reporting methods.",
     author: "Clara Team",
     date: "October 29, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -4626,7 +4626,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Real time field intelligence gives service businesses live visibility into field work, job progress, and execution quality using AI driven insights.",
     author: "Clara Team",
     date: "November 1, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -5562,7 +5562,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI Stripe integration helps field service businesses invoice faster, collect payments instantly, and reduce revenue delays by connecting field work directly to Stripe.",
     author: "Clara Team",
     date: "November 8, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "6 min read",
     content: `
       <h2>Introduction</h2>
@@ -6008,7 +6008,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI membership billing helps field service businesses manage recurring plans, automate invoices, and collect payments reliably without manual tracking or follow ups.",
     author: "Clara Team",
     date: "November 10, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "6 min read",
     content: `
       <h2>Introduction</h2>
@@ -6419,7 +6419,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI collections helps field service businesses recover payments faster by automating follow ups, reducing disputes, and replacing inconsistent manual collection efforts.",
     author: "Clara Team",
     date: "November 12, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -6831,7 +6831,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI HVAC solutions help HVAC companies improve scheduling, reduce missed calls, increase first time fix rates, and get paid faster through smarter operations.",
     author: "Clara Team",
     date: "November 14, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -7077,7 +7077,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI plumbing solutions help plumbing businesses capture more calls, reduce callbacks, improve field accuracy, and get paid faster through smarter operations.",
     author: "Clara Team",
     date: "November 15, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -7318,7 +7318,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI electrical solutions help electrical contractors improve job accuracy, reduce safety risks, streamline documentation, and collect payments faster through smarter operations.",
     author: "Clara Team",
     date: "November 16, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -7569,7 +7569,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI fire protection solutions help fire protection companies improve inspection accuracy, ensure compliance, reduce missed deficiencies, and accelerate billing.",
     author: "Clara Team",
     date: "November 17, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -7810,7 +7810,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI roofing solutions help roofing contractors inspect faster, document damage accurately, reduce rework, and get paid quicker through smarter operations.",
     author: "Clara Team",
     date: "November 18, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -8069,7 +8069,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "HVAC staffing AI helps HVAC companies handle labor shortages by automating intake, supporting technicians in the field, and increasing productivity without hiring more staff.",
     author: "Clara Team",
     date: "November 19, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -8297,7 +8297,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Plumbing emergency AI helps plumbing businesses answer urgent calls instantly, prioritize critical jobs, dispatch accurately, and protect revenue during high pressure situations.",
     author: "Clara Team",
     date: "November 20, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -8803,7 +8803,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI electrical documentation helps electrical contractors capture accurate job records, improve compliance, reduce rework, and speed up invoicing without manual paperwork.",
     author: "Clara Team",
     date: "November 22, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -9017,7 +9017,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI roofing inspections help roofing contractors capture accurate damage data, standardize inspections, reduce rework, and speed up approvals and payments.",
     author: "Clara Team",
     date: "November 23, 2025",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -10405,7 +10405,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI ServiceTitan integration helps field service businesses automate intake, improve field execution, and speed up payments without disrupting existing workflows.",
     author: "Clara Team",
     date: "November 29, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -10624,7 +10624,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI Jobber integration helps service businesses improve intake, field execution, and payments while keeping Jobber as the central system of record.",
     author: "Clara Team",
     date: "November 30, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -10847,7 +10847,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI Housecall Pro integration helps service businesses improve intake, field execution, and payments while keeping Housecall Pro as the system of record.",
     author: "Clara Team",
     date: "December 1, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -11069,7 +11069,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI BuildOps integration helps commercial contractors improve job execution, compliance documentation, and billing accuracy while keeping BuildOps as the core platform.",
     author: "Clara Team",
     date: "December 2, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -11289,7 +11289,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI FieldEdge integration helps service businesses automate intake, field execution, and billing workflows while keeping FieldEdge as the operational core.",
     author: "Clara Team",
     date: "December 3, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -11512,7 +11512,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI ServiceTrade integration helps fire protection companies improve inspection accuracy, compliance documentation, and billing speed while keeping ServiceTrade as the core system.",
     author: "Clara Team",
     date: "December 4, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -11723,7 +11723,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI QuickBooks integration helps contractors automate invoicing, reduce accounting errors, and gain real time financial clarity without changing how they work.",
     author: "Clara Team",
     date: "December 5, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -11949,7 +11949,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI scheduling with Google Calendar helps field service businesses reduce booking errors, optimize technician availability, and keep schedules accurate in real time.",
     author: "Clara Team",
     date: "December 6, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -12163,7 +12163,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI CRM sync helps field service businesses keep customer, job, and billing data updated automatically across systems without manual entry or delays.",
     author: "Clara Team",
     date: "December 7, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -12390,7 +12390,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Eliminate double entry with AI to reduce admin work, prevent errors, and keep CRM, scheduling, and accounting systems automatically in sync.",
     author: "Clara Team",
     date: "December 8, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -12618,7 +12618,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI above CRM helps field service businesses control execution, data quality, and revenue flow without replacing ServiceTitan, Jobber, or other CRMs.",
     author: "Clara Team",
     date: "December 9, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -12843,7 +12843,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI above CRM helps field service businesses control execution, data quality, and revenue flow without replacing ServiceTitan, Jobber, or other CRMs.",
     author: "Clara Team",
     date: "December 10, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -13068,7 +13068,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "CRM automation AI helps field service businesses control intake, execution, invoicing, and follow ups automatically without replacing their existing CRM.",
     author: "Clara Team",
     date: "December 11, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -13281,7 +13281,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Scale field service AI helps service businesses grow without operational breakdown by stabilizing intake, field execution, documentation, and revenue workflows.",
     author: "Clara Team",
     date: "December 12, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -13518,7 +13518,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Multi location AI helps service companies maintain consistent operations, visibility, and cash flow across branches without adding layers of management.",
     author: "Clara Team",
     date: "December 13, 2025",
-    category: "AI for Field Services",
+    category: "Operations & Growth",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -13774,7 +13774,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Hiring vs AI explores how field service businesses scale operations, control costs, and maintain quality by choosing automation over constant headcount growth.",
     author: "Clara Team",
     date: "December 14, 2025",
-    category: "Operations & Growth",
+    category: "AI for Field Services",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>
@@ -18279,7 +18279,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI call answering HVAC companies use to capture every call, book more jobs, handle emergencies faster, and reduce missed revenue during peak demand.",
     author: "Clara Team",
     date: "January 4, 2026",
-    category: "Operations & Growth",
+    category: "Industry Insights",
     readingTime: "5 min read",
     content: `
       <h2>Introduction</h2>

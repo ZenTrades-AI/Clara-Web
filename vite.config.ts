@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
     // 2. Add the sitemap plugin here
     sitemap({
       // IMPORTANT: Replace with your actual website domain
-      hostname: 'https://www.justclara.ai', 
+      hostname: 'https://www.justclara.ai',
       outDir: 'public',
       // List of all your routes
       dynamicRoutes: [
@@ -37,6 +37,18 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
+          'ui-vendor': ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', 'framer-motion', 'lucide-react'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
   },
 }));
 

@@ -1,0 +1,809 @@
+export const blogPosts: BlogPost[] = [
+  {
+    id: "1",
+    slug: "ai-in-field-service-management",
+    title: "What Is AI in Field Service Management?",
+    excerpt: "AI in field service helps HVAC, plumbing, electrical, and roofing businesses improve scheduling, calls, documentation, and cash flow without adding overhead.",
+    author: "Clara Team",
+    date: "October 1, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "2",
+    slug: "how-ai-is-transforming-field-service-operations",
+    title: "How AI Is Transforming Field Service Operations",
+    excerpt: "AI field service operations help contractors improve scheduling, documentation, customer handling, and cash flow while reducing manual work and costly errors.",
+    author: "Clara Team",
+    date: "October 2, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "3",
+    slug: "ai-vs-traditional-dispatching-for-service-businesses",
+    title: "AI vs Traditional Dispatching for Service Businesses",
+    excerpt: "AI dispatching helps service businesses schedule technicians smarter, reduce delays, and improve first visit success compared to traditional dispatching methods.",
+    author: "Clara Team",
+    date: "October 3, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "5",
+    slug: "the-real-cost-of-manual-field-operations",
+    title: "The Real Cost of Manual Field Operations",
+    excerpt: "Manual field service costs show up as missed calls, wasted technician time, delayed invoices, and lost revenue across daily service operations.",
+    author: "Clara Team",
+    date: "October 5, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "6",
+    slug: "ai-automation-vs-hiring-more-office-staff",
+    title: "AI Automation vs Hiring More Office Staff",
+    excerpt: "AI automation helps field service businesses reduce overhead, improve response times, and scale operations more efficiently than hiring additional office staff.",
+    author: "Clara Team",
+    date: "October 6, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "10",
+    slug: "ai-readiness-checklist-for-service-companies",
+    title: "AI Readiness Checklist for Service Companies",
+    excerpt: "AI readiness field service checklist to help HVAC, plumbing, electrical, fire, and roofing businesses prepare operations, data, and teams for AI adoption.",
+    author: "Clara Team",
+    date: "October 7, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "11",
+    slug: "how-ai-reduces-operational-chaos",
+    title: "How AI Reduces Operational Chaos",
+    excerpt: "Reduce field service chaos with AI that brings structure to calls, scheduling, field execution, and payments for service businesses.",
+    author: "Clara Team",
+    date: "October 8, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "12",
+    slug: "what-field-service-owners-should-know-about-ai",
+    title: "What Field Service Owners Should Know About AI",
+    excerpt: "AI for service business owners explains how AI supports calls, scheduling, field execution, and payments without replacing people or adding complexity.",
+    author: "Clara Team",
+    date: "October 9, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "16",
+    slug: "how-ai-captures-every-service-call",
+    title: "How AI Captures Every Service Call",
+    excerpt: "AI service call capture helps field service businesses answer every call, capture accurate job details, and prevent lost revenue from missed or rushed intake.",
+    author: "Clara Team",
+    date: "October 11, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "17",
+    slug: "why-missed-calls-kill-field-service-revenue",
+    title: "Why Missed Calls Kill Field Service Revenue",
+    excerpt: "Missed calls field service businesses lose lead to lost jobs, wasted ad spend, poor customer trust, and long term revenue damage.",
+    author: "Clara Team",
+    date: "October 12, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "17",
+    slug: "why-missed-calls-kill-field-service-revenue",
+    title: "Why Missed Calls Kill Field Service Revenue",
+    excerpt: "Missed calls field service businesses lose lead to lost jobs, wasted ad spend, poor customer trust, and long term revenue damage.",
+    author: "Clara Team",
+    date: "October 13, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "19",
+    slug: "how-ai-handles-emergency-calls",
+    title: "How AI Handles Emergency Calls",
+    excerpt: "After hours call answering with AI helps field service businesses identify real emergencies, prioritize urgent jobs, and respond faster without burning out teams.",
+    author: "Clara Team",
+    date: "October 14, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "20",
+    slug: "reducing-call-abandonment-with-ai",
+    title: "Reducing Call Abandonment with AI",
+    excerpt: "AI call answering plumbing businesses use to capture emergency calls, reduce missed jobs, improve intake accuracy, and protect revenue during peak demand.",
+    author: "Clara Team",
+    date: "October 15, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "21",
+    slug: "ai-for-high-call-volume-service-businesses",
+    title: "AI for High Call Volume Service Businesses",
+    excerpt: "High call volume AI helps service businesses answer every call, qualify demand accurately, and protect revenue when phone traffic overwhelms teams.",
+    author: "Clara Team",
+    date: "October 16, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "22",
+    slug: "how-ai-improves-booking-rates",
+    title: "How AI Improves Booking Rates",
+    excerpt: "AI helps field service businesses convert more inbound calls into scheduled jobs through faster response, better qualification, and clearer intake.",
+    author: "Clara Team",
+    date: "October 17, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "23",
+    slug: "ai-vs-voicemail-for-contractors",
+    title: "AI vs Voicemail for Contractors",
+    excerpt: "AI vs voicemail for contractors explains why AI call answering captures more jobs, improves response speed, and prevents revenue loss from missed calls.",
+    author: "Clara Team",
+    date: "October 18, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "24",
+    slug: "turning-phones-into-revenue-engines",
+    title: "Turning Phones Into Revenue Engines",
+    excerpt: "Phone system revenue grows when field service businesses answer faster, qualify better, and convert more calls into booked jobs using AI.",
+    author: "Clara Team",
+    date: "October 19, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "25",
+    slug: "what-is-an-ai-field-co-pilot",
+    title: "What Is an AI Field Co-Pilot?",
+    excerpt: "AI field copilot helps service technicians execute jobs better with guided inspections, real time support, and consistent documentation in the field.",
+    author: "Clara Team",
+    date: "October 20, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "26",
+    slug: "how-ai-assists-technicians-in-the-field",
+    title: "How AI Assists Technicians in the Field",
+    excerpt: "AI for field technicians improves job execution with guided inspections, real time support, and consistent documentation that reduces rework and stress.",
+    author: "Clara Team",
+    date: "October 21, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "27",
+    slug: "ai-for-field-inspections",
+    title: "AI for Field Inspections",
+    excerpt: "AI field inspections help service businesses standardize inspections, reduce missed steps, improve documentation accuracy, and increase first visit success.",
+    author: "Clara Team",
+    date: "October 22, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "28",
+    slug: "how-ai-reduces-training-time",
+    title: "How AI Reduces Training Time for New Techs",
+    excerpt: "AI helps field service businesses onboard new technicians faster with guided inspections, real time support, and consistent execution standards.",
+    author: "Clara Team",
+    date: "October 23, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "30",
+    slug: "capturing-job-data-automatically-with-ai",
+    title: "Capturing Job Data Automatically with AI",
+    excerpt: "Automatic job documentation with AI helps field service businesses capture accurate job data in real time, reduce paperwork, and speed up billing.",
+    author: "Clara Team",
+    date: "October 25, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "31",
+    slug: "ai-compliance-field-service",
+    title: "AI for Compliance and Audit Trails",
+    excerpt: "AI compliance field service tools help businesses maintain accurate audit trails, standardize inspections, and reduce risk across regulated field operations.",
+    author: "Clara Team",
+    date: "October 26, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "32",
+    slug: "improving-job-accuracy-with-ai-guidance",
+    title: "Improving Job Accuracy with AI Guidance",
+    excerpt: "AI job accuracy improves field service outcomes by guiding technicians through inspections, documentation, and execution with consistent real time support.",
+    author: "Clara Team",
+    date: "October 27, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "33",
+    slug: "ai-for-multi-crew-operations",
+    title: "AI for Multi-Crew Operations",
+    excerpt: "AI for service crews helps field service businesses coordinate multiple teams, standardize execution, and maintain accuracy across complex daily operations.",
+    author: "Clara Team",
+    date: "October 28, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "34",
+    slug: "ai-vs-manual-field-reporting",
+    title: "AI vs Manual Field Reporting",
+    excerpt: "Manual vs AI reporting explains how AI driven reporting improves accuracy, speed, and visibility compared to traditional manual field reporting methods.",
+    author: "Clara Team",
+    date: "October 29, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "35",
+    slug: "ai-prevents-costly-field-errors",
+    title: "How AI Prevents Costly Field Errors",
+    excerpt: "AI error prevention helps field service businesses reduce callbacks, missed steps, and costly mistakes by guiding technicians in real time during jobs.",
+    author: "Clara Team",
+    date: "October 30, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "36",
+    slug: "field-data-capture-without-paperwork",
+    title: "Field Data Capture Without Paperwork",
+    excerpt: "Field data capture AI eliminates paperwork by capturing inspections, photos, and job details in real time, improving accuracy and speeding operations.",
+    author: "Clara Team",
+    date: "October 31, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "37",
+    slug: "real-time-field-intelligence-explained",
+    title: "Real-Time Field Intelligence Explained",
+    excerpt: "Real time field intelligence gives service businesses live visibility into field work, job progress, and execution quality using AI driven insights.",
+    author: "Clara Team",
+    date: "November 1, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "38",
+    slug: "ai-for-invoicing-in-field-service",
+    title: "AI for Invoicing in Field Service",
+    excerpt: "AI invoicing helps field service businesses generate accurate invoices faster by connecting job data, documentation, and payments without manual follow ups.",
+    author: "Clara Team",
+    date: "November 2, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "39",
+    slug: "how-ai-reduces-payment-delays",
+    title: "How AI Reduces Payment Delays",
+    excerpt: "Reduce payment delays in field service by using AI to send faster invoices, improve clarity, automate follow ups, and close the gap between work and cash.",
+    author: "Clara Team",
+    date: "November 3, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "40",
+    slug: "automating-payment-follow-ups-with-ai",
+    title: "Automating Payment Follow-Ups with AI",
+    excerpt: "AI payment follow up helps field service businesses collect faster by automating reminders, reducing disputes, and removing manual chasing from the payment process.",
+    author: "Clara Team",
+    date: "November 4, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "41",
+    slug: "ai-and-cash-flow-for-contractors",
+    title: "AI and Cash Flow for Contractors",
+    excerpt: "Cash flow AI helps contractors get paid faster by connecting job completion, invoicing, and follow ups into a single, reliable revenue workflow.",
+    author: "Clara Team",
+    date: "November 5, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "42",
+    slug: "why-contractors-struggle-to-get-paid",
+    title: "Why Contractors Struggle to Get Paid",
+    excerpt: "Contractor payment issues stem from delayed invoicing, unclear job documentation, and inconsistent follow ups. AI helps fix these problems at the source.",
+    author: "Clara Team",
+    date: "November 6, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "43",
+    slug: "ai-payment-automation-explained",
+    title: "AI Payment Automation Explained",
+    excerpt: "AI payment automation helps field service businesses invoice faster, automate follow ups, and collect payments reliably without manual effort or delays.",
+    author: "Clara Team",
+    date: "November 7, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "45",
+    slug: "reducing-accounts-receivable-with-ai",
+    title: "Reducing Accounts Receivable with AI",
+    excerpt: "Reduce AR AI helps field service businesses shorten accounts receivable cycles by automating invoicing, follow ups, and payment visibility without manual chasing.",
+    author: "Clara Team",
+    date: "November 9, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "46",
+    slug: "ai-for-subscription-and-membership-billing",
+    title: "AI for Subscription and Membership Billing",
+    excerpt: "AI membership billing helps field service businesses manage recurring plans, automate invoices, and collect payments reliably without manual tracking or follow ups.",
+    author: "Clara Team",
+    date: "November 10, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "47",
+    slug: "from-job-completion-to-payment-faster",
+    title: "From Job Completion to Payment Faster",
+    excerpt: "Faster payments field service workflows use AI to shorten the gap between completed jobs and collected revenue by automating invoicing and follow ups.",
+    author: "Clara Team",
+    date: "November 11, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "48",
+    slug: "ai-vs-manual-collections",
+    title: "AI vs Manual Collections",
+    excerpt: "AI collections helps field service businesses recover payments faster by automating follow ups, reducing disputes, and replacing inconsistent manual collection efforts.",
+    author: "Clara Team",
+    date: "November 12, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "49",
+    slug: "revenue-visibility-with-ai",
+    title: "Revenue Visibility with AI",
+    excerpt: "Revenue visibility AI gives field service businesses real time insight into invoices, payments, and cash flow so leaders can make confident decisions.",
+    author: "Clara Team",
+    date: "November 13, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "50",
+    slug: "ai-for-hvac-companies",
+    title: "AI for HVAC Companies",
+    excerpt: "AI HVAC solutions help HVAC companies improve scheduling, reduce missed calls, increase first time fix rates, and get paid faster through smarter operations.",
+    author: "Clara Team",
+    date: "November 14, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "51",
+    slug: "ai-for-plumbing-businesses",
+    title: "AI for Plumbing Businesses",
+    excerpt: "AI plumbing solutions help plumbing businesses capture more calls, reduce callbacks, improve field accuracy, and get paid faster through smarter operations.",
+    author: "Clara Team",
+    date: "November 15, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "52",
+    slug: "ai-for-electrical-contractors",
+    title: "AI for Electrical Contractors",
+    excerpt: "AI electrical solutions help electrical contractors improve job accuracy, reduce safety risks, streamline documentation, and collect payments faster through smarter operations.",
+    author: "Clara Team",
+    date: "November 16, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "53",
+    slug: "ai-for-fire-protection-companies",
+    title: "AI for Fire Protection Companies",
+    excerpt: "AI fire protection solutions help fire protection companies improve inspection accuracy, ensure compliance, reduce missed deficiencies, and accelerate billing.",
+    author: "Clara Team",
+    date: "November 17, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "54",
+    slug: "ai-for-roofing-contractors",
+    title: "AI for Roofing Contractors",
+    excerpt: "AI roofing solutions help roofing contractors inspect faster, document damage accurately, reduce rework, and get paid quicker through smarter operations.",
+    author: "Clara Team",
+    date: "November 18, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "55",
+    slug: "how-ai-solves-hvac-staffing-shortages",
+    title: "How AI Solves HVAC Staffing Shortages",
+    excerpt: "HVAC staffing AI helps HVAC companies handle labor shortages by automating intake, supporting technicians in the field, and increasing productivity without hiring more staff.",
+    author: "Clara Team",
+    date: "November 19, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "56",
+    slug: "ai-for-emergency-plumbing-calls",
+    title: "AI for Emergency Plumbing Calls",
+    excerpt: "Plumbing emergency AI helps plumbing businesses answer urgent calls instantly, prioritize critical jobs, dispatch accurately, and protect revenue during high pressure situations.",
+    author: "Clara Team",
+    date: "November 20, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "57",
+    slug: "fire-inspection-automation-with-ai",
+    title: "Fire Inspection Automation with AI",
+    excerpt: "AI fire inspections help fire protection companies automate inspection workflows, reduce missed deficiencies, ensure compliance, and speed up reporting and billing.",
+    author: "Clara Team",
+    date: "November 21, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "58",
+    slug: "electrical-job-documentation-with-ai",
+    title: "Electrical Job Documentation with AI",
+    excerpt: "AI electrical documentation helps electrical contractors capture accurate job records, improve compliance, reduce rework, and speed up invoicing without manual paperwork.",
+    author: "Clara Team",
+    date: "November 22, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "59",
+    slug: "roofing-inspections-with-ai",
+    title: "Roofing Inspections with AI",
+    excerpt: "AI roofing inspections help roofing contractors capture accurate damage data, standardize inspections, reduce rework, and speed up approvals and payments.",
+    author: "Clara Team",
+    date: "November 23, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "60",
+    slug: "multi-trade-service-businesses-using-ai",
+    title: "Multi-Trade Service Businesses Using AI",
+    excerpt: "AI multi trade solutions help service businesses running HVAC, plumbing, electrical, fire, and roofing streamline operations, reduce chaos, and scale profitably.",
+    author: "Clara Team",
+    date: "November 24, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "61",
+    slug: "ai-for-commercial-vs-residential-contractors",
+    title: "AI for Commercial vs Residential Contractors",
+    excerpt: "Commercial contractor AI helps service businesses manage complex jobs, compliance, and billing while adapting AI differently for residential speed and volume.",
+    author: "Clara Team",
+    date: "November 25, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "62",
+    slug: "scaling-trade-businesses-with-ai",
+    title: "Scaling Trade Businesses with AI",
+    excerpt: "Scale trade business AI helps HVAC, plumbing, electrical, fire, and roofing companies grow without chaos by automating intake, field execution, and revenue workflows.",
+    author: "Clara Team",
+    date: "November 26, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "63",
+    slug: "why-trade-businesses-need-ai-now",
+    title: "Why Trade Businesses Need AI Now",
+    excerpt: "AI for trades helps HVAC, plumbing, electrical, fire, and roofing businesses handle rising demand, labor shortages, and operational complexity without chaos.",
+    author: "Clara Team",
+    date: "November 27, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "64",
+    slug: "ai-success-stories-across-industries",
+    title: "AI Success Stories Across Industries",
+    excerpt: "AI Success Stories Across Industries show how HVAC, plumbing, electrical, fire, and roofing businesses use AI to improve operations, accuracy, and revenue.",
+    author: "Clara Team",
+    date: "November 28, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "79",
+    slug: "hiring-vs-ai-automation",
+    title: "Hiring vs AI Automation",
+    excerpt: "Hiring vs AI explores how field service businesses scale operations, control costs, and maintain quality by choosing automation over constant headcount growth.",
+    author: "Clara Team",
+    date: "December 14, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "80",
+    slug: "reducing-burnout-field-service",
+    title: "Reducing Burnout with AI",
+    excerpt: "Reduce burnout field service teams face by using AI to stabilize intake, field execution, documentation, and revenue workflows at scale.",
+    author: "Clara Team",
+    date: "December 15, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "81",
+    slug: "operational-efficiency-ai",
+    title: "Operational Efficiency with AI",
+    excerpt: "Operational efficiency AI helps field service businesses reduce waste, stabilize workflows, and scale operations without increasing chaos or overhead.",
+    author: "Clara Team",
+    date: "December 16, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "82",
+    slug: "ai-owner-visibility-control",
+    title: "AI for Owner Visibility and Control",
+    excerpt: "Owner visibility AI gives service business owners real time clarity, control, and confidence across operations without micromanaging teams.",
+    author: "Clara Team",
+    date: "December 17, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "83",
+    slug: "growth-breaks-operations-without-ai",
+    title: "Why Growth Breaks Operations Without AI",
+    excerpt: "Growth operations AI explains why field service businesses lose control as they scale and how AI prevents operational breakdown before it happens.",
+    author: "Clara Team",
+    date: "December 18, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "84",
+    slug: "ai-lean-service-teams",
+    title: "AI for Lean Service Teams",
+    excerpt: "Lean teams AI helps field service businesses do more with fewer people by stabilizing intake, execution, and revenue without burnout.",
+    author: "Clara Team",
+    date: "December 19, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "85",
+    slug: "ai-kpis-field-service",
+    title: "AI KPIs for Field Service",
+    excerpt: "AI metrics field service teams use to track execution quality, revenue flow, and operational stability with real time visibility.",
+    author: "Clara Team",
+    date: "December 20, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "86",
+    slug: "building-ai-first-service-business",
+    title: "Building an AI-First Service Business",
+    excerpt: "AI first service business models help field service companies design scalable operations where execution, data, and revenue stay aligned from day one.",
+    author: "Clara Team",
+    date: "December 21, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "87",
+    slug: "choose-ai-software-contractors",
+    title: "How to Choose AI Software for Contractors",
+    excerpt: "Choose AI software that fits real contractor workflows, improves execution, and scales operations without disrupting existing systems.",
+    author: "Clara Team",
+    date: "December 22, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "88",
+    slug: "what-to-look-for-ai-field-service",
+    title: "What to Look for in AI for Field Service",
+    excerpt: "AI selection guide for field service businesses explains what actually matters when choosing AI that improves execution, visibility, and revenue.",
+    author: "Clara Team",
+    date: "December 23, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "89",
+    slug: "ai-pricing-models-explained",
+    title: "AI Pricing Models Explained",
+    excerpt: "AI pricing contractors should understand how different pricing models impact cost, scalability, and ROI before choosing AI for field service operations.",
+    author: "Clara Team",
+    date: "December 24, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "90",
+    slug: "roi-ai-field-service",
+    title: "ROI of AI in Field Service",
+    excerpt: "AI ROI in field service explains how contractors measure real returns from AI through reduced costs, faster revenue, and operational stability.",
+    author: "Clara Team",
+    date: "December 25, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "91",
+    slug: "common-ai-mistakes-contractors-make",
+    title: "Common AI Mistakes Contractors Make",
+    excerpt: "AI mistakes contractors make often lead to wasted spend, low adoption, and more chaos. Learn how to avoid the most common pitfalls when adopting AI.",
+    author: "Clara Team",
+    date: "December 26, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "92",
+    slug: "how-long-ai-results",
+    title: "How Long Does AI Take to Show Results?",
+    excerpt: "AI results timeline for field service businesses explains when contractors should expect real operational and financial impact after adopting AI.",
+    author: "Clara Team",
+    date: "December 27, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "93",
+    slug: "ai-implementation-timeline-service-businesses",
+    title: "AI Implementation Timeline for Service Businesses",
+    excerpt: "AI implementation for service businesses explained step by step so contractors know what to expect, when value appears, and how to avoid rollout mistakes.",
+    author: "Clara Team",
+    date: "December 28, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "94",
+    slug: "when-right-time-adopt-ai",
+    title: "When Is the Right Time to Adopt AI?",
+    excerpt: "Adopt AI field service operations at the right moment to reduce chaos, protect margins, and scale without losing control or burning out teams.",
+    author: "Clara Team",
+    date: "December 29, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "95",
+    slug: "common-myths-ai-field-service",
+    title: "Common Myths About AI in Field Service",
+    excerpt: "AI myths field service owners believe are slowing adoption. Learn what AI really does for HVAC, plumbing, electrical, and service businesses.",
+    author: "Clara Team",
+    date: "December 30, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "96",
+    slug: "ai-improves-first-time-fix-rates",
+    title: "How AI Improves First-Time Fix Rates",
+    excerpt: "AI first time fix helps field service businesses reduce callbacks, improve diagnostics, and complete more jobs correctly on the first visit.",
+    author: "Clara Team",
+    date: "December 31, 2025",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "97",
+    slug: "ai-future-field-technicians",
+    title: "AI and the Future of Field Technicians",
+    excerpt: "AI field technicians are supported with better diagnostics, guided workflows, and real time context to reduce stress, improve accuracy, and increase job success.",
+    author: "Clara Team",
+    date: "January 1, 2026",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "98",
+    slug: "ai-small-vs-large-field-service-businesses",
+    title: "AI for Small vs Large Field Service Businesses",
+    excerpt: "AI for small contractors and large service companies solves different problems, but both use AI to improve efficiency, reduce errors, and scale operations.",
+    author: "Clara Team",
+    date: "January 2, 2026",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "99",
+    slug: "ai-operational-backbone",
+    title: "How AI Becomes Your Operational Backbone",
+    excerpt: "AI operations platform helps field service businesses run calls, scheduling, field execution, and payments through one connected operational system.",
+    author: "Clara Team",
+    date: "January 3, 2026",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "100",
+    slug: "ai-call-answering-hvac-companies",
+    title: "AI Call Answering for HVAC Companies",
+    excerpt: "AI call answering HVAC companies use to capture every call, book more jobs, handle emergencies faster, and reduce missed revenue during peak demand.",
+    author: "Clara Team",
+    date: "January 4, 2026",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "101",
+    slug: "ai-receptionist-vs-human-receptionist",
+    title: "AI Receptionist vs Human Receptionist",
+    excerpt: "AI receptionist vs human receptionist for service businesses. Learn how AI receptionist support improves call capture, intake accuracy, and revenue.",
+    author: "Clara Team",
+    date: "January 5, 2026",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "102",
+    slug: "ai-qualifies-leads-automatically",
+    title: "How AI Qualifies Leads Automatically",
+    excerpt: "AI lead qualification helps field service businesses capture better job details, prioritize high intent calls, and book the right work faster.",
+    author: "Clara Team",
+    date: "January 6, 2026",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "103",
+    slug: "after-hours-call-handling-ai",
+    title: "After-Hours Call Handling with AI",
+    excerpt: "After hours call answering with AI helps field service businesses capture emergency jobs, protect revenue, and respond instantly when office teams are offline.",
+    author: "Clara Team",
+    date: "January 7, 2026",
+    category: "Operations & Growth",
+--
+  },
+  {
+    id: "105",
+    slug: "hands-free-field-documentation-ai",
+    title: "Hands-Free Field Documentation with AI",
+    excerpt: "Hands free field documentation helps technicians capture photos, notes, and inspections in real time using AI without slowing down field work.",
+    author: "Clara Team",
+    date: "January 9, 2026",
+    category: "Operations & Growth",
