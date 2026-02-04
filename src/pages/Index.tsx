@@ -4,20 +4,20 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Phone, Calendar, Bell, DollarSign, Glasses, Play, ArrowRight } from "lucide-react";
-import ClaraInAction from "@/components/ClaraInAction";
-import CallTranscriptSection from "@/components/CallTranscriptSection";
-import TestimonialsGrid from "@/components/TestimonialsGrid";
-import OrbitingCircles from "@/components/OrbitingCircles";
-import PhotoMosaic from "@/components/PhotoMosaic";
-import { openHubSpotForm } from "@/utils/hubspotForm";
-import ExploreSolutions from "@/components/ExploreSolutions";
-import WhyTeamsChooseClara from "@/components/WhyTeamsChooseClara";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-import { Canvas } from "@react-three/fiber";
-import { Home3DScene } from "@/components/Home3DScene";
-import { HomeHeroOverlay } from "@/components/HomeHeroOverlay";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, lazy, Suspense } from "react";
 import { useScroll, useTransform } from "framer-motion";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { HomeHeroOverlay } from "@/components/HomeHeroOverlay";
+
+// Lazy load below-the-fold components
+const DeferredHome3DScene = lazy(() => import("@/components/DeferredHome3DScene"));
+const ClaraInAction = lazy(() => import("@/components/ClaraInAction"));
+const CallTranscriptSection = lazy(() => import("@/components/CallTranscriptSection"));
+const TestimonialsGrid = lazy(() => import("@/components/TestimonialsGrid"));
+const OrbitingCircles = lazy(() => import("@/components/OrbitingCircles"));
+const PhotoMosaic = lazy(() => import("@/components/PhotoMosaic"));
+const ExploreSolutions = lazy(() => import("@/components/ExploreSolutions"));
+const WhyTeamsChooseClara = lazy(() => import("@/components/WhyTeamsChooseClara"));
 
 
 /* LOGO ROW */
@@ -117,9 +117,9 @@ const Index = () => {
         <div className="sticky top-0 h-screen overflow-hidden bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef]">
           {/* 3D Scene Background */}
           <div className="absolute inset-0 z-0">
-            <Canvas shadows camera={{ position: [0, 0, 5], fov: 45 }}>
-              <Home3DScene scrollProgress={scrollProgress} />
-            </Canvas>
+            <Suspense fallback={<div className="w-full h-full" />}>
+              <DeferredHome3DScene scrollProgress={scrollProgress} />
+            </Suspense>
           </div>
 
           {/* Overlay Content */}
@@ -275,27 +275,41 @@ const Index = () => {
       </RevealOnScroll>
 
       <RevealOnScroll>
-        <ExploreSolutions />
+        <Suspense fallback={<div className="h-40" />}>
+          <ExploreSolutions />
+        </Suspense>
       </RevealOnScroll>
 
-      <WhyTeamsChooseClara />
+      <Suspense fallback={<div className="h-40" />}>
+        <WhyTeamsChooseClara />
+      </Suspense>
 
       <RevealOnScroll>
-        <ClaraInAction />
+        <Suspense fallback={<div className="h-40" />}>
+          <ClaraInAction />
+        </Suspense>
       </RevealOnScroll>
 
       <RevealOnScroll>
-        <CallTranscriptSection />
+        <Suspense fallback={<div className="h-40" />}>
+          <CallTranscriptSection />
+        </Suspense>
       </RevealOnScroll>
 
       <RevealOnScroll>
-        <TestimonialsGrid />
+        <Suspense fallback={<div className="h-40" />}>
+          <TestimonialsGrid />
+        </Suspense>
       </RevealOnScroll>
 
-      <OrbitingCircles />
+      <Suspense fallback={<div className="h-40" />}>
+        <OrbitingCircles />
+      </Suspense>
 
       <RevealOnScroll>
-        <PhotoMosaic />
+        <Suspense fallback={<div className="h-40" />}>
+          <PhotoMosaic />
+        </Suspense>
       </RevealOnScroll>
 
 

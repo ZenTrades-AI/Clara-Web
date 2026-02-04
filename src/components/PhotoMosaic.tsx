@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 import { openHubSpotForm } from "@/utils/hubspotForm";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 
 const photoFileNames = [
     // WhatsApp images
@@ -46,6 +49,8 @@ const photos = photoFileNames.map((file, index) => ({
 }));
 
 const PhotoMosaic = () => {
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
     return (
         <section className="py-20 md:py-28 px-6 bg-white">
             <div className="max-w-7xl mx-auto">
@@ -57,6 +62,7 @@ const PhotoMosaic = () => {
                             <div
                                 key={photo.id}
                                 className="aspect-[4/3] rounded-2xl overflow-hidden transition-all duration-200 hover:scale-110 hover:shadow-lg hover:z-10 cursor-pointer"
+                                onClick={() => setSelectedImage(photo.src)}
                             >
                                 <img
                                     src={photo.src}
@@ -73,6 +79,7 @@ const PhotoMosaic = () => {
                             <div
                                 key={photo.id}
                                 className="aspect-[4/3] rounded-2xl overflow-hidden transition-all duration-200 hover:scale-110 hover:shadow-lg hover:z-10 cursor-pointer"
+                                onClick={() => setSelectedImage(photo.src)}
                             >
                                 <img
                                     src={photo.src}
@@ -89,6 +96,7 @@ const PhotoMosaic = () => {
                             <div
                                 key={photo.id}
                                 className="aspect-[4/3] rounded-2xl overflow-hidden transition-all duration-200 hover:scale-110 hover:shadow-lg hover:z-10 cursor-pointer"
+                                onClick={() => setSelectedImage(photo.src)}
                             >
                                 <img
                                     src={photo.src}
@@ -105,6 +113,7 @@ const PhotoMosaic = () => {
                             <div
                                 key={photo.id}
                                 className="aspect-[4/3] rounded-2xl overflow-hidden transition-all duration-200 hover:scale-110 hover:shadow-lg hover:z-10 cursor-pointer"
+                                onClick={() => setSelectedImage(photo.src)}
                             >
                                 <img
                                     src={photo.src}
@@ -137,6 +146,45 @@ const PhotoMosaic = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Lightbox Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedImage(null)}
+                        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 cursor-pointer"
+                    >
+                        <motion.button
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedImage(null);
+                            }}
+                        >
+                            <X className="w-8 h-8" />
+                        </motion.button>
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="relative max-w-3xl max-h-[80vh] w-full h-full flex items-center justify-center"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <img
+                                src={selectedImage}
+                                alt="Full screen view"
+                                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
