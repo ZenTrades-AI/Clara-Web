@@ -71,7 +71,7 @@ const App = () => (
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/answers" element={<ClaraAnswers />} />
             <Route path="/solutions/collects" element={<ClaraCollects />} />
-            <Route path="/clara-collects" element={<ClaraCollectsNew />} />
+            <Route path="/solutions/collects/quickbooksintegration" element={<ClaraCollectsNew />} />
             <Route path="/solutions/field-copilot" element={<FieldCopilot />} />
             <Route path="/solutions/dispatch" element={<ClaraDispatch />} />
             <Route path="/solutions/reminds" element={<ClaraReminds />} />

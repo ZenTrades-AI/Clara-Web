@@ -270,7 +270,7 @@ const ClaraCollectsNew = () => {
                         Professional. Controlled. <span className="text-[#d9314f]">Relationship-Safe.</span>
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-0">
                         {/* Feature 1 */}
                         <div className="bg-white rounded-2xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-md transition-shadow">
                             <div className="w-full aspect-video bg-gray-100 relative mb-6">
@@ -400,7 +400,7 @@ const ClaraCollectsNew = () => {
 
 
                     {/* Features under Dashboard */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-0 max-w-7xl mx-auto">
                         {/* Dashboard Feature 1 */}
                         <div className="bg-[#172544] rounded-2xl overflow-hidden border border-white/10 group hover:border-[#d9314f]/50 transition-colors flex flex-col">
                             <div className="w-full aspect-video bg-[#0c1322] relative border-b border-white/5">
