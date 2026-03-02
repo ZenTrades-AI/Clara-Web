@@ -22,6 +22,7 @@ import Security from './pages/Security';
 import UserLicenseAgreement from './pages/UserLicenseAgreement';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import ClaraCollects from './pages/ClaraCollects';
+import ClaraCollectsNew from './pages/ClaraCollectsNew';
 import FieldCopilot from './pages/FieldCopilot';
 import RoofCon from './pages/RoofCon';
 import RoofingOperations from './pages/RoofingOperations';
@@ -70,6 +71,7 @@ const App = () => (
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/answers" element={<ClaraAnswers />} />
             <Route path="/solutions/collects" element={<ClaraCollects />} />
+            <Route path="/clara-collects" element={<ClaraCollectsNew />} />
             <Route path="/solutions/field-copilot" element={<FieldCopilot />} />
             <Route path="/solutions/dispatch" element={<ClaraDispatch />} />
             <Route path="/solutions/reminds" element={<ClaraReminds />} />
