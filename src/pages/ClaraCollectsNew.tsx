@@ -1,10 +1,52 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Clock, ShieldCheck } from "lucide-react";
+import { ArrowDown, Clock, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { openHubSpotForm } from "@/utils/hubspotForm";
+import { useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 
 const ClaraCollectsNew = () => {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: false,
+        align: "start",
+        slidesToScroll: 1,
+        dragFree: true
+    });
+
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) emblaApi.scrollPrev();
+    }, [emblaApi]);
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) emblaApi.scrollNext();
+    }, [emblaApi]);
+
+    const [activeTab, setActiveTab] = useState(0);
+
+    const dashboardFeatures = [
+        {
+            title: "Dashboard Overview",
+            description: "View all outstanding payments, overdue collections, total calls made, and a prioritized list of customers who need immediate attention — all in one place.",
+            image: "/photos/collact%20images/Dashboard%20Overview%202.png"
+        },
+        {
+            title: "Call History & Transcripts",
+            description: "Access complete call logs, listen to recordings, and review transcripts for full visibility into every customer interaction.",
+            image: "/photos/collact%20images/Call%20History%20and%20Transcripts%202.png"
+        },
+        {
+            title: "Customer Management",
+            description: "Select customers, check their eligibility for payment follow-up, and schedule collection calls directly from a single, organized list.",
+            image: "/photos/collact%20images/Customer%20Management%202.png"
+        },
+        {
+            title: "Escalation Management",
+            description: "Automatically route disputed or negative responses to an escalation list, so sensitive situations can be reviewed and handled appropriately.",
+            image: "/photos/collact%20images/Escalation%20Management%202.png"
+        }
+    ];
+
     return (
         <div className="min-h-screen">
             <Navigation />
@@ -263,57 +305,90 @@ const ClaraCollectsNew = () => {
                 </div>
             </section>
 
-            {/* NEW 3rd Section: Relationship-Safe Features (Previously 4th) */}
-            <section className="bg-[#f8faf9] py-24 text-center">
-                <div className="container mx-auto px-4 max-w-6xl">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-16 text-[#0f213b] tracking-tight">
+            {/* NEW 3rd Section: Relationship-Safe Features (Carousel) */}
+            <section className="bg-[#f8faf9] py-24 pl-4 md:pl-16 lg:pl-32 overflow-hidden relative">
+                <div className="max-w-6xl mb-12 pr-4 md:pr-16 lg:pr-32 text-center md:text-left">
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#0f213b] tracking-tight">
                         Professional. Controlled. <span className="text-[#d9314f]">Relationship-Safe.</span>
                     </h2>
+                </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-0">
-                        {/* Feature 1 */}
-                        <div className="bg-white rounded-2xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-md transition-shadow">
-                            <div className="w-full aspect-video bg-gray-100 relative mb-6">
-                                <img src="/photos/collact%20images/Agent%20Identity.png" alt="Agent Identity settings" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="relative pb-16 md:pb-20">
+                    {/* Embla Carousel Viewport */}
+                    <div className="overflow-hidden cursor-grab active:cursor-grabbing pb-12 pr-4" ref={emblaRef}>
+                        <div className="flex gap-6 md:gap-8">
+                            {/* Feature 1 */}
+                            <div className="flex-[0_0_85vw] md:flex-[0_0_400px] min-w-0 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-all">
+                                <div className="w-full aspect-video bg-gray-100 relative mb-6">
+                                    <img src="/photos/collact%20images/Agent%20Identity.png" alt="Agent Identity settings" className="absolute inset-0 w-full h-full object-cover" />
+                                </div>
+                                <div className="px-6 pb-8">
+                                    <h3 className="text-[#0f213b] font-bold text-[22px] mb-4 leading-snug">Agent Identity</h3>
+                                    <p className="text-gray-500 text-[15px] pb-4 mb-4 border-b border-gray-100 leading-relaxed">Name your AI and choose from 100+ male or female voice options to match your brand and customer style.</p>
+                                    <a href="#" className="inline-flex items-center text-[#d9304f] font-semibold text-[15px] hover:translate-x-1.5 transition-transform">
+                                        Click here <span className="ml-1 text-lg leading-none">→</span>
+                                    </a>
+                                </div>
                             </div>
-                            <div className="px-6 pb-6">
-                                <h3 className="text-[#0f213b] font-bold text-lg mb-4 leading-snug">Agent Identity</h3>
-                                <p className="text-gray-500 text-[13px] font-medium leading-relaxed">Name your AI and choose from 100+ male or female voice options to match your brand and customer style.</p>
+
+                            {/* Feature 2 */}
+                            <div className="flex-[0_0_85vw] md:flex-[0_0_400px] min-w-0 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-all">
+                                <div className="w-full aspect-video bg-gray-100 relative mb-6">
+                                    <img src="/photos/collact%20images/Agent%20Settings%202.png" alt="Agent Settings" className="absolute inset-0 w-full h-full object-cover" />
+                                </div>
+                                <div className="px-6 pb-8">
+                                    <h3 className="text-[#0f213b] font-bold text-[22px] mb-4 leading-snug">Agent Settings</h3>
+                                    <p className="text-gray-500 text-[15px] pb-4 mb-4 border-b border-gray-100 leading-relaxed">Control how your AI communicates by adjusting response speed, conversation pacing, voice tone, volume, voicemail detection, and call duration settings.</p>
+                                    <a href="#" className="inline-flex items-center text-[#d9304f] font-semibold text-[15px] hover:translate-x-1.5 transition-transform">
+                                        Click here <span className="ml-1 text-lg leading-none">→</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Feature 3 */}
+                            <div className="flex-[0_0_85vw] md:flex-[0_0_400px] min-w-0 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-all">
+                                <div className="w-full aspect-video bg-gray-100 relative mb-6">
+                                    <img src="/photos/collact%20images/Opening%20message%202.png" alt="Opening Message templates" className="absolute inset-0 w-full h-full object-cover" />
+                                </div>
+                                <div className="px-6 pb-8">
+                                    <h3 className="text-[#0f213b] font-bold text-[22px] mb-4 leading-snug">Opening Message</h3>
+                                    <p className="text-gray-500 text-[15px] pb-4 mb-4 border-b border-gray-100 leading-relaxed">Choose how your AI greets customers with 20+ ready-made templates designed for your industry and business, so every conversation starts on the right note.</p>
+                                    <a href="#" className="inline-flex items-center text-[#d9304f] font-semibold text-[15px] hover:translate-x-1.5 transition-transform">
+                                        Click here <span className="ml-1 text-lg leading-none">→</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Feature 4 */}
+                            <div className="flex-[0_0_85vw] md:flex-[0_0_400px] min-w-0 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-all">
+                                <div className="w-full aspect-video bg-gray-100 relative mb-6">
+                                    <img src="/photos/collact%20images/Quickbooks%20integration%202.png" alt="QuickBooks Sync and Invoice Upload" className="absolute inset-0 w-full h-full object-cover" />
+                                </div>
+                                <div className="px-6 pb-8">
+                                    <h3 className="text-[#0f213b] font-bold text-[22px] mb-4 leading-snug">QB Sync + Invoice Upload</h3>
+                                    <p className="text-gray-500 text-[15px] pb-4 mb-4 border-b border-gray-100 leading-relaxed">One-click to connect your QuickBooks account to sync invoices and customer data. You can also import invoices from CSV files or view import history.</p>
+                                    <a href="#" className="inline-flex items-center text-[#d9304f] font-semibold text-[15px] hover:translate-x-1.5 transition-transform">
+                                        Click here <span className="ml-1 text-lg leading-none">→</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        {/* Feature 2 */}
-                        <div className="bg-white rounded-2xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-md transition-shadow">
-                            <div className="w-full aspect-video bg-gray-100 relative mb-6">
-                                <img src="/photos/collact%20images/Agent%20Settings%202.png" alt="Agent Settings" className="absolute inset-0 w-full h-full object-cover" />
-                            </div>
-                            <div className="px-6 pb-6">
-                                <h3 className="text-[#0f213b] font-bold text-lg mb-4 leading-snug">Agent Settings</h3>
-                                <p className="text-gray-500 text-[13px] font-medium leading-relaxed">Control how your AI communicates by adjusting response speed, conversation pacing, voice tone, volume, voicemail detection, and call duration settings.</p>
-                            </div>
-                        </div>
-
-                        {/* Feature 3 */}
-                        <div className="bg-white rounded-2xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-md transition-shadow">
-                            <div className="w-full aspect-video bg-gray-100 relative mb-6">
-                                <img src="/photos/collact%20images/Opening%20message%202.png" alt="Opening Message templates" className="absolute inset-0 w-full h-full object-cover" />
-                            </div>
-                            <div className="px-6 pb-6">
-                                <h3 className="text-[#0f213b] font-bold text-lg mb-4 leading-snug">Opening Message</h3>
-                                <p className="text-gray-500 text-[13px] font-medium leading-relaxed">Choose how your AI greets customers with 20+ ready-made templates designed for your industry and business, so every conversation starts on the right note.</p>
-                            </div>
-                        </div>
-
-                        {/* Feature 4 */}
-                        <div className="bg-white rounded-2xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-md transition-shadow">
-                            <div className="w-full aspect-video bg-gray-100 relative mb-6">
-                                <img src="/photos/collact%20images/Quickbooks%20integration%202.png" alt="QuickBooks Sync and Invoice Upload" className="absolute inset-0 w-full h-full object-cover" />
-                            </div>
-                            <div className="px-6 pb-6">
-                                <h3 className="text-[#0f213b] font-bold text-lg mb-4 leading-snug">QB Sync + Invoice Upload</h3>
-                                <p className="text-gray-500 text-[13px] font-medium leading-relaxed">One-click to connect your QuickBooks account to sync invoices and customer data. You can also import invoices from CSV files or view import history.</p>
-                            </div>
-                        </div>
+                    {/* Navigation Buttons (Bottom - Centered on mobile, Right on desktop) */}
+                    <div className="absolute right-1/2 translate-x-1/2 md:translate-x-0 md:right-8 lg:right-16 bottom-0 flex gap-3 z-10 bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.08)] border border-gray-100">
+                        <button
+                            onClick={scrollPrev}
+                            className="bg-white hover:bg-[#d9304f] hover:text-white text-[#0f213b] shadow-[0_3px_10px_rgba(0,0,0,0.08)] w-10 h-10 rounded-full flex items-center justify-center transition-colors z-10"
+                        >
+                            <ChevronLeft className="w-5 h-5 ml-0.5" />
+                        </button>
+                        <button
+                            onClick={scrollNext}
+                            className="bg-white hover:bg-[#d9304f] hover:text-white text-[#0f213b] shadow-[0_3px_10px_rgba(0,0,0,0.08)] w-10 h-10 rounded-full flex items-center justify-center transition-colors z-10"
+                        >
+                            <ChevronRight className="w-5 h-5 mr-0.5" />
+                        </button>
                     </div>
                 </div>
             </section>
@@ -393,55 +468,51 @@ const ClaraCollectsNew = () => {
             {/* 5th Section: Dashboard View */}
             <section className="bg-[#0f213b] py-24 text-center">
                 <div className="container mx-auto px-4 max-w-6xl">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-16 text-white tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight">
                         Everything. <span className="text-[#d9314f]">In One Clear View.</span>
                     </h2>
+                    <p className="text-gray-400 mb-12 font-medium">Clara-powered businesses get more done.</p>
 
-
+                    {/* Tabs */}
+                    <div className="flex flex-wrap justify-center gap-2 md:gap-8 mb-16 px-4">
+                        {dashboardFeatures.map((feature, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => setActiveTab(idx)}
+                                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 transform ${activeTab === idx
+                                    ? "bg-[#182642] text-white border border-[#2b3b55] shadow-sm"
+                                    : "text-gray-400 hover:text-white border border-transparent"
+                                    }`}
+                            >
+                                {feature.title}
+                            </button>
+                        ))}
+                    </div>
 
                     {/* Features under Dashboard */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-0 max-w-7xl mx-auto">
-                        {/* Dashboard Feature 1 */}
-                        <div className="bg-[#172544] rounded-2xl overflow-hidden border border-white/10 group hover:border-[#d9314f]/50 transition-colors flex flex-col">
-                            <div className="w-full aspect-video bg-[#0c1322] relative border-b border-white/5">
-                                <img src="/photos/collact%20images/Dashboard%20Overview%202.png" alt="Dashboard Overview showing overdues and collected amounts" className="absolute inset-0 w-full h-full object-cover" />
-                            </div>
-                            <div className="p-8 text-center md:text-left">
-                                <h3 className="text-xl font-bold text-white mb-3">Dashboard Overview</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">View all outstanding payments, overdue collections, total calls made, and a prioritized list of customers who need immediate attention — all in one place.</p>
-                            </div>
+                    <div className="grid md:grid-cols-12 gap-12 items-center text-left mx-auto px-4 md:px-0">
+                        {/* Left Side Content */}
+                        <div className="md:col-span-4 flex flex-col justify-center">
+                            <h3 className="text-2xl md:text-[28px] font-bold text-white mb-4 leading-tight">
+                                {dashboardFeatures[activeTab].title}
+                            </h3>
+                            <p className="text-gray-400 text-sm md:text-[15px] leading-relaxed">
+                                {dashboardFeatures[activeTab].description}
+                            </p>
                         </div>
 
-                        {/* Dashboard Feature 2 */}
-                        <div className="bg-[#172544] rounded-2xl overflow-hidden border border-white/10 group hover:border-[#d9314f]/50 transition-colors flex flex-col">
-                            <div className="w-full aspect-video bg-[#0c1322] relative border-b border-white/5">
-                                <img src="/photos/collact%20images/Call%20History%20and%20Transcripts%202.png" alt="Call History and Transcripts" className="absolute inset-0 w-full h-full object-cover" />
-                            </div>
-                            <div className="p-8 text-center md:text-left">
-                                <h3 className="text-xl font-bold text-white mb-3">Call History & Transcripts</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">Access complete call logs, listen to recordings, and review transcripts for full visibility into every customer interaction.</p>
-                            </div>
-                        </div>
+                        {/* Right Side Image */}
+                        <div className="md:col-span-8 relative">
+                            {/* Glow Effect */}
+                            <div className="absolute -inset-4 md:-inset-10 bg-gradient-to-tr from-pink-500/10 via-purple-500/10 to-blue-500/10 blur-3xl rounded-full opacity-60 pointer-events-none"></div>
 
-                        {/* Dashboard Feature 3 */}
-                        <div className="bg-[#172544] rounded-2xl overflow-hidden border border-white/10 group hover:border-[#d9314f]/50 transition-colors flex flex-col">
-                            <div className="w-full aspect-video bg-[#0c1322] relative border-b border-white/5">
-                                <img src="/photos/collact%20images/Customer%20Management%202.png" alt="Customer Management tools" className="absolute inset-0 w-full h-full object-cover" />
-                            </div>
-                            <div className="p-8 text-center md:text-left">
-                                <h3 className="text-xl font-bold text-white mb-3">Customer Management</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">Select customers, check their eligibility for payment follow-up, and schedule collection calls directly from a single, organized list.</p>
-                            </div>
-                        </div>
-
-                        {/* Dashboard Feature 4 */}
-                        <div className="bg-[#172544] rounded-2xl overflow-hidden border border-white/10 group hover:border-[#d9314f]/50 transition-colors flex flex-col">
-                            <div className="w-full aspect-video bg-[#0c1322] relative border-b border-white/5">
-                                <img src="/photos/collact%20images/Escalation%20Management%202.png" alt="Escalation Management view" className="absolute inset-0 w-full h-full object-cover" />
-                            </div>
-                            <div className="p-8 text-center md:text-left">
-                                <h3 className="text-xl font-bold text-white mb-3">Escalation Management</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">Automatically route disputed or negative responses to an escalation list, so sensitive situations can be reviewed and handled appropriately.</p>
+                            {/* Image Container */}
+                            <div className="relative bg-[#0a1122] p-2 md:p-3 rounded-xl border border-white/10 shadow-2xl overflow-hidden aspect-[16/11] md:aspect-auto flex items-center justify-center">
+                                <img
+                                    src={dashboardFeatures[activeTab].image}
+                                    alt={dashboardFeatures[activeTab].title}
+                                    className="w-full h-auto max-h-[500px] rounded-lg object-contain"
+                                />
                             </div>
                         </div>
                     </div>
