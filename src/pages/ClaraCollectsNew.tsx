@@ -73,13 +73,6 @@ const ClaraCollectsNew = () => {
                                 >
                                     Book a Live Demo
                                 </Button>
-                                <Button
-                                    variant="outline"
-                                    size="lg"
-                                    className="bg-green-50/50 hover:bg-green-50/50 hover:text-[#0f213b] border border-green-100 text-[#0f213b] px-8 h-12 rounded-lg font-medium text-base shadow-sm"
-                                >
-                                    View 2-Min Overview
-                                </Button>
                             </div>
 
                             {/* Stats below buttons */}
@@ -306,16 +299,16 @@ const ClaraCollectsNew = () => {
             </section>
 
             {/* NEW 3rd Section: Relationship-Safe Features (Carousel) */}
-            <section className="bg-[#f8faf9] py-24 pl-4 md:pl-16 lg:pl-32 overflow-hidden relative">
-                <div className="max-w-6xl mb-12 pr-4 md:pr-16 lg:pr-32 text-center md:text-left">
+            <section className="bg-[#f8faf9] py-24 overflow-hidden relative">
+                <div className="pl-4 md:pl-16 lg:pl-32 max-w-6xl mb-12 pr-4 md:pr-16 lg:pr-32 text-center md:text-left">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0f213b] tracking-tight">
                         Professional. Controlled. <span className="text-[#d9314f]">Relationship-Safe.</span>
                     </h2>
                 </div>
 
-                <div className="relative pb-16 md:pb-20">
+                <div className="relative pb-16 md:pb-20 pl-4 md:pl-16 lg:pl-32">
                     {/* Embla Carousel Viewport */}
-                    <div className="overflow-hidden cursor-grab active:cursor-grabbing pb-12 pr-4" ref={emblaRef}>
+                    <div className="overflow-visible cursor-grab active:cursor-grabbing pb-12 pr-4" ref={emblaRef}>
                         <div className="flex gap-6 md:gap-8">
                             {/* Feature 1 */}
                             <div className="flex-[0_0_85vw] md:flex-[0_0_400px] min-w-0 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] text-left flex flex-col h-full border border-gray-100 overflow-hidden group hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-all">
@@ -324,10 +317,7 @@ const ClaraCollectsNew = () => {
                                 </div>
                                 <div className="px-6 pb-8">
                                     <h3 className="text-[#0f213b] font-bold text-[22px] mb-4 leading-snug">Agent Identity</h3>
-                                    <p className="text-gray-500 text-[15px] pb-4 mb-4 border-b border-gray-100 leading-relaxed">Name your AI and choose from 100+ male or female voice options to match your brand and customer style.</p>
-                                    <a href="#" className="inline-flex items-center text-[#d9304f] font-semibold text-[15px] hover:translate-x-1.5 transition-transform">
-                                        Click here <span className="ml-1 text-lg leading-none">→</span>
-                                    </a>
+                                    <p className="text-gray-500 text-[15px] leading-relaxed">Name your AI and choose from 100+ male or female voice options to match your brand and customer style.</p>
                                 </div>
                             </div>
 
@@ -338,10 +328,7 @@ const ClaraCollectsNew = () => {
                                 </div>
                                 <div className="px-6 pb-8">
                                     <h3 className="text-[#0f213b] font-bold text-[22px] mb-4 leading-snug">Agent Settings</h3>
-                                    <p className="text-gray-500 text-[15px] pb-4 mb-4 border-b border-gray-100 leading-relaxed">Control how your AI communicates by adjusting response speed, conversation pacing, voice tone, volume, voicemail detection, and call duration settings.</p>
-                                    <a href="#" className="inline-flex items-center text-[#d9304f] font-semibold text-[15px] hover:translate-x-1.5 transition-transform">
-                                        Click here <span className="ml-1 text-lg leading-none">→</span>
-                                    </a>
+                                    <p className="text-gray-500 text-[15px] leading-relaxed">Control how your AI communicates by adjusting response speed, conversation pacing, voice tone, volume, voicemail detection, and call duration settings.</p>
                                 </div>
                             </div>
 
@@ -352,10 +339,7 @@ const ClaraCollectsNew = () => {
                                 </div>
                                 <div className="px-6 pb-8">
                                     <h3 className="text-[#0f213b] font-bold text-[22px] mb-4 leading-snug">Opening Message</h3>
-                                    <p className="text-gray-500 text-[15px] pb-4 mb-4 border-b border-gray-100 leading-relaxed">Choose how your AI greets customers with 20+ ready-made templates designed for your industry and business, so every conversation starts on the right note.</p>
-                                    <a href="#" className="inline-flex items-center text-[#d9304f] font-semibold text-[15px] hover:translate-x-1.5 transition-transform">
-                                        Click here <span className="ml-1 text-lg leading-none">→</span>
-                                    </a>
+                                    <p className="text-gray-500 text-[15px] leading-relaxed">Choose how your AI greets customers with 20+ ready-made templates designed for your industry and business, so every conversation starts on the right note.</p>
                                 </div>
                             </div>
 
@@ -366,10 +350,7 @@ const ClaraCollectsNew = () => {
                                 </div>
                                 <div className="px-6 pb-8">
                                     <h3 className="text-[#0f213b] font-bold text-[22px] mb-4 leading-snug">QB Sync + Invoice Upload</h3>
-                                    <p className="text-gray-500 text-[15px] pb-4 mb-4 border-b border-gray-100 leading-relaxed">One-click to connect your QuickBooks account to sync invoices and customer data. You can also import invoices from CSV files or view import history.</p>
-                                    <a href="#" className="inline-flex items-center text-[#d9304f] font-semibold text-[15px] hover:translate-x-1.5 transition-transform">
-                                        Click here <span className="ml-1 text-lg leading-none">→</span>
-                                    </a>
+                                    <p className="text-gray-500 text-[15px] leading-relaxed">One-click to connect your QuickBooks account to sync invoices and customer data. You can also import invoices from CSV files or view import history.</p>
                                 </div>
                             </div>
                         </div>
