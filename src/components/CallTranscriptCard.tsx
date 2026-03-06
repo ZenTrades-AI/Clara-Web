@@ -181,12 +181,32 @@ const CallTranscriptCard: React.FC<CallTranscriptCardProps> = ({ transcript }) =
     };
   }, [transcript.audioUrl, transcript.transcript]);
 
+  useEffect(() => {
+    const handleOtherAudioPlay = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail.id !== transcript.id) {
+        if (audioRef.current) {
+          audioRef.current.pause();
+          setIsPlaying(false);
+        }
+      }
+    };
+
+    window.addEventListener('clara-audio-play', handleOtherAudioPlay);
+    return () => {
+      window.removeEventListener('clara-audio-play', handleOtherAudioPlay);
+    };
+  }, [transcript.id]);
+
   const handlePlayPause = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
         audioRef.current.play();
+        window.dispatchEvent(
+          new CustomEvent('clara-audio-play', { detail: { id: transcript.id } })
+        );
       }
       setIsPlaying(!isPlaying);
     }

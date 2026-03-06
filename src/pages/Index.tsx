@@ -5,12 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Phone, Calendar, Bell, DollarSign, Glasses, Play, ArrowRight } from "lucide-react";
 import { useRef, useState, useEffect, lazy, Suspense } from "react";
-import { useScroll, useTransform } from "framer-motion";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-import { HomeHeroOverlay } from "@/components/HomeHeroOverlay";
+import { ListenToClaraButton } from "@/components/ListenToClaraButton";
 
 // Lazy load below-the-fold components
-const DeferredHome3DScene = lazy(() => import("@/components/DeferredHome3DScene"));
 const ClaraInAction = lazy(() => import("@/components/ClaraInAction"));
 const CallTranscriptSection = lazy(() => import("@/components/CallTranscriptSection"));
 const TestimonialsGrid = lazy(() => import("@/components/TestimonialsGrid"));
@@ -78,20 +76,6 @@ const stages = [
 ];
 
 const Index = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    return scrollYProgress.onChange((latest) => {
-      setScrollProgress(latest);
-    });
-  }, [scrollYProgress]);
-
   return (
     <div className="min-h-screen">
       <Helmet>
@@ -111,21 +95,60 @@ const Index = () => {
       {/* HERO SECTION */}
       {/* ------------------------------------------------------- */}
       {/* ------------------------------------------------------- */}
-      {/* 3D SCROLL HERO SECTION */}
+      {/* HERO SECTION */}
       {/* ------------------------------------------------------- */}
-      <div ref={containerRef} className="relative h-[250vh]">
-        <div className="sticky top-0 h-screen overflow-hidden bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef]">
-          {/* 3D Scene Background */}
-          <div className="absolute inset-0 z-0">
-            <Suspense fallback={<div className="w-full h-full" />}>
-              <DeferredHome3DScene scrollProgress={scrollProgress} />
-            </Suspense>
-          </div>
-
-          {/* Overlay Content */}
-          <HomeHeroOverlay scrollProgress={scrollProgress} />
+      <section className="relative min-h-[85vh] flex items-center pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src="/photos/HB.webp"
+            alt="Background placeholder"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Subtle overlay layer to ensure text in front stands out. Adjust or remove if not needed. */}
+          <div className="absolute inset-0 bg-white/30"></div>
         </div>
-      </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+            {/* BADGE */}
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white rounded-full border border-border shadow-sm mb-8 hover:shadow-md transition-all">
+              <div className="flex gap-1.5 text-[#D32F2F]">
+                <Glasses className="w-4 h-4" />
+                <Phone className="w-4 h-4" />
+                <DollarSign className="w-4 h-4" />
+              </div>
+              <span className="text-sm font-semibold text-foreground tracking-wide">Three Agents. One Operating Layer.</span>
+            </div>
+
+            {/* HEADLINE */}
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight text-foreground">
+              The AI Growth Engine for <br className="hidden md:block" />
+              <span className="text-[#D32F2F]">Service Contractors</span>
+            </h1>
+
+            {/* SUBHEADLINE */}
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl">
+              Clara answers calls, guides field teams, and collects payments — <br className="hidden md:block" />
+              so your business grows without adding headcount.
+            </p>
+
+            {/* BUTTONS */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+              <Button
+                className="px-8 py-6 bg-[#D32F2F] hover:bg-[#B71C1C] text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all w-full sm:w-auto"
+                asChild
+              >
+                <Link to="/pricing">Book a Growth Strategy Demo <ArrowRight className="ml-2 w-5 h-5" /></Link>
+              </Button>
+
+              <ListenToClaraButton
+                className="bg-white text-foreground border border-border hover:bg-gray-50 hover:text-[#D32F2F] hover:scale-105 w-full sm:w-auto text-[#D32F2F] fill-[#D32F2F]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <RevealOnScroll>
         {/* TRUSTED BY TEXT - Moved below the 3D section */}
