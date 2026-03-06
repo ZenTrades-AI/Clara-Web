@@ -207,8 +207,8 @@ const Index = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 w-full max-w-7xl mx-auto">
               {/* Card 1: Field Intelligence */}
-              <div className="bg-gradient-to-br from-white to-[#FFF5F5] rounded-3xl p-8 border border-border/50 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-[#D32F2F]/30 transition-all duration-300 group">
-                <div className="inline-block px-3 py-1 bg-[#FFEBEE] text-[#D32F2F] text-[10px] font-bold tracking-wider uppercase rounded-full mb-6">
+              <div className="flex flex-col h-full bg-gradient-to-br from-white to-[#FFF5F5] rounded-3xl p-8 border border-border/50 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-[#D32F2F]/30 transition-all duration-300 group">
+                <div className="inline-block w-fit px-3 py-1 bg-[#FFEBEE] text-[#D32F2F] text-[10px] font-bold tracking-wider uppercase rounded-full mb-6">
                   FIELD INTELLIGENCE
                 </div>
                 <div className="w-14 h-14 rounded-2xl bg-[#FFEBEE] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -230,14 +230,14 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/solutions/field-copilot" className="inline-flex items-center text-[#D32F2F] font-bold text-sm hover:gap-2 transition-all group-hover:translate-x-1">
+                <Link to="/solutions/field-copilot" className="mt-auto inline-flex items-center text-[#D32F2F] font-bold text-sm hover:gap-2 transition-all group-hover:translate-x-1">
                   Explore Field Co-Pilot <ArrowRight className="ml-1 w-4 h-4" />
                 </Link>
               </div>
 
               {/* Card 2: Front Office */}
-              <div className="bg-gradient-to-br from-white to-[#F3F4F6] rounded-3xl p-8 border border-border/50 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-[#D32F2F]/30 transition-all duration-300 group">
-                <div className="inline-block px-3 py-1 bg-[#E8F5E9] text-[#2E7D32] text-[10px] font-bold tracking-wider uppercase rounded-full mb-6">
+              <div className="flex flex-col h-full bg-gradient-to-br from-white to-[#F3F4F6] rounded-3xl p-8 border border-border/50 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-[#D32F2F]/30 transition-all duration-300 group">
+                <div className="inline-block w-fit px-3 py-1 bg-[#E8F5E9] text-[#2E7D32] text-[10px] font-bold tracking-wider uppercase rounded-full mb-6">
                   FRONT OFFICE
                 </div>
                 <div className="w-14 h-14 rounded-2xl bg-[#E8F5E9] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -259,14 +259,14 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/solutions/answers" className="inline-flex items-center text-[#2E7D32] font-bold text-sm hover:gap-2 transition-all group-hover:translate-x-1">
+                <Link to="/solutions/answers" className="mt-auto inline-flex items-center text-[#2E7D32] font-bold text-sm hover:gap-2 transition-all group-hover:translate-x-1">
                   See Clara Answer Calls <ArrowRight className="ml-1 w-4 h-4" />
                 </Link>
               </div>
 
               {/* Card 3: Payments */}
-              <div className="bg-gradient-to-br from-white to-[#E3F2FD] rounded-3xl p-8 border border-border/50 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-[#D32F2F]/30 transition-all duration-300 group">
-                <div className="inline-block px-3 py-1 bg-[#E3F2FD] text-[#1565C0] text-[10px] font-bold tracking-wider uppercase rounded-full mb-6">
+              <div className="flex flex-col h-full bg-gradient-to-br from-white to-[#E3F2FD] rounded-3xl p-8 border border-border/50 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-[#D32F2F]/30 transition-all duration-300 group">
+                <div className="inline-block w-fit px-3 py-1 bg-[#E3F2FD] text-[#1565C0] text-[10px] font-bold tracking-wider uppercase rounded-full mb-6">
                   PAYMENTS
                 </div>
                 <div className="w-14 h-14 rounded-2xl bg-[#E3F2FD] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -288,7 +288,7 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/solutions/collects" className="inline-flex items-center text-[#1565C0] font-bold text-sm hover:gap-2 transition-all group-hover:translate-x-1">
+                <Link to="/solutions/collects" className="mt-auto inline-flex items-center text-[#1565C0] font-bold text-sm hover:gap-2 transition-all group-hover:translate-x-1">
                   See How Collections Work <ArrowRight className="ml-1 w-4 h-4" />
                 </Link>
               </div>
