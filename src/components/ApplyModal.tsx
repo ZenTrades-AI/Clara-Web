@@ -152,7 +152,7 @@ export function ApplyModal({ isOpen, onClose, role }: ApplyModalProps) {
             }}></iframe>
             <form 
               id="apply-form"
-              action="https://formsubmit.co/aditi.tiwari@zentrades.pro" 
+              action="https://formsubmit.co/hiring@justclara.ai" 
               method="POST" 
               encType="multipart/form-data" 
               target="hidden_iframe"

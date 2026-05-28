@@ -531,7 +531,7 @@ const Hiring = () => {
                 </div>
 
                 {/* Card 5 */}
-                <a href="mailto:ankit.dhingra@justclara.ai" className="group border border-[#e5e7eb] rounded-[12px] p-8 bg-white flex flex-col h-[280px] lg:col-span-2 shadow-[4px_4px_12px_rgba(0,0,0,0.08)] cursor-pointer hover:border-[#A91D24] hover:shadow-[0_12px_30px_rgba(0,0,0,0.05)] transition-all duration-300">
+                <a href="mailto:hiring@justclara.ai" className="group border border-[#e5e7eb] rounded-[12px] p-8 bg-white flex flex-col h-[280px] lg:col-span-2 shadow-[4px_4px_12px_rgba(0,0,0,0.08)] cursor-pointer hover:border-[#A91D24] hover:shadow-[0_12px_30px_rgba(0,0,0,0.05)] transition-all duration-300">
                   <div className="mb-auto">
                     <h3 className="text-black font-bold text-[20px] leading-[26px] lg:text-[22px] lg:leading-[28px] mb-4">Don't see your role?</h3>
                     <p className="text-[#8c8c8c] text-[12px] leading-[20px]">
