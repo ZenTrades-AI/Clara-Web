@@ -1,0 +1,296 @@
+
+export const openHubSpotForm = (onSuccess?: (() => void) | unknown) => {
+  // Remove any existing modals first
+  const existingModal = document.getElementById('hubspot-modal-overlay');
+  if (existingModal) {
+    existingModal.remove();
+  }
+
+  // Create modal overlay with backdrop
+  const overlay = document.createElement('div');
+  overlay.id = 'hubspot-modal-overlay';
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    backdrop-filter: blur(5px);
+  `;
+
+  // Create modal content container
+  const modal = document.createElement('div');
+  modal.id = 'hubspot-modal-content';
+  modal.style.cssText = `
+    background: white;
+    border-radius: 12px;
+    padding: 40px 30px 30px 30px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  `;
+
+  // Create close button
+  const closeButton = document.createElement('button');
+  closeButton.innerHTML = '×';
+  closeButton.style.cssText = `
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  `;
+
+  // Add hover effects to close button
+  closeButton.addEventListener('mouseenter', () => {
+    closeButton.style.backgroundColor = '#f0f0f0';
+  });
+  closeButton.addEventListener('mouseleave', () => {
+    closeButton.style.backgroundColor = 'transparent';
+  });
+
+  // Create container for HubSpot form
+  const formContainer = document.createElement('div');
+  formContainer.id = 'hubspot-form-target';
+  formContainer.style.cssText = `
+    width: 100%;
+    min-height: 200px;
+  `;
+
+  // Close modal function
+  const closeModal = () => {
+    overlay.remove();
+    document.body.style.overflow = 'auto';
+  };
+
+  // Event listeners for closing
+  closeButton.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeModal();
+    }
+  });
+
+  // Prevent modal content clicks from closing modal
+  modal.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // Assemble modal structure
+  modal.appendChild(closeButton);
+  modal.appendChild(formContainer);
+  overlay.appendChild(modal);
+
+  // Prevent body scroll when modal is open
+  document.body.style.overflow = 'hidden';
+
+  // Add modal to page
+  document.body.appendChild(overlay);
+
+  // Initialize HubSpot form
+  const initializeHubSpotForm = () => {
+    if (window.hbspt && window.hbspt.forms) {
+      console.log('Creating HubSpot form in modal...');
+
+      try {
+        window.hbspt.forms.create({
+          region: 'na1',
+          portalId: '45865556',
+          formId: 'c3428dcb-b18c-4277-b463-b7869c42800f',
+          target: '#hubspot-form-target',
+          onFormReady: () => {
+            console.log('HubSpot form is ready');
+          },
+          onFormSubmitted: () => {
+            console.log('HubSpot form submitted');
+
+            if (typeof onSuccess === 'function') {
+              onSuccess();
+              // Close modal slightly faster if there's a custom action, 
+              // but give it a moment to register the submission if needed.
+              // Or maybe close immediately? The user said "instead of showing the thanq screen".
+              // If we close immediately, the user sees the underlying page.
+              // If we redirect immediately, the user goes to the phone app.
+              closeModal();
+            } else {
+              // Auto-close modal after successful submission
+              setTimeout(() => {
+                closeModal();
+              }, 2000);
+            }
+          }
+        });
+      } catch (error) {
+        console.error('Error creating HubSpot form:', error);
+        formContainer.innerHTML = '<p style="padding: 20px; text-align: center; color: #666;">Unable to load form. Please try again later.</p>';
+      }
+    } else {
+      console.log('HubSpot not ready, retrying...');
+      setTimeout(initializeHubSpotForm, 500);
+    }
+  };
+
+  // Initialize form after modal renders
+  setTimeout(initializeHubSpotForm, 300);
+};
+
+// Export for potential other form types
+export const openAgentForm = () => {
+  // Remove any existing modals first
+  const existingModal = document.getElementById('agent-modal-overlay');
+  if (existingModal) {
+    existingModal.remove();
+  }
+
+  // Create modal overlay with backdrop
+  const overlay = document.createElement('div');
+  overlay.id = 'agent-modal-overlay';
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    backdrop-filter: blur(5px);
+  `;
+
+  // Create modal content container
+  const modal = document.createElement('div');
+  modal.id = 'agent-modal-content';
+  modal.style.cssText = `
+    background: white;
+    border-radius: 12px;
+    padding: 40px 30px 30px 30px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  `;
+
+  // Create close button
+  const closeButton = document.createElement('button');
+  closeButton.innerHTML = '×';
+  closeButton.style.cssText = `
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  `;
+
+  // Add hover effects to close button
+  closeButton.addEventListener('mouseenter', () => {
+    closeButton.style.backgroundColor = '#f0f0f0';
+  });
+  closeButton.addEventListener('mouseleave', () => {
+    closeButton.style.backgroundColor = 'transparent';
+  });
+
+  // Create container for HubSpot form
+  const formContainer = document.createElement('div');
+  formContainer.id = 'agent-form-target';
+  formContainer.style.cssText = `
+    width: 100%;
+    min-height: 200px;
+  `;
+
+  // Close modal function
+  const closeModal = () => {
+    overlay.remove();
+    document.body.style.overflow = 'auto';
+  };
+
+  // Event listeners for closing
+  closeButton.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeModal();
+    }
+  });
+
+  // Prevent modal content clicks from closing modal
+  modal.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // Assemble modal structure
+  modal.appendChild(closeButton);
+  modal.appendChild(formContainer);
+  overlay.appendChild(modal);
+
+  // Prevent body scroll when modal is open
+  document.body.style.overflow = 'hidden';
+
+  // Add modal to page
+  document.body.appendChild(overlay);
+
+  // Initialize HubSpot form
+  const initializeHubSpotForm = () => {
+    if (window.hbspt && window.hbspt.forms) {
+      console.log('Creating Agent HubSpot form in modal...');
+
+      try {
+        window.hbspt.forms.create({
+          region: 'na1',
+          portalId: '45865556',
+          formId: 'be1824d6-c6db-41c7-8b17-62e65b7f5662',
+          target: '#agent-form-target',
+          onFormReady: () => {
+            console.log('Agent HubSpot form is ready');
+          },
+          onFormSubmitted: () => {
+            console.log('Agent HubSpot form submitted');
+            // Auto-close modal after successful submission
+            setTimeout(() => {
+              closeModal();
+            }, 2000);
+          }
+        });
+      } catch (error) {
+        console.error('Error creating Agent HubSpot form:', error);
+        formContainer.innerHTML = '<p style="padding: 20px; text-align: center; color: #666;">Unable to load form. Please try again later.</p>';
+      }
+    } else {
+      console.log('HubSpot not ready, retrying...');
+      setTimeout(initializeHubSpotForm, 500);
+    }
+  };
+
+  // Initialize form after modal renders
+  setTimeout(initializeHubSpotForm, 300);
+};

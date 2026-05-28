@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Clara AI Brand Colors - Exact Spec */
+    --primary: 351 65% 49%;
+    /* #cb2e41 - Clara Red */
+    --primary-dark: 351 75% 39%;
+    /* Darker red for hover */
+    --primary-light: 351 79% 61%;
+    /* #EE5566 - Secondary Red */
+    --primary-foreground: 0 0% 100%;
+    /* white */
+
+    --deep-black: 0 0% 7%;
+    /* #121212 */
+    --warm-gray: 0 0% 43%;
+    /* #6e6e6e */
+    --light-gray-bg: 0 0% 98%;
+    /* #fafafa */
+    --divider: 0 0% 93%;
+    /* #ececec */
+
+    /* Gradient stops for dark hero sections */
+    --gradient-start: 355 95% 5%;
+    /* #1a0004 - Deep Red Start */
+    --gradient-end: 348 72% 11%;
+    /* #30050a - Deep Red End */
+
+    /* Semantic tokens */
+    --background: 0 0% 100%;
+    /* white */
+    --foreground: 0 0% 7%;
+    /* #121212 */
+    --card: 0 0% 100%;
+    /* white */
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 43%;
+    /* warm gray */
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 7%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 93%;
+    /* #ececec */
+    --input: 0 0% 93%;
+    --ring: 351 65% 49%;
+    --radius: 0.75rem;
+    /* 12px for cards */
+
+    /* Shadow system - Soft Apple-style */
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-premium: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 30px rgba(203, 46, 65, 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 351 65% 49%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 351 79% 61%;
+    --primary-dark: 351 75% 39%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 351 65% 49%;
+    --deep-black: 0 0% 7%;
+    --warm-gray: 0 0% 65%;
+    --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.6);
+    --shadow-premium: 0 8px 32px rgba(238, 85, 102, 0.2);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Inter', -apple-system, 'SF Pro Display', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  }
+}
+
+/* Custom animations for homepage */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 30s linear infinite;
+}
+
+.pause-animation:hover {
+  animation-play-state: paused;
+}
