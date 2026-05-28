@@ -109,6 +109,8 @@ const Navigation = () => {
             className="h-40 w-auto"
             width="280"
             height="200"
+            fetchPriority="high"
+            loading="eager"
           />
         </Link>
 
