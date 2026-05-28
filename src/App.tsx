@@ -123,7 +123,7 @@ const App = () => (
               <Route path="/events/roofcon2026" element={<RoofCon />} />
               <Route path="/resources/blogs" element={<BlogIndex />} />
               <Route path="/resources/blogs/:slug" element={<BlogPost />} />
-              <Route path="/hiring" element={<Hiring />} />
+              <Route path="/careers" element={<Hiring />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

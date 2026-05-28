@@ -31,7 +31,7 @@ const Hiring = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://justclara.ai/hiring" />
+        <link rel="canonical" href="https://justclara.ai/careers" />
 
         <script type="application/ld+json">
           {JSON.stringify({
