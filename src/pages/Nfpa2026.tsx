@@ -676,28 +676,17 @@ const Nfpa2026 = () => {
         </section>
       </div>
 
-      {/* Floating Booth Info Badge */}
-      <div className="hidden md:flex fixed bottom-6 right-6 z-40 bg-[#16121A]/95 backdrop-blur-md text-white rounded-2xl p-4 border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.3)] items-center gap-3 max-w-[280px]">
-        <div className="w-10 h-10 rounded-lg bg-[#D63E50] grid place-items-center flex-shrink-0 relative">
-          <MapPin className="w-5 h-5 text-white" />
+      {/* Floating Booth Info Badge - Top Left (Aligned below Navigation Bar) */}
+      <div className="fixed top-24 left-4 md:top-28 md:left-6 z-40 bg-[#16121A]/95 backdrop-blur-md text-white rounded-xl md:rounded-2xl p-3 md:p-4 border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.3)] flex items-center gap-2.5 md:gap-3 max-w-[240px] md:max-w-[280px] transition-all duration-300">
+        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-[#D63E50] grid place-items-center flex-shrink-0 relative">
+          <MapPin className="w-4 h-4 md:w-5 md:h-5 text-white" />
           <div className="absolute inset-[-3px] rounded-[10px] border border-[#D63E50] opacity-50 booth-ring" />
         </div>
         <div className="text-left">
-          <div className="text-[10px] uppercase text-[#B9B2C4] font-bold">We're exhibiting at</div>
-          <div className="font-extrabold text-lg leading-tight mt-0.5">Booth <span className="text-[#D63E50]">871</span></div>
-          <div className="text-[10px] text-[#C9C3D2] mt-0.5 font-medium leading-none font-sans">NFPA Conference & Expo 2026</div>
+          <div className="text-[9px] md:text-[10px] uppercase text-[#B9B2C4] font-bold leading-none">We're exhibiting at</div>
+          <div className="font-extrabold text-sm md:text-lg leading-tight mt-1">Booth <span className="text-[#D63E50]">871</span></div>
+          <div className="text-[9px] md:text-[10px] text-[#C9C3D2] mt-1 font-medium leading-none font-sans">NFPA Conference 2026</div>
         </div>
-      </div>
-
-      <div className="md:hidden fixed bottom-4 left-4 right-4 z-40 bg-[#16121A]/95 backdrop-blur-md text-white rounded-xl p-3 border border-white/10 shadow-lg flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <MapPin className="w-4 h-4 text-[#D63E50]" />
-          <div className="text-left">
-            <span className="text-[11px] font-medium text-[#C9C3D2]">Exhibiting at</span>
-            <span className="text-[12px] font-extrabold text-white bg-[#D63E50] px-1.5 py-0.5 rounded ml-1">Booth 871</span>
-          </div>
-        </div>
-        <span className="text-[10px] text-[#B9B2C4] font-semibold">NFPA 2026</span>
       </div>
 
       {/* Clara Footer */}
