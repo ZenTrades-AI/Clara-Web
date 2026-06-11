@@ -13,19 +13,18 @@ const Footer = () => {
                 src="/lovable-uploads/white.png"
                 srcSet="/lovable-uploads/white-mobile.png 200w, /lovable-uploads/white.png 450w"
                 sizes="(max-width: 768px) 200px, 450px"
-                alt="Clara AI"
-                className="h-16 md:h-20 w-auto"
+                alt="Clara AI Logo"
+                className="h-11 md:h-14 w-[90px] md:w-[113px] object-cover object-top"
                 width="280"
                 height="200"
                 loading="lazy"
               />
             </div>
             <p className="text-gray-300 mb-4 max-w-md text-sm leading-relaxed">
-              The AI Growth Engine for service-trade contractors. From first ring
-              to final payment.
+              The only AI your trades business needs. From first ring to final payment.
             </p>
             <p className="text-sm text-gray-400">
-              © 2025 Clara AI. All rights reserved.
+              © 2026 Clara AI. All rights reserved.
             </p>
             <p className="text-sm text-gray-400 mt-4">
               415 Mission St, Fl #37
@@ -116,7 +115,7 @@ const Footer = () => {
         {/* Bottom line */}
         <div className="border-t border-gray-700 pt-6 text-center">
           <p className="text-gray-400 text-sm">
-            Calls &lt; 85% confidence escalate to human dispatcher within two rings.
+            Calls requiring complex support automatically escalate to a live representative.
           </p>
         </div>
       </div>

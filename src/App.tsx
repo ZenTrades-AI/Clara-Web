@@ -56,6 +56,7 @@ const ElectricalIndustry = React.lazy(() => import('./pages/ElectricalIndustry')
 const BlogIndex = React.lazy(() => import('./pages/BlogIndex'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const Hiring = React.lazy(() => import('./pages/Hiring'));
+const Nfpa2026 = React.lazy(() => import('./pages/Nfpa2026'));
 
 const queryClient = new QueryClient();
 
@@ -121,6 +122,7 @@ const App = () => (
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/events/roofcon2026" element={<RoofCon />} />
+              <Route path="/events/nfpa2026" element={<Nfpa2026 />} />
               <Route path="/resources/blogs" element={<BlogIndex />} />
               <Route path="/resources/blogs/:slug" element={<BlogPost />} />
               <Route path="/careers" element={<Hiring />} />
