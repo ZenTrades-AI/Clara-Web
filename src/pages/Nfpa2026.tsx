@@ -18,6 +18,7 @@ interface FormValues {
 
 const Nfpa2026 = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const successRef = useRef<HTMLDivElement>(null);
 
   const [formValues, setFormValues] = useState<FormValues>({
@@ -41,7 +42,7 @@ const Nfpa2026 = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: Partial<Record<keyof FormValues, boolean>> = {};
     let hasError = false;
@@ -66,6 +67,30 @@ const Nfpa2026 = () => {
       return;
     }
 
+    setIsSubmitting(true);
+
+    const webhookUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL;
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...formValues,
+            timestamp: new Date().toISOString(),
+          }),
+        });
+      } catch (error) {
+        console.error("Error submitting to Google Sheets:", error);
+      }
+    } else {
+      console.warn("VITE_GOOGLE_SHEETS_URL environment variable is not defined.");
+    }
+
+    setIsSubmitting(false);
     setIsSubmitted(true);
     // Smooth scroll to success card container
     setTimeout(() => {
@@ -623,10 +648,13 @@ const Nfpa2026 = () => {
                     <div className="mt-8 pt-2">
                       <button
                         type="submit"
-                        className="w-full justify-center px-6 py-4 bg-[#D63E50] hover:bg-[#B52A3B] text-white font-extrabold text-base rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-[#D63E50]/20 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer group"
+                        disabled={isSubmitting}
+                        className={`w-full justify-center px-6 py-4 bg-[#D63E50] hover:bg-[#B52A3B] text-white font-extrabold text-base rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-[#D63E50]/20 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer group ${
+                          isSubmitting ? 'opacity-85 cursor-not-allowed' : ''
+                        }`}
                       >
-                        <span>Book your meeting</span>
-                        <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
+                        <span>{isSubmitting ? "Sending..." : "Book your meeting"}</span>
+                        {!isSubmitting && <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />}
                       </button>
                     </div>
                   </form>
