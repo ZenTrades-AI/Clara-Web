@@ -47,11 +47,11 @@ const Nfpa2026 = () => {
     const newErrors: Partial<Record<keyof FormValues, boolean>> = {};
     let hasError = false;
 
-    // Required fields: email, first name, last name, phone number
+    // Required fields: email, first name, company name, phone number
     const requiredFields: (keyof FormValues)[] = [
       "email",
       "first",
-      "last",
+      "company",
       "phone",
     ];
 
@@ -210,9 +210,15 @@ const Nfpa2026 = () => {
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-base md:text-lg text-[#473F52] mb-10 max-w-[58ch] leading-relaxed">
+            <p className="text-base md:text-lg text-[#473F52] mb-8 max-w-[58ch] leading-relaxed">
               See how Clara AI helps trade businesses streamline field work, speed up reporting, and keep operations moving from job site to invoice.
             </p>
+
+            {/* Exhibiting Line Banner */}
+            <div className="w-full max-w-[680px] border-y border-[#E8E3EE]/60 py-3.5 mb-10 flex items-center justify-center gap-2.5 text-sm md:text-base text-[#473F52] font-semibold bg-white/30 backdrop-blur-[2px]">
+              <MapPin className="w-4.5 h-4.5 text-[#D63E50] animate-bounce flex-shrink-0" />
+              <span>We're exhibiting at <span className="text-[#D63E50] font-black">Booth 871</span> — NFPA Conference & Expo 2026</span>
+            </div>
 
             {/* CTA Button 1 */}
             <div className="w-full sm:w-auto mb-14 flex justify-center">
@@ -477,26 +483,19 @@ const Nfpa2026 = () => {
                       </div>
                       <div>
                         <label className="block font-bold text-[11px] text-[#473F52] uppercase tracking-wider mb-1.5">
-                          Last name <span className="text-[#D63E50] font-bold">*</span>
+                          Last name
                         </label>
                         <div className="relative group">
-                          <User className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors w-4 h-4 pointer-events-none ${errors.last ? 'text-[#D63E50]' : 'text-slate-400 group-focus-within:text-[#D63E50]'
-                            }`} />
+                          <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#D63E50] transition-colors w-4 h-4 pointer-events-none" />
                           <input
                             type="text"
                             name="last"
                             value={formValues.last}
                             onChange={handleChange}
-                            className={`w-full text-sm font-medium bg-[#FAF9FB] hover:bg-slate-100/30 focus:bg-white border border-[#E8E3EE] rounded-xl pl-11 pr-4 py-3.5 transition-all duration-200 placeholder:text-[#9b94a4] text-[#16121A] focus:outline-none focus:ring-4 focus:ring-[#D63E50]/8 focus:border-[#D63E50] ${errors.last ? 'border-[#D63E50] ring-4 ring-[#D63E50]/8 bg-white' : ''
-                              }`}
+                            className="w-full text-sm font-medium bg-[#FAF9FB] hover:bg-slate-100/30 focus:bg-white border border-[#E8E3EE] rounded-xl pl-11 pr-4 py-3.5 transition-all duration-200 placeholder:text-[#9b94a4] text-[#16121A] focus:outline-none focus:ring-4 focus:ring-[#D63E50]/8 focus:border-[#D63E50]"
                             placeholder="Rivera"
                           />
                         </div>
-                        {errors.last && (
-                          <span className="text-[11px] text-[#D63E50] font-semibold mt-1.5 block">
-                            Last name is required
-                          </span>
-                        )}
                       </div>
                     </div>
 
@@ -558,19 +557,26 @@ const Nfpa2026 = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-left">
                       <div>
                         <label className="block font-bold text-[11px] text-[#473F52] uppercase tracking-wider mb-1.5">
-                          Company name
+                          Company name <span className="text-[#D63E50] font-bold">*</span>
                         </label>
                         <div className="relative group">
-                          <Building className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#D63E50] transition-colors w-4 h-4 pointer-events-none" />
+                          <Building className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors w-4 h-4 pointer-events-none ${errors.company ? 'text-[#D63E50]' : 'text-slate-400 group-focus-within:text-[#D63E50]'
+                            }`} />
                           <input
                             type="text"
                             name="company"
                             value={formValues.company}
                             onChange={handleChange}
-                            className="w-full text-sm font-medium bg-[#FAF9FB] hover:bg-slate-100/30 focus:bg-white border border-[#E8E3EE] rounded-xl pl-11 pr-4 py-3.5 transition-all duration-200 placeholder:text-[#9b94a4] text-[#16121A] focus:outline-none focus:ring-4 focus:ring-[#D63E50]/8 focus:border-[#D63E50]"
+                            className={`w-full text-sm font-medium bg-[#FAF9FB] hover:bg-slate-100/30 focus:bg-white border border-[#E8E3EE] rounded-xl pl-11 pr-4 py-3.5 transition-all duration-200 placeholder:text-[#9b94a4] text-[#16121A] focus:outline-none focus:ring-4 focus:ring-[#D63E50]/8 focus:border-[#D63E50] ${errors.company ? 'border-[#D63E50] ring-4 ring-[#D63E50]/8 bg-white' : ''
+                              }`}
                             placeholder="Acme Fire Protection"
                           />
                         </div>
+                        {errors.company && (
+                          <span className="text-[11px] text-[#D63E50] font-semibold mt-1.5 block">
+                            Company name is required
+                          </span>
+                        )}
                       </div>
                       <div>
                         <label className="block font-bold text-[11px] text-[#473F52] uppercase tracking-wider mb-1.5">
@@ -676,18 +682,33 @@ const Nfpa2026 = () => {
         </section>
       </div>
 
-      {/* Floating Booth Info Badge - Top Left (Aligned below Navigation Bar) */}
-      <div className="fixed top-24 left-4 md:top-28 md:left-6 z-40 bg-[#16121A]/95 backdrop-blur-md text-white rounded-xl md:rounded-2xl p-3 md:p-4 border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.3)] flex items-center gap-2.5 md:gap-3 max-w-[240px] md:max-w-[280px] transition-all duration-300">
-        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-[#D63E50] grid place-items-center flex-shrink-0 relative">
-          <MapPin className="w-4 h-4 md:w-5 md:h-5 text-white" />
-          <div className="absolute inset-[-3px] rounded-[10px] border border-[#D63E50] opacity-50 booth-ring" />
+      {/* Premium Floating Booth CTA Button */}
+      <a
+        href="#form"
+        onClick={scrollToForm}
+        className="fixed bottom-6 left-6 z-40 flex items-center gap-3.5 p-3.5 md:p-4 rounded-2xl bg-[#16121A]/95 hover:bg-[#16121A] text-white border border-[#D63E50]/30 hover:border-[#D63E50]/60 shadow-[0_20px_40px_rgba(22,18,26,0.25)] hover:shadow-[0_25px_50px_rgba(214,62,80,0.25)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300 group cursor-pointer max-w-[280px] md:max-w-[320px] backdrop-blur-md"
+      >
+        {/* Animated pulsing icon container */}
+        <div className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-tr from-[#D63E50] to-[#EE5566] flex items-center justify-center flex-shrink-0 relative overflow-hidden shadow-md shadow-[#D63E50]/20 group-hover:scale-105 transition-transform duration-300">
+          <MapPin className="w-5 h-5 text-white animate-bounce" />
+          <div className="absolute inset-[-4px] rounded-xl border-2 border-[#D63E50]/40 animate-ping opacity-75" />
         </div>
-        <div className="text-left">
-          <div className="text-[9px] md:text-[10px] uppercase text-[#B9B2C4] font-bold leading-none">We're exhibiting at</div>
-          <div className="font-extrabold text-sm md:text-lg leading-tight mt-1">Booth <span className="text-[#D63E50]">871</span></div>
-          <div className="text-[9px] md:text-[10px] text-[#C9C3D2] mt-1 font-medium leading-none font-sans">NFPA Conference 2026</div>
+        
+        {/* Text Details */}
+        <div className="text-left flex-1 min-w-0">
+          <div className="flex items-center gap-1.5">
+            <span className="text-[9px] uppercase font-extrabold tracking-wider text-[#EE5566] font-mono">NFPA EXPO 2026</span>
+            <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
+          </div>
+          <div className="font-black text-sm md:text-base leading-tight mt-0.5 text-white">
+            Meet at Booth <span className="text-[#EE5566] font-extrabold">871</span>
+          </div>
+          <div className="text-[10px] text-slate-300 font-semibold mt-0.5 flex items-center gap-1 group-hover:text-[#EE5566] transition-colors">
+            <span>Book meeting now</span>
+            <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
+          </div>
         </div>
-      </div>
+      </a>
 
       {/* Clara Footer */}
       <Footer />
