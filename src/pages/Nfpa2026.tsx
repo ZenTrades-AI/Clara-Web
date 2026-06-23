@@ -69,7 +69,9 @@ const Nfpa2026 = () => {
 
     setIsSubmitting(true);
 
-    const webhookUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL;
+    const webhookUrl =
+      import.meta.env.VITE_GOOGLE_SHEETS_URL ||
+      "https://script.google.com/macros/library/d/1LsnQQpFgEn3PQqKGIU391jnHwNz5Oj9DojTO8_MGU108U_nsd-wBwlZx/1";
     if (webhookUrl) {
       try {
         await fetch(webhookUrl, {
