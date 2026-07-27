@@ -58,6 +58,7 @@ const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const Hiring = React.lazy(() => import('./pages/Hiring'));
 const Nfpa2026 = React.lazy(() => import('./pages/Nfpa2026'));
 const ExclusiveDinner = React.lazy(() => import('./pages/ExclusiveDinner'));
+const ARAgingLanding = React.lazy(() => import('./pages/ARAgingLanding'));
 
 const queryClient = new QueryClient();
 
@@ -135,6 +136,8 @@ const App = () => {
                 <Route path="/resources/blogs" element={<BlogIndex />} />
                 <Route path="/resources/blogs/:slug" element={<BlogPost />} />
                 <Route path="/careers" element={<Hiring />} />
+                <Route path="/solutions/ar-aging" element={<ARAgingLanding />} />
+                <Route path="/ar-aging" element={<ARAgingLanding />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

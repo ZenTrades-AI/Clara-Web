@@ -74,11 +74,16 @@ export default {
 				"clara-gold": "#cb2e41",
 				"clara-teal": "#cb2e41",
 				"deep-black": "#050509",
+				"campaign-dark": "#12181F",
+				"campaign-light": "#F7F6F2",
+				"campaign-amber": "#E8A33D",
 			},
 
 			fontFamily: {
 				montserrat: ["Montserrat", "sans-serif"],
 				inter: ["Inter", "sans-serif"],
+				spaceGrotesk: ["Space Grotesk", "sans-serif"],
+				mono: ["IBM Plex Mono", "monospace"],
 			},
 
 			borderRadius: {
