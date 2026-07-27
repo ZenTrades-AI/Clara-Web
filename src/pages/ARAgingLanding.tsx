@@ -930,7 +930,7 @@ export default function ARAgingLanding() {
                 <div className="animate-fade-in text-center mt-2">
                   <div style={{ height: "690px", minWidth: "300px", background: "#FAF9F6", borderRadius: "16px", border: "1px solid #EAE7DF", overflow: "hidden" }}>
                     <iframe
-                      src="https://calendly.com/ankit-dhingra-justclara/60min"
+                      src="https://calendly.com/ankit-dhingra-justclara/30-min-meeting-with-clara-ai"
                       width="100%"
                       height="100%"
                       frameBorder="0"
