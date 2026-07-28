@@ -14,6 +14,7 @@ const ClaraAnswers = React.lazy(() => import('./pages/ClaraAnswers'));
 const ClaraDispatch = React.lazy(() => import('./pages/ClaraDispatch'));
 const ClaraReminds = React.lazy(() => import('./pages/ClaraReminds'));
 const Pricing = React.lazy(() => import('./pages/Pricing'));
+const StandardPricing = React.lazy(() => import('./pages/StandardPricing'));
 const Resources = React.lazy(() => import('./pages/Resources'));
 const Integrations = React.lazy(() => import('./pages/Integrations'));
 const CaseStudies = React.lazy(() => import('./pages/CaseStudies'));
@@ -114,7 +115,8 @@ const App = () => {
                 <Route path="/solutions/fire-protection-collects-growth" element={<FireProtectionCollectsGrowth />} />
                 <Route path="/solutions/electrical-collects-staff-shortage" element={<ElectricalCollectsStaffShortage />} />
                 <Route path="/solutions/roofing-collects-growth" element={<RoofingCollectsGrowth />} />
-                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/pricing" element={<StandardPricing />} />
+                <Route path="/public-pricing" element={<Pricing />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/integrations" element={<Integrations />} />
                 <Route path="/integrations/:integrationId" element={<IntegrationDetail />} />
