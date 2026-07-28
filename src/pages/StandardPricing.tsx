@@ -505,9 +505,6 @@ export default function StandardPricing() {
             <div className="w-12 h-12 rounded-full bg-red-50 text-[#CB2E41] flex items-center justify-center mx-auto mb-3">
               <Lock className="w-6 h-6" />
             </div>
-            <div className="text-xs font-bold text-[#CB2E41] uppercase tracking-widest font-mono">
-              JustClara.ai
-            </div>
             <div className="gate-title">Confidential — Team Access</div>
             <p className="gate-sub">Enter the team password to view Clara standard pricing.</p>
             <form onSubmit={handleUnlock}>
@@ -530,7 +527,6 @@ export default function StandardPricing() {
       {unlocked && (
         <main className="clara-std-pricing pt-28 pb-16">
           <div className="wrap">
-            <div className="eyebrow">JustClara.ai</div>
             <h1>Standard Pricing</h1>
             <p className="lede">
               AI voice agents for commercial trades — HVAC, plumbing, electrical, and fire protection.
