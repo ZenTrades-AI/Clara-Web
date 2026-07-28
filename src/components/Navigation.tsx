@@ -191,9 +191,7 @@ const Navigation = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Link to="/pricing" className="text-sm font-medium text-white hover:text-clara-red transition-colors">
-            Pricing
-          </Link>
+
           <Link to="/careers" className="text-sm font-medium text-white hover:text-clara-red transition-colors">
             Career
           </Link>
@@ -362,13 +360,7 @@ const Navigation = () => {
               )}
             </div>
 
-            <Link
-              to="/pricing"
-              className="block py-2 text-sm font-medium text-white hover:text-clara-red"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Pricing
-            </Link>
+
             <Link
               to="/careers"
               className="block py-2 text-sm font-medium text-white hover:text-clara-red"
