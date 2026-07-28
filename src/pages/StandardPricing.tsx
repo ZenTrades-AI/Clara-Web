@@ -54,8 +54,10 @@ export default function StandardPricing() {
     <div className="min-h-screen font-sans bg-[#F5F7FB] text-[#1A2233] selection:bg-[#149E8C] selection:text-white">
       <Helmet>
         <title>Clara — Standard Pricing</title>
-        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-        <meta name="googlebot" content="noindex, nofollow" />
+        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0" />
+        <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+        <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+        <meta name="slurp" content="noindex, nofollow" />
       </Helmet>
 
       {/* Embedded CSS matching provided template */}
