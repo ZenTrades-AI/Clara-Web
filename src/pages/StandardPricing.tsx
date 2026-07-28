@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import { Lock, ShieldCheck, CheckCircle2 } from "lucide-react";
 
 const GATE_PASSWORD = "ClaraPricing2026";
 
@@ -25,7 +28,7 @@ export default function StandardPricing() {
         setUnlocked(true);
       }
     } catch (e) {
-      // Ignore sessionStorage restriction
+      // Ignore
     }
   }, []);
 
@@ -51,7 +54,7 @@ export default function StandardPricing() {
   };
 
   return (
-    <div className="min-h-screen font-sans bg-[#F5F7FB] text-[#1A2233] selection:bg-[#149E8C] selection:text-white">
+    <div className="min-h-screen font-sans bg-[#FAF9F6] text-[#0F172A] selection:bg-[#CB2E41] selection:text-white flex flex-col justify-between">
       <Helmet>
         <title>Clara — Standard Pricing</title>
         <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0" />
@@ -60,48 +63,54 @@ export default function StandardPricing() {
         <meta name="slurp" content="noindex, nofollow" />
       </Helmet>
 
-      {/* Embedded CSS matching provided template */}
+      {/* Global Navigation Bar */}
+      <Navigation />
+
+      {/* Embedded CSS matching Clara Website Red Theme */}
       <style dangerouslySetInnerHTML={{
         __html: `
         .clara-std-pricing {
-          --navy: #1F2A5B;
-          --navy-2: #2b3a72;
-          --teal: #149E8C;
-          --teal-d: #0e7d6f;
-          --ink: #1A2233;
-          --mute: #6B7385;
-          --line: #E7E9F0;
-          --bg: #F5F7FB;
+          --red: #CB2E41;
+          --red-hover: #B92435;
+          --dark: #0D0D10;
+          --dark-soft: #1C1C24;
+          --teal: #0E9F6E;
+          --ink: #0F172A;
+          --mute: #64748B;
+          --line: #E2E8F0;
+          --bg: #FAF9F6;
           --card: #FFFFFF;
-          --shadow: 0 1px 2px rgba(20,30,60,.04), 0 8px 24px rgba(20,30,60,.06);
+          --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
         }
 
         .clara-std-pricing .wrap {
-          max-width: 1080px;
+          max-width: 1100px;
           margin: 0 auto;
-          padding: 56px 24px 72px;
+          padding: 32px 24px 72px;
         }
 
         .clara-std-pricing .eyebrow {
-          color: var(--teal);
-          font-weight: 700;
+          color: var(--red);
+          font-weight: 800;
           font-size: 12px;
           letter-spacing: .14em;
           text-transform: uppercase;
+          font-family: monospace;
         }
 
         .clara-std-pricing h1 {
-          font-size: 40px;
+          font-size: 42px;
           font-weight: 800;
-          color: var(--navy);
+          color: var(--dark);
           letter-spacing: -.02em;
-          margin: 8px 0 6px;
+          margin: 10px 0 6px;
         }
 
         .clara-std-pricing .lede {
           color: var(--mute);
           font-size: 16px;
           max-width: 640px;
+          line-height: 1.6;
         }
 
         .clara-std-pricing .billing {
@@ -109,7 +118,7 @@ export default function StandardPricing() {
           flex-direction: column;
           align-items: center;
           gap: 10px;
-          margin: 34px 0 6px;
+          margin: 36px 0 12px;
         }
 
         .clara-std-pricing .seg {
@@ -125,44 +134,46 @@ export default function StandardPricing() {
           border: 0;
           background: transparent;
           font: inherit;
-          font-weight: 600;
+          font-weight: 700;
           font-size: 14px;
           color: var(--mute);
-          padding: 9px 20px;
+          padding: 10px 22px;
           border-radius: 999px;
           cursor: pointer;
           display: flex;
           align-items: center;
           gap: 8px;
-          transition: .15s;
+          transition: all .2s ease;
         }
 
         .clara-std-pricing .seg button:hover {
-          color: var(--navy);
+          color: var(--dark);
         }
 
         .clara-std-pricing .seg button.active {
-          background: var(--navy);
+          background: var(--red);
           color: #fff;
+          box-shadow: 0 4px 12px rgba(203, 46, 65, 0.3);
         }
 
         .clara-std-pricing .save {
           font-size: 11px;
           font-weight: 700;
-          padding: 2px 7px;
+          padding: 2px 8px;
           border-radius: 999px;
-          background: #E3F5F1;
-          color: var(--teal-d);
+          background: #FEF2F2;
+          color: var(--red);
         }
 
         .clara-std-pricing .seg button.active .save {
-          background: rgba(255,255,255,.22);
+          background: rgba(255,255,255,.25);
           color: #fff;
         }
 
         .clara-std-pricing .billing-note {
           color: var(--mute);
           font-size: 13.5px;
+          font-weight: 500;
         }
 
         .clara-std-pricing section.product {
@@ -178,45 +189,46 @@ export default function StandardPricing() {
         }
 
         .clara-std-pricing .p-head h2 {
-          font-size: 24px;
+          font-size: 26px;
           font-weight: 800;
-          color: var(--navy);
-          letter-spacing: -.01em;
+          color: var(--dark);
+          letter-spacing: -.02em;
         }
 
         .clara-std-pricing .p-desc {
           color: var(--mute);
           font-size: 15px;
           max-width: 720px;
-          margin-bottom: 20px;
+          margin-bottom: 22px;
+          line-height: 1.6;
         }
 
         .clara-std-pricing .tabs {
           display: inline-flex;
           gap: 4px;
-          background: #eceef4;
-          border-radius: 10px;
+          background: #E2E8F0;
+          border-radius: 12px;
           padding: 4px;
-          margin-bottom: 20px;
+          margin-bottom: 22px;
         }
 
         .clara-std-pricing .tabs button {
           border: 0;
           background: transparent;
           font: inherit;
-          font-weight: 600;
+          font-weight: 700;
           font-size: 13.5px;
           color: var(--mute);
-          padding: 8px 16px;
-          border-radius: 8px;
+          padding: 9px 18px;
+          border-radius: 9px;
           cursor: pointer;
-          transition: .15s;
+          transition: all .15s ease;
         }
 
         .clara-std-pricing .tabs button.active {
           background: #fff;
-          color: var(--navy);
-          box-shadow: 0 1px 2px rgba(20,30,60,.08);
+          color: var(--dark);
+          box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
         }
 
         .clara-std-pricing .grid {
@@ -252,28 +264,36 @@ export default function StandardPricing() {
         .clara-std-pricing .card {
           background: var(--card);
           border: 1px solid var(--line);
-          border-radius: 14px;
-          padding: 22px 20px;
+          border-radius: 16px;
+          padding: 24px 22px;
           box-shadow: var(--shadow);
           display: flex;
           flex-direction: column;
+          transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .clara-std-pricing .card:hover {
+          transform: translateY(-2px);
+          border-color: #CBD5E1;
         }
 
         .clara-std-pricing .tier {
           font-size: 12px;
-          font-weight: 700;
+          font-weight: 800;
           letter-spacing: .08em;
           text-transform: uppercase;
-          color: var(--teal-d);
+          color: var(--red);
+          font-family: monospace;
         }
 
         .clara-std-pricing .price {
-          margin: 12px 0 2px;
-          font-size: 34px;
+          margin: 14px 0 4px;
+          font-size: 36px;
           font-weight: 800;
-          color: var(--navy);
+          color: var(--dark);
           letter-spacing: -.02em;
           line-height: 1;
+          font-family: sans-serif;
         }
 
         .clara-std-pricing .price .per {
@@ -284,57 +304,60 @@ export default function StandardPricing() {
         }
 
         .clara-std-pricing .price.custom {
-          font-size: 26px;
+          font-size: 28px;
         }
 
         .clara-std-pricing .meta {
-          margin-top: 14px;
-          padding-top: 14px;
+          margin-top: 16px;
+          padding-top: 16px;
           border-top: 1px solid var(--line);
           color: var(--ink);
           font-size: 14px;
         }
 
         .clara-std-pricing .meta .big {
-          font-weight: 600;
+          font-weight: 700;
         }
 
         .clara-std-pricing .meta .sub {
           color: var(--mute);
           font-size: 13px;
-          margin-top: 3px;
+          margin-top: 4px;
         }
 
+        /* Enterprise Dark Accent Card */
         .clara-std-pricing .card.enter {
-          background: linear-gradient(180deg,#20305f,#1a2650);
-          border-color: #20305f;
+          background: linear-gradient(180deg, #1C1C24, #0D0D10);
+          border-color: #2D2D3A;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .clara-std-pricing .card.enter .tier {
-          color: #7fe3d3;
+          color: #F87171;
         }
 
         .clara-std-pricing .card.enter .price,
         .clara-std-pricing .card.enter .meta,
         .clara-std-pricing .card.enter .meta .sub {
-          color: #eef1f8;
+          color: #F8FAFC;
         }
 
         .clara-std-pricing .card.enter .meta {
-          border-top-color: rgba(255,255,255,.16);
+          border-top-color: rgba(255,255,255,.15);
         }
 
         .clara-std-pricing .note {
           color: var(--mute);
-          font-size: 13px;
-          margin-top: 12px;
+          font-size: 13.5px;
+          margin-top: 14px;
+          font-weight: 500;
         }
 
         .clara-std-pricing .band {
-          margin-top: 30px;
+          margin-top: 36px;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 16px;
+          gap: 20px;
         }
 
         @media(max-width:720px){
@@ -344,41 +367,42 @@ export default function StandardPricing() {
         }
 
         .clara-std-pricing .info {
-          border-radius: 14px;
-          padding: 20px 22px;
+          border-radius: 16px;
+          padding: 22px 24px;
           border: 1px solid var(--line);
           background: #fff;
           box-shadow: var(--shadow);
         }
 
         .clara-std-pricing .info h3 {
-          font-size: 15px;
-          color: var(--navy);
-          font-weight: 700;
+          font-size: 16px;
+          color: var(--dark);
+          font-weight: 800;
           margin-bottom: 6px;
         }
 
         .clara-std-pricing .info p {
           color: var(--mute);
           font-size: 14px;
+          line-height: 1.6;
         }
 
         .clara-std-pricing .info.onb {
-          border-left: 5px solid var(--navy);
+          border-left: 5px solid var(--red);
         }
 
         .clara-std-pricing .info.bundle {
-          border-left: 5px solid var(--teal);
+          border-left: 5px solid var(--dark);
         }
 
         .clara-std-pricing .waived {
           display: inline-block;
-          margin-top: 8px;
+          margin-top: 10px;
           font-size: 13px;
           font-weight: 700;
-          color: var(--teal-d);
-          background: #E3F5F1;
-          padding: 4px 10px;
+          color: var(--red);
+          background: #FEF2F2;
+          padding: 4px 12px;
           border-radius: 999px;
         }
 
@@ -387,20 +411,12 @@ export default function StandardPricing() {
           color: var(--mute);
         }
 
-        .clara-std-pricing footer {
-          margin-top: 48px;
-          padding-top: 20px;
-          border-top: 1px solid var(--line);
-          color: var(--mute);
-          font-size: 12.5px;
-          text-align: center;
-        }
-
         /* Password Gate Modal Overlay */
         .clara-gate {
           position: fixed;
           inset: 0;
-          background: linear-gradient(180deg, #1F2A5B, #141d40);
+          background: rgba(13, 13, 16, 0.85);
+          backdrop-filter: blur(12px);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -410,67 +426,75 @@ export default function StandardPricing() {
 
         .clara-gate .gate-card {
           background: #fff;
-          border-radius: 16px;
-          padding: 36px 30px;
+          border-radius: 24px;
+          padding: 40px 32px;
           width: 100%;
-          max-width: 380px;
-          box-shadow: 0 24px 70px rgba(0,0,0,.4);
+          max-width: 400px;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
           text-align: center;
+          border: 1px solid #E2E8F0;
         }
 
         .clara-gate .gate-title {
           font-size: 22px;
           font-weight: 800;
-          color: #1F2A5B;
-          margin: 10px 0 6px;
+          color: #0D0D10;
+          margin: 12px 0 6px;
           letter-spacing: -.01em;
         }
 
         .clara-gate .gate-sub {
-          color: #6B7385;
+          color: #64748B;
           font-size: 14px;
-          margin-bottom: 22px;
+          margin-bottom: 24px;
+          line-height: 1.5;
         }
 
         .clara-gate input {
           width: 100%;
-          padding: 12px 14px;
-          border: 1px solid #E7E9F0;
-          border-radius: 10px;
+          padding: 14px 16px;
+          border: 1px solid #E2E8F0;
+          border-radius: 12px;
           font: inherit;
           font-size: 15px;
-          margin-bottom: 12px;
+          margin-bottom: 14px;
+          background: #FAF9F6;
+          color: #0D0D10;
+          transition: all 0.2s ease;
         }
 
         .clara-gate input:focus {
           outline: none;
-          border-color: #149E8C;
-          box-shadow: 0 0 0 3px rgba(20,158,140,.15);
+          border-color: #CB2E41;
+          background: #FFFFFF;
+          box-shadow: 0 0 0 4px rgba(203, 46, 65, 0.1);
         }
 
         .clara-gate button {
           width: 100%;
-          padding: 12px;
+          padding: 14px;
           border: 0;
-          border-radius: 10px;
-          background: #1F2A5B;
+          border-radius: 12px;
+          background: #CB2E41;
           color: #fff;
           font: inherit;
-          font-weight: 600;
+          font-weight: 700;
           font-size: 15px;
           cursor: pointer;
-          transition: .15s;
+          transition: all 0.2s ease;
+          box-shadow: 0 10px 20px -5px rgba(203, 46, 65, 0.3);
         }
 
         .clara-gate button:hover {
-          background: #2b3a72;
+          background: #B92435;
+          transform: translateY(-1px);
         }
 
         .clara-gate .gate-err {
-          color: #B93815;
+          color: #DC2626;
           font-size: 13px;
-          margin-top: 12px;
-          font-weight: 600;
+          margin-top: 14px;
+          font-weight: 700;
         }
       `}} />
 
@@ -478,7 +502,10 @@ export default function StandardPricing() {
       {!unlocked && (
         <div className="clara-gate">
           <div className="gate-card">
-            <div className="eyebrow" style={{ textAlign: "center" }}>
+            <div className="w-12 h-12 rounded-full bg-red-50 text-[#CB2E41] flex items-center justify-center mx-auto mb-3">
+              <Lock className="w-6 h-6" />
+            </div>
+            <div className="text-xs font-bold text-[#CB2E41] uppercase tracking-widest font-mono">
               JustClara.ai
             </div>
             <div className="gate-title">Confidential — Team Access</div>
@@ -486,13 +513,13 @@ export default function StandardPricing() {
             <form onSubmit={handleUnlock}>
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="Enter password"
                 autoComplete="off"
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
                 autoFocus
               />
-              <button type="submit">View pricing</button>
+              <button type="submit">Unlock Standard Pricing</button>
             </form>
             {hasError && <div className="gate-err">Incorrect password — please try again.</div>}
           </div>
@@ -501,7 +528,7 @@ export default function StandardPricing() {
 
       {/* UNLOCKED MAIN PRICING PAGE */}
       {unlocked && (
-        <div className="clara-std-pricing">
+        <main className="clara-std-pricing pt-28 pb-16">
           <div className="wrap">
             <div className="eyebrow">JustClara.ai</div>
             <h1>Standard Pricing</h1>
@@ -736,11 +763,12 @@ export default function StandardPricing() {
                 <span className="waived">2 agents −10% &nbsp;·&nbsp; all 3 agents −15%</span>
               </div>
             </div>
-
-            <footer>Prices effective July 2026 · JustClara.ai</footer>
           </div>
-        </div>
+        </main>
       )}
+
+      {/* Global Footer */}
+      <Footer />
     </div>
   );
 }
