@@ -657,7 +657,6 @@ export default function StandardPricing() {
                   <div className="price">{fmt(349)}<span className="per">/mo</span></div>
                   <div className="meta">
                     <div className="big">Up to 50 AR customers</div>
-                    <div className="sub">Up to $50,000 AR covered</div>
                   </div>
                 </div>
                 <div className="card">
@@ -665,7 +664,6 @@ export default function StandardPricing() {
                   <div className="price">{fmt(749)}<span className="per">/mo</span></div>
                   <div className="meta">
                     <div className="big">Up to 150 AR customers</div>
-                    <div className="sub">Up to $150,000 AR covered</div>
                   </div>
                 </div>
                 <div className="card">
@@ -673,7 +671,6 @@ export default function StandardPricing() {
                   <div className="price">{fmt(1299)}<span className="per">/mo</span></div>
                   <div className="meta">
                     <div className="big">Up to 300 AR customers</div>
-                    <div className="sub">Up to $300,000 AR covered</div>
                   </div>
                 </div>
                 <div className="card enter">
@@ -681,7 +678,6 @@ export default function StandardPricing() {
                   <div className="price custom">Custom</div>
                   <div className="meta">
                     <div className="big">300+ AR customers</div>
-                    <div className="sub">Tailored to your book</div>
                   </div>
                 </div>
               </div>
