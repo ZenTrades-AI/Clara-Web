@@ -2,13 +2,24 @@ import React, { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { Check, ChevronDown, ChevronUp, Star, ShieldCheck, HelpCircle, Zap, DollarSign, ArrowRight } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, Star, ShieldCheck, HelpCircle, Zap, DollarSign, ArrowRight, User, Mail, Phone, Building, Loader2, ArrowLeft } from "lucide-react";
 
-const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwNrzkQeKYUzXrBfmE7YCOtioCDqOlbBrzncs4mfNL19N-GQ7iSZZEFS_mxWeYaO4qWcg/exec";
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwpyoWjP_4vn68IgzKyZQ-5RonL6uN3_R_hI4xb1_VPzzAcEmwiB_eXusYGPssSsd6zWg/exec";
 
 export default function ARAgingLanding() {
-  // Step 1: Calendly Embed, Step 2: Confirmation Ticket
+  // Step 1: Business Details, Step 2: Calendly Embed, Step 3: Confirmation Ticket
   const [step, setStep] = useState<number>(1);
+
+  // Form State
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    companyName: "",
+  });
+
+  const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
+  const [isSubmittingLead, setIsSubmittingLead] = useState(false);
 
   // FAQ Accordion State
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -17,14 +28,80 @@ export default function ARAgingLanding() {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
-  // Listen for Calendly event confirmation to advance to Step 2
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (value.trim() !== "") {
+      setErrors((prev) => ({ ...prev, [name]: false }));
+    }
+  };
+
+  const handleLeadSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const newErrors: { [key: string]: boolean } = {};
+
+    if (!formData.fullName.trim()) newErrors.fullName = true;
+    if (!formData.email.trim() || !formData.email.includes("@")) newErrors.email = true;
+    if (!formData.phone.trim()) newErrors.phone = true;
+    if (!formData.companyName.trim()) newErrors.companyName = true;
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setIsSubmittingLead(true);
+
+    // Split fullName into first and last name for Apps Script schema compatibility
+    const nameParts = formData.fullName.trim().split(" ");
+    const firstName = nameParts[0] || "";
+    const lastName = nameParts.slice(1).join(" ") || "";
+
+    // Save lead to webhook in background (non-blocking)
+    try {
+      if (GOOGLE_SHEETS_URL) {
+        fetch(GOOGLE_SHEETS_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            timestamp: new Date().toISOString(),
+            first: firstName,
+            last: lastName,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.companyName,
+            software: "Clara Collects / A/R Aging",
+            trade: "General Trades",
+            source: "A/R Aging Landing Hero Lead Form",
+          }),
+        }).catch((err) => console.log("Lead webhook error:", err));
+      }
+    } catch (err) {
+      console.error("Submission error", err);
+    }
+
+    setIsSubmittingLead(false);
+    setStep(2); // Go to Calendly Scheduler Step
+  };
+
+  // Build Calendly URL with pre-filled query params
+  const buildCalendlyUrl = () => {
+    const baseUrl = "https://calendly.com/ankit-dhingra-justclara/30-min-meeting-with-clara-ai";
+    const params = new URLSearchParams();
+    if (formData.fullName) params.append("name", formData.fullName);
+    if (formData.email) params.append("email", formData.email);
+    return `${baseUrl}?${params.toString()}`;
+  };
+
+  // Listen for Calendly event confirmation to advance to Step 3
   useEffect(() => {
     const handleCalendlyEvent = (e: MessageEvent) => {
       if (e.data && e.data.event && e.data.event.indexOf("calendly") === 0) {
         console.log("Calendly message received:", e.data);
         if (e.data.event === "calendly.event_scheduled") {
           console.log("Calendly appointment scheduled successfully!");
-          setStep(2); // Go to Success Step
+          setStep(3); // Go to Success Step
         }
       }
     };
@@ -909,28 +986,169 @@ export default function ARAgingLanding() {
               </div>
             </div>
 
-            {/* Right Hero Form Card */}
+            {/* Right Hero Form Card - Multi-step Funnel */}
             <div className="form-card">
-              <div className="flex justify-between items-center mb-4">
-                <span className="eyebrow">{step === 1 ? "SCHEDULE DEMO" : "CONFIRMATION"}</span>
-                <span className="step-badge">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                  {step === 1 ? "Live Availability" : "Confirmed"}
-                </span>
-              </div>
-              <h2>{step === 1 ? "Book a Live Demonstration" : "Demo Scheduled!"}</h2>
-              <p className="sub-desc">
-                {step === 1
-                  ? "Select an available date and time slot below to schedule a 1-on-1 walkthrough."
-                  : "Thank you! Your meeting has been scheduled successfully via Calendly."}
-              </p>
+              {/* Stepper Header Bar */}
+              <div className="flex items-center justify-between gap-2 mb-6 border-b border-gray-100 pb-4">
+                <div className={`flex items-center gap-2 text-xs font-bold ${step === 1 ? 'text-[#CB2E41]' : step > 1 ? 'text-green-600' : 'text-gray-400'}`}>
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step === 1 ? 'bg-[#CB2E41] text-white' : step > 1 ? 'bg-green-100 text-green-700 border border-green-300' : 'bg-gray-100 text-gray-400'}`}>
+                    {step > 1 ? <Check className="w-3.5 h-3.5" /> : "1"}
+                  </div>
+                  <span className="hidden sm:inline">Details</span>
+                </div>
 
-              {/* Step 1: Direct Expanded Calendly Scheduler */}
+                <div className={`h-0.5 flex-1 ${step > 1 ? 'bg-green-500' : 'bg-gray-200'}`}></div>
+
+                <div className={`flex items-center gap-2 text-xs font-bold ${step === 2 ? 'text-[#CB2E41]' : step > 2 ? 'text-green-600' : 'text-gray-400'}`}>
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step === 2 ? 'bg-[#CB2E41] text-white' : step > 2 ? 'bg-green-100 text-green-700 border border-green-300' : 'bg-gray-100 text-gray-400'}`}>
+                    {step > 2 ? <Check className="w-3.5 h-3.5" /> : "2"}
+                  </div>
+                  <span className="hidden sm:inline">Schedule</span>
+                </div>
+
+                <div className={`h-0.5 flex-1 ${step > 2 ? 'bg-green-500' : 'bg-gray-200'}`}></div>
+
+                <div className={`flex items-center gap-2 text-xs font-bold ${step === 3 ? 'text-green-600' : 'text-gray-400'}`}>
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step === 3 ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-400'}`}>
+                    {step === 3 ? <Check className="w-3.5 h-3.5" /> : "3"}
+                  </div>
+                  <span className="hidden sm:inline">Confirmed</span>
+                </div>
+              </div>
+
+              {/* Step Title & Subtitle */}
+              <div className="mb-6">
+                <div className="eyebrow mb-1">
+                  {step === 1 && "STEP 1 OF 2 • BUSINESS DETAILS"}
+                  {step === 2 && "STEP 2 OF 2 • LIVE AVAILABILITY"}
+                  {step === 3 && "DEMO CONFIRMED"}
+                </div>
+                <h2>
+                  {step === 1 && "Request a Live Demo"}
+                  {step === 2 && "Select Date & Time"}
+                  {step === 3 && "You're All Set!"}
+                </h2>
+                <p className="sub-desc mb-0">
+                  {step === 1 && "Enter your details below to instantly unlock our 1-on-1 Calendly availability."}
+                  {step === 2 && "Pick an available slot for your walkthrough. Your info will be automatically attached."}
+                  {step === 3 && "Thank you! A confirmation email and calendar invitation has been dispatched."}
+                </p>
+              </div>
+
+              {/* STEP 1: Business Lead Capture Form */}
               {step === 1 && (
-                <div className="animate-fade-in text-center mt-2">
-                  <div style={{ height: "690px", minWidth: "300px", background: "#FAF9F6", borderRadius: "16px", border: "1px solid #EAE7DF", overflow: "hidden" }}>
+                <form onSubmit={handleLeadSubmit} className="space-y-4 animate-fade-in">
+                  <div className="form-group">
+                    <label>Full Name *</label>
+                    <div className="input-wrapper">
+                      <User className="input-icon w-4 h-4" />
+                      <input
+                        type="text"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleInputChange}
+                        placeholder="John Doe"
+                        className={errors.fullName ? "input-error" : ""}
+                      />
+                    </div>
+                    {errors.fullName && <span className="text-xs text-red-500 font-medium">Please enter your full name</span>}
+                  </div>
+
+                  <div className="form-group">
+                    <label>Work Email *</label>
+                    <div className="input-wrapper">
+                      <Mail className="input-icon w-4 h-4" />
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="john@yourcompany.com"
+                        className={errors.email ? "input-error" : ""}
+                      />
+                    </div>
+                    {errors.email && <span className="text-xs text-red-500 font-medium">Please enter a valid work email</span>}
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="form-group">
+                      <label>Phone Number *</label>
+                      <div className="input-wrapper">
+                        <Phone className="input-icon w-4 h-4" />
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          placeholder="(555) 000-0000"
+                          className={errors.phone ? "input-error" : ""}
+                        />
+                      </div>
+                      {errors.phone && <span className="text-xs text-red-500 font-medium">Required</span>}
+                    </div>
+
+                    <div className="form-group">
+                      <label>Company Name *</label>
+                      <div className="input-wrapper">
+                        <Building className="input-icon w-4 h-4" />
+                        <input
+                          type="text"
+                          name="companyName"
+                          value={formData.companyName}
+                          onChange={handleInputChange}
+                          placeholder="Acme Plumbing & HVAC"
+                          className={errors.companyName ? "input-error" : ""}
+                        />
+                      </div>
+                      {errors.companyName && <span className="text-xs text-red-500 font-medium">Required</span>}
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmittingLead}
+                    className="btn-submit mt-2"
+                  >
+                    {isSubmittingLead ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Securing Slot...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Continue to Schedule Demo</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+
+                  <p className="text-[11px] text-gray-400 text-center mt-3 font-sans">
+                    🔒 100% Secure & Confidential. Instant access to live calendar.
+                  </p>
+                </form>
+              )}
+
+              {/* STEP 2: Calendly Interactive Scheduler (Prefilled) */}
+              {step === 2 && (
+                <div className="animate-fade-in space-y-3">
+                  {/* Prefill Banner / Back Button */}
+                  <div className="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs font-sans">
+                    <div className="text-gray-700 truncate pr-2">
+                      <span className="font-semibold text-gray-900">Pre-filled for:</span> {formData.fullName} ({formData.email})
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setStep(1)}
+                      className="text-[#CB2E41] hover:underline font-bold flex items-center gap-1 shrink-0 cursor-pointer"
+                    >
+                      <ArrowLeft className="w-3.5 h-3.5" />
+                      <span>Edit</span>
+                    </button>
+                  </div>
+
+                  <div style={{ height: "640px", minWidth: "280px", background: "#FAF9F6", borderRadius: "16px", border: "1px solid #EAE7DF", overflow: "hidden" }}>
                     <iframe
-                      src="https://calendly.com/ankit-dhingra-justclara/30-min-meeting-with-clara-ai"
+                      src={buildCalendlyUrl()}
                       width="100%"
                       height="100%"
                       frameBorder="0"
@@ -940,10 +1158,10 @@ export default function ARAgingLanding() {
                 </div>
               )}
 
-              {/* Step 2: Success Confirmation Ticket */}
-              {step === 2 && (
-                <div className="space-y-6 animate-fade-in text-center py-6">
-                  <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-2">
+              {/* STEP 3: Success Confirmation Ticket */}
+              {step === 3 && (
+                <div className="space-y-6 animate-fade-in text-center py-4">
+                  <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-2 shadow-sm">
                     <Check className="w-8 h-8" />
                   </div>
 
@@ -951,21 +1169,29 @@ export default function ARAgingLanding() {
                     You're All Set!
                   </h3>
 
-                  <p className="text-sm text-gray-500 font-sans max-w-sm mx-auto leading-relaxed">
-                    A confirmation email with calendar invitation link and video meeting details has been sent to your email by Calendly.
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-left max-w-sm mx-auto space-y-2 text-xs font-sans">
+                    <div><span className="text-gray-500">Attendee:</span> <span className="font-bold text-gray-900">{formData.fullName || "Scheduled Guest"}</span></div>
+                    {formData.companyName && <div><span className="text-gray-500">Company:</span> <span className="font-bold text-gray-900">{formData.companyName}</span></div>}
+                    {formData.email && <div><span className="text-gray-500">Email:</span> <span className="font-bold text-gray-900">{formData.email}</span></div>}
+                  </div>
+
+                  <p className="text-xs text-gray-500 font-sans max-w-sm mx-auto leading-relaxed">
+                    A calendar invitation link and meeting details have been sent to your email.
                   </p>
 
-                  <div className="pt-4">
+                  <div className="pt-2">
                     <button
-                      onClick={() => setStep(1)}
-                      className="btn-back px-6 py-2.5 w-full sm:w-auto font-bold"
+                      onClick={() => {
+                        setStep(1);
+                        setFormData({ fullName: "", email: "", phone: "", companyName: "" });
+                      }}
+                      className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg font-bold text-xs transition-all cursor-pointer"
                     >
                       Book Another Session
                     </button>
                   </div>
                 </div>
               )}
-
             </div>
 
           </div>
