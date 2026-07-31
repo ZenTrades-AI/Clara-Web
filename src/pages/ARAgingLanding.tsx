@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { Check, ChevronDown, ChevronUp, Star, ShieldCheck, HelpCircle, Zap, DollarSign, ArrowRight, User, Mail, Phone, Building, Loader2, ArrowLeft } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, Star, ShieldCheck, HelpCircle, Zap, DollarSign, ArrowRight, User, Mail, Phone, Building, Loader2, ArrowLeft, Activity, TrendingUp, Clock, Sparkles, Play } from "lucide-react";
 
 const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwpyoWjP_4vn68IgzKyZQ-5RonL6uN3_R_hI4xb1_VPzzAcEmwiB_eXusYGPssSsd6zWg/exec";
 
@@ -919,48 +919,63 @@ export default function ARAgingLanding() {
 
       {/* HERO SECTION */}
       <section className="hero-container" id="book-section">
-        {/* Background Image Container aligned with the Home Page Hero styling */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Ambient Radial Mesh Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#CB2E41]/10 rounded-full blur-[140px]" />
+          <div className="absolute bottom-[-10%] right-[10%] w-[500px] h-[500px] bg-red-400/10 rounded-full blur-[120px]" />
           <img
             src="/photos/HB.webp"
             alt="Contractor Background Graphic"
-            className="w-full h-full object-cover object-center opacity-[0.04]"
+            className="w-full h-full object-cover object-center opacity-[0.03]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FFFFFF]/80 to-[var(--paper)]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-[#FFFFFF]/80 to-[var(--paper)]"></div>
         </div>
 
         <div className="wrap relative z-10">
           <div className="hero-grid">
 
-            {/* Left Hero Content panel */}
+            {/* Left Hero Content panel - Eye-catchy Redesign */}
             <div className="hero-left text-left self-start pt-2">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-white rounded-full border border-border shadow-sm mb-6">
-                <span className="w-2 h-2 rounded-full bg-[#CB2E41] animate-pulse"></span>
-                <span className="text-[11px] font-bold text-gray-800 tracking-wide font-mono uppercase">
-                  Clara Collects Agent &bull; A/R Recovery Layer
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full border border-red-200/80 shadow-md shadow-red-500/5 mb-6 hover:border-red-300 transition-all">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#CB2E41] animate-pulse"></span>
+                <span className="text-[11.5px] font-bold text-gray-900 tracking-wider font-mono uppercase flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-[#CB2E41]" />
+                  Clara Collects Agent &bull; Autonomous A/R Recovery
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight tracking-tight text-gray-900">
-                How much of your A/R is <span className="text-[#CB2E41] underline decoration-[#CB2E41]/20 underline-offset-8">stuck past 60 days?</span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-5 leading-[1.12] tracking-tight text-gray-900 font-display">
+                How much of your A/R is{" "}
+                <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#CB2E41] via-[#E11D48] to-[#991B1B]">
+                  stuck past 60 days?
+                  <span className="absolute bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#CB2E41] to-transparent rounded-full opacity-60"></span>
+                </span>
               </h1>
 
-              <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-xl">
-                Clara plugs into your billing platforms in 10 minutes, automatically scanning aging reports and executing AI voice calls to recover overdue invoice balances.
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-6 max-w-xl font-medium">
+                Clara plugs into your billing platforms in 10 minutes — automatically scanning aging reports and executing polite AI voice calls to recover overdue invoice balances.
               </p>
-
-              <div className="gradient-divider"></div>
 
               {/* Value props stack */}
               <div className="prop-row">
                 <div className="prop-card">
                   <div className="prop-card-icon">
-                    <Zap className="w-5 h-5" />
+                    <TrendingUp className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="prop-card-title">Interactive Demonstration</div>
-                    <div className="prop-card-desc">Experience Clara's live AI voice collector handling real-time calls.</div>
+                    <div className="prop-card-title">Reduce AR Aging Faster</div>
+                    <div className="prop-card-desc">Friendly outreach moves overdue invoices without manual chasing.</div>
+                  </div>
+                </div>
+
+                <div className="prop-card">
+                  <div className="prop-card-icon">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="prop-card-title">Voice, Text & Email Follow-Ups</div>
+                    <div className="prop-card-desc">Reach customers across every key channel from one workflow.</div>
                   </div>
                 </div>
 
@@ -969,18 +984,8 @@ export default function ARAgingLanding() {
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="prop-card-title">Zero Staff Lock-In</div>
-                    <div className="prop-card-desc">Integrates seamlessly with ServiceTitan, Jobber, and QuickBooks.</div>
-                  </div>
-                </div>
-
-                <div className="prop-card">
-                  <div className="prop-card-icon">
-                    <DollarSign className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="prop-card-title">Clear, Transparent Pricing</div>
-                    <div className="prop-card-desc">100% performance-aligned recovery model with no hidden fees.</div>
+                    <div className="prop-card-title">Fully Logged for Compliance</div>
+                    <div className="prop-card-desc">Every reminder and response is tracked for complete visibility.</div>
                   </div>
                 </div>
               </div>
