@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { Lock, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Lock } from "lucide-react";
 
 const GATE_PASSWORD = "ClaraPricing2026";
 
 type TermKey = "q" | "s" | "a";
+type CurrencyKey = "USD" | "CAD";
 
 const TERMS: Record<TermKey, { mult: number; note: string }> = {
   q: { mult: 1, note: "quarterly" },
@@ -14,11 +15,14 @@ const TERMS: Record<TermKey, { mult: number; note: string }> = {
   a: { mult: 0.85, note: "annually" }
 };
 
+const CAD_RATE = 1.40;
+
 export default function StandardPricing() {
   const [unlocked, setUnlocked] = useState<boolean>(false);
   const [passwordInput, setPasswordInput] = useState<string>("");
   const [hasError, setHasError] = useState<boolean>(false);
 
+  const [currency, setCurrency] = useState<CurrencyKey>("USD");
   const [term, setTerm] = useState<TermKey>("q");
   const [ansTab, setAnsTab] = useState<"sb" | "mm">("sb");
 
@@ -48,10 +52,21 @@ export default function StandardPricing() {
     }
   };
 
-  const fmt = (base: number) => {
-    const val = Math.round(base * TERMS[term].mult);
-    return "$" + val.toLocaleString("en-US");
+  const baseFor = (u: number) => {
+    return currency === "CAD" ? Math.round(u * CAD_RATE) : u;
   };
+
+  const pfx = () => {
+    return currency === "CAD" ? "CA$" : "$";
+  };
+
+  const fmt = (base: number, unitSuffix: string = "/mo") => {
+    const val = Math.round(baseFor(base) * TERMS[term].mult);
+    return pfx() + val.toLocaleString("en-US") + unitSuffix;
+  };
+
+  const overageRateStr = currency === "CAD" ? "CA$0.70" : "$0.50";
+  const onbFeeStr = currency === "CAD" ? "CA$1,400" : "$1,000";
 
   return (
     <div className="min-h-screen font-sans bg-[#FAF9F6] text-[#0F172A] selection:bg-[#CB2E41] selection:text-white flex flex-col justify-between">
@@ -66,7 +81,7 @@ export default function StandardPricing() {
       {/* Global Navigation Bar */}
       <Navigation />
 
-      {/* Embedded CSS matching Clara Website Red Theme */}
+      {/* Embedded CSS matching Clara Red Theme */}
       <style dangerouslySetInnerHTML={{
         __html: `
         .clara-std-pricing {
@@ -96,6 +111,7 @@ export default function StandardPricing() {
           letter-spacing: .14em;
           text-transform: uppercase;
           font-family: monospace;
+          margin-bottom: 4px;
         }
 
         .clara-std-pricing h1 {
@@ -103,7 +119,7 @@ export default function StandardPricing() {
           font-weight: 800;
           color: var(--dark);
           letter-spacing: -.02em;
-          margin: 10px 0 6px;
+          margin: 8px 0 6px;
         }
 
         .clara-std-pricing .lede {
@@ -117,7 +133,7 @@ export default function StandardPricing() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 10px;
+          gap: 12px;
           margin: 36px 0 12px;
         }
 
@@ -137,7 +153,7 @@ export default function StandardPricing() {
           font-weight: 700;
           font-size: 14px;
           color: var(--mute);
-          padding: 10px 22px;
+          padding: 9px 20px;
           border-radius: 999px;
           cursor: pointer;
           display: flex;
@@ -233,23 +249,23 @@ export default function StandardPricing() {
 
         .clara-std-pricing .grid {
           display: grid;
-          grid-template-columns: repeat(3,1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 16px;
         }
 
         .clara-std-pricing .grid.four {
-          grid-template-columns: repeat(4,1fr);
+          grid-template-columns: repeat(4, 1fr);
         }
 
         .clara-std-pricing .grid.five {
-          grid-template-columns: repeat(5,1fr);
+          grid-template-columns: repeat(4, 1fr);
         }
 
         @media(max-width:900px){
           .clara-std-pricing .grid,
           .clara-std-pricing .grid.four,
           .clara-std-pricing .grid.five {
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(2, 1fr);
           }
         }
 
@@ -505,18 +521,19 @@ export default function StandardPricing() {
             <div className="w-12 h-12 rounded-full bg-red-50 text-[#CB2E41] flex items-center justify-center mx-auto mb-3">
               <Lock className="w-6 h-6" />
             </div>
+            <div className="eyebrow">JustClara.ai</div>
             <div className="gate-title">Confidential — Team Access</div>
             <p className="gate-sub">Enter the team password to view Clara standard pricing.</p>
             <form onSubmit={handleUnlock}>
               <input
                 type="password"
-                placeholder="Enter password"
+                placeholder="Password"
                 autoComplete="off"
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
                 autoFocus
               />
-              <button type="submit">Unlock Standard Pricing</button>
+              <button type="submit">View pricing</button>
             </form>
             {hasError && <div className="gate-err">Incorrect password — please try again.</div>}
           </div>
@@ -527,13 +544,31 @@ export default function StandardPricing() {
       {unlocked && (
         <main className="clara-std-pricing pt-28 pb-16">
           <div className="wrap">
+            <div className="eyebrow">JustClara.ai</div>
             <h1>Standard Pricing</h1>
             <p className="lede">
-              AI voice agents for commercial trades — HVAC, plumbing, electrical, and fire protection.
+              AI agents for commercial trades — HVAC, plumbing, electrical, and fire protection.
             </p>
 
-            {/* BILLING TERM TOGGLE */}
+            {/* CURRENCY & BILLING TERM TOGGLE */}
             <div className="billing">
+              <div className="seg">
+                <button
+                  type="button"
+                  onClick={() => setCurrency("USD")}
+                  className={currency === "USD" ? "active" : ""}
+                >
+                  USD
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrency("CAD")}
+                  className={currency === "CAD" ? "active" : ""}
+                >
+                  CAD
+                </button>
+              </div>
+
               <div className="seg">
                 <button
                   type="button"
@@ -558,7 +593,7 @@ export default function StandardPricing() {
                 </button>
               </div>
               <div className="billing-note">
-                Prices shown are per month, billed {TERMS[term].note} in advance.
+                Prices shown are per month in {currency}, billed {TERMS[term].note} in advance.
               </div>
             </div>
 
@@ -592,21 +627,21 @@ export default function StandardPricing() {
                 <div className="grid">
                   <div className="card">
                     <div className="tier">Essentials</div>
-                    <div className="price">{fmt(249)}<span className="per">/mo</span></div>
+                    <div className="price">{fmt(249)}</div>
                     <div className="meta">
                       <div className="big">400 minutes / month</div>
                     </div>
                   </div>
                   <div className="card">
                     <div className="tier">Standard</div>
-                    <div className="price">{fmt(449)}<span className="per">/mo</span></div>
+                    <div className="price">{fmt(449)}</div>
                     <div className="meta">
                       <div className="big">800 minutes / month</div>
                     </div>
                   </div>
                   <div className="card">
                     <div className="tier">Growth</div>
-                    <div className="price">{fmt(649)}<span className="per">/mo</span></div>
+                    <div className="price">{fmt(649)}</div>
                     <div className="meta">
                       <div className="big">1,200 minutes / month</div>
                     </div>
@@ -618,21 +653,21 @@ export default function StandardPricing() {
                 <div className="grid">
                   <div className="card">
                     <div className="tier">Pro</div>
-                    <div className="price">{fmt(899)}<span className="per">/mo</span></div>
+                    <div className="price">{fmt(899)}</div>
                     <div className="meta">
                       <div className="big">2,000 minutes / month</div>
                     </div>
                   </div>
                   <div className="card">
                     <div className="tier">Scale</div>
-                    <div className="price">{fmt(1199)}<span className="per">/mo</span></div>
+                    <div className="price">{fmt(1199)}</div>
                     <div className="meta">
                       <div className="big">3,000 minutes / month</div>
                     </div>
                   </div>
                   <div className="card">
                     <div className="tier">Enterprise</div>
-                    <div className="price">{fmt(1799)}<span className="per">/mo</span></div>
+                    <div className="price">{fmt(1799)}</div>
                     <div className="meta">
                       <div className="big">5,000 minutes / month</div>
                     </div>
@@ -640,7 +675,7 @@ export default function StandardPricing() {
                 </div>
               )}
 
-              <p className="note">Additional minutes billed at $0.50 / minute.</p>
+              <p className="note">Additional minutes billed at {overageRateStr} / minute.</p>
             </section>
 
             {/* PRODUCT 2: CLARA COLLECTS */}
@@ -654,21 +689,21 @@ export default function StandardPricing() {
               <div className="grid four">
                 <div className="card">
                   <div className="tier">Starter</div>
-                  <div className="price">{fmt(349)}<span className="per">/mo</span></div>
+                  <div className="price">{fmt(349)}</div>
                   <div className="meta">
                     <div className="big">Up to 50 AR customers</div>
                   </div>
                 </div>
                 <div className="card">
                   <div className="tier">Growth</div>
-                  <div className="price">{fmt(749)}<span className="per">/mo</span></div>
+                  <div className="price">{fmt(749)}</div>
                   <div className="meta">
                     <div className="big">Up to 150 AR customers</div>
                   </div>
                 </div>
                 <div className="card">
                   <div className="tier">Scale</div>
-                  <div className="price">{fmt(1299)}<span className="per">/mo</span></div>
+                  <div className="price">{fmt(1299)}</div>
                   <div className="meta">
                     <div className="big">Up to 300 AR customers</div>
                   </div>
@@ -678,6 +713,7 @@ export default function StandardPricing() {
                   <div className="price custom">Custom</div>
                   <div className="meta">
                     <div className="big">300+ AR customers</div>
+                    <div className="sub">Tailored to your book</div>
                   </div>
                 </div>
               </div>
@@ -694,28 +730,28 @@ export default function StandardPricing() {
               <div className="grid five">
                 <div className="card">
                   <div className="tier">Starter</div>
-                  <div className="price">{fmt(249)}<span className="per">/mo</span></div>
+                  <div className="price">{fmt(249)}</div>
                   <div className="meta">
                     <div className="big">Up to 50 locations</div>
                   </div>
                 </div>
                 <div className="card">
                   <div className="tier">Growth</div>
-                  <div className="price">{fmt(499)}<span className="per">/mo</span></div>
+                  <div className="price">{fmt(499)}</div>
                   <div className="meta">
                     <div className="big">Up to 100 locations</div>
                   </div>
                 </div>
                 <div className="card">
                   <div className="tier">Pro</div>
-                  <div className="price">{fmt(1399)}<span className="per">/mo</span></div>
+                  <div className="price">{fmt(1399)}</div>
                   <div className="meta">
                     <div className="big">Up to 300 locations</div>
                   </div>
                 </div>
                 <div className="card">
                   <div className="tier">Scale</div>
-                  <div className="price">{fmt(2399)}<span className="per">/mo</span></div>
+                  <div className="price">{fmt(2399)}</div>
                   <div className="meta">
                     <div className="big">Up to 600 locations</div>
                   </div>
@@ -730,20 +766,39 @@ export default function StandardPricing() {
               </div>
             </section>
 
+            {/* PRODUCT 4: CLARA ESTIMATOR */}
+            <section className="product">
+              <div className="p-head">
+                <h2>Clara Estimator</h2>
+              </div>
+              <p className="p-desc">
+                An AI estimating agent that turns job details and site notes into ready-to-send quotes — so your team prices more work in less time, consistently.
+              </p>
+              <div className="grid">
+                <div className="card">
+                  <div className="tier">Per technician</div>
+                  <div className="price">{fmt(100, "/tech")}</div>
+                  <div className="meta">
+                    <div className="big">Billed per active technician, per month</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* INFO BANDS */}
             <div className="band">
               <div className="info onb">
                 <h3>Setup &amp; onboarding</h3>
                 <p>
-                  A one-time $1,000 fee covers workflow mapping, integration setup, and script &amp; tonality configuration before you go live.
+                  A one-time setup fee covers workflow mapping, integration setup, and script &amp; tonality configuration before you go live.
                 </p>
                 <span className="waived">
                   {term === "a" ? (
                     <>
-                      <span className="strike">$1,000</span> &nbsp;Waived on your Annual plan
+                      <span className="strike">{onbFeeStr}</span> &nbsp;Waived on your Annual plan
                     </>
                   ) : (
-                    "$1,000 one-time · waived on Annual plans"
+                    `${onbFeeStr} one-time — waived on Annual plans`
                   )}
                 </span>
               </div>
@@ -752,8 +807,12 @@ export default function StandardPricing() {
                 <p>
                   Bundle your Clara agents and save across the board, with a single onboarding.
                 </p>
-                <span className="waived">2 agents −10% &nbsp;·&nbsp; all 3 agents −15%</span>
+                <span className="waived">2 agents −10% &nbsp;·&nbsp; 3 or more −15%</span>
               </div>
+            </div>
+
+            <div className="text-center text-[#64748B] text-[12.5px] mt-12 pt-5 border-t border-[#E2E8F0]">
+              Prices effective July 2026 · JustClara.ai
             </div>
           </div>
         </main>
