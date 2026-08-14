@@ -732,35 +732,35 @@ export default function StandardPricing() {
                   <div className="tier">Starter</div>
                   <div className="price">{fmt(249)}</div>
                   <div className="meta">
-                    <div className="big">Up to 50 locations</div>
+                    <div className="big">Up to 50 Customers</div>
                   </div>
                 </div>
                 <div className="card">
                   <div className="tier">Growth</div>
                   <div className="price">{fmt(499)}</div>
                   <div className="meta">
-                    <div className="big">Up to 100 locations</div>
+                    <div className="big">Up to 100 Customers</div>
                   </div>
                 </div>
                 <div className="card">
                   <div className="tier">Pro</div>
                   <div className="price">{fmt(1399)}</div>
                   <div className="meta">
-                    <div className="big">Up to 300 locations</div>
+                    <div className="big">Up to 300 Customers</div>
                   </div>
                 </div>
                 <div className="card">
                   <div className="tier">Scale</div>
                   <div className="price">{fmt(2399)}</div>
                   <div className="meta">
-                    <div className="big">Up to 600 locations</div>
+                    <div className="big">Up to 600 Customers</div>
                   </div>
                 </div>
                 <div className="card enter">
                   <div className="tier">Enterprise</div>
                   <div className="price custom">Custom</div>
                   <div className="meta">
-                    <div className="big">600+ locations</div>
+                    <div className="big">600+ Customers</div>
                   </div>
                 </div>
               </div>
