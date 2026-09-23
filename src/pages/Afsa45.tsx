@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AfsaCallCard from "@/components/AfsaCallCard";
+import AfsaBookingDetails from "@/components/AfsaBookingDetails";
 
 const EVENT_START = new Date("2026-09-29T14:30:00-05:00").getTime();
 
@@ -87,6 +88,8 @@ const pageCss = `
 .afsa-root a:hover { color:#9E1F30; }
 .afsa-root ::selection { background:#CB2E41; color:#fff; }
 .afsa-root :focus-visible { outline:2px solid #CB2E41; outline-offset:3px; }
+.afsa-root .afsa-book:hover:not(:disabled) { background:#fff !important; color:#0B0B0B !important; }
+.afsa-root input:focus { border-color:#CB2E41 !important; }
 .afsa-root .afsa-play:hover { background:#fff !important; color:#0B0B0B !important; }
 @keyframes clara-marquee { from { transform:translate3d(0,0,0); } to { transform:translate3d(-50%,0,0); } }
 @keyframes clara-pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.35; transform:scale(.7); } }
@@ -138,6 +141,7 @@ const Afsa45 = () => {
   const [day, setDay] = useState("Tue 29");
   const [time, setTime] = useState("3:15 PM");
   const [now, setNow] = useState(Date.now());
+  const [bookingStep, setBookingStep] = useState<"pick" | "details">("pick");
 
   useEffect(() => {
     const t = setInterval(() => setNow(Date.now()), 1000);
@@ -264,7 +268,7 @@ const Afsa45 = () => {
         <style>{pageCss}</style>
       </Helmet>
       <Navigation />
-      <div ref={rootRef} className="afsa-root pt-20 md:pt-24">
+      <div ref={rootRef} className="afsa-root pt-20 md:pt-24 pb-[clamp(72px,8vw,110px)]">
       <div style={{ maxWidth: "1320px", margin: "0 auto", padding: "0 clamp(20px,4vw,56px)" }}>
         <header style={{ padding: "clamp(48px,8vw,96px) 0 0", position: "relative", display: "grid", gridTemplateColumns: "minmax(0,1.35fr) minmax(0,1fr)", gap: "clamp(28px,5vw,72px)", alignItems: "start" }} data-herogrid="">
           <div style={{ position: "relative" }}>
@@ -452,57 +456,63 @@ const Afsa45 = () => {
                 <br />
                 on the floor.
               </div>
-              <div style={{ marginTop: "28px", fontSize: "10.5px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7E7A78" }}>
-                Pick a day
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "12px" }}>
-                {days.map((d, dIndex) =>
-                  d.on ? (
-                    <button key={dIndex} type="button" onClick={d.pick} style={{ borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontFamily: "inherit", cursor: "pointer", background: "#CB2E41", color: "#fff", border: "1px solid #CB2E41" }}>
-                      {d.label}
-                    </button>
-                  ) :
-                  d.off ? (
-                    <button key={dIndex} type="button" onClick={d.pick} style={{ borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontFamily: "inherit", cursor: "pointer", background: "transparent", color: "#C9C5C3", border: "1px solid rgba(255,255,255,0.22)", transition: "border-color .25s ease,color .25s ease" }} className="afsa-h4">
-                      {d.label}
-                    </button>
-                  ) :
-                  null
-                )}
-              </div>
-              <div style={{ marginTop: "22px", fontSize: "10.5px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7E7A78" }}>
-                Pick a time
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "12px" }}>
-                {times.map((t, tIndex) =>
-                  t.on ? (
-                    <button key={tIndex} type="button" onClick={t.pick} style={{ borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontFamily: "inherit", cursor: "pointer", background: "#CB2E41", color: "#fff", border: "1px solid #CB2E41" }}>
-                      {t.label}
-                    </button>
-                  ) :
-                  t.off ? (
-                    <button key={tIndex} type="button" onClick={t.pick} style={{ borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontFamily: "inherit", cursor: "pointer", background: "transparent", color: "#C9C5C3", border: "1px solid rgba(255,255,255,0.22)", transition: "border-color .25s ease,color .25s ease" }} className="afsa-h5">
-                      {t.label}
-                    </button>
-                  ) :
-                  null
-                )}
-              </div>
-              <div style={{ marginTop: "26px", display: "flex", flexDirection: "column" }}>
-                {boothRows.map((r, rIndex) => (
-                  <div key={rIndex} style={{ display: "flex", justifyContent: "space-between", gap: "20px", padding: "13px 0", borderTop: "1px solid rgba(255,255,255,0.13)" }}>
-                    <span style={{ fontSize: "10.5px", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8E8A88", flex: "none" }}>
-                      {r.k}
-                    </span>
-                    <span style={{ fontSize: "14px", textAlign: "right", color: "#F2F0EF" }}>
-                      {r.v}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <a href="#booth" data-magnetic="" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginTop: "26px", background: "#CB2E41", color: "#fff", padding: "17px 24px", borderRadius: "999px", fontSize: "15px", fontWeight: 500, transition: "background .3s ease,color .3s ease" }} className="afsa-h6">
-                {bookLabel}
-              </a>
+              {bookingStep === "pick" ? (
+                <>
+                <div style={{ marginTop: "28px", fontSize: "10.5px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7E7A78" }}>
+                  Pick a day
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "12px" }}>
+                  {days.map((d, dIndex) =>
+                    d.on ? (
+                      <button key={dIndex} type="button" onClick={d.pick} style={{ borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontFamily: "inherit", cursor: "pointer", background: "#CB2E41", color: "#fff", border: "1px solid #CB2E41" }}>
+                        {d.label}
+                      </button>
+                    ) :
+                    d.off ? (
+                      <button key={dIndex} type="button" onClick={d.pick} style={{ borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontFamily: "inherit", cursor: "pointer", background: "transparent", color: "#C9C5C3", border: "1px solid rgba(255,255,255,0.22)", transition: "border-color .25s ease,color .25s ease" }} className="afsa-h4">
+                        {d.label}
+                      </button>
+                    ) :
+                    null
+                  )}
+                </div>
+                <div style={{ marginTop: "22px", fontSize: "10.5px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7E7A78" }}>
+                  Pick a time
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "12px" }}>
+                  {times.map((t, tIndex) =>
+                    t.on ? (
+                      <button key={tIndex} type="button" onClick={t.pick} style={{ borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontFamily: "inherit", cursor: "pointer", background: "#CB2E41", color: "#fff", border: "1px solid #CB2E41" }}>
+                        {t.label}
+                      </button>
+                    ) :
+                    t.off ? (
+                      <button key={tIndex} type="button" onClick={t.pick} style={{ borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontFamily: "inherit", cursor: "pointer", background: "transparent", color: "#C9C5C3", border: "1px solid rgba(255,255,255,0.22)", transition: "border-color .25s ease,color .25s ease" }} className="afsa-h5">
+                        {t.label}
+                      </button>
+                    ) :
+                    null
+                  )}
+                </div>
+                <div style={{ marginTop: "26px", display: "flex", flexDirection: "column" }}>
+                  {boothRows.map((r, rIndex) => (
+                    <div key={rIndex} style={{ display: "flex", justifyContent: "space-between", gap: "20px", padding: "13px 0", borderTop: "1px solid rgba(255,255,255,0.13)" }}>
+                      <span style={{ fontSize: "10.5px", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8E8A88", flex: "none" }}>
+                        {r.k}
+                      </span>
+                      <span style={{ fontSize: "14px", textAlign: "right", color: "#F2F0EF" }}>
+                        {r.v}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <button type="button" onClick={() => setBookingStep("details")} data-magnetic="" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginTop: "26px", background: "#CB2E41", color: "#fff", padding: "17px 24px", borderRadius: "999px", fontSize: "15px", width: "100%", border: "none", fontFamily: "inherit", cursor: "pointer", fontWeight: 500, transition: "background .3s ease,color .3s ease" }} className="afsa-h6">
+                  {bookLabel}
+                </button>
+                </>
+              ) : (
+                <AfsaBookingDetails day={day} time={time} onBack={() => setBookingStep("pick")} />
+              )}
               <p style={{ margin: "18px 0 0", fontSize: "13px", lineHeight: 1.55, color: "#8E8A88" }}>
                 Prefer to talk before the show? Reach out any time — we'll bring the demo to you.
               </p>
