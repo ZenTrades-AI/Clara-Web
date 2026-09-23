@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
-// Same Apps Script web app and sheet ("NFPA 2026 Form Submissions") as the NFPA 2026 page.
+// Apps Script web app that appends each booking to the "NFPA 2026 Form Submissions" sheet.
 const SHEETS_URL =
-  import.meta.env.VITE_GOOGLE_SHEETS_URL ||
-  "https://script.google.com/macros/library/d/1LsnQQpFgEn3PQqKGIU391jnHwNz5Oj9DojTO8_MGU108U_nsd-wBwlZx/1";
+  "https://script.google.com/macros/s/AKfycbx1JOOzye-Q9YhWPuzQD5_eV_h0rGJoGkXfJ2GPgnobhpuxv8L6HonTXAJ9Pw1vEeFe/exec";
 
 interface Props {
   day: string;
