@@ -58,6 +58,7 @@ const BlogIndex = React.lazy(() => import('./pages/BlogIndex'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const Hiring = React.lazy(() => import('./pages/Hiring'));
 const Nfpa2026 = React.lazy(() => import('./pages/Nfpa2026'));
+const Afsa45 = React.lazy(() => import('./pages/Afsa45'));
 const ExclusiveDinner = React.lazy(() => import('./pages/ExclusiveDinner'));
 const ARAgingLanding = React.lazy(() => import('./pages/ARAgingLanding'));
 
@@ -69,15 +70,6 @@ const PageLoader = () => (
     <div className="w-8 h-8 border-4 border-[#A91D24] border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
-
-// Standalone HTML pages live in /public; Vercel rewrites their clean URLs
-// directly, this covers in-app navigation and the local dev server.
-const StaticPageRedirect = ({ to }: { to: string }) => {
-  React.useEffect(() => {
-    window.location.replace(to + window.location.search + window.location.hash);
-  }, [to]);
-  return null;
-};
 
 const App = () => {
   React.useEffect(() => {
@@ -143,7 +135,7 @@ const App = () => {
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/events/roofcon2026" element={<RoofCon />} />
                 <Route path="/events/nfpa2026" element={<Nfpa2026 />} />
-                <Route path="/events/afsa45" element={<StaticPageRedirect to="/events/afsa45.html" />} />
+                <Route path="/events/afsa45" element={<Afsa45 />} />
                 <Route path="/exclusive-dinner" element={<ExclusiveDinner />} />
                 <Route path="/resources/blogs" element={<BlogIndex />} />
                 <Route path="/resources/blogs/:slug" element={<BlogPost />} />

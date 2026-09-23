@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/events/afsa45",
-      "destination": "/events/afsa45.html"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
