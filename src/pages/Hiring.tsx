@@ -20,12 +20,12 @@ const Hiring = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Founding Tech Lead & Founding PM — Clara AI, Bengaluru</title>
+        <title>Founding Tech Lead & Founding PM | Clara AI, Bengaluru</title>
         <meta
           name="description"
           content="Clara is the agent platform for commercial trades. 100+ paying customers. We're hiring the founding engineering and product team in Bengaluru."
         />
-        <meta property="og:title" content="Founding Tech Lead & Founding PM — Clara AI, Bengaluru" />
+        <meta property="og:title" content="Founding Tech Lead & Founding PM | Clara AI, Bengaluru" />
         <meta property="og:description" content="Clara is the agent platform for commercial trades. 100+ paying customers. We're hiring the founding engineering and product team in Bengaluru." />
         <meta property="og:image" content="https://justclara.ai/photos/og-hiring.webp" />
         <meta property="og:image:width" content="1200" />
@@ -133,7 +133,7 @@ const Hiring = () => {
                   </h3>
                   
                   <p className="text-[15px] leading-[26px] text-[#52525B] font-normal">
-                    Commercial trades — the HVAC, plumbing, electrical, and life-safety companies that keep every building you've ever walked into running — is one of the largest pieces of the economy still operating on phones, spreadsheets, and after-hours dispatching. The category produced ServiceTitan, a multi-billion-dollar public company, on legacy software alone. The AI layer on top of it is wide open.
+                    Commercial trades (the HVAC, plumbing, electrical, and life-safety companies that keep every building you've ever walked into running) is one of the largest pieces of the economy still operating on phones, spreadsheets, and after-hours dispatching. The category produced ServiceTitan, a multi-billion-dollar public company, on legacy software alone. The AI layer on top of it is wide open.
                   </p>
                 </div>
 
@@ -151,7 +151,7 @@ const Hiring = () => {
                   </h3>
                   
                   <p className="text-[15px] leading-[26px] text-[#52525B] font-normal">
-                    100+ paying customers. Multiple agents already in production — answering calls, scheduling jobs, recovering missed revenue, coaching technicians. Customers see ROI in the first month. We're not selling a deck. We're deploying AI agents the moment a contract is signed.
+                    100+ paying customers. Multiple agents already in production, answering calls, scheduling jobs, recovering missed revenue, coaching technicians. Customers see ROI in the first month. We're not selling a deck. We're deploying AI agents the moment a contract is signed.
                   </p>
                 </div>
 
@@ -169,7 +169,7 @@ const Hiring = () => {
                   </h3>
                   
                   <p className="text-[15px] leading-[26px] text-[#52525B] font-normal">
-                    You'll set the technical and product direction for the next 10x growth. Architecture, hiring, customer relationships — yours to shape. This is the rare 0-to-1 seat that comes with paying customers, a market actively pulling for the product, and a founder who has already done the hard part of finding it.
+                    You'll set the technical and product direction for the next 10x growth. Architecture, hiring, customer relationships: yours to shape. This is the rare 0-to-1 seat that comes with paying customers, a market actively pulling for the product, and a founder who has already done the hard part of finding it.
                   </p>
                 </div>
 
@@ -226,7 +226,7 @@ const Hiring = () => {
                   What we're <span className="font-bold text-[#A91D24]" style={{ fontFamily: "'Playfair Display', serif" }}>building</span>
                 </h2>
                 <p className="text-[#52525B] text-[16px] md:text-[18px] max-w-3xl mx-auto leading-[28px] mb-2 font-normal">
-                  Clara is an agent platform built specifically for commercial service businesses. Each agent owns a real workflow — the kind that today is handled by a CSR on the phone, a dispatcher in a spreadsheet, or a manager reviewing call recordings on a Friday. 
+                  Clara is an agent platform built specifically for commercial service businesses. Each agent owns a real workflow, the kind that today is handled by a CSR on the phone, a dispatcher in a spreadsheet, or a manager reviewing call recordings on a Friday. 
                 </p>
                 <p className="text-[#09090B] font-bold text-[16px] leading-[26px]">
                   Below is what's live today. The roadmap doubles the agent surface area over the next four quarters.
@@ -342,7 +342,7 @@ const Hiring = () => {
                   </div>
 
                   <p className="text-[#52525B] text-[15px] leading-[26px] text-center mb-10 max-w-[300px]">
-                    Drive revenue recovery with automated follow-ups, reminders, and collections—without the awkward conversations.
+                    Drive revenue recovery with automated follow-ups, reminders, and collections, without the awkward conversations.
                   </p>
 
                   <div className="flex flex-wrap justify-center gap-2.5 mt-auto">

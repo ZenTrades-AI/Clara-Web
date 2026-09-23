@@ -62,7 +62,7 @@ const RoofingOperations = () => {
 
                             <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
                                 Clara provides real-time guidance, hands-free documentation, and automated
-                                reporting — helping roofing companies solve fast-growing companies that don't
+                                reporting, helping roofing companies solve fast-growing companies that don't
                                 automate hit a ceiling. AI lets you scale operations without linear headcount growth.
                             </p>
 
@@ -88,19 +88,19 @@ const RoofingOperations = () => {
                         <div className="text-lg md:text-xl text-muted-foreground space-y-8 leading-relaxed text-left">
                             <p>
                                 <span className="font-bold text-foreground">Roofing</span> companies facing <span className="font-bold text-foreground">growth pressure</span> know the problem intimately: Growth creates operational
-                                chaos — more calls, more jobs, more complexity. Systems that worked at $2M break at $5M.
+                                chaos: more calls, more jobs, more complexity. Systems that worked at $2M break at $5M.
                             </p>
                             <p>
                                 Companies add staff, layer on software, and hope processes scale. Managers spend more time
-                                firefighting than growing. But here's why that fails: Adding people doesn't fix process problems — it just
+                                firefighting than growing. But here's why that fails: Adding people doesn't fix process problems. It just
                                 adds cost. More software creates more silos and training overhead.
                             </p>
                             <p>
-                                <span className="font-bold text-foreground">Roofing companies live and die by lead response time — especially after storms when call volume
+                                <span className="font-bold text-foreground">Roofing companies live and die by lead response time, especially after storms when call volume
                                     explodes.</span>
                             </p>
                             <p>
-                                That's why <span className="font-bold text-[#D32F2F]">Clara Field Co-Pilot</span> was built — to operate <span className="italic">inside</span> your workflow, not after the fact. Real-time
+                                That's why <span className="font-bold text-[#D32F2F]">Clara Field Co-Pilot</span> was built to operate <span className="italic">inside</span> your workflow, not after the fact. Real-time
                                 guidance while your team works, not reports they have to fill out later.
                             </p>
                         </div>
@@ -118,7 +118,7 @@ const RoofingOperations = () => {
                             </div>
                             <h2 className="text-4xl font-bold mb-4">How Clara Solves It</h2>
                             <p className="text-muted-foreground max-w-2xl mx-auto">
-                                A simple three-step workflow that runs automatically — no manual intervention required.
+                                A simple three-step workflow that runs automatically, with no manual intervention required.
                             </p>
                         </div>
 
@@ -134,13 +134,13 @@ const RoofingOperations = () => {
                                     step: "2",
                                     icon: Shield,
                                     title: "Clara guides and documents",
-                                    description: "As your tech works, Clara provides real-time prompts — reminding them of required photos, code checks, and documentation. Every image, note, and measurement is captured automatically without touching a phone."
+                                    description: "As your tech works, Clara provides real-time prompts, reminding them of required photos, code checks, and documentation. Every image, note, and measurement is captured automatically without touching a phone."
                                 },
                                 {
                                     step: "3",
                                     icon: TrendingUp,
                                     title: "Clean data flows to your systems",
-                                    description: "When the job is done, structured reports are already generated. Data syncs to your CRM, photos are organized, and customers can receive professional documentation within minutes — not days."
+                                    description: "When the job is done, structured reports are already generated. Data syncs to your CRM, photos are organized, and customers can receive professional documentation within minutes, not days."
                                 }
                             ].map((item, i) => (
                                 <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
@@ -241,7 +241,7 @@ const RoofingOperations = () => {
                                     </div>
                                     <p className="text-sm text-gray-600 leading-relaxed">
                                         Before Clara: The tech fumbles with their phone between tasks, forgets to capture a required
-                                        photo, and spends 20 minutes writing notes in the truck. The report goes out days later — incomplete
+                                        photo, and spends 20 minutes writing notes in the truck. The report goes out days later, incomplete
                                         and hard to read.
                                     </p>
                                 </div>
@@ -286,9 +286,9 @@ const RoofingOperations = () => {
 
                         <div className="space-y-4 mb-12">
                             {[
-                                "Roof inspections happen in conditions where phones are impractical — hands-free is essential",
+                                "Roof inspections happen in conditions where phones are impractical, so hands-free is essential",
                                 "Insurance documentation requires specific photo angles and damage classifications",
-                                "Storm response speed depends on inspection throughput — faster means more jobs captured"
+                                "Storm response speed depends on inspection throughput: faster means more jobs captured"
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
                                     <div className="w-8 h-8 rounded-full bg-[#10B981] text-white flex items-center justify-center mr-6 shrink-0 font-bold text-sm">

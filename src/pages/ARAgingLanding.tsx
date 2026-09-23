@@ -954,7 +954,7 @@ export default function ARAgingLanding() {
               </h1>
 
               <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-6 max-w-xl font-medium">
-                Clara plugs into your billing platforms in 10 minutes — automatically scanning aging reports and executing polite AI voice calls to recover overdue invoice balances.
+                Clara plugs into your billing platforms in 10 minutes, automatically scanning aging reports and executing polite AI voice calls to recover overdue invoice balances.
               </p>
 
               {/* Value props stack */}

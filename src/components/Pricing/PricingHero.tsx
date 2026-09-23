@@ -10,7 +10,7 @@ const PricingHero = () => {
             <div className="relative z-10 max-w-5xl mx-auto text-center">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 leading-tight">
                     Pricing Built Around Your <br />
-                    Business — <span className="text-red-500">Not Arbitrary Limits</span>
+                    Business, <span className="text-red-500">Not Arbitrary Limits</span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">

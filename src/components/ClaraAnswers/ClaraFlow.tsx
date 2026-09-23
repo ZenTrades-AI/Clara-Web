@@ -31,7 +31,7 @@ const ClaraFlow = () => {
             The Clara Flow
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            From first ring to booked job — in under 90 seconds
+            From first ring to booked job in under 90 seconds
           </p>
         </div>
         

@@ -91,7 +91,7 @@ const FireProtectionAnswers = () => {
                                 <span className="font-bold text-foreground">Alarms don't care what time it is.</span> When a panel goes into trouble at 3 AM, someone needs to answer the phone and dispatch a tech.
                             </p>
                             <p>
-                                Relying on an on-call tech to wake up and answer is risky. Relying on a generic call center is frustrating—they don't know the difference between a trouble signal and a fire alarm.
+                                Relying on an on-call tech to wake up and answer is risky. Relying on a generic call center is frustrating. They don't know the difference between a trouble signal and a fire alarm.
                             </p>
                             <p>
                                 <span className="font-bold text-foreground">You need a solution that works immediately.</span> You don't have time for a 6-month software implementation.

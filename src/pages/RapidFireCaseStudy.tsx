@@ -270,7 +270,7 @@ export default function RapidFireCaseStudy() {
               Executive Summary
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.1s'}}>
-              Rapid Fire Protection partnered with Clara AI to ensure every customer inquiry is captured and routed—without overloading a lean team.
+              Rapid Fire Protection partnered with Clara AI to ensure every customer inquiry is captured and routed without overloading a lean team.
             </p>
           </div>
 

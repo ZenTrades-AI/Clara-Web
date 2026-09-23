@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
           
           {/* Introductory Paragraphs - Minimal Spacing */}
           <p className="mb-1 text-sm">
-            Clara AI (“Clara,” “Clara AI,” “we,” “us,” or “our”) operates the justclara.ai website, the Clara AI web application, the Clara mobile application, and all Clara-powered AI agents—including voice agents, dispatch agents, support agents, scheduling and collections agents, and any embedded or integrated agent experiences (collectively, the **“Service”**).
+            Clara AI (“Clara,” “Clara AI,” “we,” “us,” or “our”) operates the justclara.ai website, the Clara AI web application, the Clara mobile application, and all Clara-powered AI agents, including voice agents, dispatch agents, support agents, scheduling and collections agents, and any embedded or integrated agent experiences (collectively, the **“Service”**).
           </p>
           <p className="mb-1 text-sm">
             This Privacy Policy explains how we collect, use, store, and protect personal information (“Personal Information”) when you access or use the Service.
@@ -192,12 +192,12 @@ const PrivacyPolicy = () => {
               <h2 className="text-lg font-bold uppercase text-gray-700 mb-0.5">6. Your Privacy Rights</h2>
               <p className="mb-0.5 text-sm">Depending on your jurisdiction, you may have the following rights:</p>
               <ul className="list-disc list-inside pl-4 text-sm space-y-0.5">
-                <li>**Access** — request a copy of your Personal Information</li>
-                <li>**Correction** — request updates or corrections</li>
-                <li>**Deletion** — request deletion of your data (subject to legal exceptions)</li>
-                <li>**Restriction** — limit certain data uses</li>
-                <li>**Portability** — request export of your data</li>
-                <li>**Opt-out** — opt out of marketing communications and certain processing</li>
+                <li>**Access**: request a copy of your Personal Information</li>
+                <li>**Correction**: request updates or corrections</li>
+                <li>**Deletion**: request deletion of your data (subject to legal exceptions)</li>
+                <li>**Restriction**: limit certain data uses</li>
+                <li>**Portability**: request export of your data</li>
+                <li>**Opt-out**: opt out of marketing communications and certain processing</li>
               </ul>
               <p className="mt-0.5 text-sm">To exercise any rights, contact us using the details below.</p>
             </div>

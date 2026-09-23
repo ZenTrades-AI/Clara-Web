@@ -17,7 +17,7 @@ const Integrations = () => {
                     Seamless Integrations
                 </h2>
                 <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-                    Clara works with the software you already use — no complicated setup
+                    Clara works with the software you already use, with no complicated setup
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">

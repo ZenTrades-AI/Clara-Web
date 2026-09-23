@@ -61,7 +61,7 @@ const RoofingStaffShortage = () => {
                             </h1>
 
                             <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
-                                Senior techs are retiring, and new hires take months to train. Clara bridges the gap —
+                                Senior techs are retiring, and new hires take months to train. Clara bridges the gap,
                                 giving every technician the knowledge of your best inspector, right in their ear.
                             </p>
 

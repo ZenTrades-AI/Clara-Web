@@ -95,7 +95,7 @@ export const HomeHeroOverlay = ({ scrollProgress }: HomeHeroOverlayProps) => {
 
                         {/* SUBHEADLINE */}
                         <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-                            Clara answers calls, guides field teams, and collects payments — <br className="hidden md:block" />
+                            Clara answers calls, guides field teams, and collects payments, <br className="hidden md:block" />
                             so your business grows without adding headcount.
                         </p>
 

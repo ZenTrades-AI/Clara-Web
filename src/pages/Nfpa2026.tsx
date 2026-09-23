@@ -114,7 +114,7 @@ const Nfpa2026 = () => {
   return (
     <div className="min-h-screen bg-white text-[#16121A] antialiased font-sans">
       <Helmet>
-        <title>Meet Clara AI at NFPA Conference & Expo 2026 — Booth 871</title>
+        <title>Meet Clara AI at NFPA Conference & Expo 2026 | Booth 871</title>
         <meta
           name="description"
           content="Unveiling Clara AI's new Confirmations & Quote Follow-Up AI Agents at NFPA Expo 2026. Book a live demo or schedule a booth meeting at Booth 871."
@@ -219,7 +219,7 @@ const Nfpa2026 = () => {
             {/* Exhibiting Line Banner */}
             <div className="w-full max-w-[680px] border-y border-[#E8E3EE]/60 py-3.5 mb-10 flex items-center justify-center gap-2.5 text-sm md:text-base text-[#473F52] font-semibold bg-white/30 backdrop-blur-[2px]">
               <MapPin className="w-4.5 h-4.5 text-[#D63E50] animate-bounce flex-shrink-0" />
-              <span>We're exhibiting at <span className="text-[#D63E50] font-black">Booth 871</span> — NFPA Conference & Expo 2026</span>
+              <span>We're exhibiting at <span className="text-[#D63E50] font-black">Booth 871</span> at NFPA Conference & Expo 2026</span>
             </div>
 
             {/* CTA Button 1 */}

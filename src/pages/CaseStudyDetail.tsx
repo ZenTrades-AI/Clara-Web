@@ -16,7 +16,7 @@ const caseStudiesData: Record<string, any> = {
         badge: "+29% Bookings",
         heroMetric: "$31,000",
         heroMetricLabel: "additional revenue in 30 days",
-        excerpt: "John Owens Services was missing after-hours calls and losing ready-to-book customers. Clara AI now answers every inquiry, gathers details in real time, and sends post-call summaries + transcripts—turning voicemails into visits and restoring confidence across the team.",
+        excerpt: "John Owens Services was missing after-hours calls and losing ready-to-book customers. Clara AI now answers every inquiry, gathers details in real time, and sends post-call summaries + transcripts, turning voicemails into visits and restoring confidence across the team.",
         challenge: "Missing 32% of incoming calls, especially after-hours emergency requests. No visibility into call quality or customer experience. Office staff overwhelmed during peak season.",
         solution: "Clara Answers implemented with full ServiceTitan integration, custom HVAC/plumbing scripts, and 24/7 availability.",
         results: [
@@ -44,7 +44,7 @@ const caseStudiesData: Record<string, any> = {
         badge: "Always-On Answering",
         heroMetric: "100%",
         heroMetricLabel: "call answer rate achieved",
-        excerpt: "Growth had the owner juggling the office line and risk creating bottlenecks and missed opportunities. Clara AI now answers every inquiry, structured intake for fire inspections and maintenance, and rolls out SMS pulse alerts so the team stays in sync—and on time.",
+        excerpt: "Growth had the owner juggling the office line and risk creating bottlenecks and missed opportunities. Clara AI now answers every inquiry, structured intake for fire inspections and maintenance, and rolls out SMS pulse alerts so the team stays in sync and on time.",
         challenge: "Owner handling all calls personally, creating bottlenecks. Compliance-critical inspection scheduling was manual and error-prone. No system for tracking follow-ups.",
         solution: "Clara Answers with fire protection compliance workflows, automated inspection scheduling, and SMS alert system for time-sensitive compliance deadlines.",
         results: [
@@ -72,7 +72,7 @@ const caseStudiesData: Record<string, any> = {
         badge: "+225 Leads",
         heroMetric: "835",
         heroMetricLabel: "calls handled in 30 days",
-        excerpt: "With seasonal spikes, Apex needed help filtering spam and converting real demand. In 30 days, Clara AI handled high call volume, filtered robocalls, categorized intent, and surfaced qualified opportunities—so the team could focus on customers, not call triage.",
+        excerpt: "With seasonal spikes, Apex needed help filtering spam and converting real demand. In 30 days, Clara AI handled high call volume, filtered robocalls, categorized intent, and surfaced qualified opportunities, so the team could focus on customers, not call triage.",
         challenge: "Overwhelmed by seasonal call volume spikes and spam calls. Technicians were wasting time answering robocalls instead of servicing customers. Valid leads were slipping through the cracks due to long hold times.",
         solution: "Clara Answers deployed to screen all incoming calls, filter out spam, and qualify leads before routing them to the sales team. 24/7 availability ensured no opportunity was missed.",
         results: [

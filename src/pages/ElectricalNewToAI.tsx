@@ -63,7 +63,7 @@ const ElectricalNewToAI = () => {
 
                             <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
                                 Change is hard, but bad documentation is harder. Clara is the easiest way to introduce AI
-                                to your electrical team — no complex training, just instant value.
+                                to your electrical team. No complex training, just instant value.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4">
@@ -363,7 +363,7 @@ const ElectricalNewToAI = () => {
                                         <span className="px-2 py-1 bg-white/10 text-white text-xs font-bold rounded">Fire</span>
                                     </div>
                                     <h3 className="text-xl font-bold mb-4">Switch 24/7 call coverage</h3>
-                                    <p className="text-blue-100 text-sm mb-8">The easiest AI to adopt — answers calls professionally while you evaluate.</p>
+                                    <p className="text-blue-100 text-sm mb-8">The easiest AI to adopt. It answers calls professionally while you evaluate.</p>
                                     <Button variant="link" className="text-white p-0 h-auto hover:text-blue-200">
                                         Read More <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>

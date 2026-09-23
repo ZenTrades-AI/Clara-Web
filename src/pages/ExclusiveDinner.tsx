@@ -101,7 +101,7 @@ const ExclusiveDinner = () => {
   return (
     <div className="min-h-screen bg-white text-foreground antialiased font-sans flex flex-col justify-between">
       <Helmet>
-        <title>An Evening with Clara's Leadership — Exclusive Dinner</title>
+        <title>An Evening with Clara's Leadership | Exclusive Dinner</title>
         <meta
           name="description"
           content="You are cordially invited to an exclusive private dinner and evening of conversation with Clara's leadership."
@@ -204,7 +204,7 @@ const ExclusiveDinner = () => {
             {/* Opportunity subtext */}
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-16">
               This is an opportunity to connect with peers, exchange ideas, discuss the future of the trades,
-              and get an early look at what's ahead for Clara—all in a relaxed, off-the-record setting.
+              and get an early look at what's ahead for Clara, all in a relaxed, off-the-record setting.
             </p>
 
           </div>

@@ -18,7 +18,7 @@ const Integrations = () => {
         </h2>
         
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-16 leading-relaxed">
-          Clara integrates with ServiceTitan, Jobber, Housecall Pro, QuickBooks, and others — syncing schedules, bookings, and customer details automatically.
+          Clara integrates with ServiceTitan, Jobber, Housecall Pro, QuickBooks, and others, syncing schedules, bookings, and customer details automatically.
         </p>
         
         {/* Tool logos */}

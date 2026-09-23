@@ -23,7 +23,7 @@ const CallInsights = () => {
             </h2>
             
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Clara gives you real-time visibility into every conversation — intent, sentiment, booking outcomes, caller history, and urgency. See which calls your team should focus on, which ones close fastest, and which lead types grow revenue the most.
+              Clara gives you real-time visibility into every conversation: intent, sentiment, booking outcomes, caller history, and urgency. See which calls your team should focus on, which ones close fastest, and which lead types grow revenue the most.
             </p>
             
             {/* Features grid */}

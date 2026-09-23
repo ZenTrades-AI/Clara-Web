@@ -129,7 +129,7 @@ const Index = () => {
 
             {/* SUBHEADLINE */}
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl">
-              Clara answers calls, guides field teams, and collects payments — <br className="hidden md:block" />
+              Clara answers calls, guides field teams, and collects payments, <br className="hidden md:block" />
               so your business grows without adding headcount.
             </p>
 
@@ -245,7 +245,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground">Never miss a call again</h3>
                 <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                  AI answers calls, books jobs, and captures details 24/7 — even after hours.
+                  AI answers calls, books jobs, and captures details 24/7, even after hours.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
@@ -274,7 +274,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground">Get paid faster without friction</h3>
                 <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                  Automated follow-ups, reminders, and collections — without awkward conversations.
+                  Automated follow-ups, reminders, and collections, without awkward conversations.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[

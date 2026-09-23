@@ -124,7 +124,7 @@ export function ApplyModal({ isOpen, onClose, role }: ApplyModalProps) {
             <div className="text-[#5c5c5c] text-[16px] leading-[28px] max-w-sm mt-4">
               <p className="mb-4">Thank you for applying. We are reviewing your background against our needs for the <span className="font-bold text-black">{role}</span> position.</p>
               <p className="mb-4 text-[#A91D24] font-medium">You'll hear from us within 5 business days.</p>
-              <p className="font-bold text-black text-[18px] mt-6" style={{ fontFamily: "'Playfair Display', serif" }}>— Arnav</p>
+              <p className="font-bold text-black text-[18px] mt-6" style={{ fontFamily: "'Playfair Display', serif" }}>Arnav</p>
             </div>
             <button 
               onClick={onClose}

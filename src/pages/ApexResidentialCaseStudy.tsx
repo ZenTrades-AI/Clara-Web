@@ -300,7 +300,7 @@ export default function ApexResidentialCaseStudy() {
 
           <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <blockquote className="text-lg text-center text-gray-800 italic mb-4">
-              "It was pretty seamless [to integrate Clara]; we didn't have issues with the process. Clara's call answering and filtering saves me time so I can get back to what matters—my customers."
+              "It was pretty seamless [to integrate Clara]; we didn't have issues with the process. Clara's call answering and filtering saves me time so I can get back to what matters: my customers."
             </blockquote>
             <div className="text-center">
               <p className="font-semibold text-gray-900">Reginald Lowe</p>
@@ -689,7 +689,7 @@ export default function ApexResidentialCaseStudy() {
             </div>
 
             <blockquote className="text-2xl md:text-3xl font-light text-gray-800 leading-relaxed mb-8">
-              "It was pretty seamless [to integrate Clara]; we didn't have issues with the process. Clara's call answering and filtering saves me time so I can get back to what matters—my customers."
+              "It was pretty seamless [to integrate Clara]; we didn't have issues with the process. Clara's call answering and filtering saves me time so I can get back to what matters: my customers."
 
             </blockquote>
 
