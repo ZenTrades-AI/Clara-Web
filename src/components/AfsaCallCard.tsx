@@ -175,7 +175,7 @@ const AfsaCallCard = () => {
         <div aria-live="polite" style={{ marginTop: "10px", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontSize: "20px", lineHeight: 1.35, color: "#F2F0EF" }}>
           {line
             ? "“" + cleanText(line.text) + "”"
-            : "“I had a fire marshal come by my property today…” — press play to hear Clara take the call."}
+            : "“I had a fire marshal come by my property today…” Press play to hear Clara take the call."}
         </div>
       </div>
 

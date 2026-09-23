@@ -17,9 +17,9 @@ const css = (s: string): React.CSSProperties =>
   );
 
 const agents = [
-  { num: "01", title: "Clara Answers", sub: "The call you missed at 2am", body: "Inspection requests, service calls and the flow-alarm at 2am — answered in seconds, qualified against your service area, and booked straight onto the board. Nights, weekends, storm volume." },
-  { num: "02", title: "Quote Follow-Ups", sub: "The deficiency quote that sat for six weeks", body: "Every repair proposal chased on a cadence until it is approved or dead — the single biggest pile of idle revenue sitting in most fire protection shops." },
-  { num: "03", title: "Clara Collects", sub: "The invoice nobody wants to call about", body: "Professional follow-up across voice, text and email on commercial AR — net-60 cycles, retainage, and the invoices your office manager keeps meaning to chase." },
+  { num: "01", title: "Clara Answers", sub: "The call you missed at 2am", body: "Inspection requests, service calls and the flow-alarm at 2am, answered in seconds, qualified against your service area, and booked straight onto the board. Nights, weekends, storm volume." },
+  { num: "02", title: "Quote Follow-Ups", sub: "The deficiency quote that sat for six weeks", body: "Every repair proposal chased on a cadence until it is approved or dead. It\u2019s the single biggest pile of idle revenue sitting in most fire protection shops." },
+  { num: "03", title: "Clara Collects", sub: "The invoice nobody wants to call about", body: "Professional follow-up across voice, text and email on commercial AR: net-60 cycles, retainage, and the invoices your office manager keeps meaning to chase." },
   { num: "04", title: "Confirms", sub: "The no-show that burned a truck roll", body: "Appointment confirmations, reminders and reschedules handled automatically, so the schedule your dispatcher built in the morning is the one your techs actually run." },
   { num: "05", title: "Estimate Agent", sub: "The estimate waiting on one person", body: "Estimates built straight from the inspection findings your techs captured, so the quote goes out the same week instead of queueing behind the one person who writes them." },
   { num: "06", title: "Reviews", sub: "The five-star job nobody heard about", body: "Review requests timed to the completed job, plus the administrative follow-through nobody in the office has time for." },
@@ -44,11 +44,11 @@ const barcode = Array.from({ length: 34 }, (_, i) => ({
 }));
 
 const signals = [
-  { quote: "“Our phones are crazy — we’re missing calls.”", agent: "Clara Answers" },
+  { quote: "“Our phones are crazy. We’re missing calls.”", agent: "Clara Answers" },
   { quote: "“Inspections get done, then the deficiency quote sits for weeks.”", agent: "Quote Follow-Ups" },
   { quote: "“Estimates wait on the one person who writes them.”", agent: "Estimate Agent" },
   { quote: "“Somebody has to call every customer to confirm tomorrow.”", agent: "Confirms" },
-  { quote: "“AR takes forever — we’re always chasing customers.”", agent: "Clara Collects" },
+  { quote: "“AR takes forever. We’re always chasing customers.”", agent: "Clara Collects" },
   { quote: "“We’re growing faster than our back office.”", agent: "The whole crew" },
 ];
 
@@ -70,11 +70,11 @@ const strip = [
   { k: "Event", v: "AFSA45 Convention & Exhibition" },
   { k: "Booth Hours", v: "Tue 2:30–5 PM · Wed 12:30–3:30 PM" },
   { k: "Venue", v: "JW Marriott San Antonio Hill Country" },
-  { k: "Find Us", v: "Exhibition Hall — Booth 1" },
+  { k: "Find Us", v: "Exhibition Hall, Booth 1" },
 ];
 
 const proof = [
-  { value: 100, desc: "call answer rate achieved after switching inbound coverage to Clara Answers — including nights, weekends, and storm-volume spikes.", customer: "Multi-branch sprinkler contractor · California" },
+  { value: 100, desc: "call answer rate achieved after switching inbound coverage to Clara Answers, including nights, weekends, and storm-volume spikes.", customer: "Multi-branch sprinkler contractor · California" },
   { value: 40, desc: "faster payment collection on commercial invoices, with zero missed compliance deadlines since automating follow-ups.", customer: "ITM & service contractor · Nevada" },
 ];
 
@@ -262,7 +262,7 @@ const Afsa45 = () => {
   return (
     <>
       <Helmet>
-        <title>Clara AI at AFSA45 — Booth 1 · Sept 27–30, 2026</title>
+        <title>Clara AI at AFSA45 · Booth 1 · Sept 27–30, 2026</title>
         <meta name="description" content="Clara AI is exhibiting at AFSA45 in San Antonio. Visit Booth 1 on Tue, Sept 29 and Wed, Sept 30 for a 15-minute walkthrough, or catch Tony Fleming's session on Mon, Sept 28." />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" />
         <style>{pageCss}</style>
@@ -291,7 +291,7 @@ const Afsa45 = () => {
             </h1>
             <div data-reveal="" data-delay="260" style={{ marginTop: "clamp(26px,3vw,40px)", animation: "clara-rise .9s cubic-bezier(.2,.7,.2,1) 0.26s both" }}>
               <p style={{ margin: 0, fontSize: "17px", lineHeight: 1.62, color: "#4A4644", maxWidth: "50ch", textWrap: "pretty" }}>
-                Missed calls, quotes that sit for weeks, confirmations nobody has time to make, invoices nobody wants to chase. Bring us the one that costs you most — we’ll show you the agent that handles it.
+                Missed calls, quotes that sit for weeks, confirmations nobody has time to make, invoices nobody wants to chase. Bring us the one that costs you most and we’ll show you the agent that handles it.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "30px" }}>
                 <a href="#booth" data-magnetic="" style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: "#CB2E41", color: "#fff", padding: "16px 28px", borderRadius: "999px", fontSize: "14.5px", fontWeight: 500, transition: "background .3s ease,transform .3s ease" }} className="afsa-h0">
@@ -346,7 +346,7 @@ const Afsa45 = () => {
                     15 minutes, reserved for you
                   </div>
                   <div style={{ marginTop: "8px", fontSize: "13.5px", lineHeight: 1.5, color: "#6A6664" }}>
-                    Bring one workflow you want to fix — we’ll show you how Clara handles it.
+                    Bring one workflow you want to fix and we’ll show you how Clara handles it.
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "14px" }}>
                     <span style={{ display: "inline-flex", alignItems: "center", gap: "7px", border: "1px solid #E6E2E0", borderRadius: "999px", padding: "6px 12px", fontSize: "11px", color: "#4A4644", fontVariantNumeric: "tabular-nums" }}>
@@ -409,13 +409,13 @@ const Afsa45 = () => {
                 Visit the Booth
               </div>
               <h2 style={{ fontWeight: 500, fontSize: "clamp(32px,4.6vw,60px)", lineHeight: 1.04, letterSpacing: "-0.035em", margin: "18px 0 0", maxWidth: "17ch" }}>
-                Skip the line at the booth —{" "}
+                Skip the line at the booth.{" "}
                 <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic" }}>
-                  grab a slot now.
+                  Grab a slot now.
                 </em>
               </h2>
               <p style={{ margin: "22px 0 0", fontSize: "16.5px", lineHeight: 1.62, color: "#4A4644", maxWidth: "50ch", textWrap: "pretty" }}>
-                The hall is open Tuesday afternoon and Wednesday midday only — we're keeping 15-minute walkthroughs open for contractors who want a real conversation, not a hallway pitch.
+                The hall is open Tuesday afternoon and Wednesday midday only, so we're keeping 15-minute walkthroughs open for contractors who want a real conversation, not a hallway pitch.
               </p>
               <ul style={{ listStyle: "none", padding: 0, margin: "36px 0 0", display: "flex", flexDirection: "column" }}>
                 {checklist.map((c, cIndex) => (
@@ -514,7 +514,7 @@ const Afsa45 = () => {
                 <AfsaBookingDetails day={day} time={time} onBack={() => setBookingStep("pick")} />
               )}
               <p style={{ margin: "18px 0 0", fontSize: "13px", lineHeight: 1.55, color: "#8E8A88" }}>
-                Prefer to talk before the show? Reach out any time — we'll bring the demo to you.
+                Prefer to talk before the show? Reach out any time and we'll bring the demo to you.
               </p>
             </aside>
           </div>
@@ -572,7 +572,7 @@ const Afsa45 = () => {
               </em>
             </h2>
             <p style={{ margin: "22px 0 0", fontSize: "16.5px", lineHeight: 1.62, color: "#4A4644", maxWidth: "62ch", textWrap: "pretty" }}>
-              Each problem above maps to one agent — from the first ring through the deficiency quote, the estimate, and the invoice that finally gets paid. Built for fire protection contractors running ITM and service work, not a generic assistant with a sprinkler skin.
+              Each problem above maps to one agent, from the first ring through the deficiency quote, the estimate, and the invoice that finally gets paid. Built for fire protection contractors running ITM and service work, not a generic assistant with a sprinkler skin.
             </p>
           </div>
           <div data-reveal="" data-delay="100" style={{ marginTop: "clamp(32px,4vw,52px)", display: "grid", gridTemplateColumns: "minmax(0,1fr)", columnGap: "clamp(24px,4vw,56px)", alignItems: "start", borderTop: "1px solid #E8E4E2", animation: "clara-rise .9s cubic-bezier(.2,.7,.2,1) 0.10s both" }} data-crewgrid="">
@@ -635,7 +635,7 @@ const Afsa45 = () => {
               </div>
               <div style={{ padding: "0 22px 24px", borderTop: "1px solid #EFECEA", marginTop: "2px", paddingTop: "18px" }}>
                 <p style={{ margin: 0, fontSize: "14.5px", lineHeight: 1.6, color: "#4A4644", textWrap: "pretty" }}>
-                  Tony started in fire protection as a sprinkler designer, founded his own sprinkler contracting company in 1992, and grew it into a multi-office operation across the Mid-Atlantic. He has run the payroll, the schedule and the AR — so the demo is a contractor conversation, not a software pitch.
+                  Tony started in fire protection as a sprinkler designer, founded his own sprinkler contracting company in 1992, and grew it into a multi-office operation across the Mid-Atlantic. He has run the payroll, the schedule and the AR, so the demo is a contractor conversation, not a software pitch.
                 </p>
               </div>
             </div>
@@ -652,7 +652,7 @@ const Afsa45 = () => {
                 What Can AI Do for Me?
               </h3>
               <p style={{ margin: "18px 0 0", fontSize: "16px", lineHeight: 1.62, color: "#4A4644", maxWidth: "50ch", textWrap: "pretty" }}>
-                A plain-English session on where AI actually earns its keep in a sprinkler shop — the calls, the quotes, the collections — and where it still doesn’t. Bring the workflow that frustrates you most.
+                A plain-English session on where AI actually earns its keep in a sprinkler shop (the calls, the quotes, the collections) and where it still doesn’t. Bring the workflow that frustrates you most.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(150px,100%),1fr))", gap: "1px", background: "#E8E4E2", borderRadius: "16px", overflow: "hidden", marginTop: "28px" }}>
                 {sessionFacts.map((f, fIndex) => (
