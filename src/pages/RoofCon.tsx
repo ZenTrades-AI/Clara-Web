@@ -35,7 +35,7 @@ const RoofCon = () => {
                             Your Best Roofer Just Got Smarter with <span className="text-primary">Clara AI</span>
                         </h1>
                         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                            Real-time AI guidance, customer handling, and collections — built for roofing crews.
+                            Real-time AI guidance, customer handling, and collections, built for roofing crews.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button
@@ -63,7 +63,7 @@ const RoofCon = () => {
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4 text-slate-900">Meet Clara AI</h2>
                         <p className="text-slate-600 max-w-2xl mx-auto">
-                            Clara is an AI operating layer for roofing companies — not just software. Three intelligent agents working together across the job site, customer conversations, and payments.
+                            Clara is an AI operating layer for roofing companies, not just software. Three intelligent agents working together across the job site, customer conversations, and payments.
                         </p>
                     </div>
 
@@ -158,7 +158,7 @@ const RoofCon = () => {
                             Clara Field Co-Pilot Works Where the Job Happens
                         </h2>
                         <p className="text-slate-600 mb-6 leading-relaxed">
-                            The smart glasses are not a product — they are an input/output interface that activates Clara's intelligence in the field. Everything flows into Clara: images, audio, context. Everything flows back to the technician: guidance, reminders, workflow intelligence.
+                            The smart glasses are not a product. They are an input/output interface that activates Clara's intelligence in the field. Everything flows into Clara: images, audio, context. Everything flows back to the technician: guidance, reminders, workflow intelligence.
                         </p>
                         <p className="text-slate-600 mb-10 leading-relaxed">
                             The software stays in control. The glasses activate it where work happens.
@@ -232,7 +232,7 @@ const RoofCon = () => {
             <section className="py-12 md:py-20 px-6 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4 text-slate-900">From Roof to CRM — Automatically</h2>
+                        <h2 className="text-4xl font-bold mb-4 text-slate-900">From Roof to CRM, Automatically</h2>
                         <p className="text-slate-600 max-w-2xl mx-auto">
                             Data captured in the field flows seamlessly into your existing systems without manual entry.
                         </p>
@@ -277,7 +277,7 @@ const RoofCon = () => {
 
                     <div className="text-center mt-12">
                         <p className="text-sm text-slate-500">
-                            Works with ServiceTrade, Simpro, BuildOps, Salesforce, and more — no complex integrations required.
+                            Works with ServiceTrade, Simpro, BuildOps, Salesforce, and more, with no complex integrations required.
                         </p>
                     </div>
                 </div>
@@ -338,7 +338,7 @@ const RoofCon = () => {
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4 text-slate-900">The Clara AI Growth Engine</h2>
                         <p className="text-slate-600 max-w-2xl mx-auto">
-                            Clara Field Co-Pilot is part of a broader system built for trades. AI does not just assist the workflow — it runs it end-to-end.
+                            Clara Field Co-Pilot is part of a broader system built for trades. AI does not just assist the workflow. It runs it end-to-end.
                         </p>
                     </div>
 
@@ -380,7 +380,7 @@ const RoofCon = () => {
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">Built for RoofCon Crews</h2>
                             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                                Whether you're managing multiple crews, scaling fast, or tightening operations, Clara helps roofing businesses work smarter — on the roof, in the office, and after the job is done.
+                                Whether you're managing multiple crews, scaling fast, or tightening operations, Clara helps roofing businesses work smarter: on the roof, in the office, and after the job is done.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Button

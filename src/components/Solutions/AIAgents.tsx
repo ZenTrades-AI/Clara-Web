@@ -65,7 +65,7 @@ const AIAgents = () => {
                         Three Intelligent Agents, <span className="text-primary">One Operating Layer</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                        Clara orchestrates AI across your entire operation — from field execution to customer calls to cash collection.
+                        Clara orchestrates AI across your entire operation, from field execution to customer calls to cash collection.
                     </p>
                 </div>
 

@@ -15,7 +15,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-          Clara reads service requests, references CRM data, and dispatches techs instantly — including after-hours. No more manual scheduling or missed assignments.
+          Clara reads service requests, references CRM data, and dispatches techs instantly, including after-hours. No more manual scheduling or missed assignments.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">

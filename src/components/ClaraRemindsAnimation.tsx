@@ -120,7 +120,7 @@ const ClaraRemindsAnimation = () => {
                   <p className="text-sm font-medium text-green-700">Clara AI</p>
                   <div className="mt-2 bg-white rounded-lg p-3 shadow-sm">
                     <p className="text-sm text-gray-800">
-                      Hi Alex! Just a friendly reminder—your HVAC maintenance appointment is tomorrow at 2 PM.
+                      Hi Alex! Just a friendly reminder: your HVAC maintenance appointment is tomorrow at 2 PM.
                       {isTyping && <span className="animate-pulse">|</span>}
                     </p>
                   </div>
@@ -151,7 +151,7 @@ const ClaraRemindsAnimation = () => {
                       </div>
                       <span className="font-medium text-sm">Clara AI</span>
                     </div>
-                    <p className="text-sm">Hi Alex! Just a friendly reminder—your HVAC maintenance appointment is tomorrow at 2 PM.</p>
+                    <p className="text-sm">Hi Alex! Just a friendly reminder: your HVAC maintenance appointment is tomorrow at 2 PM.</p>
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ const ClaraRemindsAnimation = () => {
             <div className="space-y-4">
               <div className="bg-gray-50 rounded-lg p-4">
                 <p className="text-sm text-gray-700 mb-4">
-                  "Hi Alex! Just a friendly reminder—your HVAC maintenance appointment is tomorrow at 2 PM."
+                  "Hi Alex! Just a friendly reminder: your HVAC maintenance appointment is tomorrow at 2 PM."
                 </p>
                 
                 <button

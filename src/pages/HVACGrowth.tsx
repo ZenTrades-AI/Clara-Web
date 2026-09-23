@@ -138,7 +138,7 @@ const HVACGrowth = () => {
                                     step: "3",
                                     icon: TrendingUp,
                                     title: "Clean data flows to your systems",
-                                    description: "A quote is generated automatically based on the diagnosis. The customer approves, the part is replaced, and the system is verified running—all in one trip."
+                                    description: "A quote is generated automatically based on the diagnosis. The customer approves, the part is replaced, and the system is verified running, all in one trip."
                                 }
                             ].map((item, i) => (
                                 <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
@@ -351,7 +351,7 @@ const HVACGrowth = () => {
                                         <span className="px-2 py-1 bg-white/10 text-white text-xs font-bold rounded">HVAC</span>
                                     </div>
                                     <h3 className="text-xl font-bold mb-4">Answer every call without hiring</h3>
-                                    <p className="text-blue-100 text-sm mb-8">AI answers calls, books jobs, and captures details — 24/7.</p>
+                                    <p className="text-blue-100 text-sm mb-8">AI answers calls, books jobs, and captures details 24/7.</p>
                                     <Button variant="link" className="text-white p-0 h-auto hover:text-blue-200">
                                         Read More <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>

@@ -35,7 +35,7 @@ const solutions = [
     },
     {
         title: "Your first AI that actually helps in the field",
-        description: "A practical introduction to AI for electrical teams — no complexity, immediate value.",
+        description: "A practical introduction to AI for electrical teams. No complexity, immediate value.",
         tags: ["Field Co-Pilot", "Electrical", "New to AI"],
         link: "/solutions/electrical-new-to-ai",
         type: "field"
@@ -56,7 +56,7 @@ const solutions = [
     },
     {
         title: "Answer every call without hiring",
-        description: "AI answers calls, books jobs, and captures details — 24/7.",
+        description: "AI answers calls, books jobs, and captures details 24/7.",
         tags: ["Answers", "HVAC", "Staff Shortage"],
         link: "/solutions/hvac-answers",
         type: "answers"
@@ -70,7 +70,7 @@ const solutions = [
     },
     {
         title: "Start with 24/7 call coverage",
-        description: "The easiest AI to adopt — answers calls professionally while you evaluate full dispatch automation.",
+        description: "The easiest AI to adopt. It answers calls professionally while you evaluate full dispatch automation.",
         tags: ["Answers", "Fire", "New to AI"],
         link: "/solutions/fire-protection-answers",
         type: "answers"
@@ -112,7 +112,7 @@ const solutions = [
     },
     {
         title: "Automate collections without the hassle",
-        description: "A gentle introduction to AI — just let Clara handle the follow-ups.",
+        description: "A gentle introduction to AI: just let Clara handle the follow-ups.",
         tags: ["Collects", "Plumbing", "New to AI"],
         link: "/solutions/plumbing-collects-new-to-ai",
         type: "collects"

@@ -71,7 +71,7 @@ export default function StandardPricing() {
   return (
     <div className="min-h-screen font-sans bg-[#FAF9F6] text-[#0F172A] selection:bg-[#CB2E41] selection:text-white flex flex-col justify-between">
       <Helmet>
-        <title>Clara — Standard Pricing</title>
+        <title>Clara | Standard Pricing</title>
         <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0" />
         <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
         <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
@@ -522,7 +522,7 @@ export default function StandardPricing() {
               <Lock className="w-6 h-6" />
             </div>
             <div className="eyebrow">JustClara.ai</div>
-            <div className="gate-title">Confidential — Team Access</div>
+            <div className="gate-title">Confidential: Team Access</div>
             <p className="gate-sub">Enter the team password to view Clara standard pricing.</p>
             <form onSubmit={handleUnlock}>
               <input
@@ -535,7 +535,7 @@ export default function StandardPricing() {
               />
               <button type="submit">View pricing</button>
             </form>
-            {hasError && <div className="gate-err">Incorrect password — please try again.</div>}
+            {hasError && <div className="gate-err">Incorrect password. Please try again.</div>}
           </div>
         </div>
       )}
@@ -547,7 +547,7 @@ export default function StandardPricing() {
             <div className="eyebrow">JustClara.ai</div>
             <h1>Standard Pricing</h1>
             <p className="lede">
-              AI agents for commercial trades — HVAC, plumbing, electrical, and fire protection.
+              AI agents for commercial trades: HVAC, plumbing, electrical, and fire protection.
             </p>
 
             {/* CURRENCY & BILLING TERM TOGGLE */}
@@ -603,7 +603,7 @@ export default function StandardPricing() {
                 <h2>Clara Answers</h2>
               </div>
               <p className="p-desc">
-                A 24/7 AI front desk. Answers every call, books jobs, routes emergencies, and handles overflow — day, night, and weekends.
+                A 24/7 AI front desk. Answers every call, books jobs, routes emergencies, and handles overflow day, night, and weekends.
               </p>
 
               <div className="tabs">
@@ -684,7 +684,7 @@ export default function StandardPricing() {
                 <h2>Clara Collects</h2>
               </div>
               <p className="p-desc">
-                An AI accounts-receivable agent. Calls, emails, and texts overdue accounts with a consistent, professional voice — captures promises-to-pay and speeds up cash flow.
+                An AI accounts-receivable agent. Calls, emails, and texts overdue accounts with a consistent, professional voice. It captures promises-to-pay and speeds up cash flow.
               </p>
               <div className="grid four">
                 <div className="card">
@@ -725,7 +725,7 @@ export default function StandardPricing() {
                 <h2>Clara Confirms</h2>
               </div>
               <p className="p-desc">
-                AI job confirmation &amp; scheduling. Books your due inspections and confirms every job the day before — customer access and technician readiness.
+                AI job confirmation &amp; scheduling. Books your due inspections and confirms every job the day before, covering customer access and technician readiness.
               </p>
               <div className="grid five">
                 <div className="card">
@@ -772,7 +772,7 @@ export default function StandardPricing() {
                 <h2>Clara Estimator</h2>
               </div>
               <p className="p-desc">
-                An AI estimating agent that turns job details and site notes into ready-to-send quotes — so your team prices more work in less time, consistently.
+                An AI estimating agent that turns job details and site notes into ready-to-send quotes, so your team prices more work in less time, consistently.
               </p>
               <div className="grid">
                 <div className="card">
@@ -798,7 +798,7 @@ export default function StandardPricing() {
                       <span className="strike">{onbFeeStr}</span> &nbsp;Waived on your Annual plan
                     </>
                   ) : (
-                    `${onbFeeStr} one-time — waived on Annual plans`
+                    `${onbFeeStr} one-time, waived on Annual plans`
                   )}
                 </span>
               </div>

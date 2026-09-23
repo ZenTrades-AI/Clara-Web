@@ -349,7 +349,7 @@ const FireProtectionCollectsCost = () => {
                                         <span className="px-2 py-1 bg-white/10 text-white text-xs font-bold rounded">Fire Protection</span>
                                     </div>
                                     <h3 className="text-xl font-bold mb-4">Start with 24/7 call coverage</h3>
-                                    <p className="text-blue-100 text-sm mb-8">The easiest AI to adopt — answers calls professionally.</p>
+                                    <p className="text-blue-100 text-sm mb-8">The easiest AI to adopt. It answers calls professionally.</p>
                                     <Button variant="link" className="text-white p-0 h-auto hover:text-blue-200">
                                         Read More <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>

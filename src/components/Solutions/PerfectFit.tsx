@@ -120,7 +120,7 @@ const PerfectFit = () => {
                             {[
                                 {
                                     title: "Your first AI that actually helps in the field",
-                                    desc: "A practical introduction to AI for electrical teams — no complexity, immediate value.",
+                                    desc: "A practical introduction to AI for electrical teams. No complexity, immediate value.",
                                     tags: ["Electrical", "New to AI"],
                                     link: <Link to="/solutions/electrical-new-to-ai" className="hover:underline">Explore for New Users</Link>
                                 },
@@ -183,7 +183,7 @@ const PerfectFit = () => {
                                         </div>
                                         <h3 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Answer every call without hiring</h3>
                                         <p className="text-blue-100 text-lg max-w-xl mb-8">
-                                            AI answers calls, books jobs, and captures details — 24/7.
+                                            AI answers calls, books jobs, and captures details 24/7.
                                         </p>
                                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm font-bold backdrop-blur-sm">
                                             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -240,7 +240,7 @@ const PerfectFit = () => {
                                             </div>
                                             <h4 className="text-xl font-bold mb-3">Start with 24/7 call coverage</h4>
                                             <p className="text-blue-100 text-sm">
-                                                The easiest AI to adopt — answers calls professionally while you evaluate the technology.
+                                                The easiest AI to adopt. It answers calls professionally while you evaluate the technology.
                                             </p>
                                         </div>
                                         <div className="relative z-10 mt-6">
@@ -378,7 +378,7 @@ const PerfectFit = () => {
                                             </div>
                                             <h4 className="text-xl font-bold mb-3">Automate collections without the hassle</h4>
                                             <p className="text-purple-100 text-sm">
-                                                A gentle introduction to AI — just let Clara handle the follow-ups.
+                                                A gentle introduction to AI: just let Clara handle the follow-ups.
                                             </p>
                                         </div>
                                         <div className="relative z-10 mt-6">

@@ -14,7 +14,7 @@ const Testimonial = () => {
           {/* Testimonial content */}
           <div className="pt-8">
             <blockquote className="text-2xl md:text-3xl font-medium text-foreground mb-10 leading-relaxed">
-              "Clara has transformed our operations. For the first time ever, every call gets answered — and our team isn't drowning in after-hours work. We booked more jobs in a single month than we did in an entire quarter."
+              "Clara has transformed our operations. For the first time ever, every call gets answered, and our team isn't drowning in after-hours work. We booked more jobs in a single month than we did in an entire quarter."
             </blockquote>
             
             {/* Author */}

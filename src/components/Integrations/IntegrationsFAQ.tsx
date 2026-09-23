@@ -20,11 +20,11 @@ const faqs = [
     },
     {
         question: "Can Clara work with multiple systems at once?",
-        answer: "Absolutely. Clara can integrate with your CRM, accounting software, and scheduling platform simultaneously — creating a unified AI layer across all your tools.",
+        answer: "Absolutely. Clara can integrate with your CRM, accounting software, and scheduling platform simultaneously, creating a unified AI layer across all your tools.",
     },
     {
         question: "What if my platform isn't listed here?",
-        answer: "We're constantly adding new integrations. Contact our team to discuss your specific platform — we may already have it in development or can prioritize it based on customer demand.",
+        answer: "We're constantly adding new integrations. Contact our team to discuss your specific platform. We may already have it in development or can prioritize it based on customer demand.",
     },
     {
         question: "Who manages the integration after setup?",

@@ -20,7 +20,7 @@ const PlumbingCollectsNewToAI = () => {
         <div className="min-h-screen bg-white">
             <Helmet>
                 <title>Automated Collections for Plumbing | Clara AI</title>
-                <meta name="description" content="Automated collections for plumbing businesses — no complexity. Clara's AI handles invoice follow-ups so you can focus on the work." />
+                <meta name="description" content="Automated collections for plumbing businesses with no complexity. Clara's AI handles invoice follow-ups so you can focus on the work." />
             </Helmet>
 
             <Navigation />
@@ -58,7 +58,7 @@ const PlumbingCollectsNewToAI = () => {
                         <div className="max-w-6xl">
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-foreground leading-[1.1] tracking-tight">
                                 Automated collections for <br />
-                                plumbing businesses — <br />
+                                plumbing businesses, <br />
                                 <span className="text-gray-400">no complexity</span>
                             </h1>
 

@@ -131,7 +131,7 @@ const PhotoMosaic = () => {
                         The AI secret behind call centers for the trades
                     </h2>
                     <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-                        See how Clara can transform how you run your operation — from first call to final payment.
+                        See how Clara can transform how you run your operation, from first call to final payment.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">

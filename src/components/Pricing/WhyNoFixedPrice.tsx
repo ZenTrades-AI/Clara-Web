@@ -20,14 +20,14 @@ const WhyNoFixedPrice = () => {
             icon: Settings,
             title: "AI Agents Are Configured, Not Installed",
             description:
-                "Clara adapts to your processes, integrations, and compliance requirements — not the other way around.",
+                "Clara adapts to your processes, integrations, and compliance requirements, not the other way around.",
             color: "bg-red-50 text-red-500",
         },
         {
             icon: TrendingUp,
             title: "Value Is Tied to Outcomes, Not Usage Caps",
             description:
-                "We measure success by revenue recovered, calls answered, and time saved — not by arbitrary feature limits.",
+                "We measure success by revenue recovered, calls answered, and time saved, not by arbitrary feature limits.",
             color: "bg-red-50 text-red-500",
         },
     ];

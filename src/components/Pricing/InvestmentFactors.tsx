@@ -6,7 +6,7 @@ const InvestmentFactors = () => {
             icon: Phone,
             title: "Monthly Call Volume",
             description:
-                "Higher call volumes mean more opportunities captured — and more value delivered.",
+                "Higher call volumes mean more opportunities captured and more value delivered.",
         },
         {
             icon: Building,
@@ -30,7 +30,7 @@ const InvestmentFactors = () => {
             icon: Link,
             title: "CRM & System Integrations",
             description:
-                "Clara connects to your existing systems — ServiceTitan, Jobber, Housecall Pro, and more.",
+                "Clara connects to your existing systems: ServiceTitan, Jobber, Housecall Pro, and more.",
         },
         {
             icon: ShieldAlert,
@@ -48,7 +48,7 @@ const InvestmentFactors = () => {
                         What Impacts Your Clara Investment?
                     </h2>
                     <p className="text-lg text-slate-600">
-                        Clara adapts to your operation — pricing reflects that.
+                        Clara adapts to your operation, and pricing reflects that.
                     </p>
                 </div>
 

@@ -8,7 +8,7 @@ import {
 const faqs = [
   {
     question: "How does Clara handle emergency calls?",
-    answer: "Clara is trained to recognize urgency indicators and prioritizes emergency calls immediately. She can dispatch to your on-call technician, send urgent notifications, and ensure critical situations get immediate attention — 24/7."
+    answer: "Clara is trained to recognize urgency indicators and prioritizes emergency calls immediately. She can dispatch to your on-call technician, send urgent notifications, and ensure critical situations get immediate attention, 24/7."
   },
   {
     question: "Can Clara transfer to a human?",

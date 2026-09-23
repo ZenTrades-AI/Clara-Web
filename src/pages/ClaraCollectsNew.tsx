@@ -27,7 +27,7 @@ const ClaraCollectsNew = () => {
     const dashboardFeatures = [
         {
             title: "Dashboard Overview",
-            description: "View all outstanding payments, overdue collections, total calls made, and a prioritized list of customers who need immediate attention — all in one place.",
+            description: "View all outstanding payments, overdue collections, total calls made, and a prioritized list of customers who need immediate attention, all in one place.",
             image: "/photos/collact%20images/Dashboard%20Overview%202.png"
         },
         {
@@ -62,7 +62,7 @@ const ClaraCollectsNew = () => {
                             </h1>
 
                             <p className="text-lg text-gray-500 max-w-[500px] leading-relaxed font-medium">
-                                Clara AI For Collections works inside QuickBooks to automatically follow up on due and overdue invoices — professionally, consistently, and without manual effort.
+                                Clara AI For Collections works inside QuickBooks to automatically follow up on due and overdue invoices: professionally, consistently, and without manual effort.
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center gap-4">

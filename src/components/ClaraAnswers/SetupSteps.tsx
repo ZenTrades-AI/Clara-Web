@@ -23,7 +23,7 @@ const steps = [
     number: 4,
     icon: Rocket,
     title: "Launch & Grow",
-    description: "Go live in under 3 days — then scale with automation.",
+    description: "Go live in under 3 days, then scale with automation.",
   },
 ];
 

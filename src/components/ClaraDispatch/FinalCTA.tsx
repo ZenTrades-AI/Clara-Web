@@ -15,7 +15,7 @@ const FinalCTA = () => {
         </h2>
 
         <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10">
-          Clara Dispatch ensures the right technician gets to the right job at the right time — automatically.
+          Clara Dispatch ensures the right technician gets to the right job at the right time, automatically.
         </p>
 
         <Button size="lg" className="text-lg px-10 py-7 bg-primary hover:bg-primary-dark transition-all" onClick={openHubSpotForm}>

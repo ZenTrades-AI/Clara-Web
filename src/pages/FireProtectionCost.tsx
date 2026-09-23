@@ -279,8 +279,8 @@ const FireProtectionCost = () => {
                         <div className="space-y-4 mb-12">
                             {[
                                 "Codes change constantly, and keeping every tech updated is difficult",
-                                "Liability is higher than almost any other trade — documentation is your only defense",
-                                "Speed matters — the faster you inspect, the more buildings you can cover"
+                                "Liability is higher than almost any other trade, and documentation is your only defense",
+                                "Speed matters: the faster you inspect, the more buildings you can cover"
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
                                     <div className="w-8 h-8 rounded-full bg-[#10B981] text-white flex items-center justify-center mr-6 shrink-0 font-bold text-sm">

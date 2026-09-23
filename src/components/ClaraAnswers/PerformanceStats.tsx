@@ -11,7 +11,7 @@ const stats = [
     icon: Clock,
     value: "24/7/365",
     label: "Coverage",
-    description: "Nights, weekends, holidays — Clara never takes a break.",
+    description: "Nights, weekends, holidays: Clara never takes a break.",
   },
   {
     icon: TrendingUp,
