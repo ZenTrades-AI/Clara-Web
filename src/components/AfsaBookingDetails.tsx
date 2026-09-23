@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
-// Google Apps Script web app (deployed from the AFSA45 bookings sheet) that appends each booking as a row.
-const AFSA45_SHEETS_URL = import.meta.env.VITE_AFSA45_SHEETS_URL || "";
+// Same Apps Script web app and sheet ("NFPA 2026 Form Submissions") as the NFPA 2026 page.
+const SHEETS_URL =
+  import.meta.env.VITE_GOOGLE_SHEETS_URL ||
+  "https://script.google.com/macros/library/d/1LsnQQpFgEn3PQqKGIU391jnHwNz5Oj9DojTO8_MGU108U_nsd-wBwlZx/1";
 
 interface Props {
   day: string;
@@ -43,21 +45,24 @@ const AfsaBookingDetails = ({ day, time, onBack }: Props) => {
 
     setStatus("sending");
     try {
-      if (!AFSA45_SHEETS_URL) throw new Error("VITE_AFSA45_SHEETS_URL is not configured");
-      // text/plain + no-cors avoids the CORS preflight Apps Script can't answer.
-      await fetch(AFSA45_SHEETS_URL, {
+      const [first, ...rest] = values.name.trim().split(/\s+/);
+      // The sheet has no day/time columns, so the booth slot goes in the Trade column.
+      await fetch(SHEETS_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
-          source: "AFSA45 Booth Booking",
-          day,
-          time,
-          name: values.name.trim(),
+          first,
+          last: rest.join(" "),
           email: values.email.trim(),
           phone: values.phone.trim(),
           company: values.company.trim(),
-          page: window.location.href,
+          trade: `AFSA45 Booth \u00B7 ${day} \u00B7 ${time}`,
+          software: "",
+          techs: "",
+          source: "AFSA45 Booth Booking",
+          day,
+          time,
           timestamp: new Date().toISOString(),
         }),
       });
