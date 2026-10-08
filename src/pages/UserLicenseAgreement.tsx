@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import { Helmet } from "react-helmet-async";
-import { agreementMeta, agreementSections, agreementTitle, type AgreementBlock } from "@/data/subscriptionAgreement";
+import { agreementSections, agreementTitle, type AgreementBlock } from "@/data/subscriptionAgreement";
 
 // Turns email addresses and justclara.ai URLs in the agreement text into links.
 const LINK_PATTERN = /([\w.+-]+@[\w-]+\.[\w.]+[a-z])|(https:\/\/justclara\.ai(\/[\w-]*)?)/g;
@@ -57,15 +57,7 @@ const UserLicenseAgreement = () => {
       <Navigation />
       <main className="flex-grow container mx-auto px-4 pt-24 sm:pt-32 pb-16 text-gray-800">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-3 text-center">{agreementTitle}</h1>
-          <p className="flex flex-wrap justify-center gap-x-2 gap-y-1 text-sm text-gray-500 text-center mb-10">
-            {agreementMeta.map((item, i) => (
-              <React.Fragment key={item}>
-                {i > 0 && <span aria-hidden="true" className="text-gray-300">·</span>}
-                <span>{item}</span>
-              </React.Fragment>
-            ))}
-          </p>
+          <h1 className="text-3xl font-bold mb-10 text-center">{agreementTitle}</h1>
 
           <nav aria-label="Contents" className="mb-10 rounded-xl border border-gray-200 bg-gray-50 p-5">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Contents</h2>

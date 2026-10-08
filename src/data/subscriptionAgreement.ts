@@ -14,8 +14,6 @@ export interface AgreementSection {
 
 export const agreementTitle = "Clara AI Subscription Agreement";
 
-export const agreementMeta = ["Actora Inc., doing business as Clara AI", "User License Agreement", "Last updated: 09th October, 2026"];
-
 export const agreementSections: AgreementSection[] = [
   {
     "num": "1",
