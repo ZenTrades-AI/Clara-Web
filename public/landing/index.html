@@ -12,6 +12,9 @@
 <link rel="preload" href="/landing/assets/fonts/google-sans-flex-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/landing/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>x-dc{display:none!important}</style>
+<!-- The pinned "call to cash" section corrects the scroll position itself when it collapses;
+     browser scroll anchoring would apply the same correction a second time and throw the page back. -->
+<style>html{overflow-anchor:none}</style>
 <style>/* canadian-aboriginal */
 @font-face {
   font-family: 'Google Sans Flex';
@@ -1574,6 +1577,68 @@ class Component extends DCLogic {
       e.stopPropagation();
       openHubSpotForm();
     }, true);
+  })();
+</script>
+<script type="text/javascript">
+  // In-page links (Agents, Integrations, Customers, FAQ, ...). The browser's smooth anchor
+  // scroll gets cancelled when the pinned "call to cash" section shrinks itself after you pass
+  // it, so links below it stopped short. Scroll in steps instead, re-measuring the target each
+  // frame so the jump lands on the section even when the layout above it changes mid-scroll.
+  (function() {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var run = 0;
+
+    function scrollToSection(el, smooth) {
+      var id = ++run, last = null, still = 0;
+      function targetY() { return Math.max(0, el.getBoundingClientRect().top + window.scrollY); }
+      function step() {
+        if (id !== run) return;
+        var y = window.scrollY, t = targetY(), d = t - y;
+        if (!smooth || Math.abs(d) < 1.5) {
+          window.scrollTo({ top: t, behavior: 'instant' });
+          // Settle: confirm the section stays in place for a few frames after any layout shift.
+          if (Math.abs(targetY() - window.scrollY) < 1.5 && ++still > 4) return;
+          if (Math.abs(targetY() - window.scrollY) >= 1.5) still = 0;
+          return requestAnimationFrame(step);
+        }
+        var move = d * 0.16;
+        if (Math.abs(move) < 2) move = d > 0 ? Math.min(2, d) : Math.max(-2, d);
+        window.scrollTo({ top: y + move, behavior: 'instant' });
+        // Stop if the page refuses to move (e.g. already at the bottom).
+        if (last !== null && Math.abs(window.scrollY - last) < 0.5 && Math.abs(move) >= 1) { if (++still > 10) return; } else still = 0;
+        last = window.scrollY;
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function cancel() { run++; }
+    window.addEventListener('wheel', cancel, { passive: true });
+    window.addEventListener('touchstart', cancel, { passive: true });
+    window.addEventListener('keydown', cancel);
+
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!link || e.defaultPrevented) return;
+      var hash = link.getAttribute('href');
+      if (hash === '#' || hash === '#demo') return;
+      var el = document.getElementById(hash.slice(1));
+      if (!el) return;
+      e.preventDefault();
+      if (location.hash !== hash) history.pushState(null, '', hash);
+      scrollToSection(el, !reduce);
+    }, true);
+
+    // Opening the page with a section in the URL (e.g. justclara.ai/#customers): the page
+    // renders client-side, so wait for the section to exist, then jump to it.
+    if (location.hash && location.hash.length > 1) {
+      var tries = 0;
+      (function waitForSection() {
+        var el = document.getElementById(location.hash.slice(1));
+        if (el && document.getElementById('dc-root')) return setTimeout(function() { scrollToSection(el, false); }, 400);
+        if (++tries < 50) setTimeout(waitForSection, 100);
+      })();
+    }
   })();
 </script>
 </body></html>
