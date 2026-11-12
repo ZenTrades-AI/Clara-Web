@@ -49,6 +49,7 @@ const ElectricalCollectsStaffShortage = React.lazy(() => import('./pages/Electri
 const RoofingCollectsGrowth = React.lazy(() => import('./pages/RoofingCollectsGrowth'));
 const ContactUs = React.lazy(() => import('./pages/ContactUs'));
 const DemoPage = React.lazy(() => import('./pages/DemoPage'));
+const BookDemo = React.lazy(() => import('./pages/BookDemo'));
 const FireProtectionIndustry = React.lazy(() => import('./pages/FireProtectionIndustry'));
 const HVACIndustry = React.lazy(() => import('./pages/HVACIndustry'));
 const RoofingIndustry = React.lazy(() => import('./pages/RoofingIndustry'));
@@ -90,6 +91,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/demo" element={<DemoPage />} />
+                <Route path="/book-demo" element={<BookDemo />} />
                 <Route path="/how-it-works" element={<HowItWorks />} />
                 <Route path="/solutions" element={<Solutions />} />
                 <Route path="/solutions/answers" element={<ClaraAnswers />} />
