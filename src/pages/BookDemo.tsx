@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check, Lock, Loader2 } from "lucide-react";
 import { submitToHubSpotForm, HUBSPOT_BOOK_DEMO_FORM_ID } from "@/utils/hubspotSubmit";
-import { openHubSpotForm } from "@/utils/hubspotForm";
+import { openHubSpotDemoPopup } from "@/utils/hubspotForm";
 
 /* ------------------------------------------------------------------ */
 /* Content (proof points and quotes come from the homepage)            */
@@ -421,7 +421,7 @@ const BookDemo = () => {
                           Try again
                         </button>{" "}
                         or{" "}
-                        <button type="button" onClick={() => openHubSpotForm()} className="font-medium underline underline-offset-2">
+                        <button type="button" onClick={() => openHubSpotDemoPopup()} className="font-medium underline underline-offset-2">
                           use our quick form
                         </button>
                         .
