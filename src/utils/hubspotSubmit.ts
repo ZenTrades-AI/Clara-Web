@@ -5,8 +5,7 @@ export const HUBSPOT_PORTAL_ID = "45865556";
 // Same form the site's "Book Demo" pop-up uses (see openHubSpotForm in hubspotForm.ts).
 export const HUBSPOT_DEMO_FORM_ID = "c3428dcb-b18c-4277-b463-b7869c42800f";
 // Form behind the /book-demo page (Email, First/Last name, Company name, Phone number, Number of Techs).
-// Until its own HubSpot form exists, it posts to the demo form above. Swap in the new form's ID here.
-export const HUBSPOT_BOOK_DEMO_FORM_ID = HUBSPOT_DEMO_FORM_ID;
+export const HUBSPOT_BOOK_DEMO_FORM_ID = "44e2e3ff-3790-4452-a1f2-20f228112849";
 
 export interface HubSpotField {
   name: string;
