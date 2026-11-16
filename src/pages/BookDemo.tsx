@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check, Lock, Loader2 } from "lucide-react";
-import { submitToHubSpotForm } from "@/utils/hubspotSubmit";
+import { submitToHubSpotForm, HUBSPOT_BOOK_DEMO_FORM_ID } from "@/utils/hubspotSubmit";
 import { openHubSpotForm } from "@/utils/hubspotForm";
 
 /* ------------------------------------------------------------------ */
@@ -34,13 +34,7 @@ const LOGOS = [
   ["simpro", "Simpro"],
 ];
 
-const TRADES = ["Fire & life safety", "HVAC", "Electrical", "Plumbing", "Mechanical", "Roofing", "Other"];
-const TEAM_SIZES = ["1–5", "6–15", "16–50", "51–200", "200+"];
-const SOFTWARE = ["ServiceTitan", "ServiceTrade", "BuildOps", "Jobber", "Housecall Pro", "FieldEdge", "Simpro", "QuickBooks", "Other", "None yet"];
-const AGENTS = ["Answering calls", "Visit confirmations", "Quote follow-up", "Collections", "Estimating", "Field tech support"];
-const SOURCES = ["Google search", "LinkedIn", "YouTube", "Trade show or event", "Referral", "Email", "Other"];
-
-const STEP_TITLES = ["Your email", "About your business", "Tailor your demo"];
+const TECH_COUNTS = ["1–5", "5–20", "20–50", "50–100", "100+"];
 
 /* ------------------------------------------------------------------ */
 /* Small building blocks                                               */
@@ -59,86 +53,29 @@ const Label = ({ children, required, htmlFor }: { children: React.ReactNode; req
 const FieldError = ({ msg }: { msg?: string }) =>
   msg ? <p className="mt-1.5 text-[12.5px] text-[#C8102E]">{msg}</p> : null;
 
-const Chips = ({
-  options,
-  value,
-  onChange,
-  multi,
-  invalid,
-}: {
-  options: string[];
-  value: string[];
-  onChange: (v: string[]) => void;
-  multi?: boolean;
-  invalid?: boolean;
-}) => (
-  <div className="flex flex-wrap gap-2" role={multi ? "group" : "radiogroup"}>
-    {options.map((o) => {
-      const on = value.includes(o);
-      return (
-        <button
-          key={o}
-          type="button"
-          role={multi ? "checkbox" : "radio"}
-          aria-checked={on}
-          onClick={() => onChange(multi ? (on ? value.filter((v) => v !== o) : [...value, o]) : [o])}
-          className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13.5px] transition ${
-            on
-              ? "border-[#151213] bg-[#151213] text-white"
-              : `bg-white text-[#3A3536] hover:border-[#151213] ${invalid ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`
-          }`}
-        >
-          {on && multi && <Check className="h-3.5 w-3.5" />}
-          {o}
-        </button>
-      );
-    })}
-  </div>
-);
-
 /* ------------------------------------------------------------------ */
 /* Page                                                                */
 /* ------------------------------------------------------------------ */
 
 type Form = {
   email: string;
-  firstname: string;
-  lastname: string;
+  name: string;
   company: string;
   phone: string;
-  trade: string[];
-  team: string[];
-  software: string[];
-  agents: string[];
-  challenges: string;
-  source: string;
+  techs: string;
 };
 
-const EMPTY: Form = {
-  email: "",
-  firstname: "",
-  lastname: "",
-  company: "",
-  phone: "",
-  trade: [],
-  team: [],
-  software: [],
-  agents: [],
-  challenges: "",
-  source: "",
-};
+const EMPTY: Form = { email: "", name: "", company: "", phone: "", techs: "" };
 
 const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 const isPhone = (v: string) => v.replace(/\D/g, "").length >= 7;
 
 const BookDemo = () => {
-  const [step, setStep] = useState(0);
   const [form, setForm] = useState<Form>(EMPTY);
   const [errors, setErrors] = useState<Partial<Record<keyof Form, string>>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "failed">("idle");
   const [quote, setQuote] = useState(0);
   const [paused, setPaused] = useState(false);
-  const formTop = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (paused) return;
@@ -146,65 +83,42 @@ const BookDemo = () => {
     return () => clearInterval(t);
   }, [paused]);
 
-  const set = <K extends keyof Form>(k: K, v: Form[K]) => {
+  const set = (k: keyof Form, v: string) => {
     setForm((f) => ({ ...f, [k]: v }));
     if (errors[k]) setErrors((e) => ({ ...e, [k]: undefined }));
   };
 
-  const validate = (s: number) => {
+  const validate = () => {
     const e: Partial<Record<keyof Form, string>> = {};
-    if (s === 0 && !isEmail(form.email)) e.email = "Enter a valid work email";
-    if (s === 1) {
-      if (!form.firstname.trim()) e.firstname = "Required";
-      if (!form.lastname.trim()) e.lastname = "Required";
-      if (!form.company.trim()) e.company = "Required";
-      if (!isPhone(form.phone)) e.phone = "Enter a valid phone number";
-      if (!form.trade.length) e.trade = "Pick your trade";
-      if (!form.team.length) e.team = "Pick a team size";
-    }
-    if (s === 2) {
-      if (!form.software.length) e.software = "Pick at least one";
-      if (!form.source) e.source = "Let us know how you found us";
-    }
+    if (!isEmail(form.email)) e.email = "Enter a valid email";
+    if (!form.name.trim()) e.name = "Enter your name";
+    if (!form.company.trim()) e.company = "Enter your company name";
+    if (!isPhone(form.phone)) e.phone = "Enter a valid phone number";
+    if (!form.techs) e.techs = "Select your tech count";
     setErrors(e);
-    return Object.keys(e).length === 0;
+    const first = Object.keys(e)[0];
+    if (first) document.getElementById(`bd-${first}`)?.focus();
+    return !first;
   };
 
-  const goTo = (s: number) => {
-    setStep(s);
-    requestAnimationFrame(() => formTop.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
-  };
-
-  const next = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validate(step)) return;
-    if (step < 2) goTo(step + 1);
-    else submit();
-  };
-
-  const submit = async () => {
+  const submit = async (e?: React.FormEvent) => {
+    e?.preventDefault();
+    if (!validate()) return;
     setStatus("sending");
-    // HubSpot standard contact fields, plus everything else summarised in the "message" field.
-    const summary = [
-      `Trade: ${form.trade.join(", ")}`,
-      `Field technicians: ${form.team.join(", ")}`,
-      `Software: ${form.software.join(", ")}`,
-      form.agents.length ? `Interested in: ${form.agents.join(", ")}` : "",
-      form.challenges.trim() ? `Challenges: ${form.challenges.trim()}` : "",
-      `Heard about Clara via: ${form.source}`,
-      "Submitted from the Book a demo page",
-    ]
-      .filter(Boolean)
-      .join("\n");
+    const [firstname, ...rest] = form.name.trim().split(/\s+/);
     try {
+      // Tech count goes to the "Number of Techs" contact property (number_of_techs). The message
+      // copy is a backup for forms without that field; HubSpot drops whichever the form lacks.
+      const techs = form.techs.replace(/\u2013/g, "-");
       await submitToHubSpotForm([
         { name: "email", value: form.email.trim() },
-        { name: "firstname", value: form.firstname.trim() },
-        { name: "lastname", value: form.lastname.trim() },
+        { name: "firstname", value: firstname },
+        { name: "lastname", value: rest.join(" ") },
         { name: "company", value: form.company.trim() },
         { name: "phone", value: form.phone.trim() },
-        { name: "message", value: summary },
-      ]);
+        { name: "number_of_techs", value: techs },
+        { name: "message", value: `Tech count: ${techs}\nSubmitted from the Book a demo page` },
+      ], HUBSPOT_BOOK_DEMO_FORM_ID);
       setStatus("done");
     } catch (err) {
       console.error(err);
@@ -345,25 +259,23 @@ const BookDemo = () => {
           </div>
 
           <div className="flex flex-1 items-center justify-center px-5 pb-12 pt-2 sm:px-10 lg:py-16">
-            <div ref={formTop} className="w-full max-w-[500px] scroll-mt-6">
+            <div className="w-full max-w-[500px]">
               {status === "done" ? (
                 <div className="bd-in rounded-3xl border border-[#EDE9EA] bg-white p-8 shadow-[0_30px_60px_-40px_rgba(21,18,19,.35)] sm:p-10">
                   <span className="grid h-12 w-12 place-items-center rounded-full bg-[#151213] text-white">
                     <Check className="h-6 w-6" />
                   </span>
                   <h2 className="mt-6 text-[30px] font-medium leading-tight tracking-[-0.03em]">
-                    You're on the list, <span className="bd-serif">{form.firstname.trim()}</span>
+                    You're on the list, <span className="bd-serif">{form.name.trim().split(/\s+/)[0]}</span>
                     <span className="text-[#E11A2B]">.</span>
                   </h2>
                   <p className="mt-3 text-[15.5px] leading-relaxed text-[#6B6466]">
-                    Thanks for telling us about {form.company.trim()}. Here's what happens next:
+                    Thanks for your interest in CLARA for {form.company.trim()}. Here's what happens next:
                   </p>
                   <ol className="mt-6 space-y-4">
                     {[
                       `We'll reach out at ${form.email.trim()} within one business day to pick a time.`,
-                      `We'll set the demo up around ${form.trade[0]?.toLowerCase() ?? "your"} work${
-                        form.software.length && !form.software.includes("None yet") ? ` and ${form.software.filter((s) => s !== "Other")[0] ?? "your software"}` : ""
-                      }.`,
+                      "We'll set the demo up around a business like yours, from the first call to the paid invoice.",
                       "Bring the one workflow that costs you most. We'll show you the agent that handles it.",
                     ].map((t, i) => (
                       <li key={i} className="flex gap-3.5 text-[15px] leading-relaxed text-[#3A3536]">
@@ -393,166 +305,108 @@ const BookDemo = () => {
                     </h2>
                   </div>
 
-                  {/* Progress */}
-                  <div className="mb-5 flex items-end justify-between">
-                    <div>
-                      <p className="text-[12.5px] font-medium uppercase tracking-[0.14em] text-[#8F8889]">
-                        Step {step + 1} of 3
-                      </p>
-                      <p className="mt-1 text-[14px] text-[#3A3536]">{STEP_TITLES[step]}</p>
-                    </div>
-                    {step > 0 && status !== "sending" && (
-                      <button
-                        type="button"
-                        onClick={() => goTo(step - 1)}
-                        className="inline-flex items-center gap-1.5 text-[13.5px] text-[#6B6466] transition hover:text-[#151213]"
-                      >
-                        <ArrowLeft className="h-4 w-4" /> Back
-                      </button>
-                    )}
-                  </div>
-                  <div className="mb-6 grid grid-cols-3 gap-1.5" aria-hidden>
-                    {[0, 1, 2].map((i) => (
-                      <span key={i} className={`h-1 rounded-full transition-colors duration-500 ${i <= step ? "bg-[#E11A2B]" : "bg-[#E9E5E6]"}`} />
-                    ))}
-                  </div>
-
                   <form
                     noValidate
-                    onSubmit={next}
-                    key={step}
+                    onSubmit={submit}
                     className="bd-in rounded-3xl border border-[#EDE9EA] bg-white p-6 shadow-[0_30px_60px_-40px_rgba(21,18,19,.35)] sm:p-9"
                   >
-                    {step === 0 && (
-                      <>
-                        <h2 className="text-[28px] font-medium leading-tight tracking-[-0.03em]">Book a demo</h2>
-                        <p className="mt-2 text-[15px] leading-relaxed text-[#6B6466]">
-                          A live walkthrough of CLARA on a business like yours, from the first call to the paid invoice.
-                        </p>
-                        <div className="mt-7">
-                          <Label htmlFor="bd-email" required>
-                            Work email
-                          </Label>
+                    <h2 className="text-[28px] font-medium leading-tight tracking-[-0.03em]">Book a demo</h2>
+                    <p className="mt-2 text-[15px] leading-relaxed text-[#6B6466]">
+                      A live walkthrough of CLARA on a business like yours, from the first call to the paid invoice.
+                    </p>
+
+                    <div className="mt-7 space-y-5">
+                      <div>
+                        <Label htmlFor="bd-email" required>Email</Label>
+                        <input
+                          id="bd-email"
+                          type="email"
+                          autoComplete="email"
+                          placeholder="you@yourcompany.com"
+                          value={form.email}
+                          onChange={(e) => set("email", e.target.value)}
+                          aria-invalid={!!errors.email}
+                          className={`${fieldBase} ${errors.email ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`}
+                        />
+                        <FieldError msg={errors.email} />
+                      </div>
+                      <div>
+                        <Label htmlFor="bd-name" required>Name</Label>
+                        <input
+                          id="bd-name"
+                          autoComplete="name"
+                          placeholder="Jane Smith"
+                          value={form.name}
+                          onChange={(e) => set("name", e.target.value)}
+                          aria-invalid={!!errors.name}
+                          className={`${fieldBase} ${errors.name ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`}
+                        />
+                        <FieldError msg={errors.name} />
+                      </div>
+                      <div>
+                        <Label htmlFor="bd-company" required>Company name</Label>
+                        <input
+                          id="bd-company"
+                          autoComplete="organization"
+                          placeholder="Acme Fire Protection"
+                          value={form.company}
+                          onChange={(e) => set("company", e.target.value)}
+                          aria-invalid={!!errors.company}
+                          className={`${fieldBase} ${errors.company ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`}
+                        />
+                        <FieldError msg={errors.company} />
+                      </div>
+                      <div className="grid gap-5 sm:grid-cols-2">
+                        <div>
+                          <Label htmlFor="bd-phone" required>Phone number</Label>
                           <input
-                            id="bd-email"
-                            type="email"
-                            autoComplete="email"
-                            autoFocus
-                            placeholder="you@yourcompany.com"
-                            value={form.email}
-                            onChange={(e) => set("email", e.target.value)}
-                            aria-invalid={!!errors.email}
-                            className={`${fieldBase} ${errors.email ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`}
+                            id="bd-phone"
+                            type="tel"
+                            autoComplete="tel"
+                            placeholder="(555) 123-4567"
+                            value={form.phone}
+                            onChange={(e) => set("phone", e.target.value)}
+                            aria-invalid={!!errors.phone}
+                            className={`${fieldBase} ${errors.phone ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`}
                           />
-                          <FieldError msg={errors.email} />
+                          <FieldError msg={errors.phone} />
                         </div>
-                      </>
-                    )}
-
-                    {step === 1 && (
-                      <>
-                        <h2 className="text-[26px] font-medium leading-tight tracking-[-0.03em]">Tell us about your business</h2>
-                        <p className="mt-2 text-[14.5px] text-[#6B6466]">
-                          Booking as <span className="font-medium text-[#151213]">{form.email.trim()}</span>
-                        </p>
-                        <div className="mt-6 grid gap-5 sm:grid-cols-2">
-                          <div>
-                            <Label htmlFor="bd-first" required>First name</Label>
-                            <input id="bd-first" autoComplete="given-name" autoFocus value={form.firstname} onChange={(e) => set("firstname", e.target.value)} aria-invalid={!!errors.firstname} className={`${fieldBase} ${errors.firstname ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`} />
-                            <FieldError msg={errors.firstname} />
-                          </div>
-                          <div>
-                            <Label htmlFor="bd-last" required>Last name</Label>
-                            <input id="bd-last" autoComplete="family-name" value={form.lastname} onChange={(e) => set("lastname", e.target.value)} aria-invalid={!!errors.lastname} className={`${fieldBase} ${errors.lastname ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`} />
-                            <FieldError msg={errors.lastname} />
-                          </div>
-                          <div>
-                            <Label htmlFor="bd-company" required>Company</Label>
-                            <input id="bd-company" autoComplete="organization" value={form.company} onChange={(e) => set("company", e.target.value)} aria-invalid={!!errors.company} className={`${fieldBase} ${errors.company ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`} />
-                            <FieldError msg={errors.company} />
-                          </div>
-                          <div>
-                            <Label htmlFor="bd-phone" required>Phone</Label>
-                            <input id="bd-phone" type="tel" autoComplete="tel" placeholder="(555) 123-4567" value={form.phone} onChange={(e) => set("phone", e.target.value)} aria-invalid={!!errors.phone} className={`${fieldBase} ${errors.phone ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`} />
-                            <FieldError msg={errors.phone} />
-                          </div>
-                        </div>
-                        <div className="mt-6">
-                          <Label required>Your trade</Label>
-                          <Chips options={TRADES} value={form.trade} onChange={(v) => set("trade", v)} invalid={!!errors.trade} />
-                          <FieldError msg={errors.trade} />
-                        </div>
-                        <div className="mt-6">
-                          <Label required>Field technicians</Label>
-                          <Chips options={TEAM_SIZES} value={form.team} onChange={(v) => set("team", v)} invalid={!!errors.team} />
-                          <FieldError msg={errors.team} />
-                        </div>
-                      </>
-                    )}
-
-                    {step === 2 && (
-                      <>
-                        <h2 className="text-[26px] font-medium leading-tight tracking-[-0.03em]">Almost there</h2>
-                        <p className="mt-2 text-[14.5px] text-[#6B6466]">A few answers so the demo looks like your day, not a generic tour.</p>
-                        <div className="mt-6">
-                          <Label required>Software you run today</Label>
-                          <Chips multi options={SOFTWARE} value={form.software} onChange={(v) => set("software", v)} invalid={!!errors.software} />
-                          <FieldError msg={errors.software} />
-                        </div>
-                        <div className="mt-6">
-                          <Label>Where should CLARA start?</Label>
-                          <Chips multi options={AGENTS} value={form.agents} onChange={(v) => set("agents", v)} />
-                        </div>
-                        <div className="mt-6">
-                          <Label htmlFor="bd-challenges">What's slipping right now?</Label>
-                          <textarea
-                            id="bd-challenges"
-                            rows={3}
-                            placeholder="Missed calls after hours, quotes that sit for weeks, invoices nobody chases…"
-                            value={form.challenges}
-                            onChange={(e) => set("challenges", e.target.value)}
-                            className={`${fieldBase} resize-y border-[#E4DFE0]`}
-                          />
-                        </div>
-                        <div className="mt-6">
-                          <Label htmlFor="bd-source" required>How did you hear about us?</Label>
+                        <div>
+                          <Label htmlFor="bd-techs" required>Tech count</Label>
                           <select
-                            id="bd-source"
-                            value={form.source}
-                            onChange={(e) => set("source", e.target.value)}
-                            aria-invalid={!!errors.source}
+                            id="bd-techs"
+                            value={form.techs}
+                            onChange={(e) => set("techs", e.target.value)}
+                            aria-invalid={!!errors.techs}
                             className={`${fieldBase} appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%236B6466%22 stroke-width=%222%22><path d=%22m6 9 6 6 6-6%22/></svg>')] bg-[length:14px] bg-[right_16px_center] bg-no-repeat pr-10 ${
-                              form.source ? "" : "text-[#A39C9E]"
-                            } ${errors.source ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`}
+                              form.techs ? "" : "text-[#A39C9E]"
+                            } ${errors.techs ? "border-[#E8A4AC]" : "border-[#E4DFE0]"}`}
                           >
                             <option value="" disabled>
-                              Select an option
+                              Select
                             </option>
-                            {SOURCES.map((s) => (
-                              <option key={s} value={s} className="text-[#151213]">
-                                {s}
+                            {TECH_COUNTS.map((t) => (
+                              <option key={t} value={t} className="text-[#151213]">
+                                {t}
                               </option>
                             ))}
                           </select>
-                          <FieldError msg={errors.source} />
+                          <FieldError msg={errors.techs} />
                         </div>
-                      </>
-                    )}
+                      </div>
+                    </div>
 
                     <button
                       type="submit"
                       disabled={status === "sending"}
                       className="group mt-8 flex w-full items-center justify-between rounded-full bg-[#E11A2B] py-2 pl-6 pr-2 text-[15.5px] font-medium text-white transition hover:bg-[#151213] disabled:cursor-wait disabled:opacity-80"
                     >
-                      {status === "sending" ? "Booking your demo…" : step === 0 ? "Get started" : step === 1 ? "Continue" : "Book my demo"}
+                      {status === "sending" ? "Booking your demo…" : "Book my demo"}
                       <span className="grid h-10 w-10 place-items-center rounded-full bg-white text-[#151213] transition group-hover:translate-x-0.5">
                         {status === "sending" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
                       </span>
                     </button>
-
-                    {step === 0 && (
-                      <p className="mt-4 text-center text-[13px] text-[#8F8889]">No commitment. We'll show you the platform live.</p>
-                    )}
+                    <p className="mt-4 text-center text-[13px] text-[#8F8889]">No commitment. We'll show you the platform live.</p>
 
                     {status === "failed" && (
                       <div role="alert" className="mt-5 rounded-2xl border border-[#F3C9CF] bg-[#FDF5F6] p-4 text-[14px] leading-relaxed text-[#3A3536]">
