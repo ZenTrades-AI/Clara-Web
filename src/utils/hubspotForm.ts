@@ -1,5 +1,19 @@
 
-export const openHubSpotForm = (onSuccess?: (() => void) | unknown) => {
+// Every "Book a demo" button on the site calls this. It now opens the /book-demo page, whose form
+// posts to the "Clara – Book a Demo" HubSpot form. Already on that page: jump to the form instead.
+export const openHubSpotForm = (_event?: unknown) => {
+  if (window.location.pathname.replace(/\/+$/, "") === "/book-demo") {
+    const email = document.getElementById("bd-email") as HTMLInputElement | null;
+    email?.scrollIntoView({ behavior: "smooth", block: "center" });
+    email?.focus({ preventScroll: true });
+    return;
+  }
+  window.location.assign("/book-demo");
+};
+
+// The old HubSpot demo pop-up. The Book a Demo page keeps it as a fallback when its own
+// submission fails.
+export const openHubSpotDemoPopup = (onSuccess?: (() => void) | unknown) => {
   // Remove any existing modals first
   const existingModal = document.getElementById('hubspot-modal-overlay');
   if (existingModal) {
