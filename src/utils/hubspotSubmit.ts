@@ -10,6 +10,9 @@ export const HUBSPOT_BOOK_DEMO_FORM_ID = "44e2e3ff-3790-4452-a1f2-20f228112849";
 export interface HubSpotField {
   name: string;
   value: string;
+  // CRM object the property belongs to ("0-1" = contact). Forms built in HubSpot's new editor
+  // only save fields that name their object, so contact is the default.
+  objectTypeId?: string;
 }
 
 interface HubSpotError {
@@ -34,7 +37,9 @@ export async function submitToHubSpotForm(
 ): Promise<string[]> {
   const url = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${formId}`;
   const hutk = readCookie("hubspotutk");
-  let remaining = fields.filter((f) => f.value.trim() !== "");
+  let remaining = fields
+    .filter((f) => f.value.trim() !== "")
+    .map((f) => ({ objectTypeId: "0-1", ...f }));
 
   for (let attempt = 0; attempt < 3; attempt++) {
     const res = await fetch(url, {
@@ -54,11 +59,12 @@ export async function submitToHubSpotForm(
     const body = (await res.json().catch(() => ({}))) as { errors?: HubSpotError[] };
     const unknown = (body.errors || [])
       .filter((e) => e.errorType === "FIELD_NOT_IN_FORM_DEFINITION")
-      .map((e) => /fields\.([\w-]+)/.exec(e.message || "")?.[1])
+      .map((e) => /fields\.(?:\d+-\d+\/)?([\w-]+)/.exec(e.message || "")?.[1])
       .filter((n): n is string => !!n && n !== "email");
     if (!unknown.length) {
       throw new Error(`HubSpot submission failed (${res.status}): ${JSON.stringify(body.errors || body)}`);
     }
+    console.warn("HubSpot form does not define these fields, resending without them:", unknown);
     remaining = remaining.filter((f) => !unknown.includes(f.name));
   }
   throw new Error("HubSpot submission failed after removing unknown fields");
