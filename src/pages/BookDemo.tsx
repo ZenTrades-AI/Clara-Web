@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check, Lock, Loader2 } from "lucide-react";
-import { submitToHubSpotForm } from "@/utils/hubspotSubmit";
+import { submitToHubSpotForm, HUBSPOT_BOOK_DEMO_FORM_ID } from "@/utils/hubspotSubmit";
 import { openHubSpotForm } from "@/utils/hubspotForm";
 
 /* ------------------------------------------------------------------ */
@@ -107,15 +107,18 @@ const BookDemo = () => {
     setStatus("sending");
     const [firstname, ...rest] = form.name.trim().split(/\s+/);
     try {
-      // HubSpot standard contact fields; the tech count rides in the message field.
+      // Tech count goes to the "Number of Techs" contact property (number_of_techs). The message
+      // copy is a backup for forms without that field; HubSpot drops whichever the form lacks.
+      const techs = form.techs.replace(/\u2013/g, "-");
       await submitToHubSpotForm([
         { name: "email", value: form.email.trim() },
         { name: "firstname", value: firstname },
         { name: "lastname", value: rest.join(" ") },
         { name: "company", value: form.company.trim() },
         { name: "phone", value: form.phone.trim() },
-        { name: "message", value: `Tech count: ${form.techs}\nSubmitted from the Book a demo page` },
-      ]);
+        { name: "number_of_techs", value: techs },
+        { name: "message", value: `Tech count: ${techs}\nSubmitted from the Book a demo page` },
+      ], HUBSPOT_BOOK_DEMO_FORM_ID);
       setStatus("done");
     } catch (err) {
       console.error(err);
