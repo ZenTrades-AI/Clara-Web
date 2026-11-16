@@ -107,16 +107,22 @@ const BookDemo = () => {
     setStatus("sending");
     const [firstname, ...rest] = form.name.trim().split(/\s+/);
     try {
-      // Tech count goes to the "Number of Techs" contact property (number_of_techs). The message
-      // copy is a backup for forms without that field; HubSpot drops whichever the form lacks.
+      // Each value goes to both the contact (0-1) and the company (0-2) property, since the HubSpot
+      // form can use either; HubSpot rejects the ones the form lacks and the helper drops them.
+      // Tech count: contact "Number of Techs" (number_of_techs) / company "Number of Tech" (number_of_tech).
       const techs = form.techs.replace(/\u2013/g, "-");
+      const company = form.company.trim();
+      const phone = form.phone.trim();
       await submitToHubSpotForm([
         { name: "email", value: form.email.trim() },
         { name: "firstname", value: firstname },
         { name: "lastname", value: rest.join(" ") },
-        { name: "company", value: form.company.trim() },
-        { name: "phone", value: form.phone.trim() },
+        { name: "company", value: company },
+        { name: "name", value: company, objectTypeId: "0-2" },
+        { name: "phone", value: phone },
+        { name: "phone", value: phone, objectTypeId: "0-2" },
         { name: "number_of_techs", value: techs },
+        { name: "number_of_tech", value: techs, objectTypeId: "0-2" },
         { name: "message", value: `Tech count: ${techs}\nSubmitted from the Book a demo page` },
       ], HUBSPOT_BOOK_DEMO_FORM_ID);
       setStatus("done");

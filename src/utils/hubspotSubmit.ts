@@ -29,7 +29,7 @@ const readCookie = (name: string) =>
 /**
  * Posts the fields to the HubSpot form. If HubSpot rejects fields the form doesn't define
  * (FIELD_NOT_IN_FORM_DEFINITION), it resends without them, so extra fields never cost a lead.
- * Resolves with the field names HubSpot accepted; throws if the submission still fails.
+ * Resolves with the fields HubSpot accepted ("object/name"); throws if the submission still fails.
  */
 export async function submitToHubSpotForm(
   fields: HubSpotField[],
@@ -37,11 +37,11 @@ export async function submitToHubSpotForm(
 ): Promise<string[]> {
   const url = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${formId}`;
   const hutk = readCookie("hubspotutk");
-  let remaining = fields
+  const remaining = fields
     .filter((f) => f.value.trim() !== "")
     .map((f) => ({ objectTypeId: "0-1", ...f }));
 
-  for (let attempt = 0; attempt < 3; attempt++) {
+  for (let attempt = 0; attempt < 5; attempt++) {
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -54,18 +54,25 @@ export async function submitToHubSpotForm(
         },
       }),
     });
-    if (res.ok) return remaining.map((f) => f.name);
+    if (res.ok) return remaining.map((f) => `${f.objectTypeId}/${f.name}`);
 
     const body = (await res.json().catch(() => ({}))) as { errors?: HubSpotError[] };
+    // Messages look like "Error in 'fields.phone'..." and may carry the object, e.g. "fields.0-2/phone".
     const unknown = (body.errors || [])
       .filter((e) => e.errorType === "FIELD_NOT_IN_FORM_DEFINITION")
-      .map((e) => /fields\.(?:\d+-\d+\/)?([\w-]+)/.exec(e.message || "")?.[1])
-      .filter((n): n is string => !!n && n !== "email");
+      .map((e) => /fields\.(?:(\d+-\d+)\/)?([\w-]+)/.exec(e.message || ""))
+      .filter((m): m is RegExpExecArray => !!m && m[2] !== "email")
+      .map((m) => ({ objectTypeId: m[1], name: m[2] }));
     if (!unknown.length) {
       throw new Error(`HubSpot submission failed (${res.status}): ${JSON.stringify(body.errors || body)}`);
     }
     console.warn("HubSpot form does not define these fields, resending without them:", unknown);
-    remaining = remaining.filter((f) => !unknown.includes(f.name));
+    for (const u of unknown) {
+      // With no object in the message, drop the first field of that name (contact before company),
+      // so a same-named field on the other object gets its turn on the next attempt.
+      const i = remaining.findIndex((f) => f.name === u.name && (!u.objectTypeId || f.objectTypeId === u.objectTypeId));
+      if (i >= 0) remaining.splice(i, 1);
+    }
   }
   throw new Error("HubSpot submission failed after removing unknown fields");
 }
