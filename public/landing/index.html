@@ -178,6 +178,20 @@ img{display:block}
 #dc-pre [data-lcp]{animation-name:preRise}
 }
 </style>
+<style>
+/* Client logo ticker under the hero */
+.cl-tick{background:#FFFFFF;padding:0 0 clamp(64px,7vw,112px)}
+.cl-tick-h{margin:0 auto clamp(24px,2.6vw,36px);padding:0 20px;max-width:1440px;text-align:center;font-size:14px;line-height:1.5;color:#5F595A}
+.cl-tick-vp{display:flex;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.cl-tick-track{flex:none;display:flex;align-items:center;margin:0;padding:0;list-style:none;animation:clTick 48s linear infinite}
+.cl-tick-vp:hover .cl-tick-track{animation-play-state:paused}
+.cl-tick-item{flex:none;display:flex;align-items:center;justify-content:center;height:64px;padding:0 clamp(32px,4vw,56px)}
+.cl-tick-item img{display:block;height:var(--h);width:auto;max-width:none;filter:grayscale(1);opacity:.6;transition:filter .4s,opacity .4s}
+.cl-tick-item img:hover{filter:none;opacity:1}
+@keyframes clTick{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+@media (max-width:640px){.cl-tick-h{font-size:13px}.cl-tick-item{height:44px;padding:0 22px}.cl-tick-item img{height:calc(var(--h) * .66)}.cl-tick-track{animation-duration:34s}}
+@media (prefers-reduced-motion:reduce){.cl-tick-track{animation:none}.cl-tick-vp{flex-wrap:wrap;justify-content:center;-webkit-mask-image:none;mask-image:none}.cl-tick-track[aria-hidden]{display:none}.cl-tick-track{flex-wrap:wrap;justify-content:center;row-gap:16px}}
+</style>
 <script>window.__resources = {};</script>
 <script defer src="/landing/assets/vendor/react.production.min.js"></script>
 <script defer src="/landing/assets/vendor/react-dom.production.min.js"></script>
@@ -298,6 +312,45 @@ img{display:block}
       </div>
       <p data-fade="" style="margin:clamp(18px,2vw,24px) 0 0;font-size:13.5px;line-height:1.6;color:#5F595A"><span style="display:inline-block;vertical-align:middle;margin:-2px 9px 0 0;width:6px;height:6px;border-radius:50%;background:#1D7A3E"></span>Live within 24 hours. No new software for your team to learn.</p>
     </div>
+    </div>
+  </section>
+
+  <!-- CLIENT LOGOS (ticker tape, revealed on first scroll) -->
+  <section aria-label="Our customers" data-screen-label="02 Clients" class="cl-tick">
+    <div data-reveal="">
+      <p class="cl-tick-h">Trusted by commercial fire, life safety, mechanical and electrical contractors</p>
+      <div class="cl-tick-vp">
+        <ul class="cl-tick-track">
+          <li class="cl-tick-item"><img src="/landing/assets/clients/nat.webp" alt="National Fire &amp; Safety" loading="lazy" decoding="async" style="--h:58px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/alliance.webp" alt="Alliance Specialized Systems" loading="lazy" decoding="async" style="--h:56px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/braconier.webp" alt="Braconier" loading="lazy" decoding="async" style="--h:33px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/totalfire.webp" alt="Total Fire &amp; Security" loading="lazy" decoding="async" style="--h:42px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/crockett.webp" alt="Crockett Facilities" loading="lazy" decoding="async" style="--h:42px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/classic.webp" alt="Classic Electric &amp; Consulting" loading="lazy" decoding="async" style="--h:32px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/pipco.webp" alt="PIPCO" loading="lazy" decoding="async" style="--h:40px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/floied.webp" alt="Floied Fire Extinguisher" loading="lazy" decoding="async" style="--h:54px"></li>
+        </ul>
+        <ul class="cl-tick-track" aria-hidden="true">
+          <li class="cl-tick-item"><img src="/landing/assets/clients/nat.webp" alt="" loading="lazy" decoding="async" style="--h:58px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/alliance.webp" alt="" loading="lazy" decoding="async" style="--h:56px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/braconier.webp" alt="" loading="lazy" decoding="async" style="--h:33px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/totalfire.webp" alt="" loading="lazy" decoding="async" style="--h:42px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/crockett.webp" alt="" loading="lazy" decoding="async" style="--h:42px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/classic.webp" alt="" loading="lazy" decoding="async" style="--h:32px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/pipco.webp" alt="" loading="lazy" decoding="async" style="--h:40px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/floied.webp" alt="" loading="lazy" decoding="async" style="--h:54px"></li>
+        </ul>
+        <ul class="cl-tick-track" aria-hidden="true">
+          <li class="cl-tick-item"><img src="/landing/assets/clients/nat.webp" alt="" loading="lazy" decoding="async" style="--h:58px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/alliance.webp" alt="" loading="lazy" decoding="async" style="--h:56px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/braconier.webp" alt="" loading="lazy" decoding="async" style="--h:33px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/totalfire.webp" alt="" loading="lazy" decoding="async" style="--h:42px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/crockett.webp" alt="" loading="lazy" decoding="async" style="--h:42px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/classic.webp" alt="" loading="lazy" decoding="async" style="--h:32px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/pipco.webp" alt="" loading="lazy" decoding="async" style="--h:40px"></li>
+          <li class="cl-tick-item"><img src="/landing/assets/clients/floied.webp" alt="" loading="lazy" decoding="async" style="--h:54px"></li>
+        </ul>
+      </div>
     </div>
   </section>
 
